@@ -1,0 +1,1 @@
+sửa phần footer với xóa mấy cái wishlist của các file khác như mẫu 404
