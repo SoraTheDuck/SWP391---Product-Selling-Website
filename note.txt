@@ -1,1 +1,6 @@
 sửa phần footer với xóa mấy cái wishlist của các file khác như mẫu 404
+
+<!-- Begin Footer Static Middle Area -->
+<!-- Footer Static Middle Area End Here -->
+
+<header> (can skip the header-top)
