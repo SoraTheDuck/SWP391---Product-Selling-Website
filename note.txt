@@ -1,6 +1,9 @@
 sửa phần footer với xóa mấy cái wishlist của các file khác như mẫu 404
 
-<!-- Begin Footer Static Middle Area -->
+<!-- Begin Footer Static Bottom Area -->
 <!-- Footer Static Middle Area End Here -->
 
 <header> (can skip the header-top)
+
+- sử dụng home 2 (index-2.html) làm home chính
+- cần xóa tất cả các link dẫn tới html thừa (search bằng html)
