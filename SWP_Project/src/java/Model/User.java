@@ -14,6 +14,7 @@ import java.sql.Statement;
  * @author admin
  */
 public class User {
+
     private int id;
     private String name;
     private String password;
@@ -29,7 +30,7 @@ public class User {
         this.password = password;
         connect();
     }
-    
+
     public User(int id, String name, String password, String address, String email) {
         this.id = id;
         this.name = name;
@@ -78,7 +79,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     Connection cnn;//Kết nối DB
     Statement stm;//Thực thi các câu lệnh SQL
     PreparedStatement pstm;//Thực thi câu lệnh SQL
@@ -110,20 +111,20 @@ public class User {
         }
         return false;
     }
-    
-        public void getUserByAccount(String email) {
+
+    public void getUserByAccount(String email) {
         try {
             String strSelect = "SELECT * FROM headphonestore.customer where email=?";
             pstm = cnn.prepareStatement(strSelect);
             pstm.setString(1, email);
             rs = pstm.executeQuery();
             while (rs.next()) {
-                this.id=rs.getInt(1);
-                this.name=rs.getString(2);
-                this.email=rs.getString(3);
-                this.password=rs.getString(4);
-                this.address=rs.getString(5);
-                this.email=rs.getString(6);
+                this.id = rs.getInt(1);
+                this.name = rs.getString(2);
+                this.email = rs.getString(3);
+                this.password = rs.getString(4);
+                this.address = rs.getString(5);
+                this.email = rs.getString(6);
             }
         } catch (Exception e) {
             System.out.println("getUserByAccount:" + e.getMessage());
