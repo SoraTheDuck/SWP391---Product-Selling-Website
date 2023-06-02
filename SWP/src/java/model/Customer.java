@@ -18,6 +18,7 @@ public class Customer {
     private String name,password,address,email;
 
     public Customer() {
+        connect();
     }
 
     public Customer(String name,String password, String address, String email) {
@@ -103,5 +104,21 @@ public class Customer {
         }catch(Exception e){
             System.out.println("CustomerRegister:" + e.getMessage());
         }
+    }
+    
+    public boolean checkCustomerExist(String email){
+        try{
+            String strQuery = "SELECT * FROM headphone.customer WHERE Email = ?";
+            pstm = cnn.prepareStatement(strQuery);
+            pstm.setString(1, email);
+            
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                return true;
+            }
+        }catch(Exception e){
+            System.out.println("checkCustomerExist:"+ e.getMessage());
+        }
+        return false;
     }
 }

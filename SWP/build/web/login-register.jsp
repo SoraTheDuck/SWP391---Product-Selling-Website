@@ -471,30 +471,30 @@
                             </form>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-                            <p>${fail}</p>
+                            <p>${mess}</p>
                             <form action="register" method="post">
                                 <div class="login-form">
                                     <h4 class="login-title">Register</h4>
                                     <div class="row">
                                         <div class="col-md-12 mb-20">
                                             <label>Name</label>
-                                            <input class="mb-0" type="text" placeholder="Name" name="name">
+                                            <input class="mb-0" type="text" placeholder="Name" name="name" required>
                                         </div>
                                         <div class="col-md-12 mb-20">
                                             <label>Address</label>
-                                            <input class="mb-0" type="text" placeholder="Address" name="address">
+                                            <input class="mb-0" type="text" placeholder="Address" name="address" required>
                                         </div>
                                         <div class="col-md-12 mb-20">
                                             <label>Email Address*</label>
-                                            <input class="mb-0" type="email" placeholder="Email Address" name="email">
+                                            <input class="mb-0" type="email" placeholder="Email Address" name="email" required>
                                         </div>
                                         <div class="col-md-6 mb-20">
                                             <label>Password</label>
-                                            <input class="mb-0" type="password" placeholder="Password" name="pass">
+                                            <input class="mb-0" type="password" placeholder="Password" name="pass" required>
                                         </div>
                                         <div class="col-md-6 mb-20">
                                             <label>Confirm Password</label>
-                                            <input class="mb-0" type="password" placeholder="Confirm Password" name="rePass">
+                                            <input class="mb-0" type="password" placeholder="Confirm Password" name="rePass" required>
                                         </div>
                                         <div class="col-12">
                                             <button class="register-button mt-0" type="submit" name="register">Register</button>

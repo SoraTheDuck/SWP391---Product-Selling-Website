@@ -4,9 +4,17 @@
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>controller.RegisterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerifyEmailController</servlet-name>
+        <servlet-class>controller.VerifyEmailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerifyEmailController</servlet-name>
+        <url-pattern>/verifyEmail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
