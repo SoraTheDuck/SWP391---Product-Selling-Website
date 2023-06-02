@@ -806,7 +806,7 @@ textarea:focus {
 	margin: 15px 15px 0;
 }
 .shop-product-area .add-actions {
-	padding: 0 15px;
+	padding: 0 5px;
 }
 /*----------------------------------------*/
 /* 	1.12 Li's Mobile Menu Customization 
@@ -1759,7 +1759,8 @@ textarea:focus {
 	padding: 8px 0;
 }
 .hb-menu nav > ul > li:hover > a, 
-.hb-menu nav > ul > li:hover > a::after {
+.hb-menu nav > ul > li:hover > a::after,
+.hb-menu nav > ul > li:hover .ht-setting-trigger {
 		color: #ffffff;
 }
 .hb-menu nav > ul > li > a::after {
@@ -1772,9 +1773,9 @@ textarea:focus {
 	transition: all 0.3s ease-in-out;
 	color: #242424;
 }
-.hb-menu nav > ul > li:nth-child(n+5) > a::after {
+/* .hb-menu nav > ul > li:nth-child(n+5) > a::after {
 	content: none;
-}
+} */
 .hb-menu nav > ul > li:hover  a::after {
 	transform: rotate(180deg);
 }
@@ -1789,19 +1790,17 @@ textarea:focus {
 	color: #242424;
 	transition: all 0.3s ease-in-out;
 }
-.ht-menu > li:hover .ht-currency-trigger span,
+.ht-menu > li:hover .ht-currency-trigger a,
 .ht-menu > li:hover .ht-currency-trigger span::after, 
 .ht-menu > li:hover .ht-language-trigger span,
 .ht-menu > li:hover .ht-language-trigger span::after {
 	color: #92aae5;
 }
-.ht-menu > li .ht-setting-trigger span::after, 
-.ht-menu > li .ht-currency-trigger span::after, 
-.ht-menu > li .ht-language-trigger span::after, 
+.ht-menu > li .ht-setting-trigger a::after, 
 .hm-minicart-trigger .item-text::after {
 	content: "\f107";
 	font-size: 14px;
-	color: #a4a4a4;
+	color: #fff;
 	margin-left: 5px;
 	font-family: fontawesome;
 }
@@ -2231,10 +2230,10 @@ textarea:focus {
 }
 .rating li i {
   font-size: 12px;
-  color: #92aae5;
+  color: #ffc107;;
 }
 .rating li.no-star i {
-  color: #e3e3e3;
+  color: #e3e3e3cb;
 }
 
 .product_desc {
@@ -2389,8 +2388,7 @@ textarea:focus {
 }
 .add-actions {
 	bottom: -15px;
-	left: 0;
-	margin: 0 auto;
+	
 	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	position: absolute;
@@ -2602,7 +2600,7 @@ textarea:focus {
 	padding: 0;
 	line-height: 1;
 	padding-bottom: 13px;
-	z-index: 0;
+	z-index: 0;a:\:after
 }
 /*Li's Sub Category List*/
 .li-sub-category-list {
@@ -3421,7 +3419,7 @@ li.right-menu .cat-mega-menu-2 > li {
 .shop-add-action .add-actions-link li:last-child a.quick-view {
 	text-align: left;
 	background: transparent;
-	font-size: 14px;
+	font-size: 20px;
 }
 .product-list-view .shop-add-action ul li a i {
 	padding-right: 10px;
@@ -5189,10 +5187,10 @@ span.required {
 	font-size: 14px;
 }
 .feedback-area .br-theme-fontawesome-stars .br-widget a.br-active:after {
-  color: #92aae5;
+  color: #ffc107;
 }
 .feedback-area .br-theme-fontawesome-stars .br-widget a.br-selected::after {
-	color: #92aae5;
+	color: #ffc107;
 }
 .feedback-area textarea, .feedback-area input {
 	background: #fff;

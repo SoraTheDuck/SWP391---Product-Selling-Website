@@ -7,3 +7,10 @@ sửa phần footer với xóa mấy cái wishlist của các file khác như m�
 
 - sử dụng home 2 (index-2.html) làm home chính
 - cần xóa tất cả các link dẫn tới html thừa (search bằng html)
+--- DONE --- 
+
+
+--- TO DO ---
+- Chốt single-product, xóa button wishlist/ hoặc fix không dẫn link
+- Template profile, admin dashboard.
+- Chưa gấp: ảnh, logo.
