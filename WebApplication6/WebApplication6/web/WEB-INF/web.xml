@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>OTP</servlet-name>
+        <servlet-class>controller.OTP</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OTP</servlet-name>
+        <url-pattern>/OTP</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>controller.RegisterController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>inputEmailServlet</servlet-name>
+        <servlet-class>controller.inputEmailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>inputEmailServlet</servlet-name>
+        <url-pattern>/inputEmailServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
