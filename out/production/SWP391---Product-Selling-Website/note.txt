@@ -11,6 +11,13 @@ sửa phần footer với xóa mấy cái wishlist của các file khác như m�
 
 
 --- TO DO ---
-- Chốt single-product, xóa button wishlist/ hoặc fix không dẫn link
+- Chốt single-product, xóa button wishlist/ hoặc fix không dẫn link, xóa countdown ở home.
 - Template profile, admin dashboard.
 - Chưa gấp: ảnh, logo.
+
+--- Updated
+- Demo header ở home, tất nhin là chưa chọn được màu đẹp :<
+- Chia login, register riêng
+- New customer-profile.html
+not yet: mini notice/new screen cho screen login để reset password.
+to do: chốt single-product nào
