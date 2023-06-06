@@ -19,5 +19,5 @@ sửa phần footer với xóa mấy cái wishlist của các file khác như m�
 - Demo header ở home, tất nhin là chưa chọn được màu đẹp :<
 - Chia login, register riêng
 - New customer-profile.html
-chưa: mini notice/new screen cho screen login để reset password.
+not yet: mini notice/new screen cho screen login để reset password.
 to do: chốt single-product nào
