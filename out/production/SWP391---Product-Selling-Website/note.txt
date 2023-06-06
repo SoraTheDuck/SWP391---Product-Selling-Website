@@ -1,0 +1,23 @@
+sửa phần footer với xóa mấy cái wishlist của các file khác như mẫu 404
+
+<!-- Begin Footer Static Bottom Area -->
+<!-- Footer Static Middle Area End Here -->
+
+<header> (can skip the header-top)
+
+- sử dụng home 2 (index-2.html) làm home chính
+- cần xóa tất cả các link dẫn tới html thừa (search bằng html)
+--- DONE --- 
+
+
+--- TO DO ---
+- Chốt single-product, xóa button wishlist/ hoặc fix không dẫn link, xóa countdown ở home.
+- Template profile, admin dashboard.
+- Chưa gấp: ảnh, logo.
+
+--- Updated
+- Demo header ở home, tất nhin là chưa chọn được màu đẹp :<
+- Chia login, register riêng
+- New customer-profile.html
+chưa: mini notice/new screen cho screen login để reset password.
+to do: chốt single-product nào
