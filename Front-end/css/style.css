@@ -1491,17 +1491,18 @@ textarea:focus {
 
 .header-middle-right {
     display: inline-flex;
+    margin-left: 5%;
     padding: 2px;
     box-sizing: border-box;
     justify-content: right;
 }
-/*.log-sign-btn {
+.log-sign-btn {
     display: block;
     border-radius: 5px;
     line-height: 40px;
     padding: 0 20px;
     margin: 0 5px
-}*/
+}
 .log-sign-btn.log {
     color: #fff;
     background: #92bfe5;
