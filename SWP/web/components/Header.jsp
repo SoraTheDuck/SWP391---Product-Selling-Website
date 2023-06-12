@@ -30,9 +30,9 @@
                     <div class="header-middle-right">
                         <!-- Begin Login Button Area -->
                         <c:choose>
-                            <c:when test="${check != false}">
+                            <c:when test="${sessionScope.cus != null}">
                                 <a href="./Customer_profile.jsp" class="log-sign-btn log">User</a>
-                                <a href="" class="log-sign-btn sign">Log out</a>
+                                <a href="LogoutController" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
                                 <a href="./Login.jsp"
