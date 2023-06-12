@@ -446,7 +446,7 @@ textarea:focus {
 /*----------------------------------------*/
 /*Home One | Slider Background Image*/
 .bg-1, .bg-2, .bg-3 {
-	background-image: url(images/slider/1.jpg);
+	background-image: url(../images/slider/1.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -454,14 +454,14 @@ textarea:focus {
 	width: 100%;
 }
 .bg-2 {
-	background-image: url(images/slider/2.jpg);
+	background-image: url(../images/slider/2.jpg);
 }
 .bg-3 {
-	background-image: url(images/slider/3.jpg);
+	background-image: url(../images/slider/3.jpg);
 }
 /*Home Two | Slider Background Image*/
 .bg-4, .bg-5, .bg-6 {
-	background-image: url(images/slider/4.jpg);
+	background-image: url(../images/slider/4.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -469,14 +469,14 @@ textarea:focus {
 	width: 100%;
 }
 .bg-5 {
-	background-image: url(images/slider/5.jpg);
+	background-image: url(../images/slider/5.jpg);
 }
 .bg-6 {
-	background-image: url(images/slider/6.jpg);
+	background-image: url(../images/slider/6.jpg);
 }
 /*Home Three | Slider Background Image*/
 .bg-7, .bg-8, .bg-9 {
-	background-image: url(images/slider/7.jpg);
+	background-image: url(../images/slider/7.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -484,14 +484,14 @@ textarea:focus {
 	width: 100%;
 }
 .bg-8 {
-	background-image: url(images/slider/8.jpg);
+	background-image: url(../images/slider/8.jpg);
 }
 .bg-9 {
-	background-image: url(images/slider/9.jpg);
+	background-image: url(../images/slider/9.jpg);
 }
 /*Home Four | Slider Background Image*/
 .bg-10, .bg-11, .bg-12 {
-	background-image: url(images/slider/10.jpg);
+	background-image: url(../images/slider/10.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -499,10 +499,10 @@ textarea:focus {
 	width: 100%;
 }
 .bg-11 {
-	background-image: url(images/slider/11.jpg);
+	background-image: url(../images/slider/11.jpg);
 }
 .bg-12 {
-	background-image: url(images/slider/12.jpg);
+	background-image: url(../images/slider/12.jpg);
 }
 /*----------------------------------------*/
 /*  li's Background Variation Set 
@@ -1464,33 +1464,52 @@ textarea:focus {
 }
 .hm-searchbox .current::after {
 	content: "";
-	position: absolute;
-	display: block;
-	height: 22px;
-	width: 1px;
-	background: #e1e1e1;
-	top: 10px;
-	right: -10px;
-	font-size: 13px;
+        position: absolute;
+        display: block;
+        height: 22px;
+        width: 1px;
+        background: #e1e1e1;
+        top: 10px;
+        right: -10px;
+        font-size: 13px;
 }
 .hm-searchbox .nice-select.select-search-category::before {
-		right: 30px;
-		top: 25px;
-		color: #7e7e7e;
+    right: 30px;
+    top: 25px;
+    color: #7e7e7e;
 }
 .hm-searchbox input {
-		font-size: 13px;
-		color: #a5a5a5;
-		height: 45px;
-		background: transparent;
-		border: none;
-		width: 100%;
-		padding: 0 60px 0 33px;
+    font-size: 13px;
+    color: #a5a5a5;
+    height: 45px;
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding: 0 60px 0 33px;
 }
 /*Header Middle Right*/
+
 .header-middle-right {
-		display: flex;
-		justify-content: flex-end;
+    display: inline-flex;
+    margin-left: 5%;
+    padding: 2px;
+    box-sizing: border-box;
+    justify-content: right;
+}
+.log-sign-btn {
+    display: block;
+    border-radius: 5px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin: 0 5px
+}
+.log-sign-btn.log {
+    color: #fff;
+    background: #92bfe5;
+}
+.log-sign-btn.sign {
+    color: #fff;
+    background: #9EA1D7;
 }
 /*Header Middle Wishlist*/
 /* .hm-wishlist {
@@ -1533,7 +1552,7 @@ textarea:focus {
 }
 .hm-minicart-trigger {
 		border-radius: 15px ;
-		background: #7ec5d6;
+		/* background: #7ec5d6; */
 		color: #fff;
 		height: 45px;
 		cursor: pointer;
@@ -1567,13 +1586,13 @@ textarea:focus {
 }
 .cart-item-count {
 		position: absolute;
-		top: -25px;
-		left: -60px;
+		top: 10px;
+		left: -30px;
 		display: block;
 		overflow: hidden;
-		min-width: 26px;
-		line-height: 26px;
-		font-size: 12px;
+		min-width: 15px;
+		line-height: 15px;
+		font-size: 10px;
 		font-weight: 400;
 		color: #242424;
 		background: #92aae5;

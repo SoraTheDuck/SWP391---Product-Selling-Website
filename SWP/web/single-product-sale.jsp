@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
     
-<!-- single-product31:30-->
+<!-- single-product-sale31:50-->
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Single Product || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+        <title>Single Product Sale || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -37,7 +37,7 @@
         <!-- Helper CSS -->
         <link rel="stylesheet" href="css/helper.css">
         <!-- Main Style CSS -->
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- Modernizr js -->
@@ -50,148 +50,15 @@
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
-            <header>
-                <!-- Begin Header Middle Area -->
-                <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Begin Header Logo Area -->
-                            <div class="col-lg-3">
-                                <div class="logo pb-sm-30 pb-xs-30">
-                                    <a href="index-2.html">
-                                        <img src="images/menu/logo/1.jpg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Header Logo Area End Here -->
-                            <!-- Begin Header Middle Right Area -->
-                            <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
-                                <!-- Begin Header Middle Searchbox Area -->
-                                <form action="#" class="hm-searchbox">
-                                    <input type="text" placeholder="Enter your search key ...">
-                                    <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
-                                </form>
-                                <!-- Header Middle Searchbox Area End Here -->
-                                <!-- Begin Header Middle Right Area -->
-                                <div class="header-middle-right">
-                                    <ul class="hm-menu">
-                                        <!-- Begin Header Mini Cart Area -->
-                                        <li class="hm-minicart">
-                                            <div class="hm-minicart-trigger">
-                                                <span class="item-icon"></span>
-                                                <span class="item-text">£160
-                                                    <span class="cart-item-count">2</span>
-                                                </span>
-                                            </div>
-                                            <span></span>
-                                            <div class="minicart">
-                                                <ul class="minicart-product-list">
-                                                    <li>
-                                                        <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/3.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                            <span>£80 x 1</span>
-                                                        </div>
-                                                        <button class="close">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/4.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                            <span>£80 x 1</span>
-                                                        </div>
-                                                        <button class="close">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
-                                                </ul>
-                                                <p class="minicart-total">SUBTOTAL: <span>£160</span></p>
-                                                <div class="minicart-button">
-                                                    <a href="shopping-cart.html" class="li-button li-button-dark li-button-fullwidth li-button-sm">
-                                                        <span>View Full Cart</span>
-                                                    </a>
-                                                    <a href="checkout.html" class="li-button li-button-fullwidth li-button-sm">
-                                                        <span>Checkout</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <!-- Header Mini Cart Area End Here -->
-                                    </ul>
-                                </div>
-                                <!-- Header Middle Right Area End Here -->
-                            </div>
-                            <!-- Header Middle Right Area End Here -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Begin Header Bottom Area -->
-                <div class="header-bottom header-sticky d-none d-lg-block">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <!-- Begin Header Bottom Menu Area -->
-                                <div class="hb-menu hb-menu-2 d-xl-block">
-                                    <nav>
-                                        <ul>
-                                            <li class="dropdown-holder"><a href="index-2.html">Home</a></li>
-                                            <li class="megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
-                                                <ul class="megamenu hb-megamenu">
-                                                    <li><a href="shop-left-sidebar.html">Shop Page Layout</a></li>
-                                                    <li><a href="single-product.html">Single Products</a>
-                                                        <ul>
-                                                            <li><a href="single-product.html">Single Products</a></li>
-                                                            <li><a href="single-product-normal.html">Single Product Normal</a></li>
-                                                            <li><a href="single-product-sale.html">Single Product Sale</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="shop-left-sidebar.html">Accessories</a></li>
-                                            <li class="f-right">
-                                                <a class="ht-setting-trigger">Setting</a>
-                                                    <ul class="setting ht-setting ht-setting-list">
-                                                        <li><a href="login-register.html">My Account</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
-                                                        <li><a href="login-register.html">Sign In</a></li>
-                                                    </ul>
-                                            </li>
-                                            <!-- Header Bottom Menu Information Area End Here -->
-                                        </ul>
-                                    </nav>
-                                </div>
-                                <!-- Header Bottom Menu Area End Here -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Header Bottom Area End Here -->
-                <!-- Begin Mobile Menu Area -->
-                <div class="mobile-menu-area d-lg-none d-xl-none col-12">
-                    <div class="container"> 
-                        <div class="row">
-                            <div class="mobile-menu">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Mobile Menu Area End Here -->
-            </header>
+            <%@include file="components/Header.jsp" %>
             <!-- Header Area End Here -->
             <!-- Begin Li's Breadcrumb Area -->
             <div class="breadcrumb-area">
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Single Product</li>
+                            <li><a href="Home.jsp">Home</a></li>
+                            <li class="active">Single Product Sale</li>
                         </ul>
                     </div>
                 </div>
@@ -206,37 +73,25 @@
                             <div class="product-details-left">
                                 <div class="product-details-images slider-navigation-1">
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/1.jpg" data-gall="myGallery">
-                                            <img src="images/product/large-size/1.jpg" alt="product image">
-                                        </a>
+                                        <img src="images/product/large-size/1.jpg" alt="product image">
                                     </div>
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/2.jpg" data-gall="myGallery">
-                                            <img src="images/product/large-size/2.jpg" alt="product image">
-                                        </a>
+                                        <img src="images/product/large-size/2.jpg" alt="product image">
                                     </div>
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/3.jpg" data-gall="myGallery">
-                                            <img src="images/product/large-size/3.jpg" alt="product image">
-                                        </a>
+                                        <img src="images/product/large-size/3.jpg" alt="product image">
                                     </div>
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/4.jpg" data-gall="myGallery">
-                                            <img src="images/product/large-size/4.jpg" alt="product image">
-                                        </a>
+                                        <img src="images/product/large-size/4.jpg" alt="product image">
                                     </div>
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/5.jpg" data-gall="myGallery">
-                                            <img src="images/product/large-size/5.jpg" alt="product image">
-                                        </a>
+                                        <img src="images/product/large-size/5.jpg" alt="product image">
                                     </div>
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/6.jpg" data-gall="myGallery">
-                                            <img src="images/product/large-size/6.jpg" alt="product image">
-                                        </a>
+                                        <img src="images/product/large-size/6.jpg" alt="product image">
                                     </div>
                                 </div>
-                                <div class="product-details-thumbs slider-thumbs-1">                                        
+                                <div class="product-details-thumbs slider-thumbs-1">
                                     <div class="sm-image"><img src="images/product/small-size/1.jpg" alt="product image thumb"></div>
                                     <div class="sm-image"><img src="images/product/small-size/2.jpg" alt="product image thumb"></div>
                                     <div class="sm-image"><img src="images/product/small-size/3.jpg" alt="product image thumb"></div>
@@ -249,7 +104,7 @@
                         </div>
 
                         <div class="col-lg-7 col-md-6">
-                            <div class="product-details-view-content pt-60">
+                            <div class="product-details-view-content sp-sale-content pt-60">
                                 <div class="product-info">
                                     <h2>Today is a good day Framed poster</h2>
                                     <span class="product-details-ref">Reference: demo_15</span>
@@ -266,6 +121,9 @@
                                     </div>
                                     <div class="price-box pt-20">
                                         <span class="new-price new-price-2">$57.98</span>
+                                    </div>
+                                    <div class="countersection">
+                                        <div class="li-countdown product-sale-countdown"></div>
                                     </div>
                                     <div class="product-desc">
                                         <p>
@@ -295,6 +153,8 @@
                                             </div>
                                             <button class="add-to-cart" type="submit">Add to cart</button>
                                         </form>
+                                    </div>
+                                    <div class="product-additional-info pt-25">
                                     </div>
                                     <div class="block-reassurance">
                                         <ul>
@@ -509,7 +369,6 @@
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -552,7 +411,6 @@
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -593,7 +451,6 @@
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -636,7 +493,6 @@
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -677,7 +533,6 @@
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -720,7 +575,6 @@
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -736,137 +590,7 @@
             </section>
             <!-- Li's Laptop Product Area End Here -->
             <!-- Begin Footer Area -->
-            <div class="footer">
-                <!-- Begin Footer Static Top Area -->
-                <div class="footer-static-top">
-                    <div class="container">
-                        <!-- Begin Footer Shipping Area -->
-                        <div class="footer-shipping pt-60 pb-25">
-                            <div class="row">
-                                <!-- Begin Li's Shipping Inner Box Area -->
-                                <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
-                                    <div class="li-shipping-inner-box">
-                                        <div class="shipping-icon">
-                                            <img src="images/shipping-icon/1.png" alt="Shipping Icon">
-                                        </div>
-                                        <div class="shipping-text">
-                                            <h2>Free Delivery</h2>
-                                            <p>And free returns. See checkout for delivery dates.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Li's Shipping Inner Box Area End Here -->
-                                <!-- Begin Li's Shipping Inner Box Area -->
-                                <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
-                                    <div class="li-shipping-inner-box">
-                                        <div class="shipping-icon">
-                                            <img src="images/shipping-icon/2.png" alt="Shipping Icon">
-                                        </div>
-                                        <div class="shipping-text">
-                                            <h2>Safe Payment</h2>
-                                            <p>Pay with the world's most popular and secure payment methods.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Li's Shipping Inner Box Area End Here -->
-                                <!-- Begin Li's Shipping Inner Box Area -->
-                                <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
-                                    <div class="li-shipping-inner-box">
-                                        <div class="shipping-icon">
-                                            <img src="images/shipping-icon/3.png" alt="Shipping Icon">
-                                        </div>
-                                        <div class="shipping-text">
-                                            <h2>Shop with Confidence</h2>
-                                            <p>Our Buyer Protection covers your purchasefrom click to delivery.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Li's Shipping Inner Box Area End Here -->
-                                <!-- Begin Li's Shipping Inner Box Area -->
-                                <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
-                                    <div class="li-shipping-inner-box">
-                                        <div class="shipping-icon">
-                                            <img src="images/shipping-icon/4.png" alt="Shipping Icon">
-                                        </div>
-                                        <div class="shipping-text">
-                                            <h2>24/7 Help Center</h2>
-                                            <p>Have a question? Call a Specialist or chat online.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Li's Shipping Inner Box Area End Here -->
-                            </div>
-                        </div>
-                        <!-- Footer Shipping Area End Here -->
-                    </div>
-                </div>
-                <!-- Footer Static Top Area End Here -->
-
-                <!-- Begin Footer Static Middle Area -->
-                <div class="footer-static-middle">
-                    <div class="container">
-                        <div class="footer-logo-wrap pt-50 pb-35">
-                            <div class="row">
-                                <!-- Begin Footer Logo Area -->
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="footer-logo">
-                                        <img src="images/menu/logo/1.jpg" alt="Footer Logo">
-                                        <p class="info">
-                                            Slogan
-                                        </p>
-                                    </div>
-                                    <ul class="des">
-                                        <li>
-                                            <span>Address: </span>
-                                            6688Princess Road, London, Greater London BAS 23JK, UK
-                                        </li>
-                                        <li>
-                                            <span>Phone: </span>
-                                            <a href="#">(+123) 123 321 345</a>
-                                        </li>
-                                        <li>
-                                            <span>Email: </span>
-                                            <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Footer Logo Area End Here -->
-                                <!-- Begin Footer Block Area -->
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <div class="footer-block">
-                                        <h3 class="footer-block-title">Our company</h3>
-                                        <ul>
-                                            <li><a href="#">Delivery</a></li>
-                                            <li><a href="#">Legal Notice</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Footer Block Area End Here -->
-                                <!-- Begin Footer Block Area -->
-                                <div class="col-lg-4">
-                                    
-                                    <!-- Begin Footer Newsletter Area -->
-                                    <div class="footer-newsletter">
-                                        <h4>Sign up to newsletter</h4>
-                                        <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="footer-subscribe-form validate" target="_blank" novalidate>
-                                            <div id="mc_embed_signup_scroll">
-                                                <div id="mc-form" class="mc-form subscribe-form form-group" >
-                                                    <input id="mc-email" type="email" autocomplete="off" placeholder="Enter your email" />
-                                                    <button  class="btn" id="mc-submit">Subscribe</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- Footer Newsletter Area End Here -->
-                                </div>
-                                <!-- Footer Block Area End Here -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer Static Middle Area End Here -->
-            </div>
-
+            <%@include file="components/Footer.jsp" %>
             <!-- Footer Area End Here -->
             <!-- Begin Quick View | Modal Area -->
             <div class="modal fade modal-wrapper" id="exampleModalCenter" >
@@ -900,7 +624,7 @@
                                                 <img src="images/product/large-size/6.jpg" alt="product image">
                                             </div>
                                         </div>
-                                        <div class="product-details-thumbs slider-thumbs-1">
+                                        <div class="product-details-thumbs slider-thumbs-1">                                        
                                             <div class="sm-image"><img src="images/product/small-size/1.jpg" alt="product image thumb"></div>
                                             <div class="sm-image"><img src="images/product/small-size/2.jpg" alt="product image thumb"></div>
                                             <div class="sm-image"><img src="images/product/small-size/3.jpg" alt="product image thumb"></div>
@@ -1025,5 +749,5 @@
         <script src="js/main.js"></script>
     </body>
 
-<!-- single-product31:32-->
+<!-- single-product-sale31:50-->
 </html>
