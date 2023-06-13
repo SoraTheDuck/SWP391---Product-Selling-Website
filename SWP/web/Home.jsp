@@ -75,7 +75,7 @@
     <div class="body-wrapper">
         <!-- Begin Header Area -->
             <%@include file="components/Header.jsp" %>
-            <!-- Header Area End Here -->
+        <!-- Header Area End Here -->
         <!-- Begin Slider With Category Menu Area -->
         <div class="slider-with-banner">
             <div class="container">
@@ -2835,7 +2835,7 @@
         </section>
         <!-- Li's Trending Product | Home V2 Area End Here -->
         <!-- Begin Footer Area -->
-
+            <%@include file="components/Footer.jsp" %>
         <!-- Footer Area End Here-->
         <!-- Begin Quick View | Modal Area -->
         <div class="modal fade modal-wrapper"

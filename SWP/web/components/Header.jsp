@@ -64,21 +64,21 @@
                         <nav>
                             <ul>
                                 <li><a href="Home.jsp">Home</a></li>
-                                <li class="megamenu-holder mn-drop"><a href="shop-left-sidebar.html">Shop</a>
+                                <li class="megamenu-holder mn-drop"><a href="shop-left-sidebar.jsp">Shop</a>
                                     <ul class="megamenu hb-megamenu">
-                                        <li><a href="shop-left-sidebar.html">Shop Page Layout</a></li>
-                                        <li><a href="single-product.html">Single Products</a>
+                                        <li><a href="shop-left-sidebar.jsp">Shop Page Layout</a></li>
+                                        <li><a href="single-product.jsp">Single Products</a>
                                             <ul>
-                                                <li><a href="single-product.html">Single Products</a></li>
-                                                <li><a href="single-product-normal.html">Single Product
+                                                <li><a href="single-product.jsp">Single Products</a></li>
+                                                <li><a href="single-product-normal.jsp">Single Product
                                                         Normal</a></li>
-                                                <li><a href="single-product-sale.html">Single Product Sale</a>
+                                                <li><a href="single-product-sale.jsp">Single Product Sale</a>
                                                 </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="shop-left-sidebar.html">Accessories</a></li>
+                                <li><a href="shop-left-sidebar.jsp">Accessories</a></li>
                                 <!-- Begin Mini Cart Button Area -->
                                 <li class="hm-minicart f-right">
                                     <div class="hm-minicart-trigger">
@@ -91,13 +91,13 @@
                                     <div class="minicart">
                                         <ul class="minicart-product-list">
                                             <li>
-                                                <a href="single-product.html"
+                                                <a href="single-product.jsp"
                                                    class="minicart-product-image">
                                                     <img src="images/product/small-size/3.jpg"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="single-product.html">Aenean eu tristique</a>
+                                                    <h6><a href="single-product.jsp">Aenean eu tristique</a>
                                                     </h6>
                                                     <span>£80 x 1</span>
                                                 </div>
@@ -106,13 +106,13 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <a href="single-product.html"
+                                                <a href="single-product.jsp"
                                                    class="minicart-product-image">
                                                     <img src="images/product/small-size/4.jpg"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="single-product.html">Aenean eu tristique</a>
+                                                    <h6><a href="single-product.jsp">Aenean eu tristique</a>
                                                     </h6>
                                                     <span>£80 x 1</span>
                                                 </div>
@@ -127,7 +127,7 @@
                                                class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                 <span>View Full Cart</span>
                                             </a>
-                                            <a href="checkout.html"
+                                            <a href="checkout.jsp"
                                                class="li-button li-button-fullwidth li-button-sm">
                                                 <span>Checkout</span>
                                             </a>
