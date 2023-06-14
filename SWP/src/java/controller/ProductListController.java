@@ -62,7 +62,7 @@ public class ProductListController extends HttpServlet {
         //processRequest(request, response);
         ProductDao dao = new ProductDao();
         List<Product> list = new ArrayList<>();
-        int pageSize = 3;
+        int pageSize = 9;
         int currentPage = 1;
         int startIndex = (currentPage - 1) * pageSize;
         int totalPage = getTotalPage(pageSize);
