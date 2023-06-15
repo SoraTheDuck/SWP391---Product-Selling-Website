@@ -4,12 +4,20 @@
  */
 package model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author quany
  */
 public class Product {
-    private int id;
+
+    private String id;
     private String name;
     private float price;
     private String image;
@@ -17,9 +25,10 @@ public class Product {
     private String description;
 
     public Product() {
+        connect();
     }
 
-    public Product(int id, String name, float price, String image, int quantity, String description) {
+    public Product(String id, String name, float price, String image, int quantity, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -28,11 +37,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -75,6 +84,71 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    Connection cnn;
+    Statement stm;
+    PreparedStatement pstm;
+    ResultSet rs;
+
+    private void connect() {
+        try {
+            cnn = (new DBContext().connection);
+            if (cnn != null) {
+                System.out.println("Connect successfully");
+            } else {
+                System.out.println("Connect Fail");
+            }
+        } catch (Exception e) {
+
+        }
+    }
+    
+        public List<Product> getAllProductByPage(int page, int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT * FROM headphone.product LIMIT ? OFFSET ?";
+            PreparedStatement statement = cnn.prepareStatement(sql);
+            statement.setInt(1, page);
+            statement.setInt(2, pageIndex);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product a = new Product();
+                a.setId(rs.getString(1));
+                a.setName(rs.getString(2));
+                a.setPrice(rs.getFloat(3));
+                a.setImage(rs.getString(4));
+                a.setQuantity(rs.getInt(5));
+                a.setDescription(rs.getString(6));
+                list.add(a);
+            }
+        }catch(Exception ex){
+            
+        }
+        return list;
+    }
+
+    public List<Product> getAllProduct() {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM headphone.product";
+            PreparedStatement statement = cnn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product a = new Product();
+                a.setId(rs.getString(1));
+                a.setName(rs.getString(2));
+                a.setPrice(rs.getFloat(3));
+                a.setImage(rs.getString(4));
+                a.setQuantity(rs.getInt(5));
+                a.setDescription(rs.getString(6));
+                list.add(a);
+            }
+        } catch (Exception ex) {
+
+        }
+        return list;
+    }
     
     
+
 }

@@ -4,7 +4,6 @@
  */
 package controller;
 
-import DAO.ProductDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -60,7 +59,7 @@ public class ProductListController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        ProductDao dao = new ProductDao();
+        Product product = new Product();
         List<Product> list = new ArrayList<>();
         int pageSize = 9;
         int currentPage = 1;
@@ -70,7 +69,7 @@ public class ProductListController extends HttpServlet {
             currentPage = Integer.parseInt(request.getParameter("page"));
             startIndex = (currentPage - 1) * pageSize;
         }
-                list = dao.getAllProductByPage(pageSize, startIndex);
+                list = product.getAllProductByPage(pageSize, startIndex);
 
 
         request.setAttribute("list", list);
@@ -79,8 +78,8 @@ public class ProductListController extends HttpServlet {
         request.getRequestDispatcher("shop-left-sidebar.jsp").forward(request, response);
     }
     public int getTotalPage(int pageSize) {
-        ProductDao dao = new ProductDao();
-    int totalProducts = dao.getAllProduct().size();
+        Product product = new Product();
+    int totalProducts = product.getAllProduct().size();
     int totalPage = (int) Math.ceil((double) totalProducts / pageSize);
     return totalPage;
 }
