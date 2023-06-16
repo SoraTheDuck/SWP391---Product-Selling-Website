@@ -28,6 +28,14 @@
         <servlet-name>ProductListController</servlet-name>
         <servlet-class>controller.ProductListController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForgotPassword</servlet-name>
+        <servlet-class>controller.ForgotPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OTP</servlet-name>
+        <servlet-class>controller.OTP</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>ProductListController</servlet-name>
         <url-pattern>/productlist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPassword</servlet-name>
+        <url-pattern>/forgotpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OTP</servlet-name>
+        <url-pattern>/OTP</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
