@@ -18,6 +18,7 @@
   <%@page contentType="text/html"
           pageEncoding="UTF-8"
           %>
+  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -107,7 +108,7 @@
           <div class="container">
             <div class="breadcrumb-content">
               <ul>
-                <li><a href="Home.jsp">Home</a></li>
+                <li><a href="/SWP/home">Home</a></li>
                 <li class="active">Login</li>
               </ul>
             </div>
@@ -118,6 +119,7 @@
         <div class="form-space container mt-20 mb-30">
           <!-- Login Form s-->
           <p>${mess}</p>
+          <c:set var="cookie" value="${pageContext.request.cookies}"/>
           <form action="login"
                 method="post">
             <div class="login-form">
@@ -129,7 +131,7 @@
                          type="email"
                          name="email"
                          id="email"
-                         placeholder="Email Address">
+                         placeholder="Email Address" value="${cookie.cmail.value}">
                 </div>
                 <div class="col-12 mb-20">
                   <label>Password</label>
@@ -137,17 +139,17 @@
                          type="password"
                          name="password"
                          id="password"
-                         placeholder="Password">
+                         placeholder="Password" value="${cookie.cpassword.value}">
                 </div>
                 <div class="col-md-8">
                   <div class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                     <input type="checkbox"
-                           id="remember_me">
+                           id="remember_me" name="rem" value="on" ${(cookie.cr!=null ? 'checked':'')}>
                     <label for="remember_me">Remember me</label>
                   </div>
                 </div>
                 <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
-                  <a href="VerifyEmail.jsp"> Forgot your password?</a>
+                  <a href="ForgotPass.jsp"> Forgot your password?</a>
                 </div>
                 <div class="col-md-12">
                   <button class="register-button mt-0">Login</button>

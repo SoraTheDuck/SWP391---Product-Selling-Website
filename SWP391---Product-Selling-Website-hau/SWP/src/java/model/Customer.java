@@ -157,7 +157,6 @@ public class Customer {
                 this.email = rs.getString(5);
                 this.password = rs.getString(3);
                 this.address = rs.getString(4);
-                this.email = rs.getString(6);
             }
         } catch (Exception e) {
             System.out.println("getCustomerByAccount:" + e.getMessage());
@@ -182,5 +181,56 @@ public class Customer {
         }
     }
     
+    public Customer getCusByEmail(String email) {
+        String sql = "select * from customer where Email = ? ";
+        try {
+            PreparedStatement ps = cnn.prepareStatement(sql);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int Cid = rs.getInt(1);
+                String Cname = rs.getString(2);
+                String Cpass = rs.getString(3);
+                String Caddress = rs.getString(4);
+                String Cemail = rs.getString(5);
+                return new Customer(Cname, Cpass, Caddress, Cemail);
+            }
+        } catch (Exception ex) {
+            System.out.println("getCusByEmail");
+        }
+        return null;
+    }
     
+    public Customer UpdatePassAcc(String resetPass, int id) {
+        String sql = "update customer set Password =? where CustomerID = ?;";
+        try {
+            PreparedStatement ps = cnn.prepareStatement(sql);
+            ps.setInt(2, id);
+            ps.setString(1, resetPass);
+            ps.executeUpdate();
+            return getCusById(id);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+    
+    public Customer getCusById(int id) {
+        String sql = "select * from customer where CustomerID = ? ";
+        try {
+            PreparedStatement ps = cnn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String email = rs.getString(5);
+                String name = rs.getString(2);
+                String pass = rs.getString(3);
+                String address = rs.getString(4);
+                return new Customer(name, pass, address, email);
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
 }

@@ -8,7 +8,7 @@
                 <!-- Begin Header Logo Area -->
                 <div class="col-lg-3">
                     <div class="logo pb-sm-30 pb-xs-30">
-                        <a href="./Home.jsp">
+                        <a href="/SWP/home">
                             <img src="images/menu/logo/1.jpg"
                                  alt="">
                         </a>
@@ -63,7 +63,7 @@
                     <div class="hb-menu hb-menu-2 d-xl-block">
                         <nav>
                             <ul>
-                                <li><a href="Home.jsp">Home</a></li>
+                                <li><a href="/SWP/home">Home</a></li>
                                 <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a>
                                     <ul class="megamenu hb-megamenu">
                                         <li><a href="shop-left-sidebar.jsp">Shop Page Layout</a></li>
@@ -78,7 +78,6 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="shop-left-sidebar.jsp">Accessories</a></li>
                                 <!-- Begin Mini Cart Button Area -->
                                 <li class="hm-minicart f-right">
                                     <div class="hm-minicart-trigger">

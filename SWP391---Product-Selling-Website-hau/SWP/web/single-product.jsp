@@ -126,8 +126,6 @@
                                             <li><i class="fa fa-star-o"></i></li>
                                             <li class="no-star"><i class="fa fa-star-o"></i></li>
                                             <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="review-item"><a href="#">Read Review</a></li>
-                                            <li class="review-item"><a href="#">Write Review</a></li>
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
@@ -141,7 +139,16 @@
                                     </div>
                                     <div class="product-variants">
                                         <div class="produt-variants-size">
-                                            <p>Stock: ${detail.quantity}</p>
+                                            
+                                            <c:choose>
+                                                <c:when test="${detail.quantity >0}">
+                                                    <p>In Stock !!!</p>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p>Out of Stock !!!</p>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            
                                             <p>Cable: ${detail.wire}</p>
                                         </div>
                                     </div>
