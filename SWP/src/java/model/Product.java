@@ -16,27 +16,36 @@ import java.util.List;
  * @author quany
  */
 public class Product {
-
     private String id;
     private String name;
     private float price;
     private String image;
     private int quantity;
+    private String wire;
     private String description;
 
     public Product() {
         connect();
     }
 
-    public Product(String id, String name, float price, String image, int quantity, String description) {
+    public Product(String id, String name, float price, String image, int quantity,String wire, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
         this.quantity = quantity;
+        this.wire = wire;
         this.description = description;
     }
 
+    public String getWire(){
+        return wire;
+    }
+    
+    public void setWire(String wire){
+        this.wire = wire;
+    }
+    
     public String getId() {
         return id;
     }
@@ -84,12 +93,12 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    
     Connection cnn;
     Statement stm;
     PreparedStatement pstm;
     ResultSet rs;
-
+    
     private void connect() {
         try {
             cnn = (new DBContext().connection);
@@ -103,7 +112,63 @@ public class Product {
         }
     }
     
-        public List<Product> getAllProductByPage(int page, int pageIndex){
+    public List<Product> searchByName(String searchValue){
+        List<Product> list = new ArrayList<>();
+        try{
+            String strSelect = "select * from headphone.product where ProductName like ?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, "%" + searchValue + "%");
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription));
+            }
+        }catch(Exception e){
+            System.out.println("searchByName" + e.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> searchProductByNameByPage(String searchValue,int page,int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "select * from headphone.product where ProductName like ? LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setString(1, "%" + searchValue + "%");
+            pstm.setInt(2,page);
+            pstm.setInt(3, pageIndex);
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription));
+            }
+        }catch(Exception e){
+            System.out.println("searchProductByNameByPage"+e.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getAllProductByPage(int page, int pageIndex){
         List<Product> list = new ArrayList<>();
         try{
             String sql = "SELECT * FROM headphone.product LIMIT ? OFFSET ?";
@@ -112,17 +177,21 @@ public class Product {
             statement.setInt(2, pageIndex);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Product a = new Product();
-                a.setId(rs.getString(1));
-                a.setName(rs.getString(2));
-                a.setPrice(rs.getFloat(3));
-                a.setImage(rs.getString(4));
-                a.setQuantity(rs.getInt(5));
-                a.setDescription(rs.getString(6));
-                list.add(a);
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription));
             }
         }catch(Exception ex){
-            
+            System.out.println("getAllProductByPage"+ex.getMessage());
         }
         return list;
     }
@@ -134,21 +203,104 @@ public class Product {
             PreparedStatement statement = cnn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Product a = new Product();
-                a.setId(rs.getString(1));
-                a.setName(rs.getString(2));
-                a.setPrice(rs.getFloat(3));
-                a.setImage(rs.getString(4));
-                a.setQuantity(rs.getInt(5));
-                a.setDescription(rs.getString(6));
-                list.add(a);
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription));
             }
         } catch (Exception ex) {
-
+            System.out.println("getAllProduct"+ex.getMessage());
+        }
+        return list;
+    }
+     
+    public Product getProductByID(String id){
+        try{
+            String strSelect = "SELECT * FROM headphone.product where ProductID= ?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, id);
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                return new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription);
+            }
+        }catch(Exception e){
+            System.out.println("searchByName" + e.getMessage());
+        }
+        return null;
+    }
+    
+    public List<Product> getAllProductByCategoryByPage(int cid, int page,int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql= "select * from headphone.product where CategoryID= ? LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, cid);
+            pstm.setInt(2,page);
+            pstm.setInt(3, pageIndex);
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription));
+            }
+        }catch(Exception e){
+            System.out.println("getAllProductByCategory"+e.getMessage());
         }
         return list;
     }
     
-    
-
+    public List<Product> getAllProductsByCategory(int cid){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql= "SELECT * FROM headphone.product where CategoryID = ? order by ReleaseDate desc LIMIT 6;";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, cid);
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription));
+            }
+        }catch(Exception e){
+            System.out.println("getAllProductByCategory"+e.getMessage());
+        }
+        return list;
+    }
 }

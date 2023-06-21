@@ -1,0 +1,47 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import model.Product;
+import model.Review;
+
+/**
+ *
+ * @author Acer Aspire
+ */
+public class DetailController extends HttpServlet {
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String pid = req.getParameter("pid");
+        Product product = new Product();
+        
+        List<Review> list = new ArrayList<>();
+        Review d = new Review();
+        list = d.getAllReviewByProductId(pid);
+        req.setAttribute("detail", product.getProductByID(pid));
+        req.setAttribute("list", list);
+        int rate = 0;
+        for (Review review : list) {
+            rate += review.getRate();
+        }
+        int rateAverage = rate/list.size();
+        req.setAttribute("rateAverage", rateAverage);
+        req.getRequestDispatcher("single-product.jsp").forward(req, resp);
+    }
+    
+}

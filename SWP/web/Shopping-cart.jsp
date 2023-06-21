@@ -137,7 +137,7 @@
                                                 <li>Subtotal <span>$130.00</span></li>
                                                 <li>Total <span>$130.00</span></li>
                                             </ul>
-                                            <a href="#">Proceed to checkout</a>
+                                            <a href="Checkout.jsp">Proceed to checkout</a>
                                         </div>
                                     </div>
                                 </div>

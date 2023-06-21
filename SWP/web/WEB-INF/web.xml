@@ -25,16 +25,28 @@
         <servlet-class>controller.LogoutController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProductListController</servlet-name>
-        <servlet-class>controller.ProductListController</servlet-class>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>controller.SearchController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ForgotPassword</servlet-name>
-        <servlet-class>controller.ForgotPasswordController</servlet-class>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>controller.ProductController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>OTP</servlet-name>
-        <servlet-class>controller.OTP</servlet-class>
+        <servlet-name>DetailController</servlet-name>
+        <servlet-class>controller.DetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>controller.HomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryController</servlet-name>
+        <servlet-class>controller.CategoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WriteReviewController</servlet-name>
+        <servlet-class>controller.WriteReviewController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
@@ -61,16 +73,28 @@
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProductListController</servlet-name>
-        <url-pattern>/productlist</url-pattern>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ForgotPassword</servlet-name>
-        <url-pattern>/forgotpassword</url-pattern>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/shop</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>OTP</servlet-name>
-        <url-pattern>/OTP</url-pattern>
+        <servlet-name>DetailController</servlet-name>
+        <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryController</servlet-name>
+        <url-pattern>/category</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WriteReviewController</servlet-name>
+        <url-pattern>/writereview</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

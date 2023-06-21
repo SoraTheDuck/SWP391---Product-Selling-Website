@@ -1,8 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-    
-<!-- single-product31:30-->
-<head>
+
+    <!-- single-product31:30-->
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Single Product || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
@@ -44,9 +44,9 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
+        <!--[if lt IE 8]>
+                    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
@@ -58,7 +58,7 @@
                     <div class="breadcrumb-content">
                         <ul>
                             <li><a href="Home.jsp">Home</a></li>
-                            <li class="active">Single Product</li>
+                            <li class="active">${detail.name}</li>
                         </ul>
                     </div>
                 </div>
@@ -69,12 +69,12 @@
                 <div class="container">
                     <div class="row single-product-area">
                         <div class="col-lg-5 col-md-6">
-                           <!-- Product Details Left -->
+                            <!-- Product Details Left -->
                             <div class="product-details-left">
                                 <div class="product-details-images slider-navigation-1">
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/1.jpg" data-gall="myGallery">
-                                            <img src="images/product/large-size/1.jpg" alt="product image">
+                                        <a class="popup-img venobox vbox-item" href="${detail.image}" data-gall="myGallery">
+                                            <img src="${detail.image}" alt="product image">
                                         </a>
                                     </div>
                                     <div class="lg-image">
@@ -118,8 +118,7 @@
                         <div class="col-lg-7 col-md-6">
                             <div class="product-details-view-content pt-60">
                                 <div class="product-info">
-                                    <h2>Today is a good day Framed poster</h2>
-                                    <span class="product-details-ref">Reference: demo_15</span>
+                                    <h2>${detail.name}</h2>
                                     <div class="rating-box pt-20">
                                         <ul class="rating rating-with-review-item">
                                             <li><i class="fa fa-star-o"></i></li>
@@ -127,27 +126,30 @@
                                             <li><i class="fa fa-star-o"></i></li>
                                             <li class="no-star"><i class="fa fa-star-o"></i></li>
                                             <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="review-item"><a href="#">Read Review</a></li>
-                                            <li class="review-item"><a href="#">Write Review</a></li>
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
-                                        <span class="new-price new-price-2">$57.98</span>
+                                        <span class="new-price new-price-2">$ ${detail.price}</span>
                                     </div>
                                     <div class="product-desc">
                                         <p>
-                                            <span>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
+                                            <span> ${detail.description}
                                             </span>
                                         </p>
                                     </div>
                                     <div class="product-variants">
                                         <div class="produt-variants-size">
-                                            <label>Dimension</label>
-                                            <select class="nice-select">
-                                                <option value="1" title="S" selected="selected">40x60cm</option>
-                                                <option value="2" title="M">60x90cm</option>
-                                                <option value="3" title="L">80x120cm</option>
-                                            </select>
+
+                                            <c:choose>
+                                                <c:when test="${detail.quantity >0}">
+                                                    <p>In Stock !!!</p>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p>Out of Stock !!!</p>
+                                                </c:otherwise>
+                                            </c:choose>
+
+                                            <p>Cable: ${detail.wire}</p>
                                         </div>
                                     </div>
                                     <div class="single-add-to-cart">
@@ -205,9 +207,8 @@
                         <div class="col-lg-12">
                             <div class="li-product-tab">
                                 <ul class="nav li-product-menu">
-                                   <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
-                                   <li><a data-toggle="tab" href="#product-details"><span>Product Details</span></a></li>
-                                   <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
+                                    <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
+                                    <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
                                 </ul>               
                             </div>
                             <!-- Begin Li's Tab Menu Content Area -->
@@ -219,36 +220,39 @@
                                 <span>The best is yet to come! Give your walls a voice with a framed poster. This aesthethic, optimistic poster will look great in your desk or in an open-space office. Painted wooden frame with passe-partout for more depth.</span>
                             </div>
                         </div>
-                        <div id="product-details" class="tab-pane" role="tabpanel">
-                            <div class="product-details-manufacturer">
-                                <a href="#">
-                                    <img src="images/product-details/1.jpg" alt="Product Manufacturer Image">
-                                </a>
-                                <p><span>Reference</span> demo_7</p>
-                                <p><span>Reference</span> demo_7</p>
-                            </div>
-                        </div>
                         <div id="reviews" class="tab-pane" role="tabpanel">
                             <div class="product-reviews">
                                 <div class="product-details-comment-block">
                                     <div class="comment-review">
                                         <span>Grade</span>
                                         <ul class="rating">
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
+                                            <%
+                                            int rateAverage = (Integer) request.getAttribute("rateAverage");
+
+                                            for (int i = 0; i < 5; i++) {
+                                                if (i < rateAverage) {
+                                            %>
+                                            <li><i class="fa fa-star"></i></li>
+                                                <%
+                                                    } else {
+                                                %>
                                             <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                <%
+                                                    }
+                                                }
+                                                %>
                                         </ul>
                                     </div>
-                                    <div class="comment-author-infos pt-25">
-                                        <span>HTML 5</span>
-                                        <em>01-12-18</em>
-                                    </div>
-                                    <div class="comment-details">
-                                        <h4 class="title-block">Demo</h4>
-                                        <p>Plaza</p>
-                                    </div>
+                                    <c:forEach items="${list}" var="o">
+                                        <div class="comment-author-infos pt-25">
+                                          
+                                            <span>${o.customerId.name}</span>
+                                            <span>${o.rate}</span>
+                                            <em>${o.content}</em>
+                                        </div>
+                                    </c:forEach>
+
+
                                     <div class="review-btn">
                                         <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
                                     </div>
@@ -260,15 +264,15 @@
                                                     <h3 class="review-page-title">Write Your Review</h3>
                                                     <div class="modal-inner-area row">
                                                         <div class="col-lg-6">
-                                                           <div class="li-review-product">
-                                                               <img src="images/product/large-size/3.jpg" alt="Li's Product">
-                                                               <div class="li-review-product-desc">
-                                                                   <p class="li-product-name">Today is a good day Framed poster</p>
-                                                                   <p>
-                                                                       <span>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Design </span>
-                                                                   </p>
-                                                               </div>
-                                                           </div>
+                                                            <div class="li-review-product">
+                                                                <img src="images/product/large-size/3.jpg" alt="Li's Product">
+                                                                <div class="li-review-product-desc">
+                                                                    <p class="li-product-name">Today is a good day Framed poster</p>
+                                                                    <p>
+                                                                        <span>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Design </span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="li-review-content">
@@ -276,22 +280,23 @@
                                                                 <div class="feedback-area">
                                                                     <div class="feedback">
                                                                         <h3 class="feedback-title">Our Feedback</h3>
-                                                                        <form action="#">
+                                                                        <form action="writereview" method="GET">
+                                                                            <input type="hidden" name="productId" value="${detail.id}">
                                                                             <p class="your-opinion">
                                                                                 <label>Your Rating</label>
                                                                                 <span>
-                                                                                    <select class="star-rating">
-                                                                                      <option value="1">1</option>
-                                                                                      <option value="2">2</option>
-                                                                                      <option value="3">3</option>
-                                                                                      <option value="4">4</option>
-                                                                                      <option value="5">5</option>
+                                                                                    <select name="rate" class="star-rating">
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="3">3</option>
+                                                                                        <option value="4">4</option>
+                                                                                        <option value="5">5</option>
                                                                                     </select>
                                                                                 </span>
                                                                             </p>
                                                                             <p class="feedback-form">
                                                                                 <label for="feedback">Your Review</label>
-                                                                                <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                                                                                <textarea id="feedback" name="content" cols="45" rows="8" aria-required="true"></textarea>
                                                                             </p>
                                                                             <div class="feedback-input">
                                                                                 <p class="feedback-form-author">
@@ -307,7 +312,7 @@
                                                                                 </p>
                                                                                 <div class="feedback-btn pb-15">
                                                                                     <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                                    <a href="#">Submit</a>
+                                                                                    <button type="submit">Submit</button>
                                                                                 </div>
                                                                             </div>
                                                                         </form>
@@ -615,7 +620,7 @@
                             </button>
                             <div class="modal-inner-area row">
                                 <div class="col-lg-5 col-md-6 col-sm-6">
-                                   <!-- Product Details Left -->
+                                    <!-- Product Details Left -->
                                     <div class="product-details-left">
                                         <div class="product-details-images slider-navigation-1">
                                             <div class="lg-image">
@@ -762,5 +767,5 @@
         <script src="js/main.js"></script>
     </body>
 
-<!-- single-product31:32-->
+    <!-- single-product31:32-->
 </html>

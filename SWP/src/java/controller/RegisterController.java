@@ -40,11 +40,13 @@ public class RegisterController extends HttpServlet {
         Customer c = new Customer(name,pass,address,email);
         
         int otp = 0;
+        boolean con = true;
         HttpSession mySession = req.getSession();
         
+        
+        
         if(!pass.equals(rePass)){
-            String fail = "Password must be the same as Confirm Password !!";
-            req.setAttribute("mess", fail);
+            req.setAttribute("mess", "Password must be the same as Confirm Password !!");
             req.getRequestDispatcher("Register.jsp").forward(req, resp);
         }else{
             boolean check;
@@ -86,14 +88,20 @@ public class RegisterController extends HttpServlet {
 		Transport.send(message);
 		System.out.println("Email sent successfully");
 		}catch(MessagingException e){
-                    throw new RuntimeException(e);
+                    System.out.println("Send email failed");
+                    con = false;
                 }
             
-            req.setAttribute("message","The verification code is sent to your email id");
+            if(con){
+                req.setAttribute("message","The verification code is sent to your email id");
+                mySession.setAttribute("otp",otp); 
+                mySession.setAttribute("customer", c);
+                req.getRequestDispatcher("VerifyEmail.jsp").forward(req, resp);
+            }else{
+                req.setAttribute("mess", "Something went wrong. Please try again later !!");
+                req.getRequestDispatcher("Register.jsp").forward(req, resp);
+            }
             
-            mySession.setAttribute("otp",otp); 
-            mySession.setAttribute("customer", c);
-            req.getRequestDispatcher("VerifyEmail.jsp").forward(req, resp);
             }
         }
     }

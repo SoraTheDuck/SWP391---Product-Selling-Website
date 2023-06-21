@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author Acer Aspire
  */
 public class DBContext {
-    public Connection connection;
+    protected Connection connection;
     public DBContext()
     {
         

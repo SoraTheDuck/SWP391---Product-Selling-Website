@@ -80,6 +80,8 @@ public class Admin {
             cnn = (new DBContext()).connection;
             if (cnn != null) {
                 System.out.println("Connect success");
+            } else {
+                System.out.println("Connect Fail");
             }
         } catch (Exception e) {
 

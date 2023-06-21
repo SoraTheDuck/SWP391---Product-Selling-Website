@@ -84,7 +84,7 @@
                             <p>${fail}</p>
                             <h4>The verification code is sent to your Email</h4>
                             <form action="verifyEmail" method="post">
-                                <input name="otp" id="otp" type="text" placeholder="Enter code">
+                                <input name="otp" id="otp" type="text" placeholder="Enter code" required>
                                 <input type="submit" value="Verify code">
                             </form>
                         

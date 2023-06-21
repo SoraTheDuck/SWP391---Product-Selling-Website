@@ -8,7 +8,7 @@
                 <!-- Begin Header Logo Area -->
                 <div class="col-lg-3">
                     <div class="logo pb-sm-30 pb-xs-30">
-                        <a href="./Home.jsp">
+                        <a href="/SWP/home">
                             <img src="images/menu/logo/1.jpg"
                                  alt="">
                         </a>
@@ -18,12 +18,12 @@
                 <!-- Begin Header Middle Right Area -->
                 <div class="header-middle-search col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                     <!-- Begin Header Middle Searchbox Area -->
-                    <form action="#"
+                    <form action="search" method ="post" 
                           class="hm-searchbox">
-                        <input type="text"
-                               placeholder="Enter your search key ...">
-                        <button class="li-btn"
-                                type="submit"><i class="fa fa-search"></i></button>
+                        <input type="text" name="searchbox" placeholder="Enter your search key ..." required>
+                        <button class="li-btn" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </form>
                     <!-- Header Middle Searchbox Area End Here -->
                     <!-- Begin Header Middle Right Area -->
@@ -31,7 +31,7 @@
                         <!-- Begin Login Button Area -->
                         <c:choose>
                             <c:when test="${sessionScope.cus != null}">
-                                <a href="./Customer_profile.jsp" class="log-sign-btn log">User</a>
+                                <a href="./Customer_profile.jsp" class="log-sign-btn log">${sessionScope.cus.name}</a>
                                 <a href="LogoutController" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
@@ -63,8 +63,8 @@
                     <div class="hb-menu hb-menu-2 d-xl-block">
                         <nav>
                             <ul>
-                                <li><a href="Home.jsp">Home</a></li>
-                                <li class="megamenu-holder mn-drop"><a href="shop-left-sidebar.jsp">Shop</a>
+                                <li><a href="/SWP/home">Home</a></li>
+                                <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a>
                                     <ul class="megamenu hb-megamenu">
                                         <li><a href="shop-left-sidebar.jsp">Shop Page Layout</a></li>
                                         <li><a href="single-product.jsp">Single Products</a>
@@ -78,7 +78,6 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="shop-left-sidebar.jsp">Accessories</a></li>
                                 <!-- Begin Mini Cart Button Area -->
                                 <li class="hm-minicart f-right">
                                     <div class="hm-minicart-trigger">

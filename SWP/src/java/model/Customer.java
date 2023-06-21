@@ -24,21 +24,12 @@ public class Customer {
         connect();
     }
 
-    public Customer(int id, String name, String password, String address, String email) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.address = address;
-        this.email = email;
-        connect();
-    }
-
     public Customer(String email, String password) {
         this.password = password;
         this.email = email;
         connect();
     }
-
+    
     public Customer(String name, String password, String address, String email) {
         this.name = name;
         this.password = password;
@@ -121,7 +112,7 @@ public class Customer {
             System.out.println("CustomerRegister:" + e.getMessage());
         }
     }
-
+    
     public boolean checkLogin() {
         try {
             String strSelect = "SELECT * FROM headphone.customer where email=? and password=? ";
@@ -153,7 +144,7 @@ public class Customer {
         }
         return false;
     }
-
+    
     public void getCustomerByAccount(String email) {
         try {
             String strSelect = "SELECT * FROM headphone.customer where email=?";
@@ -163,16 +154,14 @@ public class Customer {
             while (rs.next()) {
                 this.id = rs.getInt(1);
                 this.name = rs.getString(2);
-                this.email = rs.getString(3);
-                this.password = rs.getString(4);
-                this.address = rs.getString(5);
-                this.email = rs.getString(6);
+                this.email = rs.getString(5);
+                this.password = rs.getString(3);
+                this.address = rs.getString(4);
             }
         } catch (Exception e) {
             System.out.println("getCustomerByAccount:" + e.getMessage());
         }
     }
-
     public void getCustomer(int cusId) {
         String strSelect = "SELECT * FROM headphone.Customer where CustomerId =?";
         try {
@@ -192,66 +181,26 @@ public class Customer {
         }
     }
     
-        public Customer getCusByEmailAndPass(String email, String pass) {
-        String sql = "select * from customer where Email = ? and Password = ?";
-        try {
-            PreparedStatement ps = cnn.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.setString(2, pass);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt(1);
-                String name = rs.getString(2);
-                String address = rs.getString(4);
-                return new Customer(id, name, pass, address, email);
-            }
-        } catch (Exception ex) {
-            System.err.println(ex.getMessage());
-        }
-        return null;
-    }
-        
-            public Customer getCusByEmail(String email) {
+    public Customer getCusByEmail(String email) {
         String sql = "select * from customer where Email = ? ";
         try {
             PreparedStatement ps = cnn.prepareStatement(sql);
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt(1);
-                String name = rs.getString(2);
-                String pass = rs.getString(3);
-                String address = rs.getString(4);
-                return new Customer(id, name, pass, address, email);
+                int Cid = rs.getInt(1);
+                String Cname = rs.getString(2);
+                String Cpass = rs.getString(3);
+                String Caddress = rs.getString(4);
+                String Cemail = rs.getString(5);
+                return new Customer(Cname, Cpass, Caddress, Cemail);
             }
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
-        }
-        return null;
-    }
-        
-
-    public Customer getCusById(int id) {
-        String sql = "select * from customer where CustomerID = ? ";
-        try {
-            PreparedStatement ps = cnn.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String email = rs.getString(5);
-                String name = rs.getString(2);
-                String pass = rs.getString(3);
-                String address = rs.getString(4);
-                return new Customer(id, name, pass, address, email);
-            }
-        } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            System.out.println("getCusByEmail");
         }
         return null;
     }
     
-
-
     public Customer UpdatePassAcc(String resetPass, int id) {
         String sql = "update customer set Password =? where CustomerID = ?;";
         try {
@@ -265,7 +214,23 @@ public class Customer {
         }
         return null;
     }
-
-
-
+    
+    public Customer getCusById(int id) {
+        String sql = "select * from customer where CustomerID = ? ";
+        try {
+            PreparedStatement ps = cnn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String email = rs.getString(5);
+                String name = rs.getString(2);
+                String pass = rs.getString(3);
+                String address = rs.getString(4);
+                return new Customer(name, pass, address, email);
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
 }

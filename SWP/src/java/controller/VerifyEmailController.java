@@ -26,7 +26,7 @@ public class VerifyEmailController extends HttpServlet {
         
         Customer c = (Customer) session.getAttribute("customer");
         
-        if(otp==value){
+        if(otp==value && !req.getParameter("otp").trim().isEmpty()){
             c.register();
             String mess = "Register Successfully !!";
             req.setAttribute("mess", mess);
