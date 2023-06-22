@@ -173,23 +173,33 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <ul class="pagination-box pt-xs-20 pb-xs-15">
-                                                    <c:if test="${currentPage != 1}">
-                                                        <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
-                                                        </c:if>
-                                                        <c:forEach begin="1" end="${totalPage}" var="i">
-                                                            <c:choose>
-                                                                <c:when test="${currentPage == i}">
-                                                                <li class="active"><a href="#"><c:out value="${i}" /></a></li>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
-                                                                        <c:out value="${i}" /></a></li>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                        </c:forEach>
-                                                        <c:if test="${currentPage != totalPage}">
-                                                        <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
+                                                    
+                                                    <c:choose>
+                                                        <c:when test="${totalPage ==0}">
+                                                            No Product fits your searched result
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                                <c:if test="${currentPage != 1}">
+                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
                                                             </c:if>
+                                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                                                <c:choose>
+                                                                    <c:when test="${currentPage == i}">
+                                                                    <li class="active"><a href="#"><c:out value="${i}" /></a></li>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                    <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
+                                                                            <c:out value="${i}" /></a></li>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                            <c:if test="${currentPage != totalPage}">
+                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
+                                                                </c:if>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
