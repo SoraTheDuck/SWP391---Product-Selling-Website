@@ -1439,7 +1439,7 @@ textarea:focus {
 	background: #fff;
 	border-radius: 5px;
 	border: 1px solid #e1e1e1;
-	min-width: 638px;
+	min-width: 600px;
 	height: 45px;
 	float: left;
 }
@@ -1491,7 +1491,6 @@ textarea:focus {
 
 .header-middle-right {
     display: inline-flex;
-    margin-left: 5%;
     padding: 2px;
     box-sizing: border-box;
     justify-content: right;
