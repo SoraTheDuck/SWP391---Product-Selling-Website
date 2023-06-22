@@ -667,7 +667,7 @@
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
                                             <div class="product-image">
-                                                <a href="single-product.html">
+                                                <a href="detail?pid=${o.id}">
                                                     <img src="images/product/large-size/6.jpg"
                                                          alt="Li's Product Image">
                                                 </a>
@@ -677,7 +677,7 @@
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="shop-left-sidebar.jsp">${o.name}</a>
+                                                            <a href="detail?pid=${o.id}">${o.name}</a>
                                                         </h5>
                                                         <div class="rating-box">
                                                             <ul class="rating">
@@ -690,7 +690,7 @@
                                                         </div>
                                                     </div>
                                                     <h4><a class="product_name"
-                                                           href="single-product.html">${o.name}</a></h4>
+                                                           href="detail?pid=${o.id}">${o.name}</a></h4>
                                                     <div class="price-box">
                                                         <span class="new-price new-price-2">$ ${o.price}</span>
                                                         <span class="old-price">$ ${o.price}</span>
@@ -759,7 +759,7 @@
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
                                             <div class="product-image">
-                                                <a href="single-product.html">
+                                                <a href="detail?pid=${o.id}">
                                                     <img src="images/product/large-size/6.jpg"
                                                          alt="Li's Product Image">
                                                 </a>
@@ -769,7 +769,7 @@
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="shop-left-sidebar.jsp">${o.name}</a>
+                                                            <a href="detail?pid=${o.id}">${o.name}</a>
                                                         </h5>
                                                         <div class="rating-box">
                                                             <ul class="rating">
@@ -782,7 +782,7 @@
                                                         </div>
                                                     </div>
                                                     <h4><a class="product_name"
-                                                           href="single-product.html">${o.name}</a></h4>
+                                                           href="detail?pid=${o.id}">${o.name}</a></h4>
                                                     <div class="price-box">
                                                         <span class="new-price new-price-2">$ ${o.price}</span>
                                                         <span class="old-price">$ ${o.price}</span>
@@ -859,7 +859,7 @@
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
                                             <div class="product-image">
-                                                <a href="single-product.html">
+                                                <a href="detail?pid=${o.id}">
                                                     <img src="images/product/large-size/6.jpg"
                                                          alt="Li's Product Image">
                                                 </a>
@@ -869,7 +869,7 @@
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="shop-left-sidebar.jsp">${o.name}</a>
+                                                            <a href="detail?pid=${o.id}">${o.name}</a>
                                                         </h5>
                                                         <div class="rating-box">
                                                             <ul class="rating">
@@ -882,7 +882,7 @@
                                                         </div>
                                                     </div>
                                                     <h4><a class="product_name"
-                                                           href="single-product.html">${o.name}</a></h4>
+                                                           href="detail?pid=${o.id}">${o.name}</a></h4>
                                                     <div class="price-box">
                                                         <span class="new-price new-price-2">$ ${o.price}</span>
                                                         <span class="old-price">$ ${o.price}</span>

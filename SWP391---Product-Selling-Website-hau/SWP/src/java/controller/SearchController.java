@@ -27,7 +27,29 @@ public class SearchController extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String searchValue = req.getParameter("searchbox");
+        Product p = new Product();
+        
+        int pageSize = 9;
+        int currentPage = 1;
+        int startIndex = (currentPage - 1) * pageSize;
+        int totalPage = getTotalPage(pageSize,searchValue);
+        if(req.getParameter("page") != null){
+            currentPage = Integer.parseInt(req.getParameter("page"));
+            startIndex = (currentPage - 1) * pageSize;
+        }
+        
+        List<Product> list = p.searchProductByNameByPage(searchValue, pageSize, startIndex);
+        
+        
+        req.setAttribute("list", list);
+        req.setAttribute("searchValue",searchValue);
+        
+        req.setAttribute("currentPage", currentPage);
+        req.setAttribute("totalPage", totalPage);
+        
+        req.setAttribute("link","/search");
+        req.getRequestDispatcher("shop-left-sidebar.jsp").forward(req, resp);
     }
 
     @Override
