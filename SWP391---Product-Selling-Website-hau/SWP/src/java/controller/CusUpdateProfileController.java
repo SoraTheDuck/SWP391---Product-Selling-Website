@@ -10,14 +10,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import model.Customer;
 
 /**
  *
  * @author Admin
  */
-public class CusProfileController extends HttpServlet {
+public class CusUpdateProfileController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +31,16 @@ public class CusProfileController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-//            Customer c = new Customer();
-//            int accountId = c.getId();
-//            c.getCustomer(cusId);
-//            String name = c.getName(cusId);
-//            request.setAttribute("user", user);
-//            request.setAttribute("name", name);
-//            request.getRequestDispatcher("cus_profile").forward(request, response);
+            Customer c = new Customer();
+            int id = Integer.parseInt(request.getParameter("id"));
+            String name = request.getParameter("name");
+            String address = request.getParameter("address");
+            String email = request.getParameter("email");
+
+            c.updateInfo(name, address, email, id, request.getSession());
+            request.setAttribute("profile_mess", "Update profile successfully!");
+            request.getRequestDispatcher("Customer_profile.jsp").forward(request, response);
+
         }
     }
 
@@ -55,6 +56,7 @@ public class CusProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
