@@ -122,7 +122,7 @@
                                                class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                 <span>View Full Cart</span>
                                             </a>
-                                            <a href="checkout.jsp"
+                                            <a href="Checkout.jsp"
                                                class="li-button li-button-fullwidth li-button-sm">
                                                 <span>Checkout</span>
                                             </a>

@@ -211,7 +211,7 @@
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
                                         <div class="product-image">
-                                            <a href="single-product.html">
+                                            <a href="single-product.jsp">
                                                 <img src="images/product/large-size/1.jpg"
                                                      alt="Li's Product Image">
                                             </a>
@@ -234,7 +234,7 @@
                                                     </div>
                                                 </div>
                                                 <h4><a class="product_name"
-                                                       href="single-product.html">Accusantium
+                                                       href="single-product.jsp">Accusantium
                                                         dolorem1</a></h4>
                                                 <div class="price-box">
                                                     <span class="new-price">$46.80</span>
@@ -243,9 +243,6 @@
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                    <li><a class="links-details"
-                                                           href="wishlist.html"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
                                                     <li><a href="#"
                                                            title="quick view"
                                                            class="quick-view-btn"
@@ -263,7 +260,7 @@
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
                                         <div class="product-image">
-                                            <a href="single-product.html">
+                                            <a href="single-product.jsp">
                                                 <img src="images/product/large-size/2.jpg"
                                                      alt="Li's Product Image">
                                             </a>
@@ -286,7 +283,7 @@
                                                     </div>
                                                 </div>
                                                 <h4><a class="product_name"
-                                                       href="single-product.html">Mug Today is a
+                                                       href="single-product.jsp">Mug Today is a
                                                         good day</a></h4>
                                                 <div class="price-box">
                                                     <span class="new-price new-price-2">$71.80</span>
@@ -297,9 +294,6 @@
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                    <li><a class="links-details"
-                                                           href="wishlist.html"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
                                                     <li><a href="#"
                                                            title="quick view"
                                                            class="quick-view-btn"
@@ -317,7 +311,7 @@
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
                                         <div class="product-image">
-                                            <a href="single-product.html">
+                                            <a href="single-product.jsp">
                                                 <img src="images/product/large-size/5.jpg"
                                                      alt="Li's Product Image">
                                             </a>
@@ -340,7 +334,7 @@
                                                     </div>
                                                 </div>
                                                 <h4><a class="product_name"
-                                                       href="single-product.html">Accusantium
+                                                       href="single-product.jsp">Accusantium
                                                         dolorem1</a></h4>
                                                 <div class="price-box">
                                                     <span class="new-price">$46.80</span>
@@ -349,9 +343,6 @@
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                    <li><a class="links-details"
-                                                           href="wishlist.html"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
                                                     <li><a href="#"
                                                            title="quick view"
                                                            class="quick-view-btn"
@@ -369,7 +360,7 @@
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
                                         <div class="product-image">
-                                            <a href="single-product.html">
+                                            <a href="single-product.jsp">
                                                 <img src="images/product/large-size/8.jpg"
                                                      alt="Li's Product Image">
                                             </a>
@@ -392,7 +383,7 @@
                                                     </div>
                                                 </div>
                                                 <h4><a class="product_name"
-                                                       href="single-product.html">Mug Today is a
+                                                       href="single-product.jsp">Mug Today is a
                                                         good day</a></h4>
                                                 <div class="price-box">
                                                     <span class="new-price new-price-2">$71.80</span>
@@ -403,9 +394,6 @@
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                    <li><a class="links-details"
-                                                           href="wishlist.html"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
                                                     <li><a href="#"
                                                            title="quick view"
                                                            class="quick-view-btn"
@@ -423,7 +411,7 @@
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
                                         <div class="product-image">
-                                            <a href="single-product.html">
+                                            <a href="single-product.jsp">
                                                 <img src="images/product/large-size/7.jpg"
                                                      alt="Li's Product Image">
                                             </a>
@@ -446,7 +434,7 @@
                                                     </div>
                                                 </div>
                                                 <h4><a class="product_name"
-                                                       href="single-product.html">Accusantium
+                                                       href="single-product.jsp">Accusantium
                                                         dolorem1</a></h4>
                                                 <div class="price-box">
                                                     <span class="new-price">$46.80</span>
@@ -455,9 +443,6 @@
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                    <li><a class="links-details"
-                                                           href="wishlist.html"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
                                                     <li><a href="#"
                                                            title="quick view"
                                                            class="quick-view-btn"
@@ -475,7 +460,7 @@
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
                                         <div class="product-image">
-                                            <a href="single-product.html">
+                                            <a href="single-product.jsp">
                                                 <img src="images/product/large-size/4.jpg"
                                                      alt="Li's Product Image">
                                             </a>
@@ -498,7 +483,7 @@
                                                     </div>
                                                 </div>
                                                 <h4><a class="product_name"
-                                                       href="single-product.html">Mug Today is a
+                                                       href="single-product.jsp">Mug Today is a
                                                         good day</a></h4>
                                                 <div class="price-box">
                                                     <span class="new-price new-price-2">$71.80</span>
@@ -509,9 +494,6 @@
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                    <li><a class="links-details"
-                                                           href="wishlist.html"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
                                                     <li><a href="#"
                                                            title="quick view"
                                                            class="quick-view-btn"
@@ -912,7 +894,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/11.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -937,7 +919,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Accusantium
+                                                               href="single-product.jsp">Accusantium
                                                                 dolorem1</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price">$46.80</span>
@@ -946,10 +928,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -967,7 +945,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/7.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -992,7 +970,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Mug Today
+                                                               href="single-product.jsp">Mug Today
                                                                 is a good day</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price new-price-2">$71.80</span>
@@ -1003,10 +981,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1024,7 +998,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/9.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1049,7 +1023,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Accusantium
+                                                               href="single-product.jsp">Accusantium
                                                                 dolorem1</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price">$46.80</span>
@@ -1058,10 +1032,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1079,7 +1049,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/5.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1104,7 +1074,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Mug Today
+                                                               href="single-product.jsp">Mug Today
                                                                 is a good day</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price new-price-2">$71.80</span>
@@ -1115,10 +1085,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1136,7 +1102,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/7.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1161,7 +1127,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Accusantium
+                                                               href="single-product.jsp">Accusantium
                                                                 dolorem1</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price">$46.80</span>
@@ -1170,10 +1136,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1191,7 +1153,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/5.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1216,7 +1178,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Mug Today
+                                                               href="single-product.jsp">Mug Today
                                                                 is a good day</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price new-price-2">$71.80</span>
@@ -1227,10 +1189,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1255,7 +1213,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/3.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1280,7 +1238,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Accusantium
+                                                               href="single-product.jsp">Accusantium
                                                                 dolorem1</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price">$46.80</span>
@@ -1289,10 +1247,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1310,7 +1264,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/7.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1335,7 +1289,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Mug Today
+                                                               href="single-product.jsp">Mug Today
                                                                 is a good day</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price new-price-2">$71.80</span>
@@ -1346,10 +1300,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1367,7 +1317,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/9.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1392,7 +1342,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Accusantium
+                                                               href="single-product.jsp">Accusantium
                                                                 dolorem1</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price">$46.80</span>
@@ -1401,10 +1351,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1422,7 +1368,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/1.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1447,7 +1393,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Mug Today
+                                                               href="single-product.jsp">Mug Today
                                                                 is a good day</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price new-price-2">$71.80</span>
@@ -1458,10 +1404,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1479,7 +1421,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/11.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1504,7 +1446,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Accusantium
+                                                               href="single-product.jsp">Accusantium
                                                                 dolorem1</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price">$46.80</span>
@@ -1513,10 +1455,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1534,7 +1472,7 @@
                                             <!-- single-product-wrap start -->
                                             <div class="single-product-wrap">
                                                 <div class="product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single-product.jsp">
                                                         <img src="images/product/large-size/9.jpg"
                                                              alt="Li's Product Image">
                                                     </a>
@@ -1559,7 +1497,7 @@
                                                             </div>
                                                         </div>
                                                         <h4><a class="product_name"
-                                                               href="single-product.html">Mug Today
+                                                               href="single-product.jsp">Mug Today
                                                                 is a good day</a></h4>
                                                         <div class="price-box">
                                                             <span class="new-price new-price-2">$71.80</span>
@@ -1570,10 +1508,6 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                            <li><a class="links-details"
-                                                                   href="wishlist.html"><i
-                                                                       class="fa fa-heart-o"></i></a>
-                                                            </li>
                                                             <li><a href="#"
                                                                    title="quick view"
                                                                    class="quick-view-btn"
@@ -1729,9 +1663,6 @@
                                             </form>
                                         </div>
                                         <div class="product-additional-info pt-25">
-                                            <a class="wishlist-btn"
-                                               href="wishlist.html"><i class="fa fa-heart-o"></i>Add
-                                                to wishlist</a>
                                             <div class="product-social-sharing pt-25">
                                                 <ul>
                                                     <li class="facebook"><a href="#"><i
