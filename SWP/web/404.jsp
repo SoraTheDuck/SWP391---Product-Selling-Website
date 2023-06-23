@@ -1,22 +1,17 @@
-<%-- 
-    Document   : Register
-    Created on : Jun 2, 2023, 1:46:45 PM
-    Author     : admin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="zxx">
+    
+<!-- 40432:14-->
 <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Login Register || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+        <title>404 Error || Something goes wrong</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-        <!-- Material Design Iconic Font-V2.2.0 -->
+        <!-- Font--->
         <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -50,60 +45,38 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser.</p>
+	<![endif]-->
+        <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
-            <!-- Begin Header Area -->
             <%@include file="components/Header.jsp" %>
-            <!-- Header Area End Here -->
-            <!-- Begin Li's Breadcrumb Area -->
-            <div class="breadcrumb-area">
+            <!-- Error 404 Area Start -->
+            <div class="error404-area pt-30 pb-60">
                 <div class="container">
-                    <div class="breadcrumb-content">
-                        <ul>
-                            <li><a href="Home.jsp">Home</a></li>
-                            <li class="active">Register</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Li's Breadcrumb Area End Here -->
-            <!-- Begin Register Content Area-->
-                        <div class="container mt-10 mb-60">
-                            <p>${mess}</p>
-                            <form action="register" method="post">
-                                <div class="login-form">
-                                    <h4 class="login-title">Register</h4>
-                                    <div class="row">
-                                        <div class="col-md-12 mb-20">
-                                            <label>Name</label>
-                                            <input class="mb-0" type="text" placeholder="Name" name="name" required>
-                                        </div>
-                                        <div class="col-md-12 mb-20">
-                                            <label>Address</label>
-                                            <input class="mb-0" type="text" placeholder="Address" name="address" required>
-                                        </div>
-                                        <div class="col-md-12 mb-20">
-                                            <label>Email Address*</label>
-                                            <input class="mb-0" type="email" placeholder="Email Address" name="email" required>
-                                        </div>
-                                        <div class="col-md-6 mb-20">
-                                            <label>Password</label>
-                                            <input class="mb-0" type="password" placeholder="Password" name="pass" required>
-                                        </div>
-                                        <div class="col-md-6 mb-20">
-                                            <label>Confirm Password</label>
-                                            <input class="mb-0" type="password" placeholder="Confirm Password" name="rePass" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="register-button mt-0" type="submit" name="register">Register</button>
-                                        </div>
-                                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="error-wrapper text-center ptb-50 pt-xs-20">
+                                <div class="error-text">
+                                    <h1>404</h1>
+                                    <h2>Opps! PAGE NOT BE FOUND</h2>
+                                    <p>Sorry but the page you are looking for does not exist, have been removed, <br> name changed or is temporarity unavailable.</p>
                                 </div>
-                            </form>
+                                <div class="search-error">
+                                    <form id="search-form" action="#">
+                                        <input type="text" placeholder="Search">
+                                        <button><i class="zmdi zmdi-search"></i></button>
+                                    </form>
+                                </div>
+                                <div class="error-button">
+                                    <a href="Home.jsp">Back to home page</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Register Content Area End Here -->
+            <!-- Error 404 Area End -->
             <!-- Begin Footer Area -->
             <%@include file="components/Footer.jsp" %>
             <!-- Footer Area End Here -->
@@ -152,4 +125,6 @@
         <!-- Main/Activator js -->
         <script src="js/main.js"></script>
     </body>
+
+<!-- 40432:14-->
 </html>
