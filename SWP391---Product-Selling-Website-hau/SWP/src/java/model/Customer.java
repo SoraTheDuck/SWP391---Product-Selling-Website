@@ -237,26 +237,31 @@ public class Customer {
     }
     
     
-    public void updateInfo(String name, String address, String email, int id, HttpSession session) {
-        try {
-            String strSelect = "UPDATE headphone.customer\n"
-                    + "SET CustomerName=?,\n"
-                    + "Address=?,\n"
-                    + "Email=?\n"
-                    + "WHERE CustomerId=?";
-            pstm = cnn.prepareStatement(strSelect);
-            pstm.setString(1, name);
-            pstm.setString(2, address);
-            pstm.setString(3, email);
-            pstm.setInt(4, id);
+    public boolean updateInfo(String name, String address, String email, int id, HttpSession session) {
+    try {
+        String strSelect = "UPDATE headphone.customer\n"
+                + "SET CustomerName=?,\n"
+                + "Address=?,\n"
+                + "Email=?\n"
+                + "WHERE CustomerId=?";
+        pstm = cnn.prepareStatement(strSelect);
+        pstm.setString(1, name);
+        pstm.setString(2, address);
+        pstm.setString(3, email);
+        pstm.setInt(4, id);
 
-            pstm.executeUpdate();
+        int rowsUpdated = pstm.executeUpdate();
+
+        if (rowsUpdated > 0) {
             Customer updatedCustomer = new Customer(name, password, address, email);
             session.setAttribute("cus", updatedCustomer);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            return true; // Update successful
         }
+    } catch (Exception ex) {
+        ex.printStackTrace();
     }
+    return false; // Update failed
+}
 
     public String getPassword(int id) {
         String strSelect = "SELECT\n"

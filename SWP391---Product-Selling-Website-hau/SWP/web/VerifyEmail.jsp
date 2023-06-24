@@ -76,21 +76,20 @@
             <%@include file="components/Header.jsp" %>
             <!-- Header Area End Here -->
             <!-- Begin Verify Email Area -->
-            <div class="error404-area pt-30 pb-60">
+            <div class="pt-30 pb-60">
                 <div class="container">
-                    <div class="row">
+                    
                         <div class="col-lg-12">
-                            <div class="error-wrapper text-center ptb-50 pt-xs-20">
-                            <p>${fail}</p>
                             <h4>The verification code is sent to your Email</h4>
-                            <form action="verifyEmail" method="post">
-                                <input name="otp" id="otp" type="text" placeholder="Enter code" required>
-                                <input type="submit" value="Verify code">
-                            </form>
-                        
+                            <p style="color:red;">${fail}</p>
+                            <div style="max-width: 700px;">
+                                <form action="verifyEmail" method="post">
+                                    <input name="otp" id="otp" type="text" placeholder="Enter code" required>
+                                    <input type="submit" value="Verify code">
+                                </form>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
             <!-- Verify Email Area End Here -->

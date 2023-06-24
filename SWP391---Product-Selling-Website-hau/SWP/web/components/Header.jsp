@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header>
     <!-- Begin Header Middle Area -->
-    <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
+    <div class="header-middle">
         <div class="container">
             <div class="row">
                 <!-- Begin Header Logo Area -->
@@ -16,8 +16,9 @@
                 </div>
                 <!-- Header Logo Area End Here -->
                 <!-- Begin Header Middle Right Area -->
-                <div class="header-middle-search col-lg-6 pl-0 ml-sm-15 ml-xs-15">
+                <div class="header-middle-search col-lg-6">
                     <!-- Begin Header Middle Searchbox Area -->
+                    
                     <form action="search" method ="post" 
                           class="hm-searchbox">
                         <input type="text" name="searchbox" placeholder="Enter your search key ..." required>

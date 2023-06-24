@@ -149,7 +149,7 @@
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputEmail">Email address</label>
                                         <input class="form-control" id="inputEmail" type="email" name="email" placeholder="Enter your email address"
-                                               value="${sessionScope.cus.email}" />
+                                               value="${sessionScope.cus.email}" readonly />
                                     </div>
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputPhone">Phone number</label>

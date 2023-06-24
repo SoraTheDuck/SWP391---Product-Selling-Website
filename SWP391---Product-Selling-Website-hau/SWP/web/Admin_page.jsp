@@ -12,6 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div class="row">
+            <div style="padding: 20px">
+                <a href="#">Home</a>
+                <a href="Admin_users.jsp">Users</a>
+                <a href="Admin_products.jsp">Products</a>
+                <a href="#">Orders</a>
+            </div>
+        </div>
         Hello ${email}
+        
     </body>
 </html>
