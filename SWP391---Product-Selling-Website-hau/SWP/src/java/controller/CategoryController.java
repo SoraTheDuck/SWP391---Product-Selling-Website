@@ -44,7 +44,7 @@ public class CategoryController extends HttpServlet {
             startIndex = (currentPage - 1) * pageSize;
         }
         
-        List<Product> list = product.getAllProductByCategoryByPage(cid, pageSize, startIndex);
+        List<Product> list = product.getAllProductByCategoryByPage2(cid, pageSize, startIndex);
         
         req.setAttribute("list", list);
         req.setAttribute("currentPage", currentPage);

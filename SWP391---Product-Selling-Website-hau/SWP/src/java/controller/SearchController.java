@@ -39,7 +39,7 @@ public class SearchController extends HttpServlet {
             startIndex = (currentPage - 1) * pageSize;
         }
         
-        List<Product> list = p.searchProductByNameByPage(searchValue, pageSize, startIndex);
+        List<Product> list = p.searchProductByNameByPage2(searchValue, pageSize, startIndex);
         
         
         req.setAttribute("list", list);
@@ -66,7 +66,7 @@ public class SearchController extends HttpServlet {
             startIndex = (currentPage - 1) * pageSize;
         }
         
-        List<Product> list = p.searchProductByNameByPage(searchValue, pageSize, startIndex);
+        List<Product> list = p.searchProductByNameByPage2(searchValue, pageSize, startIndex);
         
         
         req.setAttribute("list", list);

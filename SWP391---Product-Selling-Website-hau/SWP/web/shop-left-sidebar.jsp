@@ -57,7 +57,7 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="Home.jsp">Home</a></li>
+                            <li><a href="home">Home</a></li>
                             <li class="active">Shop</li>
                         </ul>
                     </div>
@@ -138,20 +138,85 @@
                                                                         <h5 class="manufacturer">
                                                                             <a href="detail?pid=${o.id}">${o.name}</a>
                                                                             <p>${o.wire}</p>
+                                                                            
                                                                         </h5>
                                                                         <div class="rating-box">
-                                                                            <ul class="rating">
-                                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                            </ul>
+                                                                            <c:choose>
+                                                                                <c:when test="${o.getAvgrating() <=0.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 0.5 && o.getAvgrating() <=1.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 1.5 && o.getAvgrating() <=2.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 2.5 && o.getAvgrating() <=3.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 3.5 && o.getAvgrating() <=4.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 4.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                            </c:choose>
                                                                         </div>
                                                                     </div>
                                                                     <h4><a class="product_name" href="detail?pid=${o.id}">${o.name}</a></h4>
                                                                     <div class="price-box">
-                                                                        <span class="new-price">$ ${o.price}</span>
+                                                                        <c:choose>
+                                                                            <c:when test="${o.discount > 0}">
+                                                                                <span class="new-price new-price-2">$ ${o.price}</span>
+                                                                                <span class="old-price">$ ${o.saleprice}</span>
+                                                                                <span class="discount-percentage">${o.discount}%</span>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <span class="new-price new-price-2">$ ${o.price}</span>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                                     </div>
                                                                 </div>
                                                                 <div class="add-actions">

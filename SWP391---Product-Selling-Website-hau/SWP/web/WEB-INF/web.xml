@@ -44,6 +44,10 @@
         <servlet-name>CategoryController</servlet-name>
         <servlet-class>controller.CategoryController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>WriteReviewController</servlet-name>
+        <servlet-class>controller.WriteReviewController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/category</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WriteReviewController</servlet-name>
+        <url-pattern>/writereview</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

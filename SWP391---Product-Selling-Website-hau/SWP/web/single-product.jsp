@@ -43,6 +43,25 @@
         <!-- Modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
+    
+    <style>
+            .comment-section{
+                max-height: 50vh;
+                overflow-y:scroll;
+                margin-top: 30px;
+                border: 3px solid #92aae5;
+            }
+            .comment{
+                height: 10%;
+                padding: 1%;
+                margin: 2%;
+                background-color: #ffffff;
+                color: black;
+                border: 1px solid black;
+                border-radius: 10px;
+            }
+        </style>
+    
     <body>
     <!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -57,7 +76,7 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="Home.jsp">Home</a></li>
+                            <li><a href="/SWP/home">Home</a></li>
                             <li class="active">${detail.name}</li>
                         </ul>
                     </div>
@@ -119,17 +138,81 @@
                             <div class="product-details-view-content pt-60">
                                 <div class="product-info">
                                     <h2>${detail.name}</h2>
+                                    
                                     <div class="rating-box pt-20">
-                                        <ul class="rating rating-with-review-item">
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                        </ul>
+                                        <c:choose>
+                                            <c:when test="${detail.getAvgrating() <=0.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 0.5 && detail.getAvgrating() <=1.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 1.5 && detail.getAvgrating() <=2.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 2.5 && detail.getAvgrating() <=3.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 3.5 && detail.getAvgrating() <=4.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 4.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                        </c:choose>
+                                        (${detail.getAvgrating()}/5) out of ${reviewListSize} reviews
+                                        <br>
                                     </div>
-                                    <div class="price-box pt-20">
-                                        <span class="new-price new-price-2">$ ${detail.price}</span>
+                                        <br>
+                                    <div class="price-box">
+                                        <c:choose>
+                                            <c:when test="${detail.getDiscount() > 0}">
+                                                <span class="new-price new-price-2">$ ${detail.getSaleprice()}</span> <br>
+                                                <span class="old-price">$ ${detail.price}</span> <br>
+                                                <span class="discount-percentage">${detail.getDiscount()}%</span> <br>
+                                                <span>From ${detail.getStartdate()} to ${detail.getEnddate()}</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="new-price new-price-2">$ ${detail.price}</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        
                                     </div>
                                     <div class="product-desc">
                                         <p>
@@ -208,7 +291,7 @@
                             <div class="li-product-tab">
                                 <ul class="nav li-product-menu">
                                    <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
-                                   <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
+                                   <li><a data-toggle="tab" href="#reviews"><span>Reviews (${reviewListSize})</span></a></li>
                                 </ul>               
                             </div>
                             <!-- Begin Li's Tab Menu Content Area -->
@@ -224,23 +307,136 @@
                             <div class="product-reviews">
                                 <div class="product-details-comment-block">
                                     <div class="comment-review">
-                                        <span>Grade</span>
-                                        <ul class="rating">
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                        </ul>
+                                        <span>Average Rating: </span>
+                                        <c:choose>
+                                            <c:when test="${detail.getAvgrating() <=0.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 0.5 && detail.getAvgrating() <=1.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 1.5 && detail.getAvgrating() <=2.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 2.5 && detail.getAvgrating() <=3.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 3.5 && detail.getAvgrating() <=4.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                            <c:when test="${detail.getAvgrating() > 4.5}">
+                                                <ul class="rating rating-with-review-item">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </c:when>
+                                        </c:choose>
+                                        (${detail.getAvgrating()}/5) out of ${reviewListSize} reviews
                                     </div>
-                                    <div class="comment-author-infos pt-25">
-                                        <span>HTML 5</span>
-                                        <em>01-12-18</em>
-                                    </div>
-                                    <div class="comment-details">
-                                        <h4 class="title-block">Demo</h4>
-                                        <p>Plaza</p>
-                                    </div>
+                                    
+                                        
+                                        <c:choose>
+                                            <c:when test="${reviewListSize == 0 }">
+                                                <p>This product has no reviews</p>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <div class="comment-section">
+                                                <c:forEach items="${review}" var="o">
+
+                                                    <div class="comment-author-infos pt-25">
+
+                                                        <span>${o.getCustomerName()}</span>
+                                                            <c:choose>
+                                                                <c:when test="${o.getRating() == 5}">
+                                                                        <ul class="rating rating-with-review-item">
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                        </ul>
+                                                                </c:when>
+                                                                <c:when test="${o.getRating() == 4}">
+                                                                        <ul class="rating rating-with-review-item">
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                        </ul>
+                                                                </c:when>
+                                                                <c:when test="${o.getRating() == 3}">
+                                                                        <ul class="rating rating-with-review-item">
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                        </ul>
+                                                                </c:when>
+                                                                <c:when test="${o.getRating() == 2}">
+                                                                        <ul class="rating rating-with-review-item">
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                        </ul>
+                                                                </c:when>
+                                                                <c:when test="${o.getRating() == 1}">
+                                                                        <ul class="rating rating-with-review-item">
+                                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                        </ul>
+                                                                </c:when>
+                                                            </c:choose>
+                                                        <em>${o.getPostDate()}</em>
+                                                        <em>${o.getContent()}</em>
+                                                        <br>
+                                                    </div>
+                                                </c:forEach>
+                                                </div>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                    
+                                    <br>
+                                    
                                     <div class="review-btn">
                                         <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
                                     </div>
@@ -253,11 +449,11 @@
                                                     <div class="modal-inner-area row">
                                                         <div class="col-lg-6">
                                                            <div class="li-review-product">
-                                                               <img src="images/product/large-size/3.jpg" alt="Li's Product">
+                                                               <img src="${detail.image}" alt="Li's Product">
                                                                <div class="li-review-product-desc">
-                                                                   <p class="li-product-name">Today is a good day Framed poster</p>
+                                                                   <p class="li-product-name">${detail.name}</p>
                                                                    <p>
-                                                                       <span>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Design </span>
+                                                                       <span>${detail.description}</span>
                                                                    </p>
                                                                </div>
                                                            </div>
@@ -268,41 +464,41 @@
                                                                 <div class="feedback-area">
                                                                     <div class="feedback">
                                                                         <h3 class="feedback-title">Our Feedback</h3>
-                                                                        <form action="#">
-                                                                            <p class="your-opinion">
-                                                                                <label>Your Rating</label>
-                                                                                <span>
-                                                                                    <select class="star-rating">
-                                                                                      <option value="1">1</option>
-                                                                                      <option value="2">2</option>
-                                                                                      <option value="3">3</option>
-                                                                                      <option value="4">4</option>
-                                                                                      <option value="5">5</option>
-                                                                                    </select>
-                                                                                </span>
-                                                                            </p>
-                                                                            <p class="feedback-form">
-                                                                                <label for="feedback">Your Review</label>
-                                                                                <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true"></textarea>
-                                                                            </p>
-                                                                            <div class="feedback-input">
-                                                                                <p class="feedback-form-author">
-                                                                                    <label for="author">Name<span class="required">*</span>
-                                                                                    </label>
-                                                                                    <input id="author" name="author" value="" size="30" aria-required="true" type="text">
-                                                                                </p>
-                                                                                <p class="feedback-form-author feedback-form-email">
-                                                                                    <label for="email">Email<span class="required">*</span>
-                                                                                    </label>
-                                                                                    <input id="email" name="email" value="" size="30" aria-required="true" type="text">
-                                                                                    <span class="required"><sub>*</sub> Required fields</span>
-                                                                                </p>
-                                                                                <div class="feedback-btn pb-15">
-                                                                                    <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                                    <a href="#">Submit</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
+                                                                        <c:choose>
+                                                                            <c:when test="${sessionScope.cus != null}">
+                                                                                <form action="writereview" method="post">
+                                                                                    <p class="your-opinion">
+                                                                                        <label>Your Rating</label>
+                                                                                        <input hidden name="productid" value="${detail.id}">
+                                                                                        <input hidden="" name="logined" value="${sessionScope.cus.getId()}">
+                                                                                        <span>
+                                                                                            <select class="star-rating" name="rating">
+                                                                                              <option value="1">1</option>
+                                                                                              <option value="2">2</option>
+                                                                                              <option value="3">3</option>
+                                                                                              <option value="4">4</option>
+                                                                                              <option value="5">5</option>
+                                                                                            </select>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                    <p class="feedback-form">
+                                                                                        <label for="feedback">Your Review</label>
+                                                                                        <textarea id="feedback" name="content" cols="45" rows="8" aria-required="true"></textarea>
+                                                                                    </p>
+                                                                                    <div class="feedback-input">
+                                                                                        <div class="feedback-btn pb-15">
+                                                                                            <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
+                                                                                            <button type="submit">Submit</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                You have to log in before you can write your review of the product
+                                                                                <a href="login">Click here to login</a>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 <!-- Feedback Area End Here -->
@@ -322,277 +518,7 @@
             </div>
             <!-- Product Area End Here -->
             <!-- Begin Li's Laptop Product Area -->
-            <section class="product-area li-laptop-product pt-30 pb-50">
-                <div class="container">
-                    <div class="row">
-                        <!-- Begin Li's Section Area -->
-                        <div class="col-lg-12">
-                            <div class="li-section-title">
-                                <h2>
-                                    <span>15 other products in the same category:</span>
-                                </h2>
-                            </div>
-                            <div class="row">
-                                <div class="product-active owl-carousel">
-                                    <div class="col-lg-12">
-                                        <!-- single-product-wrap start -->
-                                        <div class="single-product-wrap">
-                                            <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="images/product/large-size/1.jpg" alt="Li's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                            </div>
-                                            <div class="product_desc">
-                                                <div class="product_desc_info">
-                                                    <div class="product-review">
-                                                        <h5 class="manufacturer">
-                                                            <a href="product-details.html">Graphic Corner</a>
-                                                        </h5>
-                                                        <div class="rating-box">
-                                                            <ul class="rating">
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <h4><a class="product_name" href="single-product.html">Accusantium dolorem1</a></h4>
-                                                    <div class="price-box">
-                                                        <span class="new-price">$46.80</span>
-                                                    </div>
-                                                </div>
-                                                <div class="add-actions">
-                                                    <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- single-product-wrap end -->
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <!-- single-product-wrap start -->
-                                        <div class="single-product-wrap">
-                                            <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="images/product/large-size/2.jpg" alt="Li's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                            </div>
-                                            <div class="product_desc">
-                                                <div class="product_desc_info">
-                                                    <div class="product-review">
-                                                        <h5 class="manufacturer">
-                                                            <a href="product-details.html">Studio Design</a>
-                                                        </h5>
-                                                        <div class="rating-box">
-                                                            <ul class="rating">
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <h4><a class="product_name" href="single-product.html">Mug Today is a good day</a></h4>
-                                                    <div class="price-box">
-                                                        <span class="new-price new-price-2">$71.80</span>
-                                                        <span class="old-price">$77.22</span>
-                                                        <span class="discount-percentage">-7%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="add-actions">
-                                                    <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- single-product-wrap end -->
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <!-- single-product-wrap start -->
-                                        <div class="single-product-wrap">
-                                            <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="images/product/large-size/3.jpg" alt="Li's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                            </div>
-                                            <div class="product_desc">
-                                                <div class="product_desc_info">
-                                                    <div class="product-review">
-                                                        <h5 class="manufacturer">
-                                                            <a href="product-details.html">Graphic Corner</a>
-                                                        </h5>
-                                                        <div class="rating-box">
-                                                            <ul class="rating">
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <h4><a class="product_name" href="single-product.html">Accusantium dolorem1</a></h4>
-                                                    <div class="price-box">
-                                                        <span class="new-price">$46.80</span>
-                                                    </div>
-                                                </div>
-                                                <div class="add-actions">
-                                                    <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- single-product-wrap end -->
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <!-- single-product-wrap start -->
-                                        <div class="single-product-wrap">
-                                            <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="images/product/large-size/4.jpg" alt="Li's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                            </div>
-                                            <div class="product_desc">
-                                                <div class="product_desc_info">
-                                                    <div class="product-review">
-                                                        <h5 class="manufacturer">
-                                                            <a href="product-details.html">Studio Design</a>
-                                                        </h5>
-                                                        <div class="rating-box">
-                                                            <ul class="rating">
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <h4><a class="product_name" href="single-product.html">Mug Today is a good day</a></h4>
-                                                    <div class="price-box">
-                                                        <span class="new-price new-price-2">$71.80</span>
-                                                        <span class="old-price">$77.22</span>
-                                                        <span class="discount-percentage">-7%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="add-actions">
-                                                    <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- single-product-wrap end -->
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <!-- single-product-wrap start -->
-                                        <div class="single-product-wrap">
-                                            <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="images/product/large-size/5.jpg" alt="Li's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                            </div>
-                                            <div class="product_desc">
-                                                <div class="product_desc_info">
-                                                    <div class="product-review">
-                                                        <h5 class="manufacturer">
-                                                            <a href="product-details.html">Graphic Corner</a>
-                                                        </h5>
-                                                        <div class="rating-box">
-                                                            <ul class="rating">
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <h4><a class="product_name" href="single-product.html">Accusantium dolorem1</a></h4>
-                                                    <div class="price-box">
-                                                        <span class="new-price">$46.80</span>
-                                                    </div>
-                                                </div>
-                                                <div class="add-actions">
-                                                    <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- single-product-wrap end -->
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <!-- single-product-wrap start -->
-                                        <div class="single-product-wrap">
-                                            <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="images/product/large-size/6.jpg" alt="Li's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                            </div>
-                                            <div class="product_desc">
-                                                <div class="product_desc_info">
-                                                    <div class="product-review">
-                                                        <h5 class="manufacturer">
-                                                            <a href="product-details.html">Studio Design</a>
-                                                        </h5>
-                                                        <div class="rating-box">
-                                                            <ul class="rating">
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <h4><a class="product_name" href="single-product.html">Mug Today is a good day</a></h4>
-                                                    <div class="price-box">
-                                                        <span class="new-price new-price-2">$71.80</span>
-                                                        <span class="old-price">$77.22</span>
-                                                        <span class="discount-percentage">-7%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="add-actions">
-                                                    <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- single-product-wrap end -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Li's Section Area End Here -->
-                    </div>
-                </div>
-            </section>
+            
             <!-- Li's Laptop Product Area End Here -->
             <!-- Begin Footer Area -->
             <%@include file="components/Footer.jsp" %>

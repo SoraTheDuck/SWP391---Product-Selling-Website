@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import model.Product;
+import model.Review;
 
 /**
  *
@@ -26,7 +28,12 @@ public class DetailController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pid = req.getParameter("pid");
         Product product = new Product();
-        req.setAttribute("detail", product.getProductByID(pid));
+        Review review = new Review();
+        List<Review> reviewListSize = review.getAllReviewsByProductID(pid);
+        
+        req.setAttribute("detail", product.getProductByID2(pid));
+        req.setAttribute("review", review.getAllReviewsByProductID(pid));
+        req.setAttribute("reviewListSize", reviewListSize.size());
         req.getRequestDispatcher("single-product.jsp").forward(req, resp);
     }
     

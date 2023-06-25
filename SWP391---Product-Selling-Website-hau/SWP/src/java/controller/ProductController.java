@@ -44,7 +44,7 @@ public class ProductController extends HttpServlet {
             startIndex = (currentPage - 1) * pageSize;
         }
         
-        List<Product> list = product.getAllProductByPage(pageSize, startIndex);
+        List<Product> list = product.getAllProductByPage2(pageSize, startIndex);
 
 
         req.setAttribute("list", list);
