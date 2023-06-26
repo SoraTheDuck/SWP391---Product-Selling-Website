@@ -34,7 +34,11 @@
                     <!-- Begin Login Button Area -->
                     <c:choose>
                         <c:when test="${sessionScope.cus != null}">
+<<<<<<< Updated upstream
                             <a href="./Customer_profile.jsp" class="log-sign-btn log">${sessionScope.cus.name}</a>
+=======
+                            <a href="Customer_profile.jsp" class="log-sign-btn log">${sessionScope.cus.name}</a>
+>>>>>>> Stashed changes
                             <a href="LogoutController" class="log-sign-btn sign">Log out</a>
                         </c:when>
                         <c:otherwise>

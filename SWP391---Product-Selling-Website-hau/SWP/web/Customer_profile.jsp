@@ -73,26 +73,13 @@
 
                 <div class="row">
                     <div class="col-xl-4">
-                        <!-- Profile picture card-->
-                        <div class="card mb-4 mb-xl-0">
-                            <div class="card-header">Profile Picture</div>
-                            <div class="card-body text-center">
-                                <!-- Profile picture image-->
-                                <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
-                                     alt="" />
-                                <!-- Profile picture help block-->
-                                <div class="small font-italic text-muted mb-4">
-                                    JPG or PNG no larger than 5 MB
-                                </div>
-                                <!-- Profile picture upload button-->
-                                <button class="btn btn-primary" type="button">
-                                    Upload new image
-                                </button>
-                            </div>
-                        </div>
                         <div class="card mb-4 mb-xl-0">
                             <div class="card-header">Change Password</div>
+<<<<<<< Updated upstream
                             
+=======
+
+>>>>>>> Stashed changes
                             <div class="card-body text-center">
                                 <!-- Profile picture image-->
                                 <form action ="change-pass?id=${sessionScope.cus.id}" method ="POST">
@@ -121,7 +108,11 @@
                                                    name="renewpassword" />
                                         </div>
                                     </div>
+<<<<<<< Updated upstream
                                     <input class="btn btn-primary" type="submit" value="Save changes">
+=======
+                                    <button class="btn btn-primary" type="submit" >Save changes</button>
+>>>>>>> Stashed changes
                                 </form>
                             </div>
                         </div>
@@ -150,11 +141,14 @@
                                         <label class="small mb-1" for="inputEmail">Email address</label>
                                         <input class="form-control" id="inputEmail" type="email" name="email" placeholder="Enter your email address"
                                                value="${sessionScope.cus.email}" readonly />
+<<<<<<< Updated upstream
                                     </div>
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputPhone">Phone number</label>
                                         <input class="form-control" id="inputPhone" type="tel" name="phone" placeholder="Enter your phone number"
                                                value="">
+=======
+>>>>>>> Stashed changes
                                     </div>
                                     <!-- Save changes button-->
                                     <button class="btn btn-primary" type="submit">

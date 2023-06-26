@@ -236,6 +236,7 @@ public class Customer {
         return null;
     }
     
+<<<<<<< Updated upstream
     
     public boolean updateInfo(String name, String address, String email, int id, HttpSession session) {
     try {
@@ -262,6 +263,33 @@ public class Customer {
     }
     return false; // Update failed
 }
+=======
+    public boolean updateInfo(String name, String address, String email, int id, HttpSession session) {
+        try {
+            String strSelect = "UPDATE headphone.customer\n"
+                    + "SET CustomerName=?,\n"
+                    + "Address=?,\n"
+                    + "Email=?\n"
+                    + "WHERE CustomerId=?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, name);
+            pstm.setString(2, address);
+            pstm.setString(3, email);
+            pstm.setInt(4, id);
+
+            int rowsUpdated = pstm.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                Customer updatedCustomer = new Customer(name, password, address, email);
+                session.setAttribute("cus", updatedCustomer);
+                return true; // Update successful
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false; // Update failed
+    }
+>>>>>>> Stashed changes
 
     public String getPassword(int id) {
         String strSelect = "SELECT\n"
@@ -271,10 +299,19 @@ public class Customer {
         try {
             pstm = cnn.prepareStatement(strSelect);
             pstm.setInt(1, id);
+<<<<<<< Updated upstream
             rs=pstm.executeQuery();
             while (rs.next()) {
                 return rs.getString(1);
             }
+=======
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+
+            pstm.close();
+>>>>>>> Stashed changes
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -290,6 +327,7 @@ public class Customer {
             pstm.setString(1, password);
             pstm.setInt(2, id);
             pstm.executeUpdate();
+<<<<<<< Updated upstream
             
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -307,4 +345,11 @@ public class Customer {
         }
     }
     }
+=======
+            pstm.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+>>>>>>> Stashed changes
 }

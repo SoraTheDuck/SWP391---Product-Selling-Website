@@ -17,10 +17,6 @@
         <servlet-class>controller.AdminLoginController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CustomerProfileController</servlet-name>
-        <servlet-class>controller.CusProfileController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.LogoutController</servlet-class>
     </servlet>
@@ -52,6 +48,14 @@
         <servlet-name>ChangePassController</servlet-name>
         <servlet-class>controller.ChangePassController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CusUpdateProfileController</servlet-name>
+        <servlet-class>controller.CusUpdateProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePassController</servlet-name>
+        <servlet-class>controller.ChangePassController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -67,10 +71,6 @@
     <servlet-mapping>
         <servlet-name>AdminLoginController</servlet-name>
         <url-pattern>/ad_login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CustomerProfileController</servlet-name>
-        <url-pattern>/cus_profile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
@@ -95,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/category</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CusUpdateProfileController</servlet-name>
+        <url-pattern>/update-profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassController</servlet-name>
+        <url-pattern>/change-pass</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CusUpdateProfileController</servlet-name>
