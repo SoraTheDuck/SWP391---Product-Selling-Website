@@ -1,8 +1,8 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller;
+package controller.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,15 +16,14 @@ import model.Customer;
  *
  * @author Admin
  */
-public class ProfileController extends HttpServlet {
-
+public class DeleteUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Customer customer = (Customer) request.getSession().getAttribute("cus");
-            request.setAttribute("cus", customer);
-            request.getRequestDispatcher("Customer_profile.jsp").forward(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = new Customer();
+        customer.delete(id);
+        response.sendRedirect(request.getContextPath() + "/list-user");
     }
-
-
+    
 }

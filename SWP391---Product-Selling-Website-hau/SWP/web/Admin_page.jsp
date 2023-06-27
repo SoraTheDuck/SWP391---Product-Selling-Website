@@ -15,9 +15,10 @@
         <div class="row">
             <div style="padding: 20px">
                 <a href="#">Home</a>
-                <a href="Admin_users.jsp">Users</a>
-                <a href="Admin_products.jsp">Products</a>
-                <a href="#">Orders</a>
+                <a href="list-user">Users</a>
+                <a href="list-product">Products</a>
+                <a href="list-order">Orders</a>
+                <a style="margin-left:50px;" href="LogoutController">Log out</a>
             </div>
         </div>
         Hello ${email}

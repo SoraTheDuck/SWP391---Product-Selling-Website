@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Admin_manageUsers
-    Created on : Jun 23, 2023, 11:00:33 AM
+    Document   : Admin_orders
+    Created on : Jun 26, 2023, 4:06:26 AM
     Author     : Admin
 --%>
 
@@ -39,64 +39,61 @@
         </style>
     </head>
     <body>
-        <h3>Manage Products</h3>
+        <h3>Manage Oders</h3>
         <table border="1">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>     
-                    <th>Quantity</th> 
-                    <th colspan="2" align="center"> <a href="add-product"/> Add </a> </th>                                
+                    <th>Order Date</th>
+                    <th>Total Money</th>
+                    <th>Buyer</th>     
+                    <th>Saler</th> 
+                    <th> Action </th>                                
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="ls" items="${listPro}" >
+                <c:forEach var="ls" items="${listOrd}" >
                     <tr>
-                        <td>${ls.id}</td>                                
-                        <td>${ls.image}</td>
-                        <td>${ls.name}</td>
-                        <td>${ls.price}</td>
-                        <td>${ls.quantity}</td>
-                        <td><a href="#">  Edit </a> </td>
+                        <td>${ls.ordId}</td>                                
+                        <td>${ls.date}</td>
+                        <td>${ls.total}</td>
+                        <td>${ls.cusId}</td>
+                        <td>${ls.staffId}</td>
                         <td>
-                            <a href="#" onclick="showConfirmation('${ls.id}', '${ls.name}')">  Delete </a>
+                            <a href="#" onclick="showConfirmation(${ls.ordId})">  Delete </a>
                         </td>
-
                     </tr>
                 </c:forEach>
+
             </tbody>
         </table>
-        
+
         <!-- Confirmation Notice -->
         <div id="confirmation-notice" class="confirm-notice" style="display: none;">
-            <p>Are you sure you want to delete the following product?</p>
-            <p><strong>Product ID:</strong> <span id="product-id"></span></p>
-            <p><strong>Product Name:</strong> <span id="product-name"></span></p>
+            <p>Are you sure to delete the order?</p>
+            <p><strong>Order ID:</strong> <span id="order-id"></span></p>
             <div class="confirm-buttons">
-                <button onclick="deleteProduct()">Yes</button>
+                <button onclick="deleteOrder()">Yes</button>
                 <button onclick="cancelDelete()">Cancel</button>
             </div>
         </div>
-        
+
         <p><a href="Admin_page.jsp">Back to homepage</a>
-        
+            
         <script>
-            var productIdToDelete;
+            var orderIdToDelete;
             
             // Show confirmation dialog
-            function showConfirmation(id, name) {
-                productIdToDelete = id;
-                document.getElementById('product-id').textContent = id;
-                document.getElementById('product-name').textContent = name;
+            function showConfirmation(ordId) {
+                orderIdToDelete = ordId;
+                document.getElementById('order-id').textContent = ordId;
                 document.getElementById('confirmation-notice').style.display = 'block';
             }
             
-            // Delete product
-            function deleteProduct() {
+            // Delete order
+            function deleteOrder() {
                 // Redirect to the delete action
-                window.location.href = 'delete-product?id=' + productIdToDelete;
+                window.location.href = 'delete-order?ordId=' + orderIdToDelete;
             }
             
             // Cancel delete

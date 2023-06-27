@@ -29,7 +29,7 @@ public class CusUpdateProfileController extends HttpServlet {
             String address = request.getParameter("address");
             String email = request.getParameter("email");
 
-            boolean success = c.updateInfo(name, address, email, id, request.getSession());
+            boolean success = c.updateInfo(name, address, email, id);
             if (success) {
                 request.setAttribute("profile_mess", "Update profile successfully!");
             } else {

@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +25,16 @@ public class Customer {
     private String name, password, address, email;
 
     public Customer() {
+        connect();
+    }
+    
+    public Customer(int id, String name, String password, String address, String email) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.address = address;
+        this.email = email;
+
         connect();
     }
 
@@ -237,7 +249,7 @@ public class Customer {
         return null;
     }
 
-    public boolean updateInfo(String name, String address, String email, int id, HttpSession session) {
+    public boolean updateInfo(String name, String address, String email, int id) {
         try {
             String strSelect = "UPDATE headphone.customer\n"
                     + "SET CustomerName=?,\n"
@@ -254,8 +266,6 @@ public class Customer {
             int rowsUpdated = pstm.executeUpdate();
 
             if (rowsUpdated > 0) {
-                Customer updatedCustomer = new Customer(name, password, address, email);
-                session.setAttribute("cus", updatedCustomer);
                 return true; // Update successful
             }
         } catch (Exception ex) {
@@ -306,6 +316,77 @@ public class Customer {
             } catch (SQLException ex) {
                 System.out.println("updatePass: " + ex.getMessage());
             }
+        }
+    }
+    
+    public List<Customer> getAllCus() {
+        List<Customer> list = new ArrayList<>();
+        try {
+            String strSelect = "SELECT * FROM customer";
+            pstm = cnn.prepareStatement(strSelect);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String password = rs.getString(3);
+                String address = rs.getString(4);
+                String email = rs.getString(5);
+
+                list.add(new Customer(id, name, password, address, email));
+            }
+            pstm.close();
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+    
+    public boolean isEmailAlreadyExists(String email) {
+        boolean emailExists = false;
+        try {
+            String strSelect = "SELECT COUNT(*) FROM customer WHERE email = ?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, email);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                emailExists = count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+
+        return emailExists;
+    }
+    
+    public void addCus() {
+        try {
+            String strAdd = "INSERT INTO headphone.customer (CustomerName, Password, Address, Email) \n"
+                    + "VALUES (?, ?, ?, ?);";
+
+            pstm = cnn.prepareStatement(strAdd);
+            pstm.setString(1, name);
+            pstm.setString(2, password);
+            pstm.setString(3, address);
+            pstm.setString(4, email);
+
+            pstm.execute();
+            pstm.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void delete(int id) {
+        String strSelect = "DELETE FROM customer where CustomerID=?";
+        try {
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setInt(1, id);
+            int rowsAffected = pstm.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
