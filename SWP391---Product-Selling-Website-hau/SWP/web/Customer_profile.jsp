@@ -174,6 +174,7 @@
                             </div>
                         </div>
                     </div>
+                    <a href="history"><h5>View order history</h5></a>
                 </div>
             </div>
             <!-- Begin Footer Area -->

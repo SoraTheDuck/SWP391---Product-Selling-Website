@@ -236,13 +236,11 @@
                                         </div>
                                     </div>
                                     <div class="single-add-to-cart">
-                                        <form action="#" class="cart-quantity">
+                                        <form action="cart" method="post" class="cart-quantity">
+                                            <input type="hidden" name="id" value="${detail.id}">
                                             <div class="quantity">
-                                                <label>Quantity</label>
                                                 <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" value="1" type="text">
-                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                    <input class="cart-plus-minus-box" name="num" value="1" type="hidden">
                                                 </div>
                                             </div>
                                             <button class="add-to-cart" type="submit">Add to cart</button>

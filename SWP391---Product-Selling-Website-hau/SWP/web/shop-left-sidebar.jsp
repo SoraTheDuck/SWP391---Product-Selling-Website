@@ -209,8 +209,8 @@
                                                                     <div class="price-box">
                                                                         <c:choose>
                                                                             <c:when test="${o.discount > 0}">
-                                                                                <span class="new-price new-price-2">$ ${o.price}</span>
-                                                                                <span class="old-price">$ ${o.saleprice}</span>
+                                                                                <span class="new-price new-price-2">$ ${o.saleprice}</span>
+                                                                                <span class="old-price">$ ${o.price}</span>
                                                                                 <span class="discount-percentage">${o.discount}%</span>
                                                                             </c:when>
                                                                             <c:otherwise>
@@ -221,7 +221,11 @@
                                                                 </div>
                                                                 <div class="add-actions">
                                                                     <ul class="add-actions-link">
-                                                                        <li class="add-cart active"><a href="shopping-cart.html">Add to cart</a></li>
+                                                                        <form action="cart" method="post">
+                                                                            <input type="hidden" name="num" value="1">
+                                                                            <input type="hidden" name="id" value="${o.id}">
+                                                                            <li class="add-cart active"><a  onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                        </form>
                                                                     </ul>
                                                                 </div>
                                                             </div>

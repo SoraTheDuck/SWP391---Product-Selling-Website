@@ -82,53 +82,38 @@
                                 <li class="hm-minicart f-right">
                                     <div class="hm-minicart-trigger">
                                         <span class="item-icon"></span>
-                                        <span class="item-text">£160
-                                            <span class="cart-item-count">2</span>
+                                        <span class="item-text">$ ${sessionScope.cart.getTotalMoney()}
+                                            <c:set var="t" value="0" />
+                                            <c:forEach var="o" items="${sessionScope.cart.items}">
+                                                <c:set var="t" value="${t+o.quantity}" />
+                                            </c:forEach>
+                                            <span class="cart-item-count">${t}</span>
                                         </span>
                                     </div>
                                     <span></span>
                                     <div class="minicart">
                                         <ul class="minicart-product-list">
+                                            <c:forEach var="o" items="${sessionScope.cart.items}">
                                             <li>
-                                                <a href="single-product.jsp"
+                                                <a href="detail?pid=${o.product.id}"
                                                    class="minicart-product-image">
-                                                    <img src="images/product/small-size/3.jpg"
+                                                    <img src="${o.product.image}"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="single-product.jsp">Aenean eu tristique</a>
+                                                    <h6><a href="detail?pid=${o.product.id}">${o.product.name} x ${o.quantity}</a>
                                                     </h6>
-                                                    <span>£80 x 1</span>
+                                                    <span>$ ${o.price}</span>
                                                 </div>
-                                                <button class="close">
-                                                    <i class="fa fa-close"></i>
-                                                </button>
                                             </li>
-                                            <li>
-                                                <a href="single-product.jsp"
-                                                   class="minicart-product-image">
-                                                    <img src="images/product/small-size/4.jpg"
-                                                         alt="cart products">
-                                                </a>
-                                                <div class="minicart-product-details">
-                                                    <h6><a href="single-product.jsp">Aenean eu tristique</a>
-                                                    </h6>
-                                                    <span>£80 x 1</span>
-                                                </div>
-                                                <button class="close">
-                                                    <i class="fa fa-close"></i>
-                                                </button>
-                                            </li>
+                                            </c:forEach>
+                                            
                                         </ul>
-                                        <p class="minicart-total">SUBTOTAL: <span>£160</span></p>
+                                        <p class="minicart-total">TOTAL: <span>$ ${sessionScope.cart.getTotalMoney()}</span></p>
                                         <div class="minicart-button">
                                             <a href="Shopping-cart.jsp"
                                                class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                 <span>View Full Cart</span>
-                                            </a>
-                                            <a href="checkout.jsp"
-                                               class="li-button li-button-fullwidth li-button-sm">
-                                                <span>Checkout</span>
                                             </a>
                                         </div>
                                     </div>

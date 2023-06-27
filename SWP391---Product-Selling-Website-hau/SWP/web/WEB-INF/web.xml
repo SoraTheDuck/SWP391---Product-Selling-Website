@@ -48,6 +48,34 @@
         <servlet-name>WriteReviewController</servlet-name>
         <servlet-class>controller.WriteReviewController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>controller.CartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <servlet-class>controller.CheckoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcessController</servlet-name>
+        <servlet-class>controller.ProcessController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveController</servlet-name>
+        <servlet-class>controller.RemoveController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Checkout2Controller</servlet-name>
+        <servlet-class>controller.Checkout2Controller</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HistoryController</servlet-name>
+        <servlet-class>controller.HistoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HistoryDetailController</servlet-name>
+        <servlet-class>controller.HistoryDetailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -95,6 +123,34 @@
     <servlet-mapping>
         <servlet-name>WriteReviewController</servlet-name>
         <url-pattern>/writereview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessController</servlet-name>
+        <url-pattern>/process</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveController</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Checkout2Controller</servlet-name>
+        <url-pattern>/checkout2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryController</servlet-name>
+        <url-pattern>/history</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryDetailController</servlet-name>
+        <url-pattern>/historydetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
