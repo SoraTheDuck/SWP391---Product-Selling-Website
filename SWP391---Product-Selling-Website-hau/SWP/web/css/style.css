@@ -1437,7 +1437,6 @@ textarea:focus {
 .header-middle {
     padding: 30px;
 }
-
 .hm-searchbox {
     position: relative;
     border-radius: 5px;
@@ -2382,12 +2381,12 @@ textarea:focus {
     width: 35px;
 }
 .add-actions-link li.add-cart {
-	float: left;
-	margin: 0;
-	background: #eef0f1;
-	border: 1px solid #e1e1e1;
-	transition: all 0.3s ease-in-out;
-	width: 205px;
+    float: left;
+    margin: 0;
+    background: #eef0f1;
+    border: 1px solid #e1e1e1;
+    transition: all 0.3s ease-in-out;
+    width: 198px;
 }
 .add-actions-link li:hover {
     background: #92aae5;

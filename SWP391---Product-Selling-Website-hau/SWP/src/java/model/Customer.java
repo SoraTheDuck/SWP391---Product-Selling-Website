@@ -31,7 +31,7 @@ public class Customer {
         this.email = email;
         connect();
     }
-    
+
     public Customer(String name, String password, String address, String email) {
         this.name = name;
         this.password = password;
@@ -114,7 +114,7 @@ public class Customer {
             System.out.println("CustomerRegister:" + e.getMessage());
         }
     }
-    
+
     public boolean checkLogin() {
         try {
             String strSelect = "SELECT * FROM headphone.customer where email=? and password=? ";
@@ -146,7 +146,7 @@ public class Customer {
         }
         return false;
     }
-    
+
     public void getCustomerByAccount(String email) {
         try {
             String strSelect = "SELECT * FROM headphone.customer where email=?";
@@ -164,6 +164,7 @@ public class Customer {
             System.out.println("getCustomerByAccount:" + e.getMessage());
         }
     }
+
     public void getCustomer(int cusId) {
         String strSelect = "SELECT * FROM headphone.Customer where CustomerId =?";
         try {
@@ -182,7 +183,7 @@ public class Customer {
             Logger.getLogger(getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public Customer getCusByEmail(String email) {
         String sql = "select * from customer where Email = ? ";
         try {
@@ -202,7 +203,7 @@ public class Customer {
         }
         return null;
     }
-    
+
     public Customer UpdatePassAcc(String resetPass, int id) {
         String sql = "update customer set Password =? where CustomerID = ?;";
         try {
@@ -216,7 +217,7 @@ public class Customer {
         }
         return null;
     }
-    
+
     public Customer getCusById(int id) {
         String sql = "select * from customer where CustomerID = ? ";
         try {
@@ -235,7 +236,7 @@ public class Customer {
         }
         return null;
     }
-    
+
     public boolean updateInfo(String name, String address, String email, int id, HttpSession session) {
         try {
             String strSelect = "UPDATE headphone.customer\n"
@@ -244,6 +245,7 @@ public class Customer {
                     + "Email=?\n"
                     + "WHERE CustomerId=?";
             pstm = cnn.prepareStatement(strSelect);
+
             pstm.setString(1, name);
             pstm.setString(2, address);
             pstm.setString(3, email);
@@ -274,8 +276,6 @@ public class Customer {
             while (rs.next()) {
                 return rs.getString(1);
             }
-
-            pstm.close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -291,9 +291,22 @@ public class Customer {
             pstm.setString(1, password);
             pstm.setInt(2, id);
             pstm.executeUpdate();
-            pstm.close();
+
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        } finally {
+            // Đảm bảo đóng PreparedStatement và Connection
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (cnn != null) {
+                    cnn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("updatePass: " + ex.getMessage());
+            }
         }
     }
+
 }
