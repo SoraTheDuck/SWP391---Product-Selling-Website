@@ -24,16 +24,17 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "RegisterController", value = "/register")
+@WebServlet(name = "RegisterController", urlPatterns = "/register")
 public class RegisterController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("Register.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("Register.jsp").forward(req, resp);
+        //req.getRequestDispatcher("Register.jsp").forward(req, resp);
+
 
         String name = req.getParameter("name");
         String address = req.getParameter("address");

@@ -8,7 +8,7 @@
                 <!-- Begin Header Logo Area -->
                 <div class="col-lg-3">
                     <div class="logo pb-sm-30 pb-xs-30">
-                        <a href="/home">
+                        <a href="./home">
                             <img src="images/menu/logo/1.jpg"
                                  alt="">
                         </a>
@@ -63,8 +63,8 @@
                     <div class="hb-menu hb-menu-2 d-xl-block">
                         <nav>
                             <ul>
-                                <li><a href="/SWP/home">Home</a></li>
-                                <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a>
+                                <li><a href="./home">Home</a></li>
+                                <li class="megamenu-holder mn-drop"><a href="/shop">Shop</a>
                                     <ul class="megamenu hb-megamenu">
                                         <li><a href="shop-left-sidebar.jsp">Shop Page Layout</a></li>
                                         <li><a href="single-product.jsp">Single Products</a>
