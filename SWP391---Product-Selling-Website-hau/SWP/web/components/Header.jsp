@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header>
     <!-- Begin Header Middle Area -->
-    <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
+    <div class="header-middle">
         <div class="container">
             <div class="row">
                 <!-- Begin Header Logo Area -->
@@ -16,7 +16,7 @@
                 </div>
                 <!-- Header Logo Area End Here -->
                 <!-- Begin Header Middle Right Area -->
-                <div class="header-middle-search col-lg-9 pl-0 ml-sm-15 ml-xs-15">
+                <div class="header-middle-search col-lg-6">
                     <!-- Begin Header Middle Searchbox Area -->
                     <form action="search" method ="post" 
                           class="hm-searchbox">
@@ -26,12 +26,13 @@
                         </button>
                     </form>
                     <!-- Header Middle Searchbox Area End Here -->
-                    <!-- Begin Header Middle Right Area -->
-                    <div class="header-middle-right">
+                </div>
+                <!-- Begin Header Middle Right Area -->
+                    <div class="header-middle-right col-lg-3">
                         <!-- Begin Login Button Area -->
                         <c:choose>
                             <c:when test="${sessionScope.cus != null}">
-                                <a href="./Customer_profile.jsp" class="log-sign-btn log">${sessionScope.cus.name}</a>
+                                <a href="profile" class="log-sign-btn log">${sessionScope.cus.name}</a>
                                 <a href="LogoutController" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
@@ -41,14 +42,7 @@
                                    class="log-sign-btn sign">Sign-up</a>
                             </c:otherwise>
                         </c:choose>
-<!--                        <a href="./Login.jsp"
-                           class="log-sign-btn log">Login</a>
-                        <a href="./Register.jsp"
-                           class="log-sign-btn sign">Sign-up</a>-->
-                        <!-- Header Login Button Area End Here -->
                     </div>
-                    <!-- Header Middle Right Area End Here -->
-                </div>
                 <!-- Header Middle Right Area End Here -->
             </div>
         </div>

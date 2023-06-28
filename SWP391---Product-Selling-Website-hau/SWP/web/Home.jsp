@@ -827,10 +827,10 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="post">
+                                                            <form action="cart" method="get">
                                                                 <input type="hidden" name="num" value="1">
                                                                 <input type="hidden" name="id" value="${o.id}">
-                                                                <li class="add-cart active"><a  onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
                                                             </form>
                                                         </ul>
                                                     </div>
@@ -984,7 +984,7 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="post">
+                                                            <form action="cart" method="get">
                                                                 <input type="hidden" name="num" value="1">
                                                                 <input type="hidden" name="id" value="${o.id}">
                                                                 <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
@@ -1149,10 +1149,10 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="post">
+                                                            <form action="cart" method="get">
                                                                 <input type="hidden" name="num" value="1">
                                                                 <input type="hidden" name="id" value="${o.id}">
-                                                                <li class="add-cart active"><a  onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
                                                             </form>
                                                         </ul>
                                                     </div>

@@ -8,21 +8,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-
-    </body>
-</html>
-<html class="no-js" lang="zxx">
-
     <!-- checkout31:27-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Checkout || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+        <title>History</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -167,3 +157,4 @@
     <!-- Main/Activator js -->
     <script src="js/main.js"></script>
 </body>
+</html>

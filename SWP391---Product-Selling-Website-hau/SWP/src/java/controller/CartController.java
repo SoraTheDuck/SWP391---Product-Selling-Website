@@ -85,7 +85,7 @@ public class CartController extends HttpServlet {
             c = (Cart) o;
         }
 
-        int num = Integer.parseInt(req.getParameter("num"));
+        //int num = Integer.parseInt(req.getParameter("num"));
         String id = req.getParameter("id");
 
         Product p = new Product();
@@ -98,7 +98,7 @@ public class CartController extends HttpServlet {
             price = p1.getPrice();
         }
         System.out.println("product price: "+price);
-        Item t = new Item(p1, price, num);
+        Item t = new Item(p1, price, 1);
         c.addItem(t);
 
         session.setAttribute("cart", c);

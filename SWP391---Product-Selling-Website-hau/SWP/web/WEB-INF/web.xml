@@ -76,6 +76,18 @@
         <servlet-name>HistoryDetailController</servlet-name>
         <servlet-class>controller.HistoryDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CusUpdateProfileController</servlet-name>
+        <servlet-class>controller.CusUpdateProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePassController</servlet-name>
+        <servlet-class>controller.ChangePassController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfileController</servlet-name>
+        <servlet-class>controller.ProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -151,6 +163,18 @@
     <servlet-mapping>
         <servlet-name>HistoryDetailController</servlet-name>
         <url-pattern>/historydetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CusUpdateProfileController</servlet-name>
+        <url-pattern>/update-profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassController</servlet-name>
+        <url-pattern>/change-pass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileController</servlet-name>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <!-- index-231:32-->
@@ -49,13 +50,7 @@
     </head>
 
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">
-              You are using an <strong>outdated</strong> browser. Please
-              <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-              your experience.
-            </p>
-          <![endif]-->
+
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
@@ -79,52 +74,40 @@
                 <div class="row">
                     <div class="col-xl-4">
                         <!-- Profile picture card-->
-                        <div class="card mb-4 mb-xl-0">
-                            <div class="card-header">Profile Picture</div>
-                            <div class="card-body text-center">
-                                <!-- Profile picture image-->
-                                <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
-                                     alt="" />
-                                <!-- Profile picture help block-->
-                                <div class="small font-italic text-muted mb-4">
-                                    JPG or PNG no larger than 5 MB
-                                </div>
-                                <!-- Profile picture upload button-->
-                                <button class="btn btn-primary" type="button">
-                                    Upload new image
-                                </button>
-                            </div>
-                        </div>
+                        
                         <div class="card mb-4 mb-xl-0">
                             <div class="card-header">Change Password</div>
+                            
                             <div class="card-body text-center">
                                 <!-- Profile picture image-->
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="">Old Password</label>
-                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Old Password" name="" />
+                                <form action ="change-pass?id=${sessionScope.cus.id}" method ="POST">
+                                    <p class ="text-danger">${pass_mess}</p>
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-12">
+                                            <label class="small mb-1" for="inputOldPass">Old Password</label>
+                                            <input class="form-control" id="inputOldPass" type="password" placeholder="Old Password" name="oldpassword" />
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Form Row        -->
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputOrgName">New Password</label>
-                                        <input class="form-control" id="inputOrgName" type="text" placeholder="New Password" name="" />
+                                    <!-- Form Row        -->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-12">
+                                            <label class="small mb-1" for="inputNewPass">New Password</label>
+                                            <input class="form-control" id="inputNewPass" type="password" placeholder="New Password" name="newpassword" />
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Form Row        -->
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputOrgName">Confirm New Password</label>
-                                        <input class="form-control" id="inputOrgName" type="text" placeholder="Confirm New Password"
-                                               name="" />
+                                    <!-- Form Row        -->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-12">
+                                            <label class="small mb-1" for="confirmNewPass">Confirm New Password</label>
+                                            <input class="form-control" id="confirmNewPass" type="password" placeholder="Confirm New Password"
+                                                   name="renewpassword" />
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Profile picture upload button-->
-                                <input class="btn btn-primary" type="submit" value="Save changes" />
+                                    <input class="btn btn-primary" type="submit" value="Save changes">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -133,48 +116,36 @@
                         <div class="card mb-4">
                             <div class="card-header">Account Details</div>
                             <div class="card-body">
-                                <form>
-                                    <!-- Form Row-->
-                                    <div class="row gx-3 mb-3">
-                                        <!-- Form Group (first name)-->
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="inputFirstName">First name</label>
-                                            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                                                   value="" />
-                                        </div>
-                                        <!-- Form Group (last name)-->
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="inputLastName">Last name</label>
-                                            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                                                   value="" />
-                                        </div>
+                                <p class ="text-danger">${profile_mess}</p>
+                                <form action ="update-profile?id=${sessionScope.cus.id}" method="POST">
+                                    <div class="mb-3">
+                                        <!-- Form Group (name)-->
+                                        <label class="small mb-1" for="inputName">Name</label>
+                                        <input class="form-control" id="inputName" type="text" name="name" placeholder="Enter your name"
+                                               value="${sessionScope.cus.name}" />
                                     </div>
-                                    <!-- Form Row        -->
+                                    <!-- Form Group (address) -->
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputAddress">Address</label>
-                                        <input class="form-control" id="inputEmailAddress" type="text" name="address" placeholder="Enter your address"
-                                               value="" />
+                                        <input class="form-control" id="inputAddress" type="text" name="address" placeholder="Enter your address"
+                                               value="${sessionScope.cus.address}" />
                                     </div>
                                     <!-- Form Group (email address)-->
                                     <div class="mb-3">
-                                        <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address"
-                                               value="" />
+                                        <label class="small mb-1" for="inputEmail">Email address</label>
+                                        <input class="form-control" id="inputEmail" type="email" name="email" placeholder="Enter your email address"
+                                               value="${sessionScope.cus.email}" readonly />
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="small mb-1" for="inputPhone">Phone number</label>
-                                        <input class="form-control" id="inputPhone" type="tel" name="phone" placeholder="Enter your phone number"
-                                               value="">
-                                    </div>
+                                    
                                     <!-- Save changes button-->
-                                    <button class="btn btn-primary" type="button">
+                                    <button class="btn btn-primary" type="submit">
                                         Save changes
                                     </button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <a href="history"><h5>View order history</h5></a>
+                                    <a href="history"><h5>View order history</h5></a>
                 </div>
             </div>
             <!-- Begin Footer Area -->
