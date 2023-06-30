@@ -1,12 +1,18 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!doctype html>
-<html class="no-js" lang="zxx">
+<%-- 
+    Document   : HistoryDetail
+    Created on : Jun 26, 2023, 8:30:28 AM
+    Author     : admin
+--%>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
     <!-- checkout31:27-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Checkout || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+        <title>History</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -45,6 +51,7 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+        
         <!--[if lt IE 8]>
                     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
@@ -59,17 +66,16 @@
                     <div class="breadcrumb-content">
                         <ul>
                             <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Checkout</li>
+                            <li class="active">History Detail</li>
                         </ul>
                     </div>
                 </div>
             </div>
+      
             <!-- Li's Breadcrumb Area End Here -->
             <!--Checkout Area Strat-->
             <div class="checkout-area pt-60 pb-30">
                 <div class="container">
-                    
-
                     <div class="col-lg-6 col-12">
                         <div class="your-order">
                             <h3>Your order</h3>
@@ -82,73 +88,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="o" items="${sessionScope.cart.items}">
+                                        <c:forEach var="i" items="${historyDetails}">
                                             <tr class="cart_item">
-                                                <td class="cart-product-name">${o.product.name}<strong class="product-quantity"> × ${o.quantity}</strong></td>
-                                                <td class="cart-product-total"><span class="amount">$${o.price*o.quantity}</span></td>  
+                                                <td class="cart-product-name">${i.getProductName()}<strong class="product-quantity"> × ${i.getQuantity()}</strong></td>
+                                                <td class="cart-product-total"><span class="amount">$${i.getPrice()*i.getQuantity()}</span></td>  
                                             </tr>
                                         </c:forEach>
                                     </tbody>
                                     <tfoot>
                                         <tr class="order-total">
                                             <th>Order Total</th>
-                                            <td><strong><span class="amount">$ ${sessionScope.cart.getTotalMoney()}</span></strong></td>
+                                            <td><strong><span class="amount">$ ${total}</span></strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
-                            </div>
-                            <div class="payment-method">
-                                <div class="payment-accordion">
-                                    <div id="accordion">
-                                        <div class="card">
-                                            <div class="card-header" id="#payment-1">
-                                                <h5 class="panel-title">
-                                                    <a class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        Direct Bank Transfer.
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" id="#payment-2">
-                                                <h5 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        Cheque Payment
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" id="#payment-3">
-                                                <h5 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        PayPal
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseThree" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="order-button-payment">
-                                        <form action="checkout2" method="post">
-                                            <input value="Place order" type="submit">
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -204,6 +157,4 @@
     <!-- Main/Activator js -->
     <script src="js/main.js"></script>
 </body>
-
-<!-- checkout31:27-->
 </html>

@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
-
-    <!-- shop-left-sidebar31:47-->
-    <head>
+    
+<!-- shop-left-sidebar31:47-->
+<head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Shop Left Sidebar || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
@@ -44,9 +44,9 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-                    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
@@ -57,7 +57,7 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="Home.jsp">Home</a></li>
+                            <li><a href="home">Home</a></li>
                             <li class="active">Shop</li>
                         </ul>
                     </div>
@@ -87,16 +87,16 @@
                                         <!-- shop-item-filter-list end -->
                                     </div>
                                     <c:choose>
-                                        <c:when test="${searchValue != null}">
-                                            <div class="toolbar-amount">
-                                                <span>${searchValue}</span>
-                                            </div>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <div class="toolbar-amount">
-                                            </div>
-                                        </c:otherwise>
-                                    </c:choose>
+                            <c:when test="${searchValue != null}">
+                                <div class="toolbar-amount">
+                                        <span>${searchValue}</span>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="toolbar-amount">
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                                 </div>
                                 <!-- product-select-box start -->
                                 <div class="product-select-box">
@@ -138,67 +138,142 @@
                                                                         <h5 class="manufacturer">
                                                                             <a href="detail?pid=${o.id}">${o.name}</a>
                                                                             <p>${o.wire}</p>
+                                                                            
                                                                         </h5>
                                                                         <div class="rating-box">
-                                                                            <ul class="rating">
-                                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                                <li><i class="fa fa-star-o"></i></li>
-                                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                            </ul>
+                                                                            <c:choose>
+                                                                                <c:when test="${o.getAvgrating() <=0.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 0.5 && o.getAvgrating() <=1.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 1.5 && o.getAvgrating() <=2.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 2.5 && o.getAvgrating() <=3.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 3.5 && o.getAvgrating() <=4.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                                <c:when test="${o.getAvgrating() > 4.5}">
+                                                                                    <ul class="rating rating-with-review-item">
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                                        (${o.getAvgrating()})
+                                                                                    </ul>
+                                                                                </c:when>
+                                                                            </c:choose>
                                                                         </div>
                                                                     </div>
                                                                     <h4><a class="product_name" href="detail?pid=${o.id}">${o.name}</a></h4>
                                                                     <div class="price-box">
-                                                                        <span class="new-price">$ ${o.price}</span>
+                                                                        <c:choose>
+                                                                            <c:when test="${o.discount > 0}">
+                                                                                <span class="new-price new-price-2">$ ${o.saleprice}</span>
+                                                                                <span class="old-price">$ ${o.price}</span>
+                                                                                <span class="discount-percentage">${o.discount}%</span>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <span class="new-price new-price-2">$ ${o.price}</span>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                                     </div>
                                                                 </div>
                                                                 <div class="add-actions">
-                                                                    <ul class="add-actions-link">
-                                                                        <form action="cart" method="post">
-                                                                            <input type="hidden" name="num" value="1">
-                                                                            <input type="hidden" name="id" value="${o.id}">
-                                                                            <li class="add-cart active"><a href="#" onclick="this.closest('form').submit();">Add to cart</a></li>
-                                                                        </form>
-                                                                    </ul>
-                                                                </div>
+                                                        <ul class="add-actions-link">
+                                                            <form action="cart" method="post">
+                                                                <input type="hidden" name="num" value="1">
+                                                                <input type="hidden" name="id" value="${o.id}">
+                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                            </form>
+                                                        </ul>
+                                                    </div>
                                                             </div>
                                                         </div>
                                                         <!-- single-product-wrap end -->
                                                     </div>
                                                 </c:forEach>
-
+                                                
                                             </div>
                                         </div>
                                     </div>
-
+                                    
                                     <div class="paginatoin-area">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <ul class="pagination-box pt-xs-20 pb-xs-15">
-                                                    <c:if test="${currentPage != 1}">
-                                                        <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
-                                                        </c:if>
-                                                        <c:forEach begin="1" end="${totalPage}" var="i">
-                                                            <c:choose>
-                                                                <c:when test="${currentPage == i}">
-                                                                <li class="active"><a href="#"><c:out value="${i}" /></a></li>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
-                                                                        <c:out value="${i}" /></a></li>
+                                                    
+                                                    <c:choose>
+                                                        <c:when test="${totalPage ==0}">
+                                                            No Product fits your searched result
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                                <c:if test="${currentPage != 1}">
+                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
+                                                            </c:if>
+                                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                                                <c:choose>
+                                                                    <c:when test="${currentPage == i}">
+                                                                    <li class="active"><a href="#"><c:out value="${i}" /></a></li>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                    <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
+                                                                            <c:out value="${i}" /></a></li>
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             </c:forEach>
                                                             <c:if test="${currentPage != totalPage}">
-                                                        <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
-                                                            </c:if>
+                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
+                                                                </c:if>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-
+                                    
                                 </div>
                             </div>
                             <!-- shop-products-wrapper end -->
@@ -268,7 +343,7 @@
                                             </ul>
                                         </form>
                                     </div>
-                                </div>
+                                 </div>
                                 <!-- filter-sub-area end -->
                                 <!-- filter-sub-area start -->
                                 <div class="filter-sub-area pt-sm-10 pt-xs-10">
@@ -281,7 +356,7 @@
                                             </ul>
                                         </form>
                                     </div>
-                                </div>
+                                 </div>
                                 <!-- filter-sub-area end -->
                                 <!-- filter-sub-area start -->
                                 <div class="filter-sub-area pt-sm-10 pt-xs-10">
@@ -325,7 +400,7 @@
                                             </ul>
                                         </form>
                                     </div>
-                                </div>
+                                 </div>
                                 <!-- filter-sub-area end -->
                             </div>
                             <!--sidebar-categores-box end  -->
@@ -364,7 +439,7 @@
                             </button>
                             <div class="modal-inner-area row">
                                 <div class="col-lg-5 col-md-6 col-sm-6">
-                                    <!-- Product Details Left -->
+                                   <!-- Product Details Left -->
                                     <div class="product-details-left">
                                         <div class="product-details-images slider-navigation-1">
                                             <div class="lg-image">
@@ -512,5 +587,5 @@
         <script src="js/main.js"></script>
     </body>
 
-    <!-- shop-left-sidebar31:48-->
+<!-- shop-left-sidebar31:48-->
 </html>

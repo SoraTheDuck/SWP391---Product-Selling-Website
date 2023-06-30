@@ -26,16 +26,9 @@ import java.io.IOException;
 
 @WebServlet(name = "RegisterController", urlPatterns = "/register")
 public class RegisterController extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("Register.jsp").forward(req, resp);
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //req.getRequestDispatcher("Register.jsp").forward(req, resp);
-
-
         String name = req.getParameter("name");
         String address = req.getParameter("address");
         String email = req.getParameter("email");
@@ -105,10 +98,14 @@ public class RegisterController extends HttpServlet {
                 }else{
                     req.setAttribute("mess", "Something went wrong. Please try again later !!");
                     req.getRequestDispatcher("Register.jsp").forward(req, resp);
-
                 }
 
             }
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    }
+
 }

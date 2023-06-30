@@ -75,6 +75,7 @@
             <!-- Li's Breadcrumb Area End Here -->
             <!--Shopping Cart Area Strat-->
 
+            ${mess}
             <div class="Shopping-cart-area pt-60 pb-60">
                 <div class="container">
                     <div class="row">
@@ -98,23 +99,24 @@
                                                     <td class="li-product-remove"><a href="remove?id=${o.product.id}">x</a></td>
                                                     <td class="li-product-thumbnail"><a href="detail?pid=${o.product.id}"><img src="${o.product.image}" alt="Li's Product Image"></a></td>
                                                     <td class="li-product-name"><a href="#">${o.product.name}</a></td>
-                                                    <td class="li-product-price"><span class="amount">$ ${o.price}</span></td>
+                                                    <td class="li-product-price">
+                                                        <span class="amount">$ ${o.price}</span></td>
                                                     <td class="quantity">
                                                         <!--<label>Quantity</label>-->
                                                         <!-- <div class="cart-plus-minus">-->
-                                                            <input  value="${o.quantity}" type="text" readonly>
-                                                            <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
-                                                                <!--
-                                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                                -->
-                                                                <h2>-</h2>
-                                                            </a>
-                                                            <a href="process?num=1&id=${o.product.id}">
-                                                                <!--
-                                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                                -->
-                                                                <h2>+</h2>
-                                                            </a>
+                                                        <input  value="${o.quantity}" type="text" readonly>
+                                                        <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
+                                                            <!--
+                                                            <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                            -->
+                                                            <h2>-</h2>
+                                                        </a>
+                                                        <a href="process?num=1&id=${o.product.id}">
+                                                            <!--
+                                                            <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                            -->
+                                                            <h2>+</h2>
+                                                        </a>
                                                         <!-- </div>-->
                                                     </td>
                                                     <td class="product-subtotal"><span class="amount">$${o.price*o.quantity}</span></td>
@@ -131,7 +133,6 @@
                                                 <li>Total <span>$ ${sessionScope.cart.getTotalMoney()}</span></li>
                                             </ul>
                                             <a href="#" onclick="this.closest('form').submit();">Proceed to checkout</a>
-                                            ${alert}
                                         </div>
                                     </div>
                                 </div>

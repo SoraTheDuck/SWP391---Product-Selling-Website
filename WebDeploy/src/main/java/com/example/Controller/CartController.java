@@ -46,12 +46,18 @@ public class CartController extends HttpServlet {
         String id = req.getParameter("id");
 
         Product p = new Product();
-        Product p1 = p.getProductByID(id);
+        Product p1 = p.getProductByID2(id);
 
-        float price = p1.getPrice();
+        float price;
+        if (p1.getSaleprice() != 0) {
+            price = p1.getSaleprice();
+        } else {
+            price = p1.getPrice();
+        }
+        System.out.println("product price: "+price);
         Item t = new Item(p1, price, num);
         c.addItem(t);
-  
+
         session.setAttribute("cart", c);
         //req.getRequestDispatcher("shop").forward(req, resp);
 
@@ -66,7 +72,7 @@ public class CartController extends HttpServlet {
             startIndex = (currentPage - 1) * pageSize;
         }
 
-        List<Product> list = product.getAllProductByPage(pageSize, startIndex);
+        List<Product> list = product.getAllProductByPage2(pageSize, startIndex);
 
         req.setAttribute("list", list);
         req.setAttribute("currentPage", currentPage);
@@ -77,7 +83,32 @@ public class CartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("Shopping-cart.jsp");
+        HttpSession session = req.getSession();
+        Cart c = new Cart();
+        Object o = session.getAttribute("cart");
+        if (o != null) {
+            c = (Cart) o;
+        }
+
+        //int num = Integer.parseInt(req.getParameter("num"));
+        String id = req.getParameter("id");
+
+        Product p = new Product();
+        Product p1 = p.getProductByID2(id);
+
+        float price;
+        if (p1.getSaleprice() != 0) {
+            price = p1.getSaleprice();
+        } else {
+            price = p1.getPrice();
+        }
+        System.out.println("product price: "+price);
+        Item t = new Item(p1, price, 1);
+        c.addItem(t);
+
+        session.setAttribute("cart", c);
+        req.getRequestDispatcher("home").forward(req, resp);
+
     }
 
 }

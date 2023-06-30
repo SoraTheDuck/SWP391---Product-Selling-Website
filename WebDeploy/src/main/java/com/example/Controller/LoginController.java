@@ -19,7 +19,6 @@ import jakarta.servlet.annotation.*;
 
 
 @WebServlet(name = "LoginController", urlPatterns = "/login")
-
 public class LoginController extends HttpServlet {
 
     @Override
@@ -28,12 +27,12 @@ public class LoginController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String r = req.getParameter("rem");
-        
+
         //tao 3 cookie moi
         Cookie cmail = new Cookie("cmail", email);
         Cookie cpassword = new Cookie("cpassword",password);
         Cookie cr = new Cookie("cr",r);
-        
+
         if(r!=null){
             cmail.setMaxAge(60*60*24*7);
             cpassword.setMaxAge(60*60*24*7);
@@ -43,7 +42,7 @@ public class LoginController extends HttpServlet {
             cpassword.setMaxAge(0);
             cr.setMaxAge(0);
         }
-        
+
         resp.addCookie(cmail);
         resp.addCookie(cpassword);
         resp.addCookie(cr);
@@ -58,9 +57,10 @@ public class LoginController extends HttpServlet {
             HttpSession session = req.getSession();
             c.getCustomerByAccount(email);
             session.setAttribute("cus", c);
+            session.setAttribute("cid", c.getId());
             req.setAttribute("c", c.getName());
-            
-            req.getRequestDispatcher("home").forward(req, resp);     
+
+            req.getRequestDispatcher("home").forward(req, resp);
         }
         else {
             req.setAttribute("email", email);
@@ -74,5 +74,6 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("Login.jsp").forward(req, resp);
     }
-    
+
 }
+
