@@ -49,9 +49,9 @@
                 max-height: 50vh;
                 overflow-y:scroll;
                 margin-top: 30px;
-                border: 3px solid #92aae5;
+/*                border: 3px solid #92aae5;*/
             }
-            .comment{
+/*            .comment{
                 height: 10%;
                 padding: 1%;
                 margin: 2%;
@@ -59,7 +59,7 @@
                 color: black;
                 border: 1px solid black;
                 border-radius: 10px;
-            }
+            }*/
         </style>
     
     <body>
@@ -282,7 +282,7 @@
             </div>
             <!-- content-wraper end -->
             <!-- Begin Product Area -->
-            <div class="product-area pt-35">
+            <div class="product-area pt-35 content-wraper">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -374,7 +374,7 @@
                                                 <div class="comment-section">
                                                 <c:forEach items="${review}" var="o">
 
-                                                    <div class="comment-author-infos pt-25">
+                                                    <div class="comment-author-infos">
 
                                                         <span>${o.getCustomerName()}</span>
                                                             <c:choose>
@@ -425,7 +425,7 @@
                                                                 </c:when>
                                                             </c:choose>
                                                         <em>${o.getPostDate()}</em>
-                                                        <em>${o.getContent()}</em>
+                                                        <p>${o.getContent()}</p>
                                                         <br>
                                                     </div>
                                                 </c:forEach>
@@ -486,7 +486,7 @@
                                                                                     <div class="feedback-input">
                                                                                         <div class="feedback-btn pb-15">
                                                                                             <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                                            <button type="submit">Submit</button>
+                                                                                            <button class="submit" type="submit">Submit</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </form>

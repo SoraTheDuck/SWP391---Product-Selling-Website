@@ -667,6 +667,7 @@
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </div>
+                                                    
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">

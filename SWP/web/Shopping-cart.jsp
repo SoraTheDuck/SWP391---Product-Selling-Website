@@ -75,9 +75,10 @@
             <!-- Li's Breadcrumb Area End Here -->
             <!--Shopping Cart Area Strat-->
 
-            ${mess}
+
             <div class="Shopping-cart-area pt-60 pb-60">
                 <div class="container">
+                    <p class="text-danger">${mess}</p>
                     <div class="row">
                         <div class="col-12">
                             <form action="checkout" method="post">
@@ -85,8 +86,8 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th class="li-product-remove">remove</th>
-                                                <th class="li-product-thumbnail">images</th>
+                                                <th class="li-product-remove">Remove</th>
+                                                <th class="li-product-thumbnail">Images</th>
                                                 <th class="cart-product-name">Product</th>
                                                 <th class="li-product-price">Unit Price</th>
                                                 <th class="li-product-quantity">Quantity</th>
@@ -104,18 +105,13 @@
                                                     <td class="quantity">
                                                         <!--<label>Quantity</label>-->
                                                         <!-- <div class="cart-plus-minus">-->
-                                                        <input  value="${o.quantity}" type="text" readonly>
-                                                        <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
-                                                            <!--
-                                                            <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                            -->
-                                                            <h2>-</h2>
-                                                        </a>
                                                         <a href="process?num=1&id=${o.product.id}">
-                                                            <!--
-                                                            <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                            -->
                                                             <h2>+</h2>
+                                                        </a>
+                                                        <input  value="${o.quantity}" type="text" readonly>
+
+                                                        <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
+                                                            <h2>-</h2>
                                                         </a>
                                                         <!-- </div>-->
                                                     </td>

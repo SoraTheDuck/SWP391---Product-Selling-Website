@@ -66,28 +66,27 @@
                     </div>
                 </div>
             </div>
-      
+
             <!-- Li's Breadcrumb Area End Here -->
-            <!--Checkout Area Strat-->
-            <div class="checkout-area pt-60 pb-30">
-                <div class="container">
-                    <div class="col-lg-6 col-12">
+            <div class="checkout-area">
+                <div class="container pt-30">
+                    <div >
                         <div class="your-order">
                             <h3>Your orders</h3>
                             <div class="your-order-table table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="cart-product-name">Date</th>
-                                            <th class="cart-product-total">Total</th>
-                                            <th></th>
+                                            <th>Date</th>
+                                            <th>Total</th>
+                                            <th>View</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${history}" var="h">
-                                            <tr class="cart_item">
-                                                <td class="cart-product-name">${h.getDate()}</td>
-                                                <td class="cart-product-total"><span class="amount">$${h.getTotalMoney()}</span></td>
+                                            <tr>
+                                                <td>${h.getDate()}</td>
+                                                <td>$${h.getTotalMoney()}</td>
                                                 <td><a href="historydetail?oid=${h.getID()}">Detail</a></td>
                                             </tr>
                                         </c:forEach>
@@ -98,54 +97,52 @@
                     </div>
                 </div>
             </div>
+            <!-- Begin Footer Area -->
+            <%@include file="components/Footer.jsp" %>
+            <!-- Footer Area End Here -->
         </div>
-        <!--Checkout Area End-->
-        <!-- Begin Footer Area -->
-        <%@include file="components/Footer.jsp" %>
-        <!-- Footer Area End Here -->
-    </div>
-    <!-- Body Wrapper End Here -->
-    <!-- jQuery-V1.12.4 -->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/vendor/popper.min.js"></script>
-    <!-- Bootstrap V4.1.3 Fremwork js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Ajax Mail js -->
-    <script src="js/ajax-mail.js"></script>
-    <!-- Meanmenu js -->
-    <script src="js/jquery.meanmenu.min.js"></script>
-    <!-- Wow.min js -->
-    <script src="js/wow.min.js"></script>
-    <!-- Slick Carousel js -->
-    <script src="js/slick.min.js"></script>
-    <!-- Owl Carousel-2 js -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Magnific popup js -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <!-- Isotope js -->
-    <script src="js/isotope.pkgd.min.js"></script>
-    <!-- Imagesloaded js -->
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <!-- Mixitup js -->
-    <script src="js/jquery.mixitup.min.js"></script>
-    <!-- Countdown -->
-    <script src="js/jquery.countdown.min.js"></script>
-    <!-- Counterup -->
-    <script src="js/jquery.counterup.min.js"></script>
-    <!-- Waypoints -->
-    <script src="js/waypoints.min.js"></script>
-    <!-- Barrating -->
-    <script src="js/jquery.barrating.min.js"></script>
-    <!-- Jquery-ui -->
-    <script src="js/jquery-ui.min.js"></script>
-    <!-- Venobox -->
-    <script src="js/venobox.min.js"></script>
-    <!-- Nice Select js -->
-    <script src="js/jquery.nice-select.min.js"></script>
-    <!-- ScrollUp js -->
-    <script src="js/scrollUp.min.js"></script>
-    <!-- Main/Activator js -->
-    <script src="js/main.js"></script>
-</body>
+        <!-- Body Wrapper End Here -->
+        <!-- jQuery-V1.12.4 -->
+        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- Popper js -->
+        <script src="js/vendor/popper.min.js"></script>
+        <!-- Bootstrap V4.1.3 Fremwork js -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Ajax Mail js -->
+        <script src="js/ajax-mail.js"></script>
+        <!-- Meanmenu js -->
+        <script src="js/jquery.meanmenu.min.js"></script>
+        <!-- Wow.min js -->
+        <script src="js/wow.min.js"></script>
+        <!-- Slick Carousel js -->
+        <script src="js/slick.min.js"></script>
+        <!-- Owl Carousel-2 js -->
+        <script src="js/owl.carousel.min.js"></script>
+        <!-- Magnific popup js -->
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <!-- Isotope js -->
+        <script src="js/isotope.pkgd.min.js"></script>
+        <!-- Imagesloaded js -->
+        <script src="js/imagesloaded.pkgd.min.js"></script>
+        <!-- Mixitup js -->
+        <script src="js/jquery.mixitup.min.js"></script>
+        <!-- Countdown -->
+        <script src="js/jquery.countdown.min.js"></script>
+        <!-- Counterup -->
+        <script src="js/jquery.counterup.min.js"></script>
+        <!-- Waypoints -->
+        <script src="js/waypoints.min.js"></script>
+        <!-- Barrating -->
+        <script src="js/jquery.barrating.min.js"></script>
+        <!-- Jquery-ui -->
+        <script src="js/jquery-ui.min.js"></script>
+        <!-- Venobox -->
+        <script src="js/venobox.min.js"></script>
+        <!-- Nice Select js -->
+        <script src="js/jquery.nice-select.min.js"></script>
+        <!-- ScrollUp js -->
+        <script src="js/scrollUp.min.js"></script>
+        <!-- Main/Activator js -->
+        <script src="js/main.js"></script>
+    </body>
 </html>
