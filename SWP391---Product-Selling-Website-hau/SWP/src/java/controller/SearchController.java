@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import model.Product;
@@ -44,6 +45,8 @@ public class SearchController extends HttpServlet {
         
         req.setAttribute("list", list);
         req.setAttribute("searchValue",searchValue);
+        HttpSession session = req.getSession();
+        session.setAttribute("searchValueSession", searchValue);
         
         req.setAttribute("currentPage", currentPage);
         req.setAttribute("totalPage", totalPage);
@@ -54,7 +57,8 @@ public class SearchController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String searchValue = req.getParameter("searchbox");
+        HttpSession session = req.getSession();
+        String searchValue = session.getAttribute("searchValueSession").toString();
         Product p = new Product();
         
         int pageSize = 9;

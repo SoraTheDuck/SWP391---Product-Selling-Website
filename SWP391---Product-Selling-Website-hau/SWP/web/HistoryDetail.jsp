@@ -74,11 +74,11 @@
       
             <!-- Li's Breadcrumb Area End Here -->
             <!--Checkout Area Strat-->
-            <div class="checkout-area pt-60 pb-30">
+            <div class="checkout-area pt-30">
                 <div class="container">
-                    <div class="col-lg-6 col-12">
+                    <div>
                         <div class="your-order">
-                            <h3>Your order</h3>
+                            <h3>Your order detail</h3>
                             <div class="your-order-table table-responsive">
                                 <table class="table">
                                     <thead>

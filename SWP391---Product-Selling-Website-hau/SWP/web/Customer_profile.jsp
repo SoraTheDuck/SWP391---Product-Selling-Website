@@ -70,15 +70,12 @@
             <!-- Account page navigation-->
             <div class="container px-4 mt-4 my-4">
                 <!-- Account page navigation-->
-
+                <a href="history"><h5>View order history</h5></a>
                 <div class="row">
                     <div class="col-xl-4">
-                        <!-- Profile picture card-->
-                        
                         <div class="card mb-4 mb-xl-0">
                             <div class="card-header">Change Password</div>
-                            
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <!-- Profile picture image-->
                                 <form action ="change-pass?id=${sessionScope.cus.id}" method ="POST">
                                     <p class ="text-danger">${pass_mess}</p>
@@ -89,7 +86,7 @@
                                             <input class="form-control" id="inputOldPass" type="password" placeholder="Old Password" name="oldpassword" />
                                         </div>
                                     </div>
-                                    <!-- Form Row        -->
+                                    <!-- Form Row -->
                                     <div class="row gx-3 mb-3">
                                         <!-- Form Group (organization name)-->
                                         <div class="col-md-12">
@@ -106,7 +103,10 @@
                                                    name="renewpassword" />
                                         </div>
                                     </div>
-                                    <input class="btn btn-primary" type="submit" value="Save changes">
+                                    <!-- Save changes button-->
+                                    <button class="btn btn-primary" type="submit">
+                                        Save changes
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -145,7 +145,6 @@
                             </div>
                         </div>
                     </div>
-                                    <a href="history"><h5>View order history</h5></a>
                 </div>
             </div>
             <!-- Begin Footer Area -->

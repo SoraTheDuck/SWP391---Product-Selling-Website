@@ -88,6 +88,10 @@
         <servlet-name>ProfileController</servlet-name>
         <servlet-class>controller.ProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DisplayController</servlet-name>
+        <servlet-class>controller.DisplayController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>ProfileController</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayController</servlet-name>
+        <url-pattern>/display</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -30,6 +30,7 @@ public class Product {
     private float avgrating;
     private String startdate;
     private String enddate;
+    private String releasedate;
 
     public Product() {
         connect();
@@ -60,7 +61,21 @@ public class Product {
         this.enddate = enddate;
     }
     
-    
+    public Product(String id, String name, float price, String image, int quantity, String wire, String description, int discount, float saleprice, float avgrating, String startdate, String enddate, String releasedate) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.image = image;
+        this.quantity = quantity;
+        this.wire = wire;
+        this.description = description;
+        this.discount = discount;
+        this.saleprice = saleprice;
+        this.avgrating = avgrating;
+        this.startdate = startdate;
+        this.enddate = enddate;
+        this.releasedate = releasedate;
+    }
 
     public String getWire(){
         return wire;
@@ -156,6 +171,14 @@ public class Product {
 
     public void setEnddate(String enddate) {
         this.enddate = enddate;
+    }
+
+    public String getReleasedate() {
+        return releasedate;
+    }
+
+    public void setReleasedate(String releasedate) {
+        this.releasedate = releasedate;
     }
     
     
@@ -441,14 +464,14 @@ public class Product {
 "       p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
 "       ((1 - d.Discount / 100) * p.ProductPrice) as SalePrice,\n" +
 "       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
-"       d.StartSaleDate, d.EndSaleDate, p.CategoryID\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID,p.ReleaseDate\n" +
 "FROM Headphone.Product p\n" +
 "LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
 "LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
 "WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL) and p.ProductID like ?\n" +
 "GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
 "         p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
-"         d.StartSaleDate, d.EndSaleDate\n" +
+"         d.StartSaleDate, d.EndSaleDate,p.ReleaseDate\n" +
 "ORDER BY p.ProductID;";
             pstm = cnn.prepareStatement(strSelect);
             pstm.setString(1, id);
@@ -483,7 +506,10 @@ public class Product {
                     end = f.format(rs.getDate(12));
                 }
                 
-                return new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end);
+                String release = f.format(rs.getDate(14));
+                
+                
+                return new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end,release);
             }
         }catch(Exception ex){
             System.out.println("getProductByID2"+ex.getMessage());
@@ -583,7 +609,7 @@ public class Product {
     public List<Product> getAllProductsByCategory(int cid){
         List<Product> list = new ArrayList<>();
         try{
-            String sql= "SELECT * FROM headphone.product where CategoryID = ? order by ReleaseDate desc LIMIT 6;";
+            String sql= "SELECT * FROM headphone.product where CategoryID = ?;";
             pstm = cnn.prepareStatement(sql);
             pstm.setInt(1, cid);
             rs = pstm.executeQuery();
@@ -661,6 +687,364 @@ public class Product {
             }
         }catch(Exception e){
             System.out.println("getAllProductByCategory"+e.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getAllProductSortByReleaseDate(int page, int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"       p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"       ((1 - d.Discount / 100) * p.ProductPrice) as SalePrice,\n" +
+"       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID\n" +
+"FROM Headphone.Product p\n" +
+"LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL)\n" +
+"GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"         p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"         d.StartSaleDate, d.EndSaleDate\n" +
+"ORDER BY p.ReleaseDate\n" +
+"LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, page);
+            pstm.setInt(2, pageIndex);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                int dis = 0;
+                float sprice=0;
+                if(rs.getString(8) != null){
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+                
+                float avg = rs.getFloat(10);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if(rs.getString(11)!=null){
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if(rs.getString(12)!=null){
+                    end = f.format(rs.getDate(12));
+                }
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end));
+            }
+        }catch(Exception ex){
+            System.out.println("getAllProductByPage"+ex.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getAllProductSortByReleaseDateDesc(int page, int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"       p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"       ((1 - d.Discount / 100) * p.ProductPrice) as SalePrice,\n" +
+"       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID\n" +
+"FROM Headphone.Product p\n" +
+"LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL)\n" +
+"GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"         p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"         d.StartSaleDate, d.EndSaleDate\n" +
+"ORDER BY p.ReleaseDate desc\n" +
+"LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, page);
+            pstm.setInt(2, pageIndex);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                int dis = 0;
+                float sprice=0;
+                if(rs.getString(8) != null){
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+                
+                float avg = rs.getFloat(10);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if(rs.getString(11)!=null){
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if(rs.getString(12)!=null){
+                    end = f.format(rs.getDate(12));
+                }
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end));
+            }
+        }catch(Exception ex){
+            System.out.println("getAllProductByPage"+ex.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getAllProductSortByRating(int page, int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"       p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"       ((1 - d.Discount / 100) * p.ProductPrice) as SalePrice,\n" +
+"       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID\n" +
+"FROM Headphone.Product p\n" +
+"LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL)\n" +
+"GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"         p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"         d.StartSaleDate, d.EndSaleDate\n" +
+"ORDER BY AverageRating\n" +
+"LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, page);
+            pstm.setInt(2, pageIndex);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                int dis = 0;
+                float sprice=0;
+                if(rs.getString(8) != null){
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+                
+                float avg = rs.getFloat(10);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if(rs.getString(11)!=null){
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if(rs.getString(12)!=null){
+                    end = f.format(rs.getDate(12));
+                }
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end));
+            }
+        }catch(Exception ex){
+            System.out.println("getAllProductByPage"+ex.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getAllProductSortByRatingDesc(int page, int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"       p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"       ((1 - d.Discount / 100) * p.ProductPrice) as SalePrice,\n" +
+"       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID\n" +
+"FROM Headphone.Product p\n" +
+"LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL)\n" +
+"GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"         p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"         d.StartSaleDate, d.EndSaleDate\n" +
+"ORDER BY AverageRating desc\n" +
+"LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, page);
+            pstm.setInt(2, pageIndex);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                int dis = 0;
+                float sprice=0;
+                if(rs.getString(8) != null){
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+                
+                float avg = rs.getFloat(10);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if(rs.getString(11)!=null){
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if(rs.getString(12)!=null){
+                    end = f.format(rs.getDate(12));
+                }
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end));
+            }
+        }catch(Exception ex){
+            System.out.println("getAllProductByPage"+ex.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getAllProductSortBySalePrice(int page, int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image,\n" +
+"       p.Quantity, p.WireWireless, p.Description, d.Discount,\n" +
+"       case when d.Discount is not null then ((1 - d.Discount / 100) * p.ProductPrice) \n" +
+"       else p.ProductPrice\n" +
+"       end as SalePrice,\n" +
+"       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID, p.ReleaseDate\n" +
+"FROM Headphone.Product p\n" +
+"LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL)\n" +
+"GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image,\n" +
+"         p.Quantity, p.WireWireless, p.Description, d.Discount,\n" +
+"         d.StartSaleDate, d.EndSaleDate, p.ReleaseDate\n" +
+"ORDER BY SalePrice\n" +
+"LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, page);
+            pstm.setInt(2, pageIndex);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                int dis = 0;
+                float sprice=0;
+                if(rs.getString(8) != null){
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+                
+                float avg = rs.getFloat(10);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if(rs.getString(11)!=null){
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if(rs.getString(12)!=null){
+                    end = f.format(rs.getDate(12));
+                }
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end));
+            }
+        }catch(Exception ex){
+            System.out.println("getAllProductByPage"+ex.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getAllProductSortBySalePriceDesc(int page, int pageIndex){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image,\n" +
+"       p.Quantity, p.WireWireless, p.Description, d.Discount,\n" +
+"       case when d.Discount is not null then ((1 - d.Discount / 100) * p.ProductPrice) \n" +
+"       else p.ProductPrice\n" +
+"       end as SalePrice,\n" +
+"       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID, p.ReleaseDate\n" +
+"FROM Headphone.Product p\n" +
+"LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL)\n" +
+"GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image,\n" +
+"         p.Quantity, p.WireWireless, p.Description, d.Discount,\n" +
+"         d.StartSaleDate, d.EndSaleDate, p.ReleaseDate\n" +
+"ORDER BY SalePrice desc\n" +
+"LIMIT ? OFFSET ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, page);
+            pstm.setInt(2, pageIndex);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                int dis = 0;
+                float sprice=0;
+                if(rs.getString(8) != null){
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+                
+                float avg = rs.getFloat(10);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if(rs.getString(11)!=null){
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if(rs.getString(12)!=null){
+                    end = f.format(rs.getDate(12));
+                }
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end));
+            }
+        }catch(Exception ex){
+            System.out.println("getAllProductByPage"+ex.getMessage());
         }
         return list;
     }

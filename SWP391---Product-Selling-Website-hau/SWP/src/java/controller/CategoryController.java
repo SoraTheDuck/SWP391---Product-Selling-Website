@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import model.Product;
@@ -33,7 +34,14 @@ public class CategoryController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product product = new Product();
-        int cid = Integer.parseInt(req.getParameter("cid"));
+        HttpSession session = req.getSession();
+        int cid;
+        if(req.getParameter("cid") == null){
+            cid = Integer.parseInt(session.getAttribute("cidSession").toString());
+        }else{
+            cid = Integer.parseInt(req.getParameter("cid"));
+        }
+        
         
         int pageSize = 9;
         int currentPage = 1;
@@ -47,6 +55,8 @@ public class CategoryController extends HttpServlet {
         List<Product> list = product.getAllProductByCategoryByPage2(cid, pageSize, startIndex);
         
         req.setAttribute("list", list);
+        session.setAttribute("cidSession", cid);
+        
         req.setAttribute("currentPage", currentPage);
         req.setAttribute("totalPage", totalPage);
         req.setAttribute("link","/category");
