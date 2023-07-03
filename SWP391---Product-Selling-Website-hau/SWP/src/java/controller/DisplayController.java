@@ -5,6 +5,7 @@
 package controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,6 +21,7 @@ import model.Product;
  *
  * @author Acer Aspire
  */
+@WebServlet
 public class DisplayController extends HttpServlet {
 
     public int getTotalPage (int pageSize){

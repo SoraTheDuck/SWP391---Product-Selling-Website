@@ -25,37 +25,36 @@ import model.Customer;
  *
  * @author Acer Aspire
  */
-public class VerifyEmailController extends HttpServlet {
+public class ResetPassword extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String value=req.getParameter("otp");
-	HttpSession session=req.getSession();
-	String otp= session.getAttribute("otp").toString();
+        String value = req.getParameter("fcode");
+        HttpSession session=req.getSession();
+        String fcode = session.getAttribute("fotp").toString();
         
-        Customer c = (Customer) session.getAttribute("customer");
-        
-        if(otp.equals(value) && !req.getParameter("otp").trim().isEmpty()){
-            c.register();
-            String mess = "Register Successfully !!";
-            req.setAttribute("mess", mess);
-            req.getRequestDispatcher("Register.jsp").forward(req, resp);
+        Customer c = (Customer) session.getAttribute("fcustomer");
+        Customer temp = new Customer();
+        if(value.equals(fcode)){
+            temp.updatePass(value, c.getId());
+            req.setAttribute("mess", "Reset password successfully !!");
+            req.getRequestDispatcher("Login.jsp").forward(req, resp);
         }else{
-            String fail = "Invalid code !!";
-            req.setAttribute("message", fail);
-            req.getRequestDispatcher("VerifyEmail.jsp").forward(req, resp);
+            req.setAttribute("rmess", "Invalid code");
+            req.getRequestDispatcher("ResetPassword.jsp").forward(req, resp);
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession mySession=req.getSession();
-        Customer c = (Customer) mySession.getAttribute("customer");
-        int otp=(int)mySession.getAttribute("otp");
+        Customer c = (Customer) mySession.getAttribute("fcustomer");
+        String femail = c.getEmail();
         boolean con = true;
+        int fotp = 0;
         
         Random rand = new Random();
-            otp = rand.nextInt(1255650);
+            fotp = rand.nextInt(1255650);
             
             String to = c.getEmail();
             //get the session object
@@ -78,7 +77,7 @@ public class VerifyEmailController extends HttpServlet {
 		message.setFrom(new InternetAddress(c.getEmail()));// change accordingly
 		message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 		message.setSubject("Headphone Website");
-		message.setText("Your code for verification is: " + otp);
+		message.setText("Your code for verification is: " + fotp);
 		// send message
 		Transport.send(message);
 		System.out.println("Email sent successfully");
@@ -88,15 +87,14 @@ public class VerifyEmailController extends HttpServlet {
                 }
             
             if(con){
-                req.setAttribute("message","The resend of vertification code to your email id is successful !");
-                mySession.setAttribute("otp",otp); 
-                mySession.setAttribute("customer", c);
-                req.getRequestDispatcher("VerifyEmail.jsp").forward(req, resp);
+                req.setAttribute("message","The verification code is sent to your email id !");
+                mySession.setAttribute("fotp",fotp); 
+                mySession.setAttribute("fcustomer", c);
+                req.getRequestDispatcher("ResetPassword.jsp").forward(req, resp);
             }else{
                 req.setAttribute("mess", "Something went wrong. Please try again later !!");
-                req.getRequestDispatcher("Register.jsp").forward(req, resp);
+                req.getRequestDispatcher("Login.jsp").forward(req, resp);
             }
-            
     }
     
 }

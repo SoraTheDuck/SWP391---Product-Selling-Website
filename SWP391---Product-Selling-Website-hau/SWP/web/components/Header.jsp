@@ -36,9 +36,9 @@
                                 <a href="LogoutController" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="./Login.jsp"
+                                <a href="login"
                                    class="log-sign-btn log">Login</a>
-                                <a href="./Register.jsp"
+                                <a href="register"
                                    class="log-sign-btn sign">Sign-up</a>
                             </c:otherwise>
                         </c:choose>

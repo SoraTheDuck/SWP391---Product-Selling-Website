@@ -45,11 +45,13 @@ public class HomeController extends HttpServlet {
         List<Product> elist = p.getAllProductsByCategory2(2);
         List<Product> hslist = p.getAllProductsByCategory2(3);
         List<Product> alist = p.getAllProductsByCategory2(4);
+        List<Product> tlist = p.getTrendingProduct();
         req.setAttribute("categoryList", list);
         req.setAttribute("earphoneList", elist);
         req.setAttribute("headphoneList", hlist);
         req.setAttribute("headsetList", hslist);
         req.setAttribute("airpodList", alist);
+        req.setAttribute("trendingList", tlist);
         req.getRequestDispatcher("Home.jsp").forward(req, resp);
     }
     

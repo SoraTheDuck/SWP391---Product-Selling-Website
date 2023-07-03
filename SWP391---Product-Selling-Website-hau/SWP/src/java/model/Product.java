@@ -300,7 +300,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                int avg = rs.getInt(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -387,7 +388,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -495,7 +497,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -587,7 +590,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -672,7 +676,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -731,7 +736,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -790,7 +796,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -849,7 +856,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -908,7 +916,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -969,7 +978,8 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){
@@ -1030,7 +1040,75 @@ public class Product {
                     sprice = rs.getFloat(9);
                 }
                 
-                float avg = rs.getFloat(10);
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if(rs.getString(11)!=null){
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if(rs.getString(12)!=null){
+                    end = f.format(rs.getDate(12));
+                }
+                
+                list.add(new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end));
+            }
+        }catch(Exception ex){
+            System.out.println("getAllProductByPage"+ex.getMessage());
+        }
+        return list;
+    }
+    
+    public List<Product> getTrendingProduct(){
+        List<Product> list = new ArrayList<>();
+        try{
+            String sql = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image,\n" +
+"       p.Quantity, p.WireWireless, p.Description, d.Discount,\n" +
+"       ((1 - d.Discount / 100) * p.ProductPrice) as SalePrice,\n" +
+"       COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"       d.StartSaleDate, d.EndSaleDate, p.CategoryID, p.ReleaseDate\n" +
+"FROM Headphone.Product p\n" +
+"LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL) and p.ProductID IN (\n" +
+"  SELECT ProductID\n" +
+"  FROM (\n" +
+"    SELECT p.ProductID\n" +
+"    FROM Headphone.Product as p\n" +
+"    LEFT JOIN Headphone.OrderProduct AS op ON p.ProductID = op.ProductID\n" +
+"    GROUP BY p.ProductID\n" +
+"    order by COUNT(op.ProductID) desc\n" +
+"    LIMIT 6\n" +
+"  ) AS subquery\n" +
+")\n" +
+"GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image,\n" +
+"         p.Quantity, p.WireWireless, p.Description, d.Discount,\n" +
+"         d.StartSaleDate, d.EndSaleDate, p.ReleaseDate";
+            pstm = cnn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid= rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                String Timage = rs.getString(4);
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if(rs.getInt(6)==0){
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+                
+                int dis = 0;
+                float sprice=0;
+                if(rs.getString(8) != null){
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+                
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
+                
                 SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                 String start = "";
                 if(rs.getString(11)!=null){

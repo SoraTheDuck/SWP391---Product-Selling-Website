@@ -75,7 +75,6 @@
             <!-- Li's Breadcrumb Area End Here -->
             <!--Shopping Cart Area Strat-->
 
-            ${mess}
             <div class="Shopping-cart-area pt-60 pb-60">
                 <div class="container">
                     <p class="text-danger">${mess}</p>

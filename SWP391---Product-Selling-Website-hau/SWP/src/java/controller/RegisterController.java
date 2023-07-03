@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -28,6 +30,16 @@ import model.Customer;
  * @author Acer Aspire
  */
 public class RegisterController extends HttpServlet {
+    
+    public boolean checkPassword(String pass){
+        if(pass.length() < 8){
+            return false;
+        }
+        
+        boolean containsLetterAndNumber = pass.matches(".*[a-zA-Z].*") && pass.matches(".*\\d.*");
+        
+        return containsLetterAndNumber;
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,6 +55,11 @@ public class RegisterController extends HttpServlet {
         boolean con = true;
         HttpSession mySession = req.getSession();
         
+        if(!checkPassword(pass)){
+            req.setAttribute("mess", "Password must at least be 8 characters containing both letter and number");
+            req.getRequestDispatcher("Register.jsp").forward(req, resp);
+        }else{
+            
         
         
         if(!pass.equals(rePass)){
@@ -93,7 +110,7 @@ public class RegisterController extends HttpServlet {
                 }
             
             if(con){
-                req.setAttribute("message","The verification code is sent to your email id");
+                req.setAttribute("message","The verification code is sent to your email id !");
                 mySession.setAttribute("otp",otp); 
                 mySession.setAttribute("customer", c);
                 req.getRequestDispatcher("VerifyEmail.jsp").forward(req, resp);
@@ -101,13 +118,14 @@ public class RegisterController extends HttpServlet {
                 req.setAttribute("mess", "Something went wrong. Please try again later !!");
                 req.getRequestDispatcher("Register.jsp").forward(req, resp);
             }
-            
+                }
             }
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("Register.jsp").forward(req, resp);
     }
     
 }

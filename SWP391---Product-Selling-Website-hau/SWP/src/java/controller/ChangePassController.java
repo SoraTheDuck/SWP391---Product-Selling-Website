@@ -10,6 +10,16 @@ import model.Customer;
 
 public class ChangePassController extends HttpServlet {
 
+    public boolean checkPassword(String pass){
+        if(pass.length() < 8){
+            return false;
+        }
+        
+        boolean containsLetterAndNumber = pass.matches(".*[a-zA-Z].*") && pass.matches(".*\\d.*");
+        
+        return containsLetterAndNumber;
+    }
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (PrintWriter out = resp.getWriter()) {
@@ -22,6 +32,12 @@ public class ChangePassController extends HttpServlet {
             String oldpassCheck = c.getPassword(id);
             if (oldpassCheck == null || !oldpassCheck.equals(oldpassword)) {
                 req.setAttribute("pass_mess", "Old password is wrong!");
+                req.setAttribute("id", id);
+                req.getRequestDispatcher("Customer_profile.jsp").forward(req, resp);
+                return;
+            }
+            if(!checkPassword(newpassword)){
+                req.setAttribute("pass_mess", "The new password must be at least 8 characters containing both letter and digit");
                 req.setAttribute("id", id);
                 req.getRequestDispatcher("Customer_profile.jsp").forward(req, resp);
                 return;

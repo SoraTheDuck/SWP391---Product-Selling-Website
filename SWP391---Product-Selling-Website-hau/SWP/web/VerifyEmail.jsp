@@ -73,7 +73,9 @@
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
-            <%@include file="components/Header.jsp" %>
+            <div>
+                Please input the correct verification code to complete the registration process
+            </div>
             <!-- Header Area End Here -->
             <!-- Begin Verify Email Area -->
             <div class="error404-area pt-30 pb-60">
@@ -81,13 +83,14 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="error-wrapper text-center ptb-50 pt-xs-20">
-                            <p>${fail}</p>
-                            <h4>The verification code is sent to your Email</h4>
+                            <h4>${message}</h4>
                             <form action="verifyEmail" method="post">
                                 <input name="otp" id="otp" type="text" placeholder="Enter code" required>
                                 <input type="submit" value="Verify code">
                             </form>
-                        
+                            
+                            <button><a href="verifyEmail">Resend verification code</a></button>
+                            <button><a href="register">Return to register page</a></button>
                             </div>
                         </div>
                     </div>
@@ -95,7 +98,7 @@
             </div>
             <!-- Verify Email Area End Here -->
             <!-- Begin Footer Area -->
-            <%@include file="components/Footer.jsp" %>
+
             <!-- Footer Area End Here -->
         </div>
     </body>
