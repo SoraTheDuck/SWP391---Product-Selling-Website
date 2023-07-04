@@ -17,7 +17,7 @@
         </div>
         <p>${rmess}</p>
         <form action="resetpassword" method="post">
-            <input name="fcode" type="text" placeholder="Enter code">
+            <input name="fcode" type="text" placeholder="Enter code" required>
             <button type="submit">Verify code</button>
         </form>
         <button><a href="resetpassword">Resend code</a></button>

@@ -36,9 +36,9 @@ public class ResetPassword extends HttpServlet {
         Customer c = (Customer) session.getAttribute("fcustomer");
         Customer temp = new Customer();
         if(value.equals(fcode)){
-            temp.updatePass(value, c.getId());
+            session.setAttribute("fcustomer", c);
             req.setAttribute("mess", "Reset password successfully !!");
-            req.getRequestDispatcher("Login.jsp").forward(req, resp);
+            req.getRequestDispatcher("EnterNewPassword.jsp").forward(req, resp);
         }else{
             req.setAttribute("rmess", "Invalid code");
             req.getRequestDispatcher("ResetPassword.jsp").forward(req, resp);
@@ -87,7 +87,7 @@ public class ResetPassword extends HttpServlet {
                 }
             
             if(con){
-                req.setAttribute("message","The verification code is sent to your email id !");
+                req.setAttribute("rmessage","The resend of verification code is successful !");
                 mySession.setAttribute("fotp",fotp); 
                 mySession.setAttribute("fcustomer", c);
                 req.getRequestDispatcher("ResetPassword.jsp").forward(req, resp);
