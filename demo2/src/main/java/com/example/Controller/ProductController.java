@@ -23,7 +23,7 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "ProductController", urlPatterns = "/shop")
 public class ProductController extends HttpServlet {
-    
+
     public int getTotalPage (int pageSize){
         Product product = new Product();
         int totalProducts = product.getAllProduct().size();
@@ -33,13 +33,13 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+        super.doPost(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product product = new Product();
-        
+
         int pageSize = 9;
         int currentPage = 1;
         int startIndex = (currentPage - 1) * pageSize;
@@ -48,8 +48,8 @@ public class ProductController extends HttpServlet {
             currentPage = Integer.parseInt(req.getParameter("page"));
             startIndex = (currentPage - 1) * pageSize;
         }
-        
-        List<Product> list = product.getAllProductByPage(pageSize, startIndex);
+
+        List<Product> list = product.getAllProductByPage2(pageSize, startIndex);
 
 
         req.setAttribute("list", list);
@@ -58,5 +58,5 @@ public class ProductController extends HttpServlet {
         req.setAttribute("link","/shop");
         req.getRequestDispatcher("shop-left-sidebar.jsp").forward(req, resp);
     }
-    
+
 }

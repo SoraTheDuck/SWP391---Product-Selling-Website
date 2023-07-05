@@ -2,13 +2,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header>
     <!-- Begin Header Middle Area -->
-    <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
+    <div class="header-middle">
         <div class="container">
             <div class="row">
                 <!-- Begin Header Logo Area -->
                 <div class="col-lg-3">
                     <div class="logo pb-sm-30 pb-xs-30">
-                        <a href="./home">
+                        <a href="/SWP/home">
                             <img src="images/menu/logo/1.jpg"
                                  alt="">
                         </a>
@@ -16,9 +16,9 @@
                 </div>
                 <!-- Header Logo Area End Here -->
                 <!-- Begin Header Middle Right Area -->
-                <div class="header-middle-search col-lg-9 pl-0 ml-sm-15 ml-xs-15">
+                <div class="header-middle-search col-lg-6">
                     <!-- Begin Header Middle Searchbox Area -->
-                    <form action="search" method ="" 
+                    <form action="search" method ="post" 
                           class="hm-searchbox">
                         <input type="text" name="searchbox" placeholder="Enter your search key ..." required>
                         <button class="li-btn" type="submit">
@@ -26,29 +26,23 @@
                         </button>
                     </form>
                     <!-- Header Middle Searchbox Area End Here -->
-                    <!-- Begin Header Middle Right Area -->
-                    <div class="header-middle-right">
+                </div>
+                <!-- Begin Header Middle Right Area -->
+                    <div class="header-middle-right col-lg-3">
                         <!-- Begin Login Button Area -->
                         <c:choose>
                             <c:when test="${sessionScope.cus != null}">
-                                <a href="./Customer_profile.jsp" class="log-sign-btn log">${sessionScope.cus.name}</a>
+                                <a href="profile" class="log-sign-btn log">${sessionScope.cus.name}</a>
                                 <a href="LogoutController" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="./login"
+                                <a href="./Login.jsp"
                                    class="log-sign-btn log">Login</a>
-                                <a href="./register"
+                                <a href="./Register.jsp"
                                    class="log-sign-btn sign">Sign-up</a>
                             </c:otherwise>
                         </c:choose>
-<!--                        <a href="./Login.jsp"
-                           class="log-sign-btn log">Login</a>
-                        <a href="./Register.jsp"
-                           class="log-sign-btn sign">Sign-up</a>-->
-                        <!-- Header Login Button Area End Here -->
                     </div>
-                    <!-- Header Middle Right Area End Here -->
-                </div>
                 <!-- Header Middle Right Area End Here -->
             </div>
         </div>
@@ -63,8 +57,8 @@
                     <div class="hb-menu hb-menu-2 d-xl-block">
                         <nav>
                             <ul>
-                                <li><a href="./home">Home</a></li>
-                                <li class="megamenu-holder mn-drop"><a href="/shop">Shop</a>
+                                <li><a href="/SWP/home">Home</a></li>
+                                <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a>
                                     <ul class="megamenu hb-megamenu">
                                         <li><a href="shop-left-sidebar.jsp">Shop Page Layout</a></li>
                                         <li><a href="single-product.jsp">Single Products</a>
@@ -101,13 +95,10 @@
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="detail?pid=${o.product.id}">${o.product.name}</a>
+                                                    <h6><a href="detail?pid=${o.product.id}">${o.product.name} x ${o.quantity}</a>
                                                     </h6>
-                                                    <span>$ ${o.price} x ${o.quantity}</span>
+                                                    <span>$ ${o.price}</span>
                                                 </div>
-                                                <button class="close">
-                                                    <i class="fa fa-close"></i>
-                                                </button>
                                             </li>
                                             </c:forEach>
                                             

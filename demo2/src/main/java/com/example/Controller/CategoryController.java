@@ -22,7 +22,7 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "CategoryController", urlPatterns = "/category")
 public class CategoryController extends HttpServlet {
-    
+
     public int getTotalPage (int pageSize,int cid){
         Product product = new Product();
         int totalProducts = product.getAllProductsByCategory(cid).size();
@@ -39,7 +39,7 @@ public class CategoryController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product product = new Product();
         int cid = Integer.parseInt(req.getParameter("cid"));
-        
+
         int pageSize = 9;
         int currentPage = 1;
         int startIndex = (currentPage - 1) * pageSize;
@@ -48,14 +48,14 @@ public class CategoryController extends HttpServlet {
             currentPage = Integer.parseInt(req.getParameter("page"));
             startIndex = (currentPage - 1) * pageSize;
         }
-        
-        List<Product> list = product.getAllProductByCategoryByPage(cid, pageSize, startIndex);
-        
+
+        List<Product> list = product.getAllProductByCategoryByPage2(cid, pageSize, startIndex);
+
         req.setAttribute("list", list);
         req.setAttribute("currentPage", currentPage);
         req.setAttribute("totalPage", totalPage);
         req.setAttribute("link","/category");
         req.getRequestDispatcher("shop-left-sidebar.jsp").forward(req, resp);
     }
-    
+
 }

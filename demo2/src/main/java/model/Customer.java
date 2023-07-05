@@ -4,9 +4,11 @@
  */
 package model;
 
+import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -229,6 +231,77 @@ public class Customer {
                 return new Customer(name, pass, address, email);
             }
         } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+    
+    public boolean updateInfo(String name, String address, String email, int id) {
+        try {
+            String strSelect = "UPDATE headphone.customer\n"
+                    + "SET CustomerName=?,\n"
+                    + "Address=?,\n"
+                    + "Email=?\n"
+                    + "WHERE CustomerId=?";
+            pstm = cnn.prepareStatement(strSelect);
+
+            pstm.setString(1, name);
+            pstm.setString(2, address);
+            pstm.setString(3, email);
+            pstm.setInt(4, id);
+
+            int rowsUpdated = pstm.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                
+                return true; // Update successful
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false; // Update failed
+    }
+    
+    public void updatePass(String password, int id) {
+        try {
+            String strSelect = "UPDATE customer\n"
+                    + "   SET Password = ?\n"
+                    + " WHERE CustomerId = ?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, password);
+            pstm.setInt(2, id);
+            pstm.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            // Đảm bảo đóng PreparedStatement và Connection
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (cnn != null) {
+                    cnn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("updatePass: " + ex.getMessage());
+            }
+        }
+    }
+    
+    public String getPassword(int id) {
+        String strSelect = "SELECT\n"
+                + "Password\n"
+                + "FROM customer\n"
+                + "WHERE CustomerId = ?";
+        try {
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
         return null;

@@ -22,6 +22,7 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "RemoveController", urlPatterns = "/remove")
 public class RemoveController extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

@@ -5,6 +5,7 @@
 package com.example.Controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,12 +19,8 @@ import model.Order;
  *
  * @author admin
  */
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-
-@WebServlet(name = "CheckoutController", urlPatterns = "/checkout")
-public class CheckoutController extends HttpServlet {
+@WebServlet(name = "Checkout2Controller", urlPatterns = "/checkout2")
+public class Checkout2Controller extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,12 +43,12 @@ public class CheckoutController extends HttpServlet {
                 req.setAttribute("mess", mess);
                 req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
             } else {
-//                Order order = new Order();
-//                order.addOrder1(checkLogin, cart);
-//                session.removeAttribute("cart");
-//                mess = "Checkout Successfully!!";
-//                req.setAttribute("mess", mess);
-                req.getRequestDispatcher("Checkout.jsp").forward(req, resp);
+                Order order = new Order();
+                order.addOrder1(checkLogin, cart);
+                session.removeAttribute("cart");
+                mess = "Checkout Successfully!!";
+                req.setAttribute("mess", mess);
+                req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
             }
         } else {
             String mess = "Please Login to Order";
@@ -62,6 +59,7 @@ public class CheckoutController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    
     }
-
+    
 }

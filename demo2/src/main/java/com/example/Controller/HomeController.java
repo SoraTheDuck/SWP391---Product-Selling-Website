@@ -9,24 +9,19 @@ import java.util.List;
 import model.Category;
 import model.Product;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-
-import java.io.IOException;
-
-@WebServlet(name = "HomeController2", urlPatterns = {"/home",""})
-public class HomeController2 extends HttpServlet {
+@WebServlet(name = "HomeController", urlPatterns = {"/home",""})
+public class HomeController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product p = new Product();
         Category c = new Category();
         List<Category> list = c.getAllCategory();
-        List<Product> hlist = p.getAllProductsByCategory(1);
-        List<Product> elist = p.getAllProductsByCategory(2);
-        List<Product> hslist = p.getAllProductsByCategory(3);
-        List<Product> alist = p.getAllProductsByCategory(4);
+        List<Product> hlist = p.getAllProductsByCategory2(1);
+        List<Product> elist = p.getAllProductsByCategory2(2);
+        List<Product> hslist = p.getAllProductsByCategory2(3);
+        List<Product> alist = p.getAllProductsByCategory2(4);
         req.setAttribute("categoryList", list);
         req.setAttribute("earphoneList", elist);
         req.setAttribute("headphoneList", hlist);
@@ -36,14 +31,14 @@ public class HomeController2 extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product p = new Product();
         Category c = new Category();
         List<Category> list = c.getAllCategory();
-        List<Product> hlist = p.getAllProductsByCategory(1);
-        List<Product> elist = p.getAllProductsByCategory(2);
-        List<Product> hslist = p.getAllProductsByCategory(3);
-        List<Product> alist = p.getAllProductsByCategory(4);
+        List<Product> hlist = p.getAllProductsByCategory2(1);
+        List<Product> elist = p.getAllProductsByCategory2(2);
+        List<Product> hslist = p.getAllProductsByCategory2(3);
+        List<Product> alist = p.getAllProductsByCategory2(4);
         req.setAttribute("categoryList", list);
         req.setAttribute("earphoneList", elist);
         req.setAttribute("headphoneList", hlist);

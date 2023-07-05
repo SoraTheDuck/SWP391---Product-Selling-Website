@@ -1434,14 +1434,10 @@ textarea:focus {
 	padding: 30px;
 }
 .hm-searchbox {
-	display: flex;
 	position: relative;
-	background: #fff;
 	border-radius: 5px;
 	border: 1px solid #e1e1e1;
-	min-width: 638px;
 	height: 45px;
-	float: left;
 }
 .hm-searchbox .nice-select.select-search-category {
 	width: auto;
@@ -1491,7 +1487,6 @@ textarea:focus {
 
 .header-middle-right {
     display: inline-flex;
-    margin-left: 5%;
     padding: 2px;
     box-sizing: border-box;
     justify-content: right;
@@ -2369,6 +2364,8 @@ textarea:focus {
 	transition: all 300ms ease-in 0s;
 	width: 100%;
 }
+
+
 .add-actions-link li {
 	line-height: 1;
 	margin: 0 0 0 3px;
@@ -2403,12 +2400,15 @@ textarea:focus {
 	-webkit-transition: all 300ms ease-in 0s;
 	transition: all 300ms ease-in 0s;
 }
-.add-actions-link li.add-cart.active a {
-	color: #242424;
-}
+
+
 .add-actions-link li:hover a, 
 .add-actions-link li.add-cart:hover a {
 	color: #242424;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 .add-actions-link li.add-cart > a {
 	color: #a4a4a4;
@@ -2420,6 +2420,8 @@ textarea:focus {
   font-size: 16px;
   line-height: 22px;
 }
+
+
 .add-actions {
 	bottom: -15px;
 	
@@ -3593,6 +3595,14 @@ li.right-menu .cat-mega-menu-2 > li {
 	background: #92aae5 none repeat scroll 0 0;
 	color: #fff;
 }
+.add-cart-text a {
+	color: #e232e8;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
 /*----------------------------------------*/
 /* 6.4 Li's Checkout Page
 /*----------------------------------------*/

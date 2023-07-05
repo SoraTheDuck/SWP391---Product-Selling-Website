@@ -22,11 +22,11 @@ public class VerifyEmailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int value=Integer.parseInt(req.getParameter("otp"));
-	    HttpSession session=req.getSession();
-	    int otp=(int)session.getAttribute("otp");
-        
+        HttpSession session=req.getSession();
+        int otp=(int)session.getAttribute("otp");
+
         Customer c = (Customer) session.getAttribute("customer");
-        
+
         if(otp==value && !req.getParameter("otp").trim().isEmpty()){
             c.register();
             String mess = "Register Successfully !!";
@@ -43,5 +43,6 @@ public class VerifyEmailController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-    
+
 }
+

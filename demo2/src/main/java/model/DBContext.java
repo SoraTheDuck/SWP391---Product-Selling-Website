@@ -21,10 +21,13 @@ public class DBContext {
     public DBContext()
     {
         try {
-            String user = "SWP_Admin";
-            String password = "Test1234@";
-            String database = "headphone";
-            String url = "jdbc:mysql://dbswp.mysql.database.azure.com:3306/" + database + "?useSSL=true";
+            String user = "root" ;//"SWP_Admin";
+            String password = "1234"; //"Test1234@";
+            //String database = "headphone";
+            //String url = "jdbc:mysql://dbswp.mysql.database.azure.com:3306/" + database + "?useSSL=true";
+
+            String url = "jdbc:mysql://localhost:3306/headphone?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UT";
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException | SQLException ex) {

@@ -10,10 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  *
@@ -23,14 +21,14 @@ public class Order {
 
     private int id;
     private String date;
-    private double totalmoney;
+    private float totalmoney;
     private int customerid;
 
     public Order() {
         connect();
     }
 
-    public Order(int id, String date, double totalmoney, int customerid) {
+    public Order(int id, String date, float totalmoney, int customerid) {
         this.id = id;
         this.date = date;
         this.totalmoney = totalmoney;
@@ -53,11 +51,11 @@ public class Order {
         this.date = date;
     }
 
-    public double getTotalMoney() {
+    public float getTotalMoney() {
         return totalmoney;
     }
 
-    public void setTotalMoney(double totalmoney) {
+    public void setTotalMoney(float totalmoney) {
         this.totalmoney = totalmoney;
     }
 
@@ -80,7 +78,7 @@ public class Order {
         try {
             cnn = (new DBContext().connection);
             if (cnn != null) {
-                System.out.println("Connect successfully");
+                System.out.println("Connect successfully3");
             } else {
                 System.out.println("Connect Fail");
             }
@@ -141,21 +139,26 @@ public class Order {
         return 0;
     }
 
-//    public List<Order> getHistory(int cid) {
-//        List<Order> data = new ArrayList<>();
-//        try {
-//            String sql = "select * from Orders where CustomerID = ?";
-//            pstm2 = cnn.prepareStatement(sql);
-//            pstm2.setInt(1, cid);
-//            rs = pstm2.executeQuery();
-//
-//            while (rs.next()) {
-//                data.add(new Order(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getInt(4)));
-//
-//            }
-//        } catch (Exception e) {
-//            System.out.println("getHistory" + e.getMessage());
-//        }
-//        return data;
-//    }
+    public List<Order> getHistory(int cid) {
+        List<Order> data = new ArrayList<>();
+        try {
+            String sql = "select * from headphone.orders where CustomerID = ?";
+            pstm2 = cnn.prepareStatement(sql);
+            pstm2.setInt(1, cid);
+            rs = pstm2.executeQuery();
+
+            while (rs.next()) {
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String date = "";
+                if (rs.getDate(2) != null) {
+                    date = f.format(rs.getDate(2));
+                }
+                data.add(new Order(rs.getInt(1), date, rs.getFloat(3), rs.getInt(4)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("getHistory" + e.getMessage());
+        }
+        return data;
+    }
 }

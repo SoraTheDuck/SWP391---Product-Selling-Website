@@ -75,6 +75,7 @@
             <!-- Li's Breadcrumb Area End Here -->
             <!--Shopping Cart Area Strat-->
 
+            ${mess}
             <div class="Shopping-cart-area pt-60 pb-60">
                 <div class="container">
                     <div class="row">
@@ -98,23 +99,18 @@
                                                     <td class="li-product-remove"><a href="remove?id=${o.product.id}">x</a></td>
                                                     <td class="li-product-thumbnail"><a href="detail?pid=${o.product.id}"><img src="${o.product.image}" alt="Li's Product Image"></a></td>
                                                     <td class="li-product-name"><a href="#">${o.product.name}</a></td>
-                                                    <td class="li-product-price"><span class="amount">$ ${o.price}</span></td>
+                                                    <td class="li-product-price">
+                                                        <span class="amount">$ ${o.price}</span></td>
                                                     <td class="quantity">
                                                         <!--<label>Quantity</label>-->
-                                                        <!-- <div class="cart-plus-minus">-->
-                                                            <input  value="${o.quantity}" type="text" readonly>
-                                                            <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
-                                                                <!--
-                                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                                -->
-                                                                <h2>-</h2>
-                                                            </a>
-                                                            <a href="process?num=1&id=${o.product.id}">
-                                                                <!--
-                                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                                -->
-                                                                <h2>+</h2>
-                                                            </a>
+                                                        <input  value="${o.quantity}" type="text" readonly>
+                                                        <!--scroll save with scroll-link class-->
+                                                        <a class="qtybutton scroll-link" href="process?num=-1&id=${o.product.id}">
+                                                            <h2>-</h2>
+                                                        </a>
+                                                        <a class="scroll-link" href="process?num=1&id=${o.product.id}">
+                                                            <h2>+</h2>
+                                                        </a>
                                                         <!-- </div>-->
                                                     </td>
                                                     <td class="product-subtotal"><span class="amount">$${o.price*o.quantity}</span></td>
@@ -131,7 +127,6 @@
                                                 <li>Total <span>$ ${sessionScope.cart.getTotalMoney()}</span></li>
                                             </ul>
                                             <a href="#" onclick="this.closest('form').submit();">Proceed to checkout</a>
-                                            ${alert}
                                         </div>
                                     </div>
                                 </div>
@@ -145,6 +140,62 @@
             <%@include file="components/Footer.jsp" %>
             <!-- Footer Area End Here -->
         </div>
+
+
+        <!--scroll save with anti flickering-->
+        <!--
+        add this scary shit to the controller
+        ************************************
+        //scroll save
+        int scrollPos;
+        if(req.getParameter("scrollPos") != null)
+        {
+            scrollPos = Integer.parseInt(req.getParameter("scrollPos"));
+        }
+        else
+        {
+            scrollPos = 0;
+            System.out.println("how dae f-"); //ok, just kidding, remember to adjust this
+        }
+        req.setAttribute("scrollPos", scrollPos);
+        ************************************
+
+        then just add scroll-link class to the element like this which will refresh and boom shakalaka
+
+        <a class="qtybutton scroll-link" href="process?..... (line 108 in shopping-cart)
+        -->
+
+        <style>
+            body {
+                visibility: hidden;
+            }
+        </style>
+
+        <script>
+            var links = document.querySelectorAll(".scroll-link");
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener("click", function (event) {
+                    event.preventDefault();
+                    var scrollPos = window.scrollY;
+                    // Save the scroll position in localStorage
+                    localStorage.setItem("scrollPos", scrollPos);
+                    window.location.href = this.href;
+                });
+            }
+
+            // Add this code to scroll to the saved position after the page reloads
+            window.onload = function() {
+                var scrollPos = localStorage.getItem("scrollPos");
+                if (scrollPos) {
+                    window.scrollTo({ top: scrollPos, behavior: 'auto' });
+                    localStorage.removeItem("scrollPos"); // Remove the saved scroll position
+                }
+                // anti flickering
+                document.body.style.visibility = "visible";
+            };
+        </script>
+        <!--scroll save End Here-->
+
         <!-- Body Wrapper End Here -->
         <!-- jQuery-V1.12.4 -->
         <script src="js/vendor/jquery-1.12.4.min.js"></script>

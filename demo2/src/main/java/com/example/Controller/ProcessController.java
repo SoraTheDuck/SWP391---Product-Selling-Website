@@ -46,11 +46,11 @@ public class ProcessController extends HttpServlet {
         try {
             int num = Integer.parseInt(pnum);
             if (num == -1 && cart.getQuantityById(pid) <= 1) {
-                
+
                 System.out.println("if: "+cart.getQuantityById(pid));
                 cart.removeItem(pid);
             } else {
-                
+
                 System.out.println("else: "+cart.getQuantityById(pid));
                 Product temp = new Product();
                 Product p = temp.getProductByID(pid);
@@ -61,8 +61,25 @@ public class ProcessController extends HttpServlet {
         } catch (Exception e) {
             System.out.println("ProcessController error");
         }
+
+        //scroll save
+        int scrollPos;
+        if(req.getParameter("scrollPos") != null)
+        {
+            scrollPos = Integer.parseInt(req.getParameter("scrollPos"));
+        }
+        else
+        {
+            scrollPos = 0;
+            System.out.println("how dae f-"); //ok, just kidding, remember to adjust this
+        }
+        System.out.println("scrollPos: " + scrollPos);
+        req.setAttribute("scrollPos", scrollPos);
+
+
         session.setAttribute("cart", cart);
         req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
     }
 
 }
+
