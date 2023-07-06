@@ -104,6 +104,10 @@
         <servlet-name>EnterNewPasswordController</servlet-name>
         <servlet-class>controller.EnterNewPasswordController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffLoginController</servlet-name>
+        <servlet-class>controller.StaffLoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>EnterNewPasswordController</servlet-name>
         <url-pattern>/enternewpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffLoginController</servlet-name>
+        <url-pattern>/stafflogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -103,4 +103,20 @@ public class Admin {
         }
         return false;
     }
+
+    public Admin getAdmin() {
+        try {
+            String strSelect = "SELECT * FROM headphone.admin where email=? and password=? ";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, email);
+            pstm.setString(2, password);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                return new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            }
+        } catch (Exception e) {
+            System.out.println("getAdmin: " + e.getMessage());
+        }
+        return new Admin();
+    }
 }
