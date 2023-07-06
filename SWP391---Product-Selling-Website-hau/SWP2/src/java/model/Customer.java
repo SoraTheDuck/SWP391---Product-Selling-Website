@@ -1,0 +1,369 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package model;
+
+import jakarta.servlet.http.HttpSession;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Acer Aspire
+ */
+public class Customer {
+
+    private int id;
+    private String name, password, address, email;
+
+    public Customer() {
+        connect();
+    }
+
+    public Customer(int id, String name, String password, String address, String email) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.address = address;
+        this.email = email;
+
+        connect();
+    }
+
+    public Customer(String email, String password) {
+        this.password = password;
+        this.email = email;
+        connect();
+    }
+
+    public Customer(String name, String password, String address, String email) {
+        this.name = name;
+        this.password = password;
+        this.address = address;
+        this.email = email;
+        connect();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    Connection cnn;
+    Statement stm;
+    PreparedStatement pstm;
+    ResultSet rs;
+
+    private void connect() {
+        try {
+            cnn = (new DBContext().connection);
+            if (cnn != null) {
+                System.out.println("Connect successfully");
+            } else {
+                System.out.println("Connect Fail");
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void register() {
+        try {
+            String strAdd = "INSERT INTO headphone.customer (CustomerName, Password, Address, Email) \n"
+                    + "VALUES (?, ?, ?, ?);";
+
+            pstm = cnn.prepareStatement(strAdd);
+            pstm.setString(1, name);
+            pstm.setString(2, password);
+            pstm.setString(3, address);
+            pstm.setString(4, email);
+
+            pstm.execute();
+        } catch (Exception e) {
+            System.out.println("CustomerRegister:" + e.getMessage());
+        }
+    }
+
+    public boolean checkLogin() {
+        try {
+            String strSelect = "SELECT * FROM headphone.customer where email=? and password=? ";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, email);
+            pstm.setString(2, password);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("checkLogin:" + e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean checkCustomerExist(String email) {
+        try {
+            String strQuery = "SELECT * FROM headphone.customer WHERE Email = ?";
+            pstm = cnn.prepareStatement(strQuery);
+            pstm.setString(1, email);
+
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("checkCustomerExist:" + e.getMessage());
+        }
+        return false;
+    }
+
+    public void getCustomerByAccount(String email) {
+        try {
+            String strSelect = "SELECT * FROM headphone.customer where email=?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, email);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                this.id = rs.getInt(1);
+                this.name = rs.getString(2);
+                this.email = rs.getString(5);
+                this.password = rs.getString(3);
+                this.address = rs.getString(4);
+            }
+        } catch (Exception e) {
+            System.out.println("getCustomerByAccount:" + e.getMessage());
+        }
+    }
+
+
+    public Customer getCusById(int id) {
+        String sql = "SELECT * FROM headphone.Customer where CustomerId =?";
+        try {
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                this.id = rs.getInt(1);
+                this.name = rs.getString(2);
+                this.password = rs.getString(3);
+                this.address = rs.getString(4);
+                this.email = rs.getString(5);
+                return new Customer(name, password, address, email);
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+
+    public boolean updateInfo(String name, String address, String email, int id) {
+        try {
+            String strSelect = "UPDATE headphone.customer\n"
+                    + "SET CustomerName=?,\n"
+                    + "Address=?,\n"
+                    + "Email=?\n"
+                    + "WHERE CustomerId=?";
+            pstm = cnn.prepareStatement(strSelect);
+
+            pstm.setString(1, name);
+            pstm.setString(2, address);
+            pstm.setString(3, email);
+            pstm.setInt(4, id);
+
+            int rowsUpdated = pstm.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                return true; // Update successful
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false; // Update failed
+    }
+
+    public String getPassword(int id) {
+        String strSelect = "SELECT\n"
+                + "Password\n"
+                + "FROM customer\n"
+                + "WHERE CustomerId = ?";
+        try {
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+
+    public void updatePass(String password, int id) {
+        try {
+            String strSelect = "UPDATE customer\n"
+                    + "   SET Password = ?\n"
+                    + " WHERE CustomerId = ?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, password);
+            pstm.setInt(2, id);
+            pstm.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            // Đảm bảo đóng PreparedStatement và Connection
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (cnn != null) {
+                    cnn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("updatePass: " + ex.getMessage());
+            }
+        }
+    }
+
+    public List<Customer> getAllCus() {
+        List<Customer> list = new ArrayList<>();
+        try {
+            String strSelect = "SELECT * FROM customer";
+            pstm = cnn.prepareStatement(strSelect);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String password = rs.getString(3);
+                String address = rs.getString(4);
+                String email = rs.getString(5);
+
+                list.add(new Customer(id, name, password, address, email));
+            }
+            pstm.close();
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public boolean isEmailAlreadyExists(String email) {
+        boolean emailExists = false;
+        try {
+            String strSelect = "SELECT COUNT(*) FROM customer WHERE email = ?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, email);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                emailExists = count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return emailExists;
+    }
+
+    public void addCus() {
+        try {
+            String strAdd = "INSERT INTO headphone.customer (CustomerName, Password, Address, Email) \n"
+                    + "VALUES (?, ?, ?, ?);";
+
+            pstm = cnn.prepareStatement(strAdd);
+            pstm.setString(1, name);
+            pstm.setString(2, password);
+            pstm.setString(3, address);
+            pstm.setString(4, email);
+
+            pstm.execute();
+            pstm.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void delete(int id) {
+        String strSelect = "DELETE FROM customer where CustomerID=?";
+        try {
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setInt(1, id);
+            int rowsAffected = pstm.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+
+    public boolean updateCus(String name, String password, String address, String email, int id){
+        try {
+            String strSelect = "UPDATE headphone.customer\n"
+                    + "SET CustomerName=?,\n"
+                    + "Password=?,\n"
+                    + "Address=?,\n"
+                    + "Email=?\n"
+                    + "WHERE CustomerId=?";
+            pstm = cnn.prepareStatement(strSelect);
+
+            pstm.setString(1, name);
+            pstm.setString(2, password);
+            pstm.setString(3, address);
+            pstm.setString(4, email);
+            pstm.setInt(5, id);
+            int rowsUpdated = pstm.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                return true; // Update successful
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false; // Update failed
+    }
+
+}
