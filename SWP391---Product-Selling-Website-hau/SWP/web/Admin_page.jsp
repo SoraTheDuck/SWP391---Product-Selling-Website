@@ -51,17 +51,6 @@
                     <div class="container-fluid">
                         <div class="row">
                             
-                            <!--Root-->
-                            <p>Hello ${email}</p>
-                            <div style="padding: 20px">
-                                <a href="#">Home</a>
-                                <a href="list-user">Users</a>
-                                <a href="list-product">Products</a>
-                                <a href="list-order">Orders</a>
-                                <a style="margin-left:50px;" href="LogoutController">Log out</a>
-                            </div>
-                             <!--Root-->
-                            
                             
                             <div class="col-md-12">
                                 <div class="overview-wrap">
@@ -231,7 +220,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h2 class="title-1 m-b-25">Top countries</h2>
+                                <h2 class="title-1 m-b-25">Top Sellers Products</h2>
                                 <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
                                     <div class="au-card-inner">
                                         <div class="table-responsive">
@@ -307,7 +296,7 @@
     </script>
 
     <!-- Main JS-->
-    <script src="js/main.js"></script>
+    <script src="js/main2.js"></script>
 
 </body>
 

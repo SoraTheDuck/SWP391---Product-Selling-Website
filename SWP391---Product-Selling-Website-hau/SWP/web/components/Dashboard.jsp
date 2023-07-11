@@ -4,7 +4,7 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <a class="logo" href="index1.html">
+                <a class="logo" href="Admin_page.jsp">
                     <img src="images/icon/logo.png" alt="CoolAdmin" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
@@ -41,7 +41,7 @@
                         Manage Products</a>
                 </li>
                 <li class="has-sub">
-                    <a  href="Admin_page.jsp">
+                    <a  href="list-discount">
                         </i>Manage Discount</a>
                 </li>
                 <li class="has-sub">
@@ -72,7 +72,7 @@
                         <div class="account-wrap">
                             <div class="account-item clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="images/icon/avatar-admin.jpg" alt="admin" />
+                                    <img src="images/menu/avatar-admin.jpg" alt="admin" />
                                 </div>
                                 <div class="content">
                                     <a class="js-acc-btn" href="#">Admin</a>
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href="#">
+                                        <a href="LogoutController">
                                             <i class="zmdi zmdi-power"></i>Logout</a>
                                     </div>
                                 </div>

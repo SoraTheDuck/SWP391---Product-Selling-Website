@@ -108,6 +108,42 @@
         <servlet-name>StaffLoginController</servlet-name>
         <servlet-class>controller.StaffLoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListUserController</servlet-name>
+        <servlet-class>controller.admin.ListUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListProductController</servlet-name>
+        <servlet-class>controller.admin.ListProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListOrderController</servlet-name>
+        <servlet-class>controller.admin.ListOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductController</servlet-name>
+        <servlet-class>controller.admin.AddProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProductController</servlet-name>
+        <servlet-class>controller.admin.EditProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountantOrderController</servlet-name>
+        <servlet-class>controller.accountant.AccountantOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExportOrderController</servlet-name>
+        <servlet-class>controller.accountant.ExportOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListDiscountController</servlet-name>
+        <servlet-class>controller.admin.ListDiscount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDiscountController</servlet-name>
+        <servlet-class>controller.admin.AddDiscountController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -215,6 +251,42 @@
     <servlet-mapping>
         <servlet-name>StaffLoginController</servlet-name>
         <url-pattern>/stafflogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListUserController</servlet-name>
+        <url-pattern>/list-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListProductController</servlet-name>
+        <url-pattern>/list-product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrderController</servlet-name>
+        <url-pattern>/list-order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductController</servlet-name>
+        <url-pattern>/add-product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProductController</servlet-name>
+        <url-pattern>/editproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountantOrderController</servlet-name>
+        <url-pattern>/accountantorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExportOrderController</servlet-name>
+        <url-pattern>/exportorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListDiscountController</servlet-name>
+        <url-pattern>/list-discount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDiscountController</servlet-name>
+        <url-pattern>/adddiscount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

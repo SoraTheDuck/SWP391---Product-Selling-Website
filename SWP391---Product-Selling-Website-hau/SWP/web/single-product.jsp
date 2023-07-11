@@ -82,8 +82,8 @@
                             <div class="product-details-left">
                                 <div class="product-details-images slider-navigation-1">
                                     <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="${detail.image}" data-gall="myGallery">
-                                            <img src="${detail.image}" alt="product image">
+                                        <a class="popup-img venobox vbox-item" href="data:image/jpg;charset=utf8;base64,${detail.image}" data-gall="myGallery">
+                                            <img src="data:image/jpg;charset=utf8;base64,${detail.image}" alt="product image">
                                         </a>
                                     </div>
                                     <div class="lg-image">
@@ -438,7 +438,7 @@
                                                     <div class="modal-inner-area row">
                                                         <div class="col-lg-6">
                                                            <div class="li-review-product">
-                                                               <img src="${detail.image}" alt="Li's Product">
+                                                               <img src="data:image/jpg;charset=utf8;base64,${detail.image}" alt="Li's Product">
                                                                <div class="li-review-product-desc">
                                                                    <p class="li-product-name">${detail.name}</p>
                                                                    <p>

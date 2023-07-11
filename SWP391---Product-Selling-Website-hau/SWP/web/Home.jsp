@@ -213,7 +213,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="detail?pid=${o.id}">
-                                                    <img src="images/product/large-size/6.jpg"
+                                                    <img src="data:image/jpg;charset=utf8;base64,${o.getImage()}"
                                                          alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">Hot</span>
@@ -371,7 +371,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="detail?pid=${o.id}">
-                                                    <img src="images/product/large-size/6.jpg"
+                                                    <img src="data:image/jpg;charset=utf8;base64,${o.getImage()}"
                                                          alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
@@ -382,6 +382,7 @@
                                                         <h5 class="manufacturer">
                                                             <a href="detail?pid=${o.id}">${o.name}</a>
                                                         </h5>
+                                                        
                                                         <div class="rating-box">
                                                             <c:choose>
                                                                 <c:when test="${o.getAvgrating() <=0.5}">
@@ -529,7 +530,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="detail?pid=${o.id}">
-                                                    <img src="images/product/large-size/6.jpg"
+                                                    <img src="data:image/jpg;charset=utf8;base64,${o.getImage()}"
                                                          alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
@@ -686,7 +687,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="detail?pid=${o.id}">
-                                                    <img src="images/product/large-size/6.jpg"
+                                                    <img src="data:image/jpg;charset=utf8;base64,${o.getImage()}"
                                                          alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
@@ -851,7 +852,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="detail?pid=${o.id}">
-                                                    <img src="images/product/large-size/6.jpg"
+                                                    <img src="data:image/jpg;charset=utf8;base64,${o.getImage()}"
                                                          alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
@@ -1816,6 +1817,19 @@
         <!-- Quick View | Modal Area End Here -->
     </div>
     <!-- Body Wrapper End Here -->
+    
+    <script>
+        window.addEventListener('beforeunload', function() {
+            // Check if the 'cr' cookie is null
+            if (!document.cookie.includes('cr=')) {
+              // Set the expiration time to a negative value to immediately delete the cookies
+              document.cookie = "cmail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              document.cookie = "cpassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              document.cookie = "cr=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            }
+          });
+    </script>
+    
     <!-- jQuery-V1.12.4 -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <!-- Popper js -->

@@ -91,7 +91,7 @@
                                             <li>
                                                 <a href="detail?pid=${o.product.id}"
                                                    class="minicart-product-image">
-                                                    <img src="${o.product.image}"
+                                                    <img src="data:image/jpg;charset=utf8;base64,${o.product.image}"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">

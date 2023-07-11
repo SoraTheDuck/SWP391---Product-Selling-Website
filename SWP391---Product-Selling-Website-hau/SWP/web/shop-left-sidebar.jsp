@@ -136,7 +136,7 @@
                                                         <div class="single-product-wrap">
                                                             <div class="product-image">
                                                                 <a href="detail?pid=${o.id}">
-                                                                    <img src="${o.image}" alt="Li's Product Image">
+                                                                    <img src="data:image/jpg;charset=utf8;base64,${o.image}" alt="Li's Product Image">
                                                                 </a>
                                                                 <span class="sticker">New</span>
                                                             </div>
