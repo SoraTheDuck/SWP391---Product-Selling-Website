@@ -66,7 +66,7 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="Home.jsp">Home</a></li>
+                            <li><a href="./home">Home</a></li>
                             <li class="active">Shopping Cart</li>
                         </ul>
                     </div>

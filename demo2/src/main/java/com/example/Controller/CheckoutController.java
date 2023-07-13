@@ -46,11 +46,7 @@ public class CheckoutController extends HttpServlet {
                 req.setAttribute("mess", mess);
                 req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
             } else {
-//                Order order = new Order();
-//                order.addOrder1(checkLogin, cart);
-//                session.removeAttribute("cart");
-//                mess = "Checkout Successfully!!";
-//                req.setAttribute("mess", mess);
+                System.out.println("yay");
                 req.getRequestDispatcher("Checkout.jsp").forward(req, resp);
             }
         } else {
@@ -62,6 +58,7 @@ public class CheckoutController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("catched");
     }
 
 }

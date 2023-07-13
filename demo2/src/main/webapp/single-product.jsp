@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-    
+
 <!-- single-product31:30-->
 <head>
         <meta charset="utf-8">
@@ -49,16 +49,6 @@
                 max-height: 50vh;
                 overflow-y:scroll;
                 margin-top: 30px;
-                border: 3px solid #92aae5;
-            }
-            .comment{
-                height: 10%;
-                padding: 1%;
-                margin: 2%;
-                background-color: #ffffff;
-                color: black;
-                border: 1px solid black;
-                border-radius: 10px;
             }
         </style>
     
@@ -76,7 +66,7 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="/SWP/home">Home</a></li>
+                            <li><a href="/home">Home</a></li>
                             <li class="active">${detail.name}</li>
                         </ul>
                     </div>
@@ -204,9 +194,9 @@
                                         <c:choose>
                                             <c:when test="${detail.getDiscount() > 0}">
                                                 <span class="new-price new-price-2">$ ${detail.getSaleprice()}</span> <br>
-                                                <span class="old-price">$ ${detail.price}</span> <br>
-                                                <span class="discount-percentage">${detail.getDiscount()}%</span> <br>
-                                                <span>From ${detail.getStartdate()} to ${detail.getEnddate()}</span>
+                                                <span class="old-price">Original Price: $ ${detail.price}</span> <br>
+                                                <span class="discount-percentage">Discount Percentage: ${detail.getDiscount()}%</span> <br>
+                                                <span>Only from ${detail.getStartdate()} to ${detail.getEnddate()}</span>
                                             </c:when>
                                             <c:otherwise>
                                                 <span class="new-price new-price-2">$ ${detail.price}</span>
@@ -215,6 +205,7 @@
                                         
                                     </div>
                                     <div class="product-desc">
+                                        <p>Release Date: ${detail.getReleasedate()}</p>
                                         <p>
                                             <span> ${detail.description}
                                             </span>
@@ -282,7 +273,7 @@
             </div>
             <!-- content-wraper end -->
             <!-- Begin Product Area -->
-            <div class="product-area pt-35">
+            <div class="product-area pt-35 content-wraper">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -374,7 +365,7 @@
                                                 <div class="comment-section">
                                                 <c:forEach items="${review}" var="o">
 
-                                                    <div class="comment-author-infos pt-25">
+                                                    <div class="comment-author-infos">
 
                                                         <span>${o.getCustomerName()}</span>
                                                             <c:choose>
@@ -425,7 +416,7 @@
                                                                 </c:when>
                                                             </c:choose>
                                                         <em>${o.getPostDate()}</em>
-                                                        <em>${o.getContent()}</em>
+                                                        <p>${o.getContent()}</p>
                                                         <br>
                                                     </div>
                                                 </c:forEach>
@@ -486,7 +477,7 @@
                                                                                     <div class="feedback-input">
                                                                                         <div class="feedback-btn pb-15">
                                                                                             <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                                            <button type="submit">Submit</button>
+                                                                                            <button class="submit" type="submit">Submit</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </form>
@@ -515,9 +506,9 @@
                 </div>
             </div>
             <!-- Product Area End Here -->
-
-
-
+            <!-- Begin Li's Laptop Product Area -->
+            
+            <!-- Li's Laptop Product Area End Here -->
             <!-- Begin Footer Area -->
             <%@include file="components/Footer.jsp" %>
             <!-- Footer Area End Here -->

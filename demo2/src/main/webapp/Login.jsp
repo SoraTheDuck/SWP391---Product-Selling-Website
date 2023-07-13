@@ -20,7 +20,9 @@
           %>
   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!DOCTYPE html>
+
     <html lang="en">
+
 
     <head>
       <meta charset="utf-8">
@@ -149,7 +151,7 @@
                   </div>
                 </div>
                 <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
-                  <a href="ForgotPass.jsp"> Forgot your password?</a>
+                  <a href="forgotpassword"> Forgot your password?</a>
                 </div>
                 <div class="col-md-12">
                   <button class="register-button mt-0">Login</button>

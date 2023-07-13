@@ -130,7 +130,7 @@ public class Review {
         try {
             cnn = (new DBContext().connection);
             if (cnn != null) {
-                //System.out.println("Connect successfully");
+                System.out.println("Connect successfully");
             } else {
                 System.out.println("Connect Fail");
             }

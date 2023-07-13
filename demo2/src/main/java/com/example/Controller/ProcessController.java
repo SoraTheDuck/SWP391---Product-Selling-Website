@@ -26,7 +26,8 @@ import jakarta.servlet.annotation.*;
 public class ProcessController extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
 
     }
 
@@ -35,51 +36,46 @@ public class ProcessController extends HttpServlet {
         HttpSession session = req.getSession();
         Cart cart = null;
         Object o = session.getAttribute("cart");
-        if (o != null) {
-            cart = (Cart) o;
-        } else {
-            cart = new Cart();
-        }
+        if (o != null) cart = (Cart) o;
+        else cart = new Cart();
 
         String pnum = req.getParameter("num");
         String pid = req.getParameter("id");
         try {
-            int num = Integer.parseInt(pnum);
-            if (num == -1 && cart.getQuantityById(pid) <= 1) {
-
-                System.out.println("if: "+cart.getQuantityById(pid));
-                cart.removeItem(pid);
-            } else {
-
-                System.out.println("else: "+cart.getQuantityById(pid));
-                Product temp = new Product();
-                Product p = temp.getProductByID(pid);
-                float price = p.getPrice();
-                Item i = new Item(p, price, num);
-                cart.addItem(i);
+            if(pnum != null)
+            {
+                int num = Integer.parseInt(pnum);
+                if (num == -1 && cart.getQuantityById(pid) <= 1)
+                {
+                    System.out.println("if: "+cart.getQuantityById(pid));
+                    cart.removeItem(pid);
+                }
+                else
+                {
+                    System.out.println("else: "+cart.getQuantityById(pid));
+                    Product temp = new Product();
+                    Product p = temp.getProductByID(pid);
+                    float price = p.getPrice();
+                    Item i = new Item(p, price, num);
+                    cart.addItem(i);
+                }
             }
         } catch (Exception e) {
-            System.out.println("ProcessController error");
+            System.out.println("ProcessController error:" + e);
         }
 
         //scroll save
         int scrollPos;
-        if(req.getParameter("scrollPos") != null)
-        {
-            scrollPos = Integer.parseInt(req.getParameter("scrollPos"));
-        }
-        else
-        {
-            scrollPos = 0;
-            System.out.println("how dae f-"); //ok, just kidding, remember to adjust this
-        }
+        if(req.getParameter("scrollPos") != null) scrollPos = Integer.parseInt(req.getParameter("scrollPos"));
+        else scrollPos = 0;
+
         System.out.println("scrollPos: " + scrollPos);
         req.setAttribute("scrollPos", scrollPos);
-
 
         session.setAttribute("cart", cart);
         req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
     }
+
 
 }
 

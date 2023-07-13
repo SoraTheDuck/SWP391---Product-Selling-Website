@@ -1,6 +1,7 @@
 <!doctype html>
+
 <html class="no-js" lang="zxx">
-    
+
 <!-- compare32:03-->
 <head>
         <meta charset="utf-8">

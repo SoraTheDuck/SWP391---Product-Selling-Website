@@ -7,6 +7,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -69,25 +70,24 @@
       
             <!-- Li's Breadcrumb Area End Here -->
             <!--Checkout Area Strat-->
-            <div class="checkout-area pt-60 pb-30">
-                <div class="container">
-                    <div class="col-lg-6 col-12">
+            <div class="checkout-area">
+                <div class="container pt-30">
                         <div class="your-order">
                             <h3>Your orders</h3>
                             <div class="your-order-table table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="cart-product-name">Date</th>
-                                            <th class="cart-product-total">Total</th>
-                                            <th></th>
+                                            <th>Date</th>
+                                            <th>Total</th>
+                                            <th>View</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${history}" var="h">
-                                            <tr class="cart_item">
-                                                <td class="cart-product-name">${h.getDate()}</td>
-                                                <td class="cart-product-total"><span class="amount">$${h.getTotalMoney()}</span></td>
+                                            <tr>
+                                                <td>${h.getDate()}</td>
+                                                <td><span class="amount">$${h.getTotalMoney()}</span></td>
                                                 <td><a href="historydetail?oid=${h.getID()}">Detail</a></td>
                                             </tr>
                                         </c:forEach>
@@ -95,7 +95,6 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

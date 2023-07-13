@@ -20,7 +20,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "AdminLoginController", urlPatterns = "/ad-login")
+@WebServlet(name = "AdminLoginController", urlPatterns = "/ad_login")
 public class AdminLoginController extends HttpServlet {
 
     @Override
@@ -49,7 +49,7 @@ public class AdminLoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("admin_login.jsp");
+        req.getRequestDispatcher("Admin_login.jsp").forward(req, resp);
     }
 
 }

@@ -78,7 +78,7 @@ public class Order {
         try {
             cnn = (new DBContext().connection);
             if (cnn != null) {
-                System.out.println("Connect successfully3");
+                System.out.println("Connect successfully");
             } else {
                 System.out.println("Connect Fail");
             }
@@ -161,4 +161,44 @@ public class Order {
         }
         return data;
     }
+
+    public List<Order> getAllOrder() {
+        List<Order> list = new ArrayList<>();
+        try {
+            String strSelect = "Select OrderID, OrderDate, TotalMoney, CustomerId from headphone.orders;";
+            pstm = cnn.prepareStatement(strSelect);
+            rs = pstm.executeQuery();
+            String date = "";
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                if (rs.getDate(2) != null) {
+                    date = f.format(rs.getDate(2));
+                }
+                float totalmoney = rs.getFloat(3);
+                int customerid = rs.getInt(4);
+
+                list.add(new Order(id, date, totalmoney, customerid) );
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+        Order order = new Order();
+
+        List<Order> orderList = order.getAllOrder();
+
+        for (Order o : orderList) {
+            System.out.println("ID: " + o.getID());
+            System.out.println("Date: " + o.getDate());
+            System.out.println("Total Money: " + o.getTotalMoney());
+            System.out.println("Customer ID: " + o.getCustomerID());
+            System.out.println("------------------------------------");
+        }
+    }
+
+
 }

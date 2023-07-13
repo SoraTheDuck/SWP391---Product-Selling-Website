@@ -8,7 +8,7 @@
                 <!-- Begin Header Logo Area -->
                 <div class="col-lg-3">
                     <div class="logo pb-sm-30 pb-xs-30">
-                        <a href="/SWP/home">
+                        <a href="./home">
                             <img src="images/menu/logo/1.jpg"
                                  alt="">
                         </a>
@@ -33,12 +33,12 @@
                         <c:choose>
                             <c:when test="${sessionScope.cus != null}">
                                 <a href="profile" class="log-sign-btn log">${sessionScope.cus.name}</a>
-                                <a href="LogoutController" class="log-sign-btn sign">Log out</a>
+                                <a href="logout" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="./Login.jsp"
+                                <a href="login"
                                    class="log-sign-btn log">Login</a>
-                                <a href="./Register.jsp"
+                                <a href="register"
                                    class="log-sign-btn sign">Sign-up</a>
                             </c:otherwise>
                         </c:choose>
@@ -57,21 +57,8 @@
                     <div class="hb-menu hb-menu-2 d-xl-block">
                         <nav>
                             <ul>
-                                <li><a href="/SWP/home">Home</a></li>
-                                <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a>
-                                    <ul class="megamenu hb-megamenu">
-                                        <li><a href="shop-left-sidebar.jsp">Shop Page Layout</a></li>
-                                        <li><a href="single-product.jsp">Single Products</a>
-                                            <ul>
-                                                <li><a href="single-product.jsp">Single Products</a></li>
-                                                <li><a href="single-product-normal.jsp">Single Product
-                                                        Normal</a></li>
-                                                <li><a href="single-product-sale.jsp">Single Product Sale</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li><a href="./home">Home</a></li>
+                                <li class="megamenu-holder mn-drop"><a href="./shop">Shop</a></li>
                                 <!-- Begin Mini Cart Button Area -->
                                 <li class="hm-minicart f-right">
                                     <div class="hm-minicart-trigger">
@@ -105,7 +92,7 @@
                                         </ul>
                                         <p class="minicart-total">TOTAL: <span>$ ${sessionScope.cart.getTotalMoney()}</span></p>
                                         <div class="minicart-button">
-                                            <a href="Shopping-cart.jsp"
+                                            <a href="process"
                                                class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                 <span>View Full Cart</span>
                                             </a>

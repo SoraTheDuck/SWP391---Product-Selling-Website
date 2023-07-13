@@ -41,8 +41,6 @@ public class RegisterController extends HttpServlet {
         boolean con = true;
         HttpSession mySession = req.getSession();
 
-
-
         if(!pass.equals(rePass)){
             req.setAttribute("mess", "Password must be the same as Confirm Password !!");
             req.getRequestDispatcher("Register.jsp").forward(req, resp);
@@ -106,6 +104,7 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("Register.jsp").forward(req, resp);
     }
 
 }

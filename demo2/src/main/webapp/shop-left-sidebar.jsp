@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-    
+
 <!-- shop-left-sidebar31:47-->
 <head>
         <meta charset="utf-8">
@@ -101,16 +101,24 @@
                                 <!-- product-select-box start -->
                                 <div class="product-select-box">
                                     <div class="product-short">
-                                        <p>Sort By:</p>
-                                        <select class="nice-select">
-                                            <option value="trending">Relevance</option>
-                                            <option value="sales">Name (A - Z)</option>
-                                            <option value="sales">Name (Z - A)</option>
-                                            <option value="rating">Price (Low &gt; High)</option>
-                                            <option value="date">Rating (Lowest)</option>
-                                            <option value="price-asc">Model (A - Z)</option>
-                                            <option value="price-asc">Model (Z - A)</option>
-                                        </select>
+                                        <p>Display all Products by:</p>
+                                            <form id="frm" action="display" method="post">
+                                                <select class="nice-select" name="op" onchange="change()">
+                                                <option value="0" ${tag == 0 ? "selected":""}> Default</option>
+                                                <option value="1" ${tag == 1 ? "selected":""}> Release Date (Closet to Furthest)</option>
+                                                <option value="2" ${tag == 2 ? "selected":""}> Release Date (Furthest to Closest)</option>
+                                                <option value="3" ${tag == 3 ? "selected":""}> Price (Lowest -> Highest)</option>
+                                                <option value="4" ${tag == 4 ? "selected":""}> Price (Highest -> Lowest)</option>
+                                                <option value="5" ${tag == 5 ? "selected":""}> Rating (Lowest -> Highest)</option>
+                                                <option value="6" ${tag == 6 ? "selected":""}> Rating (Highest -> Lowest)</option>
+                                            </select>
+                                        </form>
+                                        
+                                        <script>
+                                            function change(){
+                                                document.getElementById("frm").submit();
+                                            }
+                                        </script>
                                     </div>
                                 </div>
                                 <!-- product-select-box end -->
@@ -138,7 +146,7 @@
                                                                         <h5 class="manufacturer">
                                                                             <a href="detail?pid=${o.id}">${o.name}</a>
                                                                             <p>${o.wire}</p>
-
+                                                                            
                                                                         </h5>
                                                                         <div class="rating-box">
                                                                             <c:choose>
@@ -220,14 +228,14 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="add-actions">
-                                                                    <ul class="add-actions-link">
-                                                                        <form action="cart" method="get">
-                                                                            <input type="hidden" name="num" value="1">
-                                                                            <input type="hidden" name="id" value="${o.id}">
-                                                                            <li class="add-cart active"><a class="add-cart-text" onclick="this.closest('form').submit();">Add to cart</a></li>
-                                                                        </form>
-                                                                    </ul>
-                                                                </div>
+                                                        <ul class="add-actions-link">
+                                                            <form action="cart" method="post">
+                                                                <input type="hidden" name="num" value="1">
+                                                                <input type="hidden" name="id" value="${o.id}">
+                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                            </form>
+                                                        </ul>
+                                                    </div>
                                                             </div>
                                                         </div>
                                                         <!-- single-product-wrap end -->
