@@ -144,6 +144,10 @@
         <servlet-name>AddDiscountController</servlet-name>
         <servlet-class>controller.admin.AddDiscountController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminPageController</servlet-name>
+        <servlet-class>controller.admin.AdminPageController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -287,6 +291,10 @@
     <servlet-mapping>
         <servlet-name>AddDiscountController</servlet-name>
         <url-pattern>/adddiscount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPageController</servlet-name>
+        <url-pattern>/adminpage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

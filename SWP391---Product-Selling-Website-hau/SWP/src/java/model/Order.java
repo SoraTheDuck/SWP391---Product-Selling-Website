@@ -257,6 +257,37 @@ public class Order {
         }
         return data;
     }
+    
+    public int getNumberOfOrder(){
+        try {
+            String sql = "SELECT COUNT(*) AS OrderCount FROM Headphone.Orders;";
+            pstm = cnn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (Exception ex) {
+            System.out.println("getAllProductByPage" + ex.getMessage());
+        }
+            return -1;
+    }
+    
+    public float getTotalEarning(){
+        try {
+            String sql = "SELECT SUM(TotalMoney) AS TotalMoneySum FROM Headphone.Orders;";
+            pstm = cnn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            if(rs.next()){
+                String st = String.format("%.3f", rs.getFloat(1));
+                return Float.parseFloat(st);
+            }
+        } catch (Exception ex) {
+            System.out.println("getAllProductByPage" + ex.getMessage());
+        }
+            return -1;
+    }
 
     public static void main(String[] args) {
         Order order = new Order();

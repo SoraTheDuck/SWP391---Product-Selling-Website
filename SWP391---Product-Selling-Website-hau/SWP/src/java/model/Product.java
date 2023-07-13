@@ -287,7 +287,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -594,7 +602,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -749,7 +765,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -809,7 +833,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -869,7 +901,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -929,7 +969,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -991,7 +1039,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -1053,7 +1109,15 @@ public class Product {
                 String Tid = rs.getString(1);
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
-                String Timage = rs.getString(4);
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
                 if (rs.getInt(6) == 0) {
@@ -1120,6 +1184,7 @@ public class Product {
                 String Tname = rs.getString(2);
                 float Tprice = rs.getFloat(3);
                 
+                //file image
                 Blob imageBlob = rs.getBlob(4);
                 byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
                 
@@ -1127,6 +1192,7 @@ public class Product {
                 String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
                 
                 String Timage = base64Image;
+                //
                 
                 int Tquantity = rs.getInt(5);
                 String Twire = "Wired";
@@ -1351,4 +1417,18 @@ public class Product {
         }
     }
     
+    public int getNumberOfProduct(){
+        try {
+            String sql = "SELECT COUNT(*) AS ProductCount FROM Headphone.Product;";
+            pstm = cnn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (Exception ex) {
+            System.out.println("getAllProductByPage" + ex.getMessage());
+        }
+            return -1;
+    }
 }

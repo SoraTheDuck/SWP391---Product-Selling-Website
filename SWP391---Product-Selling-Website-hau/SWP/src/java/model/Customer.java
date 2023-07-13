@@ -5,11 +5,13 @@
 package model;
 
 import jakarta.servlet.http.HttpSession;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,6 +25,7 @@ public class Customer {
 
     private int id;
     private String name, password, address, email;
+    int banned;
 
     public Customer() {
         connect();
@@ -34,21 +37,23 @@ public class Customer {
         connect();
     }
     
-    public Customer(String name, String password, String address, String email) {
-        this.name = name;
-        this.password = password;
-        this.address = address;
-        this.email = email;
-        connect();
-    }
-    
-        public Customer(int id, String name, String password, String address, String email) {
+     
+    public Customer(int id, String name, String password, String address, String email, int ban) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.address = address;
         this.email = email;
-
+        this.banned = ban;
+        connect();
+    }
+    
+    public Customer(String name, String password, String address, String email, int ban) {
+        this.name = name;
+        this.password = password;
+        this.address = address;
+        this.email = email;
+        this.banned = ban;
         connect();
     }
 
@@ -92,6 +97,16 @@ public class Customer {
         this.email = email;
     }
 
+    public int getBanned() {
+        return banned;
+    }
+
+    public void setBanned(int banned) {
+        this.banned = banned;
+    }
+
+    
+    
     Connection cnn;
     Statement stm;
     PreparedStatement pstm;
@@ -112,22 +127,23 @@ public class Customer {
 
     public void register() {
         try {
-            String strAdd = "INSERT INTO headphone.customer (CustomerName, Password, Address, Email) \n"
-                    + "VALUES (?, ?, ?, ?);";
+            String strAdd = "INSERT INTO headphone.customer (CustomerName, Password, Address, Email, Status) VALUES (?, ?, ?, ?,  ?);";
 
+            
             pstm = cnn.prepareStatement(strAdd);
             pstm.setString(1, name);
             pstm.setString(2, password);
             pstm.setString(3, address);
             pstm.setString(4, email);
-
+            pstm.setInt(5, banned);
+            
             pstm.execute();
         } catch (Exception e) {
             System.out.println("CustomerRegister:" + e.getMessage());
         }
     }
     
-    public boolean checkLogin() {
+    public Customer checkLogin() {
         try {
             String strSelect = "SELECT * FROM headphone.customer where email=? and password=? ";
             pstm = cnn.prepareStatement(strSelect);
@@ -135,12 +151,19 @@ public class Customer {
             pstm.setString(2, password);
             rs = pstm.executeQuery();
             while (rs.next()) {
-                return true;
+                int cid = rs.getInt(1);
+                String cname = rs.getString(2);
+                String cpass = rs.getString(3);
+                String cemail = rs.getString(4);
+                String caddress = rs.getString(5);
+                int cban = rs.getInt(6);
+                
+                return new Customer(cid, cname, cpass, caddress, cemail, cban);
             }
         } catch (Exception e) {
             System.out.println("checkLogin:" + e.getMessage());
         }
-        return false;
+        return null;
     }
 
     public boolean checkCustomerExist(String email) {
@@ -240,7 +263,8 @@ public class Customer {
                 String name = rs.getString(2);
                 String pass = rs.getString(3);
                 String address = rs.getString(4);
-                return new Customer(name, pass, address, email);
+                int ban = rs.getInt(6);
+                return new Customer(name, pass, address, email,ban);
             }
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
@@ -326,13 +350,14 @@ public class Customer {
             pstm = cnn.prepareStatement(strSelect);
             rs = pstm.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt(1);
-                String name = rs.getString(2);
-                String password = rs.getString(3);
-                String address = rs.getString(4);
-                String email = rs.getString(5);
-
-                list.add(new Customer(id, name, password, address, email));
+                int cid = rs.getInt(1);
+                String cname = rs.getString(2);
+                String cpassword = rs.getString(3);
+                String caddress = rs.getString(4);
+                String cemail = rs.getString(5);
+                int cban = rs.getInt(6);
+                
+                list.add(new Customer(cid, cname, cpassword, caddress, cemail, cban));
             }
             pstm.close();
         } catch (Exception ex) {
@@ -340,4 +365,19 @@ public class Customer {
         }
         return list;
     }
+        
+        public int getNumberOfCustomer(){
+            try {
+            String sql = "SELECT COUNT(*) AS NumberOfCustomers FROM Headphone.Customer;";
+            pstm = cnn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (Exception ex) {
+            System.out.println("getAllProductByPage" + ex.getMessage());
+        }
+            return -1;
+        }
 }

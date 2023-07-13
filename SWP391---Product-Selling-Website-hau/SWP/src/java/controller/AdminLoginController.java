@@ -33,7 +33,7 @@ public class AdminLoginController extends HttpServlet {
             //Lưu thông tin login vào session
             HttpSession session = req.getSession();
             session.setAttribute("admin", a.getAdmin());
-            req.getRequestDispatcher("Admin_page.jsp").forward(req, resp);
+            req.getRequestDispatcher("adminpage").forward(req, resp);
         } else {
             req.setAttribute("email", email);
             req.setAttribute("password", password);
@@ -44,7 +44,7 @@ public class AdminLoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("Admin_login.jsp");
+        req.getRequestDispatcher("Admin_login.jsp").forward(req, resp);
     }
 
 }

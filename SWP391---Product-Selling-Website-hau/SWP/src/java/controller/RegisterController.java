@@ -49,7 +49,8 @@ public class RegisterController extends HttpServlet {
         String pass = req.getParameter("pass");
         String rePass = req.getParameter("rePass");
         
-        Customer c = new Customer(name,pass,address,email);
+        //booelan banned == 0
+        Customer c = new Customer(name, pass, address, email, 0);
         
         int otp = 0;
         boolean con = true;

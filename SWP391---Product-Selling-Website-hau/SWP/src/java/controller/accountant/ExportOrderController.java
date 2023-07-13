@@ -39,6 +39,8 @@ public class ExportOrderController extends HttpServlet {
             JFileChooser fileChooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV Files", "csv");
             fileChooser.setFileFilter(filter);
+            
+            System.out.println("alooooo");
 
             int userSelection = fileChooser.showSaveDialog(null);
             
