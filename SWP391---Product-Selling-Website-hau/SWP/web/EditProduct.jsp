@@ -46,7 +46,7 @@
                                         <strong>Edit Product</strong> Elements
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="editproduct2" method="post" enctype="multipart/form-data">
+                                        <form action="editproduct" method="post" enctype="multipart/form-data">
                                             <p style="color: red">${mess}</p>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
@@ -128,7 +128,7 @@
                                                     <label class=" form-control-label">Changelog:</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="text" name="change" id="textarea-input" rows="5" placeholder="Content:" class="form-control" required>
+                                                    <input type="text" name="changelog" id="textarea-input" rows="5" placeholder="Content:" class="form-control" required>
                                                 </div>
                                             </div>
                                                 <input type="submit" value="Edit Product" class="btn btn-primary btn-sm"/>

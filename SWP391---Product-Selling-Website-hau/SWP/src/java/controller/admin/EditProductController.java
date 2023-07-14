@@ -5,6 +5,7 @@
 package controller.admin;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,8 +20,11 @@ import model.Product;
  *
  * @author admin
  */
+@MultipartConfig(maxFileSize = 1024 * 1024 * 10)
 public class EditProductController extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -67,9 +71,10 @@ public class EditProductController extends HttpServlet {
             return;
         }
 
-        if (req.getParameter("image") != null) {
+        if (req.getPart("image") != null) {
+            System.out.println("good");
             InputStream inputStream = null;
-        byte[] imageData = null;
+            byte[] imageData = null;
             Part image = req.getPart("image");
             try {
                 inputStream = image.getInputStream();
