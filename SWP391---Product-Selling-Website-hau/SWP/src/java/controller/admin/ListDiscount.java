@@ -51,7 +51,7 @@ public class ListDiscount extends HttpServlet {
             req.setAttribute("list", list);
             req.getRequestDispatcher("Admin_discount.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("home").forward(req, resp);
+            req.getRequestDispatcher("404").forward(req, resp);
         }
     }
     

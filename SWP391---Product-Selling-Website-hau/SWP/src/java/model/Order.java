@@ -127,17 +127,17 @@ public class Order {
     }
 
     public void addOrder1(Customer u, Cart cart) {
-        int oid = maxOrderID();
         java.util.Calendar cal = java.util.Calendar.getInstance();
         java.util.Date utilDate = cal.getTime();
         java.sql.Date sqlDate = new Date(utilDate.getTime());
+        int sID = getOrderManager();
         try {
-            String addO = "insert into headphone.orders (OrderID, OrderDate, TotalMoney, CustomerID) values (?, ?, ?, ?)";
+            String addO = "insert into headphone.orders (OrderDate, TotalMoney, CustomerID, StaffID) values (?, ?, ?, ?)";
             pstm = cnn.prepareStatement(addO);
-            pstm.setInt(1, oid);
-            pstm.setDate(2, sqlDate);
-            pstm.setFloat(3, cart.getTotalMoney());
-            pstm.setInt(4, u.getId());
+            pstm.setDate(1, sqlDate);
+            pstm.setFloat(2, cart.getTotalMoney());
+            pstm.setInt(3, u.getId());
+            pstm.setInt(4, sID);
             pstm.execute();
 
             String sql2 = "select OrderID from headphone.orders order by OrderID desc limit 1 ";
@@ -145,7 +145,7 @@ public class Order {
             rs = pstm2.executeQuery();
 
             if (rs.next()) {
-                oid = rs.getInt(1);
+                int oid = rs.getInt(1);
                 for (Item i : cart.getItems()) {
                     String sql3 = "insert into headphone.orderproduct (OrderID,ProductID,Quantity,Price) values (?,?,?,?) ";
                     pstm3 = cnn.prepareStatement(sql3);
@@ -162,22 +162,106 @@ public class Order {
         }
     }
 
-    public int maxOrderID() {
+    public int getOrderManager() {
+        int sID = 0;
         try {
-            String sql2 = "SELECT COALESCE(MAX(OrderID), 0) AS OrderID FROM headphone.orders; ";
-            pstm2 = cnn.prepareStatement(sql2);
-            rs = pstm2.executeQuery();
-
+            String strSelect = "SELECT OrderProcess.StaffID\n"
+                    + "FROM (SELECT Staff.StaffID, Staff.StaffName, COUNT(CompletedOrder.OrderID) AS CompletedOrderCount, COUNT(Orders.OrderID) AS OrderCount, (COUNT(Orders.OrderID) - COUNT(CompletedOrder.OrderID)) AS ProcessingOrder\n"
+                    + "FROM Headphone.Staff\n"
+                    + "LEFT JOIN Headphone.Orders ON Staff.StaffID = Orders.StaffID\n"
+                    + "LEFT JOIN Headphone.CompletedOrder ON Orders.OrderID = CompletedOrder.OrderID\n"
+                    + "WHERE Staff.OrderManager = 1 AND Staff.Status = 0\n"
+                    + "GROUP BY Staff.StaffID, Staff.StaffName) AS OrderProcess\n"
+                    + "WHERE OrderProcess.ProcessingOrder < 10\n"
+                    + "ORDER BY OrderCount ASC\n"
+                    + "LIMIT 1";
+            pstm = cnn.prepareStatement(strSelect);
+            rs = pstm.executeQuery();
             if (rs.next()) {
-                int oid = rs.getInt(1);
-                return oid + 1;
+                sID = rs.getInt(1);
+            } else {
+                strSelect = "SELECT OrderProcess.StaffID\n"
+                        + "FROM (SELECT Staff.StaffID, Staff.StaffName, COUNT(CompletedOrder.OrderID) AS CompletedOrderCount, COUNT(Orders.OrderID) AS OrderCount, (COUNT(Orders.OrderID) - COUNT(CompletedOrder.OrderID)) AS ProcessingOrder\n"
+                        + "FROM Headphone.Staff\n"
+                        + "LEFT JOIN Headphone.Orders ON Staff.StaffID = Orders.StaffID\n"
+                        + "LEFT JOIN Headphone.CompletedOrder ON Orders.OrderID = CompletedOrder.OrderID\n"
+                        + "WHERE Staff.OrderManager = 1 AND Staff.Status = 0\n"
+                        + "GROUP BY Staff.StaffID, Staff.StaffName) AS OrderProcess\n"
+                        + "ORDER BY OrderCount ASC\n"
+                        + "LIMIT 1";
+                pstm = cnn.prepareStatement(strSelect);
+                rs = pstm.executeQuery();
+                if (rs.next()) {
+                    sID = rs.getInt(1);
+                }
             }
         } catch (Exception e) {
-            System.out.println("maxOrderID: " + e.getMessage());
+            System.err.println("getOrderManager: " + e.getMessage());
         }
-        return 0;
+        return sID;
     }
 
+    public List<Order> getListNotCompletedOrder(int staffID) {
+        List<Order> list = new ArrayList<>();
+        try {
+            String sql = "SELECT o.* FROM headphone.orders o\n"
+                    + "LEFT JOIN headphone.completedorder co ON o.OrderID = co.OrderID\n"
+                    + "WHERE co.CompletedDate IS NULL AND o.StaffID=?;";
+            pstm2 = cnn.prepareStatement(sql);
+            pstm2.setInt(1, staffID);
+            rs = pstm2.executeQuery();
+
+            while (rs.next()) {
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String date = "";
+                if (rs.getDate(2) != null) {
+                    date = f.format(rs.getDate(2));
+                }
+                list.add(new Order(rs.getInt(1), date, rs.getFloat(3), rs.getInt(4)));
+            }
+        } catch (Exception e) {
+            System.out.println("getListNotCompletedOrder: " + e.getMessage());
+        }
+        return list;
+    }
+    
+    public void completeOrder(int oid, boolean status) {
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        java.util.Date utilDate = cal.getTime();
+        java.sql.Date sqlDate = new Date(utilDate.getTime());
+        try {
+            String addO = "insert into headphone.completedorder (OrderID, CompletedDate, Status) values (?, ?, ?)";
+            pstm = cnn.prepareStatement(addO);
+            pstm.setInt(1, oid);
+            pstm.setDate(2, sqlDate);
+            pstm.setBoolean(3, status);
+            pstm.execute();
+
+        } catch (Exception e) {
+            System.out.println("completeOrder: " + e.getMessage());
+        }
+    }
+
+    public void updateQuantity(List<OrderDetail> lo) {
+        try {
+            int newQuantity;
+            Product p = new Product();
+            for (OrderDetail od : lo) {
+                String strUpdate = "update headphone.product set Quantity=? where ProductID=?";
+                pstm = cnn.prepareStatement(strUpdate);
+
+                Product p1 = p.getProductByID2(od.getProductName());
+
+                newQuantity = p1.getQuantity() - od.getQuantity();
+                pstm.setInt(1, newQuantity);
+                pstm.setString(2, od.getProductName());
+                pstm.execute();
+            }
+        } catch (Exception e) {
+            System.out.println("updateQuantity: " + e.getMessage());
+        }
+    }
+    
     public List<Order> getHistory(int cid) {
         List<Order> data = new ArrayList<>();
         try {
@@ -289,19 +373,7 @@ public class Order {
             return -1;
     }
 
-    public static void main(String[] args) {
-        Order order = new Order();
-
-        List<Order> orderList = order.AccountantGetAllOrder();
-
-        for (Order o : orderList) {
-            System.out.println("ID: " + o.getID());
-            System.out.println("Date: " + o.getDate());
-            System.out.println("Total Money: " + o.getTotalMoney());
-            System.out.println("Customer ID: " + o.getCustomerID());
-            System.out.println("------------------------------------");
-        }
-    }
+    
 
 
 }

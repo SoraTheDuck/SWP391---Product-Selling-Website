@@ -21,11 +21,16 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Customer customer = (Customer) request.getSession().getAttribute("cus");
+        
+        if(request.getSession().getAttribute("cus")!=null){
+            Customer customer = (Customer) request.getSession().getAttribute("cus");
             int cusId = customer.getId();
             customer.getCusById(cusId);
             request.setAttribute("cus", customer);
             request.getRequestDispatcher("Customer_profile.jsp").forward(request, response);
+        }else response.sendRedirect("404");
+        
+        
     }
 
 

@@ -38,6 +38,6 @@
 
             <input type="submit" value="Add Product"/>
         </form>
-        <p><a href="Admin_page.jsp">Back to homepage</a></p>
+        <p><a href="adminpage">Back to homepage</a></p>
     </body>
 </html>

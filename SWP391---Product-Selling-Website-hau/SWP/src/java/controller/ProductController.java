@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Category;
 import model.Product;
 
 /**
@@ -34,6 +35,8 @@ public class ProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product product = new Product();
+        Category c = new Category();
+        List<Category> clist = c.getAllCategory();
         
         int pageSize = 9;
         int currentPage = 1;
@@ -46,7 +49,7 @@ public class ProductController extends HttpServlet {
         
         List<Product> list = product.getAllProductByPage2(pageSize, startIndex);
 
-
+        req.setAttribute("categoryList", clist);
         req.setAttribute("list", list);
         req.setAttribute("currentPage", currentPage);
         req.setAttribute("totalPage", totalPage);

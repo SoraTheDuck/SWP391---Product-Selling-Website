@@ -31,6 +31,39 @@
 
         <!-- Main CSS-->
         <link href="css/theme.css" rel="stylesheet" media="all">
+        
+        <style>
+            .confirm-notice {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #f9f9f9;
+                padding: 20px;
+                                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            }
+
+            .confirm-notice p {
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+            .confirm-buttons {
+                text-align: right;
+            }
+
+            .confirm-buttons button {
+                margin-left: 10px;
+            }
+            
+            .highlighted {
+                 color: red !important;
+                font-weight: bold;
+            }
+
+        </style>
     </head>
     <body>
         <%@include file="components/Dashboard.jsp" %>
@@ -42,36 +75,12 @@
                             <!-- DATA TABLE -->
                             <h3 class="title-5 m-b-35">manage products</h3>
                             <div class="table-data__tool">
-                                <div class="table-data__tool-left">
-                                    <div class="rs-select2--light rs-select2--md">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">All Properties</option>
-                                            <option value="">Option 1</option>
-                                            <option value="">Option 2</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Today</option>
-                                            <option value="">3 Days</option>
-                                            <option value="">1 Week</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <button class="au-btn-filter">
-                                        <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                </div>
+                                
                                 <div class="table-data__tool-right">
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href = 'add-product'">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
                                     <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                        <select class="js-select2" name="type">
-                                            <option selected="selected">Export</option>
-                                            <option value="">Option 1</option>
-                                            <option value="">Option 2</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -99,8 +108,8 @@
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="window.location.href = 'editproduct?id=${ls.id}'">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" onclick="window.location.href = ''">
-                                                            <i class="zmdi zmdi-delete"></i>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" onclick="showConfirmation('${ls.id}', '${ls.name}')">
+                                                            <i class="zmdi zmdi-block"></i>
                                                         </button>
                                                     </div>
                                                 </td>
@@ -118,7 +127,39 @@
             </div>
         </div>
 
+        <div id="confirmation-notice" class="confirm-notice" style="display: none;  z-index: 9999;">
+            <p>Are you sure you want to delete the following product?</p>
+            <p><strong>Product ID:</strong> <span id="product-id"></span></p>
+            <p><strong>Product Name:</strong> <span id="product-name"></span></p>
+            <div class="confirm-buttons">
+                <button onclick="deleteProduct()">Yes</button>
+                <button onclick="cancelDelete()">Cancel</button>
+            </div>
+        </div>
 
+        <script>
+            var productIdToDelete;
+
+            // Show confirmation dialog
+            function showConfirmation(id, name) {
+                productIdToDelete = id;
+                document.getElementById('product-id').textContent = id;
+                document.getElementById('product-name').textContent = name;
+                document.getElementById('confirmation-notice').style.display = 'block';
+            }
+
+            // Delete product
+            function deleteProduct() {
+                // Redirect to the delete action
+                window.location.href = 'delete-product?id=' + productIdToDelete;
+            }
+
+            // Cancel delete
+            function cancelDelete() {
+                document.getElementById('confirmation-notice').style.display = 'none';
+            }
+        </script>
+        
     </script>
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>

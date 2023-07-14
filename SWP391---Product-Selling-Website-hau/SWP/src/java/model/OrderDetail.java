@@ -107,4 +107,21 @@ public class OrderDetail {
         }
         return data;
     }
+    
+    public List<OrderDetail> getListOrderDetail(int oid) {
+        List<OrderDetail> data = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM headphone.orderproduct where OrderID = ?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, oid);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                data.add(new OrderDetail(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getFloat(4)));
+            }
+        } catch (Exception e) {
+            System.out.println("getHistory: " + e.getMessage());
+        }
+        return data;
+    }
 }

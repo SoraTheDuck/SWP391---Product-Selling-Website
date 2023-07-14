@@ -9,9 +9,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import model.Customer;
+import model.Order;
 
 /**
  *
@@ -37,14 +39,20 @@ public class ListUserController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Customer cus = new Customer();
-        List<Customer> list = cus.getAllCus();
-        req.setAttribute("listUser", list);
+        HttpSession session = req.getSession();
+        if (session.getAttribute("admin") != null) {
+            Customer cus = new Customer();
+            List<Customer> list = cus.getAllCus();
+            req.setAttribute("listUser", list);
 
-        String upmess = (String) req.getAttribute("upmess");
-        req.setAttribute("upmess", upmess);
+            String upmess = (String) req.getAttribute("upmess");
+            req.setAttribute("upmess", upmess);
 
-        req.getRequestDispatcher("Admin_users.jsp").forward(req, resp);
+            req.getRequestDispatcher("Admin_users.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect("404");
+        }
+
     }
 
 }

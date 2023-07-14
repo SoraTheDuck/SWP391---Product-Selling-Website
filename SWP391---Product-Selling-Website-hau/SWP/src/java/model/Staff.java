@@ -25,7 +25,6 @@ public class Staff {
     private boolean accountant;
     private boolean marketing;
     private boolean orderManager;
-    private int ordersProcessing;
     private int adminID;
 
     public Staff() {
@@ -38,7 +37,7 @@ public class Staff {
         connect();
     }
 
-    public Staff(int id, String name, String password, String email, String phone, boolean accountant, boolean marketing, boolean orderManager, int ordersProcessing, int adminID) {
+    public Staff(int id, String name, String password, String email, String phone, boolean accountant, boolean marketing, boolean orderManager, int adminID) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -47,7 +46,6 @@ public class Staff {
         this.accountant = accountant;
         this.marketing = marketing;
         this.orderManager = orderManager;
-        this.ordersProcessing = ordersProcessing;
         this.adminID = adminID;
     }
 
@@ -115,13 +113,6 @@ public class Staff {
         this.orderManager = orderManager;
     }
 
-    public int getOrdersProcessing() {
-        return ordersProcessing;
-    }
-
-    public void setOrdersProcessing(int ordersProcessing) {
-        this.ordersProcessing = ordersProcessing;
-    }
 
     public int getAdminID() {
         return adminID;
@@ -190,33 +181,7 @@ public class Staff {
         return role;
     }
 
-    public List<Staff> getListStaff() {
-        List<Staff> data = new ArrayList<>();
-        try {
-            String sql = "select * from headphone.staff";
-            pstm = cnn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-
-            while (rs.next()) {
-                int sid=rs.getInt(1);
-                String sname=rs.getString(2);
-                String spassword=rs.getString(3);
-                String semail=rs.getString(4);
-                String sphone=rs.getString(5);
-                boolean acc=rs.getBoolean(6);
-                boolean mar=rs.getBoolean(7);
-                boolean ord=rs.getBoolean(8);
-                int processing=rs.getInt(9);
-                int ad=rs.getInt(10);
-                
-                data.add(new Staff(sid, sname, spassword, semail, sphone, acc, mar, ord, processing, ad));
-
-            }
-        } catch (Exception e) {
-            System.out.println("getListStaff" + e.getMessage());
-        }
-        return data;
-    }
+    
     
     public void addStaff(String sname, String spassword, String semail, String sphone, boolean acc, boolean mar, boolean ord, int adID){
         try {
@@ -240,4 +205,30 @@ public class Staff {
         }
     }
 
+    public Staff getStaff() {
+        Staff s = new Staff();
+        try {
+            String strSelect = "SELECT * FROM headphone.staff where email=? and password=? ";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, email);
+            pstm.setString(2, password);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                int sid = rs.getInt(1);
+                String sname = rs.getString(2);
+                String sphone = rs.getString(5);
+                boolean saccountant = rs.getBoolean(6);
+                boolean smarketing = rs.getBoolean(7);
+                boolean sorderManager = rs.getBoolean(8);
+                int sadminID = rs.getInt(10);
+
+                s = new Staff(sid, sname, password, email, sphone, saccountant, smarketing, sorderManager, sadminID);
+
+            }
+        } catch (Exception e) {
+            System.out.println("getStaff:" + e.getMessage());
+        }
+        return s;
+    }
+    
 }

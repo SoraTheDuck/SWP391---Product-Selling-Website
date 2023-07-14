@@ -40,40 +40,18 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
+                            
                             <!-- DATA TABLE -->
                             <h3 class="title-5 m-b-35">manage customer</h3>
+                            
+                            <p style="color: green">${upmess}</p>
+                            <br>
                             <div class="table-data__tool">
-                                <div class="table-data__tool-left">
-                                    <div class="rs-select2--light rs-select2--md">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">All Properties</option>
-                                            <option value="">Option 1</option>
-                                            <option value="">Option 2</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Today</option>
-                                            <option value="">3 Days</option>
-                                            <option value="">1 Week</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <button class="au-btn-filter">
-                                        <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                </div>
+                                
                                 <div class="table-data__tool-right">
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href = 'add-user'">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
-                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                        <select class="js-select2" name="type">
-                                            <option selected="selected">Export</option>
-                                            <option value="">Option 1</option>
-                                            <option value="">Option 2</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
+                                        <i class="zmdi zmdi-plus"></i>add customer</button>
+                                    
                                 </div>
                             </div>
                             <div class="table-responsive table-responsive-data2">
@@ -83,7 +61,7 @@
                                             <th>name</th>
                                             <th>email</th>
                                             <th>address</th>
-                                            <th></th>
+                                            <th>status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -94,14 +72,35 @@
                                                     <span class="block-email">${ls.email}</span>
                                                 </td>
                                                 <td>${ls.address}</td>
+                                                <td>
+                                                    <c:choose>
+                                                            <c:when test="${ls.banned==0}">
+                                                                <p style="color: green">Active</p>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <p style="color: red">Inactive</p>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                </td>
                                                 <td class="action-cell">
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="window.location.href = 'edit-user?cId=${ls.id}'">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
+                                                        <c:choose>
+                                                            <c:when test="${ls.banned==0}">
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Ban" 
+                                                                        onclick="window.location.href='bancus?id=${ls.id}&ban=true';">
+                                                                    <i class="zmdi zmdi-circle"></i>
+                                                                </button>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Unban"
+                                                                        onclick="window.location.href='bancus?id=${ls.id}&ban=false';">
+                                                                    <i class="zmdi zmdi-circle-o"></i>
+                                                                </button>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     </div>
                                                 </td>
                                             </tr>

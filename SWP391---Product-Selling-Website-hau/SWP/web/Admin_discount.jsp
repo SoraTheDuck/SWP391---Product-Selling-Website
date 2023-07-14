@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="">Go back to dashboard</a>
+        <a href="adminpage">Go back to dashboard</a>
         <h3 style="color: red">${mess}</h3>
         <table border="1">
             <tr>
@@ -53,7 +53,7 @@
                         </form>
                     </td>
                     <td>
-                        <form action="" method="post">
+                        <form action="#" method="post">
                             <input type="hidden" name="id" value="${p.getId()}">
                             <input type="submit" value="Delete discount">
                         </form>

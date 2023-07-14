@@ -307,11 +307,18 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="get">
-                                                                <input type="hidden" name="num" value="1">
-                                                                <input type="hidden" name="id" value="${o.id}">
-                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
-                                                            </form>
+                                                            <c:choose>
+                                                                            <c:when test="${o.quantity > 0}">
+                                                                                <form action="cart" method="get">
+                                                                                    <input type="hidden" name="num" value="1">
+                                                                                    <input type="hidden" name="id" value="${o.id}">
+                                                                                    <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <li class="add-cart active">Sold out</li>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                         </ul>
                                                     </div>
                                             </div>
@@ -345,7 +352,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner">
                                         <a href="#">
-                                            <img src="images/banner/2_1.jpg"
+                                            <img src="images/banner/2_5.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -355,7 +362,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner pt-xs-30">
                                         <a href="#">
-                                            <img src="images/banner/2_2.jpg"
+                                            <img src="images/banner/2_5.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -466,11 +473,18 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="get">
-                                                                <input type="hidden" name="num" value="1">
-                                                                <input type="hidden" name="id" value="${o.id}">
-                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
-                                                            </form>
+                                                            <c:choose>
+                                                                            <c:when test="${o.quantity > 0}">
+                                                                                <form action="cart" method="get">
+                                                                                    <input type="hidden" name="num" value="1">
+                                                                                    <input type="hidden" name="id" value="${o.id}">
+                                                                                    <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <li class="add-cart active">Sold out</li>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                         </ul>
                                                     </div>
                                             </div>
@@ -503,7 +517,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner">
                                         <a href="#">
-                                            <img src="images/banner/2_3.jpg"
+                                            <img src="images/banner/2_5.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -513,7 +527,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner pt-xs-30">
                                         <a href="#">
-                                            <img src="images/banner/2_4.jpg"
+                                            <img src="images/banner/2_5.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -623,11 +637,18 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="get">
-                                                                <input type="hidden" name="num" value="1">
-                                                                <input type="hidden" name="id" value="${o.id}">
-                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
-                                                            </form>
+                                                            <c:choose>
+                                                                            <c:when test="${o.quantity > 0}">
+                                                                                <form action="cart" method="get">
+                                                                                    <input type="hidden" name="num" value="1">
+                                                                                    <input type="hidden" name="id" value="${o.id}">
+                                                                                    <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <li class="add-cart active">Sold out</li>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                         </ul>
                                                     </div>
                                             </div>
@@ -671,7 +692,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner pt-xs-30">
                                         <a href="#">
-                                            <img src="images/banner/2_6.jpg"
+                                            <img src="images/banner/2_5.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -780,11 +801,18 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="get">
-                                                                <input type="hidden" name="num" value="1">
-                                                                <input type="hidden" name="id" value="${o.id}">
-                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
-                                                            </form>
+                                                            <c:choose>
+                                                                            <c:when test="${o.quantity > 0}">
+                                                                                <form action="cart" method="get">
+                                                                                    <input type="hidden" name="num" value="1">
+                                                                                    <input type="hidden" name="id" value="${o.id}">
+                                                                                    <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <li class="add-cart active">Sold out</li>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                         </ul>
                                                     </div>
                                             </div>
@@ -945,11 +973,18 @@
                                                 </div>
                                                 <div class="add-actions">
                                                         <ul class="add-actions-link">
-                                                            <form action="cart" method="get">
-                                                                <input type="hidden" name="num" value="1">
-                                                                <input type="hidden" name="id" value="${o.id}">
-                                                                <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
-                                                            </form>
+                                                            <c:choose>
+                                                                            <c:when test="${o.quantity > 0}">
+                                                                                <form action="cart" method="get">
+                                                                                    <input type="hidden" name="num" value="1">
+                                                                                    <input type="hidden" name="id" value="${o.id}">
+                                                                                    <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <li class="add-cart active">Sold out</li>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                         </ul>
                                                     </div>
                                             </div>

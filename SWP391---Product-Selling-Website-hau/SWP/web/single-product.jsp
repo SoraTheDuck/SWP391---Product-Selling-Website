@@ -234,7 +234,10 @@
                                                     <input class="cart-plus-minus-box" name="num" value="1" type="hidden">
                                                 </div>
                                             </div>
+                                            <c:if test="${detail.quantity>0}">
                                             <button class="add-to-cart" type="submit">Add to cart</button>
+                                            </c:if>
+                                            
                                         </form>
                                     </div>
                                     <div class="block-reassurance">
