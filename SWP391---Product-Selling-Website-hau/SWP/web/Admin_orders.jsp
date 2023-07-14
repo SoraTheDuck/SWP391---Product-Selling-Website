@@ -51,10 +51,10 @@
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>id</th>
                                             <th>date</th>
                                             <th>total money</th>
-                                            <th>buyer</th>
+                                            <th>buyerid</th>
                                             <th></th>
                                         </tr>
                                     </thead>

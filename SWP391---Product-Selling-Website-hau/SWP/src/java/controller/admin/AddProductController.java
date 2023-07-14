@@ -46,14 +46,14 @@ public class AddProductController extends HttpServlet {
         InputStream inputStream = null;
         byte[] imageData = null;
         Part image = req.getPart("image");
-        Part imageP = req.getPart("image");
+
         
         String quantityStr = req.getParameter("quantity");
         String wire = req.getParameter("wire");
         String description = req.getParameter("description");
         String cateIdStr = req.getParameter("category");
         
-        System.out.println("catenull: ???? "+cateIdStr);
+
         
         try{
             inputStream = image.getInputStream();

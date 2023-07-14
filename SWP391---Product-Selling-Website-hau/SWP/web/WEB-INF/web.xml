@@ -172,6 +172,10 @@
         <servlet-name>EditUserController</servlet-name>
         <servlet-class>controller.admin.EditUserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditProductController2</servlet-name>
+        <servlet-class>controller.admin.EditProductController2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -343,6 +347,10 @@
     <servlet-mapping>
         <servlet-name>EditUserController</servlet-name>
         <url-pattern>/edit-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProductController2</servlet-name>
+        <url-pattern>/editproduct2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

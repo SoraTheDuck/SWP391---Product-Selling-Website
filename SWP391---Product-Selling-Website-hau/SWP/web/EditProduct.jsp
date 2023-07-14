@@ -46,7 +46,7 @@
                                         <strong>Edit Product</strong> Elements
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="editproduct" method="post">
+                                        <form action="editproduct2" method="post" enctype="multipart/form-data">
                                             <p style="color: red">${mess}</p>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
@@ -69,7 +69,9 @@
                                                     <label class=" form-control-label">Image</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="text" name="image" placeholder="Please enter product image URL"  class="form-control"  value="${p.getImage()}" readonly>
+                                                    <img src="data:image/jpg;charset=utf8;base64,${p.getImage()}"
+                                                         alt="Li's Product Image">
+                                                    <input type="file" name="image" accept=".png,.jpg,.webp,.jpeg,.jpe" class="form-control"/>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -126,10 +128,10 @@
                                                     <label class=" form-control-label">Changelog:</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input name="change" id="textarea-input" rows="5" placeholder="Content:" class="form-control" required>
+                                                    <input type="text" name="change" id="textarea-input" rows="5" placeholder="Content:" class="form-control" required>
                                                 </div>
                                             </div>
-                                            <input type="submit" value="Edit Product" class="btn btn-primary btn-sm"/>
+                                                <input type="submit" value="Edit Product" class="btn btn-primary btn-sm"/>
                                             <input type="reset" value="Reset" class="btn btn-danger btn-sm"/>
                                         </form>
                                     </div>

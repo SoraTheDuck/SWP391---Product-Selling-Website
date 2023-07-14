@@ -81,6 +81,8 @@ public class Product {
         this.releasedate = releasedate;
     }
 
+    
+    
     public String getWire() {
         return wire;
     }
@@ -478,6 +480,7 @@ public class Product {
         return null;
     }
 
+    //display product curdate is not between startsaledate and endsaledate
     public Product getProductByID2(String id) {
         try {
             String strSelect = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image, \n"
@@ -493,6 +496,75 @@ public class Product {
                     + "         p.Quantity, p.WireWireless, p.Description, d.Discount, \n"
                     + "         d.StartSaleDate, d.EndSaleDate,p.ReleaseDate\n"
                     + "ORDER BY p.ProductID;";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, id);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String Tid = rs.getString(1);
+                String Tname = rs.getString(2);
+                float Tprice = rs.getFloat(3);
+                
+                
+                Blob imageBlob = rs.getBlob(4);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+                
+                
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                
+                String Timage = base64Image;
+                
+                
+                int Tquantity = rs.getInt(5);
+                String Twire = "Wired";
+                if (rs.getInt(6) == 0) {
+                    Twire = "Wireless";
+                }
+                String Tdescription = rs.getString(7);
+
+                int dis = 0;
+                float sprice = 0;
+                if (rs.getString(8) != null) {
+                    dis = rs.getInt(8);
+                    sprice = rs.getFloat(9);
+                }
+
+                String st = String.format("%.1f", rs.getFloat(10));
+                float avg = Float.parseFloat(st);
+                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String start = "";
+                if (rs.getString(11) != null) {
+                    start = f.format(rs.getDate(11));
+                }
+                String end = "";
+                if (rs.getString(12) != null) {
+                    end = f.format(rs.getDate(12));
+                }
+
+                String release = f.format(rs.getDate(14));
+
+                return new Product(Tid, Tname, Tprice, Timage, Tquantity, Twire, Tdescription, dis, sprice, avg, start, end, release);
+            }
+        } catch (Exception ex) {
+            System.out.println("getProductByID2" + ex.getMessage());
+        }
+        return null;
+    }
+    
+    public Product getProductByID3(String id) {
+        try {
+            String strSelect = "SELECT p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"                           p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"                           ((1 - d.Discount / 100) * p.ProductPrice) as SalePrice,\n" +
+"                           COALESCE(avg(r.Rating), 0) as AverageRating,\n" +
+"                           d.StartSaleDate, d.EndSaleDate, p.CategoryID,p.ReleaseDate\n" +
+"                    FROM Headphone.Product p\n" +
+"                    LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n" +
+"                    LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n" +
+"                    WHERE p.ProductID like ?\n" +
+"                    GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image, \n" +
+"                             p.Quantity, p.WireWireless, p.Description, d.Discount, \n" +
+"                             d.StartSaleDate, d.EndSaleDate,p.ReleaseDate\n" +
+"                    ORDER BY p.ProductID;";
             pstm = cnn.prepareStatement(strSelect);
             pstm.setString(1, id);
             rs = pstm.executeQuery();
@@ -1163,7 +1235,7 @@ public class Product {
                     + "FROM Headphone.Product p\n"
                     + "LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n"
                     + "LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n"
-                    + "WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL) and p.ProductID IN (\n"
+                    + "WHERE p.ProductID IN (\n"
                     + "  SELECT ProductID\n"
                     + "  FROM (\n"
                     + "    SELECT p.ProductID\n"
@@ -1280,25 +1352,36 @@ public class Product {
         return false;
     }
 
-    public void updateProduct(String id, String name, float price, String image, int quantity, String wire, String description) {
+    public void updateProduct(String id, String name, float price, int quantity, String wire, String description) {
         try {
-            String strUpdate = "update headphone.product set ProductName=?, ProductPrice=?, image=?,"
+            String strUpdate = "update headphone.product set ProductName=?, ProductPrice=?,"
                     + " Quantity=?, WireWireless=?, Description=?  where ProductID=?";
             pstm = cnn.prepareStatement(strUpdate);
             pstm.setString(1, name);
             pstm.setFloat(2, price);
-            pstm.setString(3, image);
-            pstm.setInt(4, quantity);
+            pstm.setInt(3, quantity);
             if (wire.equals("Wired")) {
-                pstm.setBoolean(5, true);
+                pstm.setBoolean(4, true);
             } else {
-                pstm.setBoolean(5, false);
+                pstm.setBoolean(4, false);
             }
-            pstm.setString(6, description);
-            pstm.setString(7, id);
+            pstm.setString(5, description);
+            pstm.setString(6, id);
             pstm.execute();
         } catch (Exception e) {
             System.out.println("updateProduct: " + e.getMessage());
+        }
+    }
+    
+    public void updateImageProduct(byte[] image,String id){
+        try{
+            String sql = "UPDATE `headphone`.`product` SET `image` = ? WHERE (`ProductID` like ?);";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setBytes(1, image);
+            pstm.setString(2,id);
+            pstm.execute();
+        }catch(Exception e){
+            System.out.println("updateProduct2: " + e.getMessage());
         }
     }
 
