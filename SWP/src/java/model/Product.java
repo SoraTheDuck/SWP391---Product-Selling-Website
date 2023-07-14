@@ -1431,4 +1431,16 @@ public class Product {
         }
             return -1;
     }
+    
+    public void delete(String id) {
+        String strSelect = "UPDATE `headphone`.`product` SET `Quantity` = '-1' WHERE (`ProductID` = ?);";
+        try {
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, id);
+            int rowsAffected = pstm.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

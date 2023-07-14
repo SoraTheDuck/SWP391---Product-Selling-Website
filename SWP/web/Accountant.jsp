@@ -43,7 +43,7 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <a class="logo" href="Admin_page.jsp">
+                <a class="logo" href="accountantorder">
                     <img src="images/icon/logo.png" alt="CoolAdmin" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
@@ -58,7 +58,7 @@
         
         <aside class="menu-sidebar d-lg-block">
     <div class="logo">
-        <a href="Admin_page.jsp">
+        <a href="accountantorder">
             <img src="images/menu/logo/1.jpg" alt="Cool Admin" />
         </a>
     </div>
@@ -70,7 +70,7 @@
                         Manage Orders</a>
                 </li>
                 <li class="has-sub">
-                    <a  href="list-order">
+                    <a  href="">
                         </i>Manage Product</a>
                 </li>
             </ul>
@@ -86,10 +86,7 @@
             <div class="container-fluid">
                 <div class="header-wrap">
                     <form class="form-header" action="" method="POST">
-                        <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                        <button class="au-btn--submit" type="submit">
-                            <i class="zmdi zmdi-search"></i>
-                        </button>
+                        
                     </form>
                     <div class="header-button">
                         <div class="account-wrap">
@@ -101,12 +98,7 @@
                                     <a class="js-acc-btn" href="#">Admin</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
-                                    <div class="account-dropdown__body">
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-account"></i>Account</a>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="account-dropdown__footer">
                                         <a href="LogoutController">
                                             <i class="zmdi zmdi-power"></i>Logout</a>
@@ -130,33 +122,7 @@
                             <h3 class="title-5 m-b-35">Accountant</h3>
                             <p style="color: green">${amess}</p>
                             <div class="table-data__tool">
-                                <div class="table-data__tool-left">
-                                    <div class="rs-select2--light rs-select2--md">
-                                        <form id="" action="" method="post">
-                                            <select class="js-select2" name="property" onchange="">
-                                                <option selected="selected">All Properties</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </form>
-                                        
-                                        
-                                        
-                                        
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Today</option>
-                                            <option value="">3 Days</option>
-                                            <option value="">1 Week</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <button class="au-btn-filter">
-                                        <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                </div>
-                                <div class="table-data__tool-right">
+                                                                <div class="table-data__tool-right">
                                     <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                         
                                         <form id="frm2" action="exportorder" method="post">

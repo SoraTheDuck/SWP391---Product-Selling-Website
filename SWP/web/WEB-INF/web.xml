@@ -148,6 +148,42 @@
         <servlet-name>AdminPageController</servlet-name>
         <servlet-class>controller.admin.AdminPageController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderManagerController</servlet-name>
+        <servlet-class>controller.manager.OrderManagerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BanCustomerController</servlet-name>
+        <servlet-class>controller.admin.BanCustomerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ErrorController</servlet-name>
+        <servlet-class>controller.ErrorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductController</servlet-name>
+        <servlet-class>controller.admin.DeleteProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUserController</servlet-name>
+        <servlet-class>controller.admin.AddUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUserController</servlet-name>
+        <servlet-class>controller.admin.EditUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddStaffController</servlet-name>
+        <servlet-class>controller.admin.AddStaffController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BanStaffController</servlet-name>
+        <servlet-class>controller.admin.BanStaffController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStaffController</servlet-name>
+        <servlet-class>controller.admin.ListStaffController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -295,6 +331,42 @@
     <servlet-mapping>
         <servlet-name>AdminPageController</servlet-name>
         <url-pattern>/adminpage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderManagerController</servlet-name>
+        <url-pattern>/ordermanager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BanCustomerController</servlet-name>
+        <url-pattern>/bancus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ErrorController</servlet-name>
+        <url-pattern>/404</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProductController</servlet-name>
+        <url-pattern>/delete-product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserController</servlet-name>
+        <url-pattern>/add-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUserController</servlet-name>
+        <url-pattern>/edit-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddStaffController</servlet-name>
+        <url-pattern>/addstaff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BanStaffController</servlet-name>
+        <url-pattern>/banstaff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStaffController</servlet-name>
+        <url-pattern>/liststaff</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

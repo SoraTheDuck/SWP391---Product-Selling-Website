@@ -63,13 +63,10 @@
                                     <p>Sorry but the page you are looking for does not exist, have been removed, <br> name changed or is temporarity unavailable.</p>
                                 </div>
                                 <div class="search-error">
-                                    <form id="search-form" action="#">
-                                        <input type="text" placeholder="Search">
-                                        <button><i class="zmdi zmdi-search"></i></button>
-                                    </form>
+                                    
                                 </div>
                                 <div class="error-button">
-                                    <a href="Home.jsp">Back to home page</a>
+                                    <a href="home">Back to home page</a>
                                 </div>
                             </div>
                         </div>

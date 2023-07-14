@@ -380,4 +380,61 @@ public class Customer {
         }
             return -1;
         }
+        
+        public void Ban(int status, int cusid) {
+        try {
+            String strUpdate = "update headphone.customer set Status=? where CustomerID=?";
+            pstm = cnn.prepareStatement(strUpdate);
+            pstm.setInt(1, status);
+            pstm.setInt(2, cusid);
+            pstm.execute();
+        } catch (Exception ex) {
+            System.out.println("Ban: " + ex.getMessage());
+        }
+    }
+        
+        public boolean isEmailAlreadyExists(String email) {
+        boolean emailExists = false;
+        try {
+            String strSelect = "SELECT COUNT(*) FROM customer WHERE email = ?";
+            pstm = cnn.prepareStatement(strSelect);
+            pstm.setString(1, email);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                emailExists = count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return emailExists;
+    }
+        
+    public boolean updateCus(String name, String password, String address, String email, int id) {
+        try {
+            String strSelect = "UPDATE headphone.customer\n"
+                    + "SET CustomerName=?,\n"
+                    + "Password=?,\n"
+                    + "Address=?,\n"
+                    + "Email=?\n"
+                    + "WHERE CustomerId=?";
+            pstm = cnn.prepareStatement(strSelect);
+
+            pstm.setString(1, name);
+            pstm.setString(2, password);
+            pstm.setString(3, address);
+            pstm.setString(4, email);
+            pstm.setInt(5, id);
+            int rowsUpdated = pstm.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                return true; // Update successful
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false; // Update failed
+    }
 }

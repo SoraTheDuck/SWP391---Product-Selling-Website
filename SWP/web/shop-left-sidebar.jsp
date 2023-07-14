@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
-
-    <!-- shop-left-sidebar31:47-->
-    <head>
+    
+<!-- shop-left-sidebar31:47-->
+<head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Shop Left Sidebar || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
@@ -44,9 +44,9 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-                    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
@@ -87,23 +87,23 @@
                                         <!-- shop-item-filter-list end -->
                                     </div>
                                     <c:choose>
-                                        <c:when test="${searchValue != null}">
-                                            <div class="toolbar-amount">
-                                                <span>${searchValue}</span>
-                                            </div>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <div class="toolbar-amount">
-                                            </div>
-                                        </c:otherwise>
-                                    </c:choose>
+                            <c:when test="${searchValue != null}">
+                                <div class="toolbar-amount">
+                                        <span>${searchValue}</span>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="toolbar-amount">
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                                 </div>
                                 <!-- product-select-box start -->
                                 <div class="product-select-box">
                                     <div class="product-short">
                                         <p>Display all Products by:</p>
-                                        <form id="frm" action="display" method="post">
-                                            <select class="nice-select" name="op" onchange="change()">
+                                            <form id="frm" action="display" method="post">
+                                                <select class="nice-select" name="op" onchange="change()">
                                                 <option value="0" ${tag == 0 ? "selected":""}> Default</option>
                                                 <option value="1" ${tag == 1 ? "selected":""}> Release Date (Closet to Furthest)</option>
                                                 <option value="2" ${tag == 2 ? "selected":""}> Release Date (Furthest to Closest)</option>
@@ -113,9 +113,9 @@
                                                 <option value="6" ${tag == 6 ? "selected":""}> Rating (Highest -> Lowest)</option>
                                             </select>
                                         </form>
-
+                                        
                                         <script>
-                                            function change() {
+                                            function change(){
                                                 document.getElementById("frm").submit();
                                             }
                                         </script>
@@ -146,7 +146,7 @@
                                                                         <h5 class="manufacturer">
                                                                             <a href="detail?pid=${o.id}">${o.name}</a>
                                                                             <p>${o.wire}</p>
-
+                                                                            
                                                                         </h5>
                                                                         <div class="rating-box">
                                                                             <c:choose>
@@ -228,8 +228,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="add-actions">
-                                                                    <ul class="add-actions-link">
-                                                                        <c:choose>
+                                                        <ul class="add-actions-link">
+                                                            <c:choose>
                                                                             <c:when test="${o.quantity > 0}">
                                                                                 <form action="cart" method="post">
                                                                                     <input type="hidden" name="num" value="1">
@@ -241,54 +241,54 @@
                                                                                 <li class="add-cart active">Sold out</li>
                                                                             </c:otherwise>
                                                                         </c:choose>
-                                                                    </ul>
-                                                                </div>
+                                                        </ul>
+                                                    </div>
                                                             </div>
                                                         </div>
                                                         <!-- single-product-wrap end -->
                                                     </div>
                                                 </c:forEach>
-
+                                                
                                             </div>
                                         </div>
                                     </div>
-
+                                    
                                     <div class="paginatoin-area">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <ul class="pagination-box pt-xs-20 pb-xs-15">
-
+                                                    
                                                     <c:choose>
                                                         <c:when test="${totalPage ==0}">
                                                             No Product fits your searched result
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <c:if test="${currentPage != 1}">
-                                                                <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
+                                                                <c:if test="${currentPage != 1}">
+                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
+                                                            </c:if>
+                                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                                                <c:choose>
+                                                                    <c:when test="${currentPage == i}">
+                                                                    <li class="active"><a href="#"><c:out value="${i}" /></a></li>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                    <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
+                                                                            <c:out value="${i}" /></a></li>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                            <c:if test="${currentPage != totalPage}">
+                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
                                                                 </c:if>
-                                                                <c:forEach begin="1" end="${totalPage}" var="i">
-                                                                    <c:choose>
-                                                                        <c:when test="${currentPage == i}">
-                                                                        <li class="active"><a href="#"><c:out value="${i}" /></a></li>
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                        <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
-                                                                                <c:out value="${i}" /></a></li>
-                                                                            </c:otherwise>
-                                                                        </c:choose>
-                                                                    </c:forEach>
-                                                                    <c:if test="${currentPage != totalPage}">
-                                                                <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
-                                                                    </c:if>
-                                                                </c:otherwise>
-                                                            </c:choose>
-
-
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-
+                                    
                                 </div>
                             </div>
                             <!-- shop-products-wrapper end -->
@@ -296,144 +296,35 @@
                         <div class="col-lg-3 order-2 order-lg-1">
                             <!--sidebar-categores-box start  -->
                             <div class="sidebar-categores-box mt-sm-30 mt-xs-30">
-                                <div class="sidebar-title">
-                                    <h2>Laptop</h2>
-                                </div>
-                                <!-- category-sub-menu start -->
-                                <div class="category-sub-menu">
-                                    <ul>
-                                        <li class="has-sub"><a href="# ">Prime Video</a>
-                                            <ul>
-                                                <li><a href="#">All Videos</a></li>
-                                                <li><a href="#">Blouses</a></li>
-                                                <li><a href="#">Evening Dresses</a></li>
-                                                <li><a href="#">Summer Dresses</a></li>
-                                                <li><a href="#">T-Rent or Buy</a></li>
-                                                <li><a href="#">Your Watchlist</a></li>
-                                                <li><a href="#">Watch Anywhere</a></li>
-                                                <li><a href="#">Getting Started</a></li>  
-                                            </ul>
-                                        </li>
-                                        <li class="has-sub"><a href="#">Computer</a>
-                                            <ul>
-                                                <li><a href="#">TV & Video</a></li>
-                                                <li><a href="#">Audio & Theater</a></li>
-                                                <li><a href="#">Camera, Photo</a></li>
-                                                <li><a href="#">Cell Phones</a></li>
-                                                <li><a href="#">Headphones</a></li>
-                                                <li><a href="#">Video Games</a></li>
-                                                <li><a href="#">Wireless Speakers</a></li> 
-                                            </ul>
-                                        </li>
-                                        <li class="has-sub"><a href="#">Electronics</a>
-                                            <ul>
-                                                <li><a href="#">Amazon Home</a></li>
-                                                <li><a href="#">Kitchen & Dining</a></li>
-                                                <li><a href="#">Bed & Bath</a></li>
-                                                <li><a href="#">Appliances</a></li>    
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- category-sub-menu end -->
-                            </div>
-                            <!--sidebar-categores-box end  -->
-                            <!--sidebar-categores-box start  -->
+                                
                             <div class="sidebar-categores-box">
                                 <div class="sidebar-title">
                                     <h2>Filter By</h2>
                                 </div>
                                 <!-- btn-clear-all start -->
-                                <button class="btn-clear-all mb-sm-30 mb-xs-30">Clear all</button>
+                                
                                 <!-- btn-clear-all end -->
                                 <!-- filter-sub-area start -->
-                                <div class="filter-sub-area">
-                                    <h5 class="filter-sub-titel">Brand</h5>
-                                    <div class="categori-checkbox">
-                                        <form action="#">
-                                            <ul>
-                                                <li><input type="checkbox" name="product-categori"><a href="#">Prime Video (13)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="#">Computers (12)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="#">Electronics (11)</a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </div>
+                                
                                 <!-- filter-sub-area end -->
                                 <!-- filter-sub-area start -->
                                 <div class="filter-sub-area pt-sm-10 pt-xs-10">
                                     <h5 class="filter-sub-titel">Categories</h5>
                                     <div class="categori-checkbox">
-                                        <form action="#">
-                                            <ul>
-                                                <li><input type="checkbox" name="product-categori"><a href="#">Graphic Corner (10)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="#"> Studio Design (6)</a></li>
-                                            </ul>
-                                        </form>
+                                        <ul>
+                                            <c:forEach items="${categoryList}" var="o">
+                                                <li><a href="category?cid=${o.getId()}">${o.getCategoryName()}</a></li>
+                                            </c:forEach>
+                                        </ul>
                                     </div>
-                                </div>
-                                <!-- filter-sub-area end -->
-                                <!-- filter-sub-area start -->
-                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                    <h5 class="filter-sub-titel">Size</h5>
-                                    <div class="size-checkbox">
-                                        <form action="#">
-                                            <ul>
-                                                <li><input type="checkbox" name="product-size"><a href="#">S (3)</a></li>
-                                                <li><input type="checkbox" name="product-size"><a href="#">M (3)</a></li>
-                                                <li><input type="checkbox" name="product-size"><a href="#">L (3)</a></li>
-                                                <li><input type="checkbox" name="product-size"><a href="#">XL (3)</a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- filter-sub-area end -->
-                                <!-- filter-sub-area start -->
-                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                    <h5 class="filter-sub-titel">Color</h5>
-                                    <div class="color-categoriy">
-                                        <form action="#">
-                                            <ul>
-                                                <li><span class="white"></span><a href="#">White (1)</a></li>
-                                                <li><span class="black"></span><a href="#">Black (1)</a></li>
-                                                <li><span class="Orange"></span><a href="#">Orange (3) </a></li>
-                                                <li><span class="Blue"></span><a href="#">Blue  (2) </a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- filter-sub-area end -->
-                                <!-- filter-sub-area start -->
-                                <div class="filter-sub-area pt-sm-10 pb-sm-15 pb-xs-15">
-                                    <h5 class="filter-sub-titel">Dimension</h5>
-                                    <div class="categori-checkbox">
-                                        <form action="#">
-                                            <ul>
-                                                <li><input type="checkbox" name="product-categori"><a href="#">40x60cm (6)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="#">60x90cm (6)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="#">80x120cm (6)</a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- filter-sub-area end -->
+                                 </div>
+                                
+                                
+                                
                             </div>
-                            <!--sidebar-categores-box end  -->
+                            <!--sidebar-categories-box end  -->
                             <!-- category-sub-menu start -->
-                            <div class="sidebar-categores-box mb-sm-0 mb-xs-0">
-                                <div class="sidebar-title">
-                                    <h2>Laptop</h2>
-                                </div>
-                                <div class="category-tags">
-                                    <ul>
-                                        <li><a href="# ">Devita</a></li>
-                                        <li><a href="# ">Cameras</a></li>
-                                        <li><a href="# ">Sony</a></li>
-                                        <li><a href="# ">Computer</a></li>
-                                        <li><a href="# ">Big Sale</a></li>
-                                        <li><a href="# ">Accessories</a></li>
-                                    </ul>
-                                </div>
+                            
                                 <!-- category-sub-menu end -->
                             </div>
                         </div>
@@ -454,7 +345,7 @@
                             </button>
                             <div class="modal-inner-area row">
                                 <div class="col-lg-5 col-md-6 col-sm-6">
-                                    <!-- Product Details Left -->
+                                   <!-- Product Details Left -->
                                     <div class="product-details-left">
                                         <div class="product-details-images slider-navigation-1">
                                             <div class="lg-image">
@@ -602,5 +493,5 @@
         <script src="js/main.js"></script>
     </body>
 
-    <!-- shop-left-sidebar31:48-->
+<!-- shop-left-sidebar31:48-->
 </html>

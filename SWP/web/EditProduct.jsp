@@ -46,7 +46,7 @@
                                         <strong>Edit Product</strong> Elements
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="add-product" method="post" class="form-horizontal">
+                                        <form action="editproduct" method="post">
                                             <p style="color: red">${mess}</p>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
@@ -93,7 +93,7 @@
                                                     <label class=" form-control-label">Description</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <textarea name="textarea-input" id="textarea-input" rows="5" placeholder="Content..." class="form-control">${p.getDescription()}</textarea>
+                                                    <textarea name="description" id="textarea-input" rows="5" placeholder="Content..." class="form-control">${p.getDescription()}</textarea>
                                                 </div>
                                             </div>
                                                 <div class="row form-group">
@@ -123,10 +123,10 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
-                                                    <label class=" form-control-label">Changelog</label>
+                                                    <label class=" form-control-label">Changelog:</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <textarea name="textarea-input" id="textarea-input" rows="5" placeholder="Content..." class="form-control" required>${log}</textarea>
+                                                    <input name="change" id="textarea-input" rows="5" placeholder="Content:" class="form-control" required>
                                                 </div>
                                             </div>
                                             <input type="submit" value="Edit Product" class="btn btn-primary btn-sm"/>

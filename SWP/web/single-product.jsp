@@ -237,6 +237,7 @@
                                             <c:if test="${detail.quantity>0}">
                                             <button class="add-to-cart" type="submit">Add to cart</button>
                                             </c:if>
+                                            
                                         </form>
                                     </div>
                                     <div class="block-reassurance">

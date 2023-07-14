@@ -10,6 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Order;
 
@@ -26,18 +27,22 @@ public class ListOrderController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Order order = new Order();
-        List<Order> list = order.getAllOrder();
-        req.setAttribute("l", "customer");
-        for(Order o : list){
-            System.out.println(o.getID());
+        HttpSession session = req.getSession();
+        if (session.getAttribute("admin") != null) {
+            Order order = new Order();
+            List<Order> list = order.getAllOrder();
+            req.setAttribute("l", "customer");
+            for (Order o : list) {
+                System.out.println(o.getID());
+            }
+
+            req.setAttribute("listOrd", list);
+
+            req.getRequestDispatcher("Admin_orders.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect("404");
         }
 
-        req.setAttribute("listOrd", list);
-        
-        req.getRequestDispatcher("Admin_orders.jsp").forward(req, resp);
     }
-    
-
 
 }
