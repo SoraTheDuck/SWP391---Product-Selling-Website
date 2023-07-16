@@ -47,7 +47,7 @@ public class Order {
         this.otherid = otherid;
         this.cdate = cdate;
     }
-    
+
     public int getID() {
         return id;
     }
@@ -104,8 +104,6 @@ public class Order {
         this.cdate = cdate;
     }
 
-    
-    
     Connection cnn; //ket noi DB
     Statement stm; //thuc thi cau lenh SQL
     PreparedStatement pstm;//thuc thi SQL
@@ -224,7 +222,7 @@ public class Order {
         }
         return list;
     }
-    
+
     public void completeOrder(int oid, boolean status) {
         java.util.Calendar cal = java.util.Calendar.getInstance();
         java.util.Date utilDate = cal.getTime();
@@ -261,7 +259,7 @@ public class Order {
             System.out.println("updateQuantity: " + e.getMessage());
         }
     }
-    
+
     public List<Order> getHistory(int cid) {
         List<Order> data = new ArrayList<>();
         try {
@@ -301,76 +299,76 @@ public class Order {
                 float totalmoney = rs.getFloat(3);
                 int customerid = rs.getInt(4);
 
-                list.add(new Order(id, date, totalmoney, customerid) );
+                list.add(new Order(id, date, totalmoney, customerid));
             }
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
         return list;
     }
-    
-    public List<Order> AccountantGetAllOrder(){
+
+    public List<Order> AccountantGetAllOrder() {
         List<Order> data = new ArrayList<>();
-        try{
-            String sql = "SELECT O.OrderID, O.OrderDate, O.TotalMoney, O.CustomerID, O.StaffID,CO.OrderID, CO.CompletedDate\n" +
-"FROM Headphone.Orders AS O\n" +
-"LEFT JOIN Headphone.CompletedOrder AS CO ON O.OrderID = CO.OrderID;";
+        try {
+            String sql = "SELECT O.OrderID, O.OrderDate, O.TotalMoney, O.CustomerID, O.StaffID,CO.OrderID, CO.CompletedDate\n"
+                    + "FROM Headphone.Orders AS O\n"
+                    + "LEFT JOIN Headphone.CompletedOrder AS CO ON O.OrderID = CO.OrderID;";
             pstm = cnn.prepareStatement(sql);
             rs = pstm.executeQuery();
             SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
-            while(rs.next()){
+            while (rs.next()) {
                 int oid = rs.getInt(1);
                 String date = "";
                 date = f.format(rs.getDate(2));
-                
+
                 String st = String.format("%.1f", rs.getFloat(3));
                 float money = Float.parseFloat(st);
                 int cid = rs.getInt(4);
                 int sid = rs.getInt(5);
                 int otherid = 0;
                 String cdate = "-";
-                if(rs.getString(6) != null){
+                if (rs.getString(6) != null) {
                     otherid = rs.getInt(6);
                     cdate = f.format(rs.getDate(7));
                 }
-                
+
                 data.add(new Order(oid, date, money, cid, sid, otherid, cdate));
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
         return data;
     }
-    
-    public int getNumberOfOrder(){
+
+    public int getNumberOfOrder() {
         try {
             String sql = "SELECT COUNT(*) AS OrderCount FROM Headphone.Orders;";
             pstm = cnn.prepareStatement(sql);
             rs = pstm.executeQuery();
-            
-            if(rs.next()){
+
+            if (rs.next()) {
                 return rs.getInt(1);
             }
         } catch (Exception ex) {
             System.out.println("getAllProductByPage" + ex.getMessage());
         }
-            return -1;
+        return -1;
     }
-    
-    public float getTotalEarning(){
+
+    public float getTotalEarning() {
         try {
             String sql = "SELECT SUM(TotalMoney) AS TotalMoneySum FROM Headphone.Orders;";
             pstm = cnn.prepareStatement(sql);
             rs = pstm.executeQuery();
-            
-            if(rs.next()){
+
+            if (rs.next()) {
                 String st = String.format("%.3f", rs.getFloat(1));
                 return Float.parseFloat(st);
             }
         } catch (Exception ex) {
             System.out.println("getAllProductByPage" + ex.getMessage());
         }
-            return -1;
+        return -1;
     }
 
     public void updateStaffOrder(List<Order> lo, int bannedStaffID) {
@@ -378,20 +376,25 @@ public class Order {
             int sid;
             Product p = new Product();
             for (Order o : lo) {
-                String strUpdate = "UPDATE headphone.orders SET StaffID = ? WHERE StaffID = ? AND OrderID = ?";
+                sid = getOrderManager();
+                String strUpdate = "UPDATE headphone.orders SET StaffID = " + sid + " WHERE StaffID = " + bannedStaffID + " AND OrderID = " + o.getID();
                 pstm = cnn.prepareStatement(strUpdate);
 
-                sid = getOrderManager();
-
-                pstm.setInt(1, sid);
-                pstm.setInt(2, bannedStaffID);
-                pstm.setInt(3, o.getID());
+//                System.out.println("sid: "+sid);
+//                System.out.println("bannedstaff: "+bannedStaffID);
+//                System.out.println("ordid: "+o.getID());
+//                System.out.println(strUpdate);
+//                pstm.setInt(1, sid);
+//                System.out.println("after 1st setint");
+//                pstm.setInt(2, bannedStaffID);
+//                pstm.setInt(3, o.getID());
+//                System.out.println(strUpdate);
+//                System.out.println("after setint");
                 pstm.executeUpdate();
             }
         } catch (Exception e) {
             System.out.println("updateStaffOrder: " + e.getMessage());
         }
     }
-
 
 }

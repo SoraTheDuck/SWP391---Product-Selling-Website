@@ -34,12 +34,10 @@ public class BanStaffController extends HttpServlet {
             s.Ban(1, staffid);
             Staff s1 = s.getStaffByID(staffid);
             if (s1.isOrderManager()) {
-                System.out.println("inside if");
                 Order o = new Order();
                 List<Order> lo = o.getListNotCompletedOrder(staffid);
                 o.updateStaffOrder(lo, staffid);
             }
-            System.out.println("after if");
         } else {
             //System.out.println("unban");
             s.Ban(0, staffid);
