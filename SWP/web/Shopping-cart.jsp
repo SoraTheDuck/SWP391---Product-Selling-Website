@@ -97,7 +97,7 @@
                                             <c:forEach var="o" items="${sessionScope.cart.items}">
                                                 <tr>
                                                     <td class="li-product-remove"><a href="remove?id=${o.product.id}">x</a></td>
-                                                    <td class="li-product-thumbnail"><a href="detail?pid=${o.product.id}"><img src="data:image/jpg;charset=utf8;base64,${o.product.image}" alt="Li's Product Image"></a></td>
+                                                    <td class="li-product-thumbnail"><a href="detail?pid=${o.product.id}"><img width="30%" height="30%" src="data:image/jpg;charset=utf8;base64,${o.product.image}" alt="Li's Product Image"></a></td>
                                                     <td class="li-product-name"><a href="#">${o.product.name}</a></td>
                                                     <td class="li-product-price">
                                                         <span class="amount">$ ${o.price}</span></td>
