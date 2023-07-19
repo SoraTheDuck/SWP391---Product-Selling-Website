@@ -22,19 +22,19 @@ public class DBContext {
     {
         try {
 
-            /*
+
             //Local Host
             String user = "root" ;
-            String password = "12344321";
+            String password = "123456";
             String url = "jdbc:mysql://localhost:3306/headphone?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UT";
-            */
+
 
             //Server Cloud
-            String user = "SWP_Admin";
-            String password = "Test1234@";
-            String database = "headphone";
-            //String url = "jdbc:mysql://dbswp.mysql.database.azure.com:3306/" + database + "?useSSL=true";
-            String url = "jdbc:mysql://swp-project-db.mysql.database.azure.com:3306/" + database + "?useSSL=true";
+//            String user = "SWP_Admin";
+//            String password = "Test1234@";
+//            String database = "headphone";
+//            //String url = "jdbc:mysql://dbswp.mysql.database.azure.com:3306/" + database + "?useSSL=true";
+//            String url = "jdbc:mysql://swp-project-db.mysql.database.azure.com:3306/" + database + "?useSSL=true";
 
 
             Class.forName("com.mysql.cj.jdbc.Driver");

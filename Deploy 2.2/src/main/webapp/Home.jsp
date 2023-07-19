@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible"
           content="ie=edge">
-    <title>Headphone Online Shopping</title>
+    <title>Online Headphone Shop</title>
     <meta name="description"
           content="">
     <meta name="viewport"

@@ -1,5 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<style>
+    .log-sign-btn.log {
+
+    }
+    .log-sign-btn.sign {
+
+    }
+</style>
 <header>
     <!-- Begin Header Middle Area -->
     <div class="header-middle">
@@ -32,7 +40,7 @@
                         <!-- Begin Login Button Area -->
                         <c:choose>
                             <c:when test="${sessionScope.cus != null}">
-                                <a href="profile" class="log-sign-btn log">${sessionScope.cus.name}</a>
+                                <a href="profile" class="log-sign-btn log">My Profile</a>
                                 <a href="logout" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
