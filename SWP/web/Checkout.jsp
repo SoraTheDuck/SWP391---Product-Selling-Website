@@ -1,3 +1,4 @@
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -83,7 +84,7 @@
                                         <c:forEach var="o" items="${sessionScope.cart.items}">
                                             <tr class="cart_item">
                                                 <td class="cart-product-name">${o.product.name}<strong class="product-quantity"> × ${o.quantity}</strong></td>
-                                                <td class="cart-product-total"><span class="amount">$${o.price*o.quantity}</span></td>  
+                                                <td class="cart-product-total"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${o.price*o.quantity}"/></span></td>  
                                             </tr>
                                         </c:forEach>
                                     </tbody>

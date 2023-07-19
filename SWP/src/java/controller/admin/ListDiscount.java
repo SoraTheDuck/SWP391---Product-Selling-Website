@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import model.Admin;
 import model.Product;
@@ -19,8 +21,8 @@ import model.Product;
  * @author Acer Aspire
  */
 public class ListDiscount extends HttpServlet {
-    
-        @Override
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
 
@@ -34,6 +36,12 @@ public class ListDiscount extends HttpServlet {
             req.getRequestDispatcher("Admin_discount.jsp").forward(req, resp);
         } else {
             Product pr = p.getProductByID2(id);
+            // Calculate today's date
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String todayDate = dateFormat.format(new Date());
+
+            // Set today's date as an attribute in the request scope
+            req.setAttribute("todayDate", todayDate);
             req.setAttribute("p", pr);
             req.getRequestDispatcher("ProductDiscount.jsp").forward(req, resp);
         }
@@ -44,7 +52,7 @@ public class ListDiscount extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Admin admin = (Admin) session.getAttribute("admin");
-        
+
         if (admin != null) {
             Product p = new Product();
             List<Product> list = p.getAllProductReleaseDate();
@@ -54,5 +62,5 @@ public class ListDiscount extends HttpServlet {
             req.getRequestDispatcher("404").forward(req, resp);
         }
     }
-    
+
 }

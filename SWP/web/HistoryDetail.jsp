@@ -3,7 +3,7 @@
     Created on : Jun 26, 2023, 8:30:28 AM
     Author     : admin
 --%>
-
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -91,7 +91,7 @@
                                         <c:forEach var="i" items="${historyDetails}">
                                             <tr class="cart_item">
                                                 <td class="cart-product-name">${i.getProductName()}<strong class="product-quantity"> × ${i.getQuantity()}</strong></td>
-                                                <td class="cart-product-total"><span class="amount">$${i.getPrice()*i.getQuantity()}</span></td>  
+                                                <td class="cart-product-total"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${i.getPrice()*i.getQuantity()}"/></span></td>  
                                             </tr>
                                         </c:forEach>
                                     </tbody>

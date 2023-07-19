@@ -1,5 +1,5 @@
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="java.util.List" %>
@@ -100,7 +100,9 @@
                                                     <td class="li-product-thumbnail"><a href="detail?pid=${o.product.id}"><img width="30%" height="30%" src="data:image/jpg;charset=utf8;base64,${o.product.image}" alt="Li's Product Image"></a></td>
                                                     <td class="li-product-name"><a href="#">${o.product.name}</a></td>
                                                     <td class="li-product-price">
-                                                        <span class="amount">$ ${o.price}</span></td>
+                                                        <span class="amount">
+                                                            $<fmt:formatNumber pattern="##.#" value="${o.price}"/>
+                                                        </span></td>
                                                     <td class="quantity">
                                                         <a href="process?num=1&id=${o.product.id}">
                                                             <h2>+</h2>
@@ -110,7 +112,7 @@
                                                             <h2>-</h2>
                                                         </a>
                                                     </td>
-                                                    <td class="product-subtotal"><span class="amount">$${o.price*o.quantity}</span></td>
+                                                    <td class="product-subtotal"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${o.price*o.quantity}"/></span></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

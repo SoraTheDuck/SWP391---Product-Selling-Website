@@ -625,8 +625,8 @@
                                                     <div class="price-box">
                                                         <c:choose>
                                                             <c:when test="${o.discount > 0}">
-                                                                <span class="new-price new-price-2">$ ${o.price}</span>
-                                                                <span class="old-price">$ ${o.saleprice}</span>
+                                                                <span class="new-price new-price-2">$ ${o.saleprice}</span>
+                                                                <span class="old-price">$ ${o.price}</span>
                                                                 <span class="discount-percentage">${o.discount}%</span>
                                                             </c:when>
                                                             <c:otherwise>
@@ -789,8 +789,8 @@
                                                     <div class="price-box">
                                                         <c:choose>
                                                             <c:when test="${o.discount > 0}">
-                                                                <span class="new-price new-price-2">$ ${o.price}</span>
-                                                                <span class="old-price">$ ${o.saleprice}</span>
+                                                                <span class="new-price new-price-2">$ ${o.saleprice}</span>
+                                                                <span class="old-price">$ ${o.price}</span>
                                                                 <span class="discount-percentage">${o.discount}%</span>
                                                             </c:when>
                                                             <c:otherwise>
@@ -961,8 +961,8 @@
                                                     <div class="price-box">
                                                         <c:choose>
                                                             <c:when test="${o.discount > 0}">
-                                                                <span class="new-price new-price-2">$ ${o.price}</span>
-                                                                <span class="old-price">$ ${o.saleprice}</span>
+                                                                <span class="new-price new-price-2">$ ${o.saleprice}</span>
+                                                                <span class="old-price">$ ${o.price}</span>
                                                                 <span class="discount-percentage">${o.discount}%</span>
                                                             </c:when>
                                                             <c:otherwise>

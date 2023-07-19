@@ -32,7 +32,7 @@ public class EditProductController extends HttpServlet {
         System.out.println(id + "fe");
         Product p = new Product();
 
-        String changelog = req.getParameter("change");
+        String changelog = req.getParameter("changelog");
         System.out.println(changelog);
         
         if (changelog.isEmpty()) {
