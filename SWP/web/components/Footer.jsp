@@ -21,7 +21,7 @@
                             </li>
                             <li>
                                 <span>Phone: </span>
-                                (+123) 123 321 345
+                                (+84) 123 321 345
                             </li>
                             <li>
                                 <span>Email: </span>

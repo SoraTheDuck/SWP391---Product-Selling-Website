@@ -47,6 +47,8 @@
         <!-- Modernizr js -->
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        
+
     </head>
 
     <body>
@@ -70,7 +72,10 @@
             <!-- Account page navigation-->
             <div class="container px-4 mt-4 my-4">
                 <!-- Account page navigation-->
-                <a href="history"><h5>View order history</h5></a>
+                <button class="btn btn-primary mb-20 ml-10">
+                    <a style="color: #fff" href="history">View order history</a>
+                </button>
+
                 <div class="row">
                     <div class="col-xl-4">
                         <div class="card mb-4 mb-xl-0">
@@ -136,7 +141,7 @@
                                         <input class="form-control" id="inputEmail" type="email" name="email" placeholder="Enter your email address"
                                                value="${sessionScope.cus.email}" readonly />
                                     </div>
-                                    
+
                                     <!-- Save changes button-->
                                     <button class="btn btn-primary" type="submit">
                                         Save changes

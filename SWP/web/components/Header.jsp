@@ -32,7 +32,7 @@
                         <!-- Begin Login Button Area -->
                         <c:choose>
                             <c:when test="${sessionScope.cus != null}">
-                                <a href="profile" class="log-sign-btn log">${sessionScope.cus.name}</a>
+                                <a href="profile" class="log-sign-btn log">My Profile</a>
                                 <a href="LogoutController" class="log-sign-btn sign">Log out</a>
                             </c:when>
                             <c:otherwise>
