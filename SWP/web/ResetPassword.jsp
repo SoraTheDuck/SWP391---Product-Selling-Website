@@ -9,91 +9,143 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Login Register || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+        <!-- Material Design Iconic Font-V2.2.0 -->
+        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Font Awesome Stars-->
+        <link rel="stylesheet" href="css/fontawesome-stars.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="css/meanmenu.css">
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <!-- Slick Carousel CSS -->
+        <link rel="stylesheet" href="css/slick.css">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="css/animate.css">
+        <!-- Jquery-ui CSS -->
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <!-- Venobox CSS -->
+        <link rel="stylesheet" href="css/venobox.css">
+        <!-- Nice Select CSS -->
+        <link rel="stylesheet" href="css/nice-select.css">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <!-- Bootstrap V4.1.3 Fremwork CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Helper CSS -->
+        <link rel="stylesheet" href="css/helper.css">
+        <!-- Main Style CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- Modernizr js -->
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
         <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: Arial;
+            body{
                 background: #92aae5;
-                margin-top: 80px;
             }
-
-            .container {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-
-            h4 {
-                font-size: 18px;
-                margin-bottom: 20px;
-            }
-
-            .form {
-                max-width: 700px;
-                margin-left: auto;
-                margin-right: auto;
-                background-color: #ffffff;
-                padding: 30px;
-                -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
-                box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-            }
-            form{
-                padding-bottom:10px;
-            }
-
-            input{
-                padding: 10px 10px;
-                width: 270px;
-            }
-            button[type="submit"] {
-                padding: 10px 20px;
-                background-color: #4CAF50;
-                color: white;
+            .re-button{
+                height: 36px;
+                padding: 6px 20px;
                 border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                background-color: #45a049;
+                line-height: 24px;
+                background-color: #363f4d;
+                border-radius: 3px;
+                transition: all 0.3s ease-in-out;
+                margin-right: 10px;
             }
-
-
-
-            a {
-                text-decoration: none;
-                color: #ffffff;
-            }
-
-            button {
-                margin-top: 20px;
-                padding: 10px 20px;
-                background-color: #428bca;
+            .re-button a{
                 color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
+                text-transform: uppercase;
+            }
+            .re-button:hover {
+                background: grey;
             }
         </style>
     </head>
-
     <body>
-        <div class="container">
-            <div class="form">
-                <h2> Reset password </h2>
-                <p>Enter the correct code to complete the reset password process</p>
-                <div>
-                    <p style="color: red">${rmess}</p>
-                    <form action="resetpassword" method="post">
-                        <input name="fcode" type="text" placeholder="Enter code">
-                        <button type="submit">Verify code</button>
-                    </form>
-
-                    <button><a href="resetpassword">Resend code</a></button>
-                    <button><a href="login">Return to login page</a></button>
+        <div class="body-wrapper">
+            <!-- Begin Register Content Area-->
+            <div class="container mt-10 mb-100">
+                <div class="login-form"  style="margin-top: 60px; border-radius:5px">
+                    <h2> Reset password </h2>
+                    <p>Enter the correct code to complete the reset password process</p>
+                    <div>
+                        <p style="color: red">${rmess}</p>
+                        <form action="resetpassword" method="post">
+                            <input name="fcode" type="text" placeholder="Enter code">
+                            <button class="register-button mt-0" type="submit">Verify code</button>
+                        </form>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="margin-top: 10px">  
+                        <button style="width: 140px" class="re-button" style="display: inline-block">    
+                            <a href="resetpassword">Resend code</a>
+                        </button>
+                        <button class="re-button" style="display: inline-block">    
+                            <a href="login">Return to Login Page</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
+
+<!-- Register Content Area End Here -->
+
+</div>
+<!-- Body Wrapper End Here -->
+<!-- jQuery-V1.12.4 -->
+<script src="js/vendor/jquery-1.12.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/vendor/popper.min.js"></script>
+<!-- Bootstrap V4.1.3 Fremwork js -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Ajax Mail js -->
+<script src="js/ajax-mail.js"></script>
+<!-- Meanmenu js -->
+<script src="js/jquery.meanmenu.min.js"></script>
+<!-- Wow.min js -->
+<script src="js/wow.min.js"></script>
+<!-- Slick Carousel js -->
+<script src="js/slick.min.js"></script>
+<!-- Owl Carousel-2 js -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- Magnific popup js -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Isotope js -->
+<script src="js/isotope.pkgd.min.js"></script>
+<!-- Imagesloaded js -->
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<!-- Mixitup js -->
+<script src="js/jquery.mixitup.min.js"></script>
+<!-- Countdown -->
+<script src="js/jquery.countdown.min.js"></script>
+<!-- Counterup -->
+<script src="js/jquery.counterup.min.js"></script>
+<!-- Waypoints -->
+<script src="js/waypoints.min.js"></script>
+<!-- Barrating -->
+<script src="js/jquery.barrating.min.js"></script>
+<!-- Jquery-ui -->
+<script src="js/jquery-ui.min.js"></script>
+<!-- Venobox -->
+<script src="js/venobox.min.js"></script>
+<!-- Nice Select js -->
+<script src="js/jquery.nice-select.min.js"></script>
+<!-- ScrollUp js -->
+<script src="js/scrollUp.min.js"></script>
+<!-- Main/Activator js -->
+<script src="js/main.js"></script>
+</body>
 </html>

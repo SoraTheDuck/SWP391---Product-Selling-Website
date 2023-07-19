@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Login Register || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+        <title>Online Headphone Shop</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -49,7 +49,42 @@
         <!-- Modernizr js -->
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            /* Overlay */
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                z-index: 9999;
+            }
 
+            /* Popup content */
+            .popup-content {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                z-index: 10000;
+            }
+
+            /* Close button */
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                font-size: 30px;
+                margin-right: 20px;
+            }
+        </style>
     </head>
     <body>
         <div class="body-wrapper">
@@ -70,10 +105,10 @@
             <!-- Li's Breadcrumb Area End Here -->
             <!-- Begin Register Content Area-->
             <div class="container mt-10 mb-60">
-                <p>${mess}</p>
                 <form action="register" method="post"  onsubmit="return validateForm()">
                     <div class="login-form">
                         <h4 class="login-title">Register</h4>
+                        <p style="color: red;">${mess}</p>
                         <div class="row">
                             <div class="col-md-12 mb-20">
                                 <label>Name</label>
@@ -98,24 +133,100 @@
                             <div class="col-12 mb-20">
                                 <div class="check-box d-inline-block">
                                     <input type="checkbox" id="privacy_policy" name="privacy_policy">
-                                    <label for="privacy_policy">I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms and Conditions</a></label>
+                                    <label for="privacy_policy">I agree to the <a href="#" id="privacyLink">Privacy Policy</a> and <a href="#" id="termsLink">Terms and Conditions</a></label>
                                 </div>
                                 <br/>
                                 <p class="notice"><em>Please check the Privacy Policy and Terms and Conditions checkbox to proceed.</em></p>
                                 <p id="privacy_error" style="color: red; display: none;"><em>Please agree to the Privacy Policy and Terms and Conditions.</em></p>
                             </div>
+
                             <div class="col-12">
                                 <button class="register-button mt-0" type="submit" name="register">Register</button>
+                            </div>
+                        </div>
+                        <!-- Popup content for Privacy Policy -->
+                        <div class="overlay" id="privacyPopup">
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closePrivacyPopup()">&times;</span>
+                                <h3>Privacy Policy</h3>
+                                <p>Welcome to Online Headphone Shop!</p>
+                                <p>This Privacy Policy describes how Online Headphone Shop collects, uses, and shares your personal information when you visit and interact with our website.</p>
+                                <p><strong>Information We Collect:</strong></p>
+                                <p>When you register an account, place an order, we may collect personal information such as your name, email address.</p>
+                                <p><strong>How We Use Your Information:</strong></p>
+                                <p>We use your personal information to process and fulfill your orders, send order updates.</p>
+                                <p><strong>How We Share Your Information:</strong></p>
+                                <p>We may share your personal information with trusted third-party service providers to process payments and improve our website's performance.</p>
+                                <p><strong>Security:</strong></p>
+                                <p>We take reasonable measures to protect your personal information, but please remember that no method of transmission over the Internet or electronic storage is 100% secure.</p>
+                                <p><strong>Cookies:</strong></p>
+                                <p>We use cookies and similar technologies to improve your browsing experience and provide personalized content.</p>
+                            </div>
+                        </div>
+                        <!-- Popup content for Terms and Conditions -->
+                        <div class="overlay" id="termsPopup">
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closeTermsPopup()">&times;</span>
+                                <h3>Terms and Conditions</h3>
+                                <p>Welcome to Online Headphone Shop!</p>
+                                <p>By accessing and using this website, you agree to be bound by the following Terms and Conditions:</p>
+                                <p><strong>Use of Website:</strong></p>
+                                <p>You may use this website for personal and non-commercial purposes only. You must not use this website in any way that violates any applicable laws or regulations.</p>
+                                <p><strong>Product Information:</strong></p>
+                                <p>While we strive to provide accurate product information, we do not warrant that product descriptions, prices, or availability are error-free. We reserve the right to correct any errors and update information at any time without prior notice.</p>
+                                <p><strong>Disclaimer of Warranties:</strong></p>
+                                <p>This website and its content are provided on an "as is" basis without any warranties, express or implied. We do not warrant that this website will be error-free or uninterrupted, or that it will meet your requirements.</p>
+                                <p><strong>Limitation of Liability:</strong></p>
+                                <p>Online Headphone Shop shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of this website.</p>
                             </div>
                         </div>
                     </div>
                 </form>
                 <script>
+                    // Function to show the Privacy Policy popup
+                    function showPrivacyPopup() {
+                        document.getElementById("privacyPopup").style.display = "block";
+                    }
+
+                    // Function to close the Privacy Policy popup
+                    function closePrivacyPopup() {
+                        document.getElementById("privacyPopup").style.display = "none";
+                    }
+
+                    // Event listener for the Privacy Policy link
+                    const privacyLink = document.getElementById("privacyLink");
+                    if (privacyLink) {
+                        privacyLink.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            showPrivacyPopup();
+                        });
+                    }
+
+                    // Function to show the Terms and Conditions popup
+                    function showTermsPopup() {
+                        document.getElementById("termsPopup").style.display = "block";
+                    }
+
+                    // Function to close the Terms and Conditions popup
+                    function closeTermsPopup() {
+                        document.getElementById("termsPopup").style.display = "none";
+                    }
+
+                    // Event listener for the Terms and Conditions link
+                    const termsLink = document.getElementById("termsLink");
+                    if (termsLink) {
+                        termsLink.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            showTermsPopup();
+                        });
+                    }
+
                     function validateForm() {
                         var privacyCheckbox = document.getElementById("privacy_policy");
+                        var termsCheckbox = document.getElementById("terms_policy");
                         var privacyError = document.getElementById("privacy_error");
 
-                        if (!privacyCheckbox.checked) {
+                        if (!privacyCheckbox.checked || !termsCheckbox.checked) {
                             privacyError.style.display = "block";
                             return false; // Prevent form submission
                         } else {

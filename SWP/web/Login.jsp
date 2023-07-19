@@ -118,12 +118,12 @@
         <!-- Begin Login Content Area -->
         <div class="form-space container mt-20 mb-30">
           <!-- Login Form s-->
-          <p>${mess}</p>
           <c:set var="cookie" value="${pageContext.request.cookies}"/>
           <form action="login"
                 method="post">
             <div class="login-form">
               <h4 class="login-title">Login</h4>
+              <p style="color: red;">${mess}</p>
               <div class="row">
                 <div class="col-md-12 col-12 mb-20">
                   <label>Email Address*</label>

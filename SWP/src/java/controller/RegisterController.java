@@ -111,7 +111,7 @@ public class RegisterController extends HttpServlet {
                 }
             
             if(con){
-                req.setAttribute("message","The verification code is sent to your email id !");
+                req.setAttribute("message","The verification code is sent to your email !");
                 mySession.setAttribute("otp",otp); 
                 mySession.setAttribute("customer", c);
                 req.getRequestDispatcher("VerifyEmail.jsp").forward(req, resp);

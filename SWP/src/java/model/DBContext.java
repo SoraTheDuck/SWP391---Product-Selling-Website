@@ -22,7 +22,7 @@ public class DBContext {
 
         try {
             String user = "root";
-            String pass = "Vu.05112003";
+            String pass = "123456";
             String url = "jdbc:mysql://localhost:3306/headphone?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pass);
