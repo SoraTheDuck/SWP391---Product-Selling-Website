@@ -145,7 +145,7 @@
                                                     <label class=" form-control-label">Start Date</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="date"  name="start"  class="form-control" value="">
+                                                    <input type="date"  name="start"  class="form-control" value="${todayDate}" readonly>
 
                                                 </div>
                                             </div>

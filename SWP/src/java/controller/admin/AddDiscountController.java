@@ -30,8 +30,8 @@ public class AddDiscountController extends HttpServlet {
         Product p = new Product();
         Product pr = p.getProductByID2(id);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String todayDate = dateFormat.format(new Date());
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        String todayDate = f.format(new Date());
 
         if (end.isEmpty()) {
             req.setAttribute("mess", "Please choose an end date");
@@ -48,7 +48,6 @@ public class AddDiscountController extends HttpServlet {
             discount = Integer.parseInt(dis);
         }
 
-        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date ed = f.parse(end);
             java.util.Calendar cal = java.util.Calendar.getInstance();

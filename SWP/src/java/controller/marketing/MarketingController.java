@@ -37,6 +37,14 @@ public class MarketingController extends HttpServlet {
         } else {
             Product pr = p.getProductByID2(id);
             req.setAttribute("p", pr);
+
+            // Calculate today's date
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String todayDate = dateFormat.format(new Date());
+
+            // Set today's date as an attribute in the request scope
+            req.setAttribute("todayDate", todayDate);
+            
             req.getRequestDispatcher("MarketingDiscount.jsp").forward(req, resp);
         }
     }

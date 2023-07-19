@@ -23,21 +23,16 @@ public class MarketingDiscountController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                String id = req.getParameter("id");
-        String start = req.getParameter("start");
+        String id = req.getParameter("id");
         String end = req.getParameter("end");
         String dis = req.getParameter("discount");
         int discount = 0;
         Product p = new Product();
         Product pr = p.getProductByID2(id);
 
-        //System.out.println("Start date in post method: " + start);
-        if (start.isEmpty()) {
-            req.setAttribute("mess", "Please choose a start date");
-            req.setAttribute("p", pr);
-            req.getRequestDispatcher("MarketingDiscount.jsp").forward(req, resp);
-            return;
-        }
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        String todayDate = f.format(new Date());
+
         if (end.isEmpty()) {
             req.setAttribute("mess", "Please choose an end date");
             req.setAttribute("p", pr);
@@ -53,30 +48,23 @@ public class MarketingDiscountController extends HttpServlet {
             discount = Integer.parseInt(dis);
         }
 
-        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            Date sd = f.parse(start);
             Date ed = f.parse(end);
             java.util.Calendar cal = java.util.Calendar.getInstance();
             java.util.Date utilDate = cal.getTime();
 
-            if (sd.before(utilDate) || ed.before(utilDate)) {
+            if (ed.before(utilDate)) {
                 req.setAttribute("p", pr);
-                req.setAttribute("mess", "Invalid start date or end date!<br>(start date and end date must be later than today)");
+                req.setAttribute("mess", "Invalid end date!<br>(end date must be later than today)");
+                req.setAttribute("todayDate", todayDate);
                 req.getRequestDispatcher("MarketingDiscount.jsp").forward(req, resp);
             } else {
-                if (ed.before(sd)) {
-                    req.setAttribute("p", pr);
-                    req.setAttribute("mess", "End date must be after start date!");
-                    req.getRequestDispatcher("MarketingDiscount.jsp").forward(req, resp);
-                } else {
 
-                    p.setDiscount(start, end, discount, id);
-                    List<Product> list = p.getAllProductReleaseDate();
-                    req.setAttribute("list", list);
-                    req.setAttribute("mess", "Set discount success!");
-                    req.getRequestDispatcher("Marketing.jsp").forward(req, resp);
-                }
+                p.setDiscount(todayDate, end, discount, id);
+                List<Product> list = p.getAllProductReleaseDate();
+                req.setAttribute("list", list);
+                req.setAttribute("mess", "Set discount success!");
+                req.getRequestDispatcher("Marketing.jsp").forward(req, resp);
             }
         } catch (ParseException e) {
             System.out.println("ProductDiscountController: cannot parse date");
@@ -88,7 +76,7 @@ public class MarketingDiscountController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    
+
     }
-    
+
 }

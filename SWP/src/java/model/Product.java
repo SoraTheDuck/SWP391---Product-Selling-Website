@@ -1386,7 +1386,7 @@ public class Product {
 
     public boolean checkDiscount(String id) {
         try {
-            String strSelect = "SELECT * FROM headphone.discount where ProductID=? and EndSaleDate>now()";
+            String strSelect = "SELECT * FROM headphone.discount where ProductID=? and EndSaleDate >= CURDATE()";
             pstm = cnn.prepareStatement(strSelect);
             pstm.setString(1, id);
             rs = pstm.executeQuery();
@@ -1410,6 +1410,7 @@ public class Product {
                     + "                    FROM Headphone.Product p\n"
                     + "                    LEFT JOIN Headphone.Discount d ON p.ProductID = d.ProductID\n"
                     + "                    LEFT JOIN Headphone.Review r ON p.ProductID = r.ProductID\n"
+                    + "WHERE ((curdate() BETWEEN d.StartSaleDate AND d.EndSaleDate) OR d.Discount IS NULL)\n"
                     + "                    GROUP BY p.ProductID, p.ProductName, p.ProductPrice, p.image, \n"
                     + "                            p.Quantity, p.WireWireless, p.Description, d.Discount, \n"
                     + "                          d.StartSaleDate, d.EndSaleDate\n"
