@@ -200,6 +200,30 @@
         <servlet-name>MarketingDiscountController</servlet-name>
         <servlet-class>controller.marketing.MarketingDiscountController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminLogoutController</servlet-name>
+        <servlet-class>controller.AdminLogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffLogoutController</servlet-name>
+        <servlet-class>controller.StaffLogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MarketingProductController</servlet-name>
+        <servlet-class>controller.marketing.MarketingProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MAddProductController</servlet-name>
+        <servlet-class>controller.marketing.MAddProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MEditProductController</servlet-name>
+        <servlet-class>controller.marketing.MEditProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MDeleteProduct</servlet-name>
+        <servlet-class>controller.marketing.MDeleteProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -399,6 +423,30 @@
     <servlet-mapping>
         <servlet-name>MarketingDiscountController</servlet-name>
         <url-pattern>/marketingdiscount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLogoutController</servlet-name>
+        <url-pattern>/ad_logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffLogoutController</servlet-name>
+        <url-pattern>/stafflogout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarketingProductController</servlet-name>
+        <url-pattern>/marketingproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MAddProductController</servlet-name>
+        <url-pattern>/marketingaddproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MEditProductController</servlet-name>
+        <url-pattern>/marketingeditproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MDeleteProduct</servlet-name>
+        <url-pattern>/marketingdeleteproduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

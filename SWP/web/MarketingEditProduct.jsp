@@ -1,5 +1,4 @@
-
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,13 +32,13 @@
         <!-- Main CSS-->
         <link href="css/theme.css" rel="stylesheet" media="all">
     </head>
-    <body>
+    <body  class="animsition">
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="adminpage">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                        <a class="logo" href="">
+                            <img src="images/icon/logo.png" alt="" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -113,31 +112,39 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-8">
-                                <h3 class="title-5 m-b-35">Add Discount</h3>
-                                <h3 style="color: red">${mess}</h3>
+                            <div class="col-md-12">
+                                <h2 class="title-5 m-b-35">edit products</h2>
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Add Discount Form</strong>
+                                        <strong>Edit Product</strong> Elements
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="marketingdiscount" method="post" class="form-horizontal"  id="edit-form">
-
-
+                                        <form action="marketingeditproduct" method="post" enctype="multipart/form-data">
+                                            <p style="color: red">${mess}</p>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
-                                                    <label class=" form-control-label">ID</label>
+                                                    <label class=" form-control-label">Product Id</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="text" name="id" class="form-control" value="${p.getId()}" readonly>
+                                                    <input type="text" name="id" placeholder="Please enter product ID" class="form-control" value="${p.getId()}" readonly>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
-                                                    <label class=" form-control-label">Name</label>
+                                                    <label class=" form-control-label">Product Name</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="text" name="name" placeholder="Please enter customer name" class="form-control" value="${p.getName()}" readonly>
+                                                    <input type="text" name="name" placeholder="Please enter product name" class="form-control" value="${p.getName()}">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-2">
+                                                    <label class=" form-control-label">Image</label>
+                                                </div>
+                                                <div class="col-12 col-md-10">
+                                                    <img src="data:image/jpg;charset=utf8;base64,${p.getImage()}"
+                                                         alt="Li's Product Image">
+                                                    <input type="file" name="image" accept=".png,.jpg,.webp,.jpeg,.jpe" class="form-control"/>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -145,70 +152,93 @@
                                                     <label class=" form-control-label">Price</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="text" id="hf-email" name="price" placeholder="Please enter email" class="form-control" value="${p.getPrice()}" readonly>
+                                                    <input type="number" name="price" placeholder="Please enter product price" class="form-control" value="${p.getPrice()}">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
-                                                    <label class=" form-control-label">Start Date</label>
+                                                    <label class=" form-control-label">Quantity</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="date"  name="start"  class="form-control" value="${todayDate}" readonly>
-
+                                                    <input type="number" id="password-input" name="quantity" placeholder="Please enter product quantity" class="form-control" value="${p.getQuantity()}">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
-                                                    <label class=" form-control-label">End Date</label>
+                                                    <label class=" form-control-label">Description</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="date" name="end"  class="form-control" value="">
+                                                    <textarea name="description" id="textarea-input" rows="5" placeholder="Content..." class="form-control">${p.getDescription()}</textarea>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2">
-                                                    <label class=" form-control-label">Set Discount</label>
+                                                    <label class=" form-control-label">Release Date</label>
                                                 </div>
                                                 <div class="col-12 col-md-10">
-                                                    <input type="number" name="discount" placeholder="Enter discount percentage %" class="form-control" value="">
+                                                    <input type="text" name="releasedate" class="form-control" value="${p.getReleasedate()}" readonly>
                                                 </div>
                                             </div>
-
-
-                                            <input type="submit" name="set" value="Set Discount" class="btn btn-primary btn-sm">
-
+                                            <div class="row form-group">
+                                                <div class="col col-md-2">
+                                                    <label class=" form-control-label">Wire/Wireless</label>
+                                                </div>
+                                                <div class="col col-md-10">
+                                                    <div class="form-check">
+                                                        <c:choose>
+                                                            <c:when test="${p.getWire()=='Wired'}">
+                                                                Wire <input type="checkbox" name="wire" checked>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                Wire <input type="checkbox" name="wire">
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-2">
+                                                    <label class=" form-control-label">Changelog:</label>
+                                                </div>
+                                                <div class="col-12 col-md-10">
+                                                    <input type="text" name="changelog" id="textarea-input" rows="5" placeholder="Content:" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="Edit Product" class="btn btn-primary btn-sm"/>
+                                            <input type="reset" value="Reset" class="btn btn-danger btn-sm"/>
                                         </form>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
+    </script>
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
 
-
-                    <script src="vendor/jquery-3.2.1.min.js"></script>
-                    <!-- Bootstrap JS-->
-                    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-                    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-                    <!-- Vendor JS       -->
-                    <script src="vendor/slick/slick.min.js">
-                    </script>
-                    <script src="vendor/wow/wow.min.js"></script>
-                    <script src="vendor/animsition/animsition.min.js"></script>
-                    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-                    </script>
-                    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-                    <script src="vendor/counter-up/jquery.counterup.min.js">
-                    </script>
-                    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-                    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-                    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-                    <script src="vendor/select2/select2.min.js">
-                    </script>
-
-                    <!-- Main JS-->
-                    <script src="js/main2.js"></script>
-                    </body>
-                    </html>
+    <!-- Main JS-->
+    <script src="js/main2.js"></script>
+</body>
+</html>

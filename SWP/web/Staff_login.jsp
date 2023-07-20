@@ -12,7 +12,7 @@
         <meta name="keywords" content="au theme template">
 
         <!-- Title Page-->
-        <title>Login</title>
+        <title>Staff Login - Online Headphone Shop</title>
 
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -34,7 +34,16 @@
 
         <!-- Main CSS-->
         <link href="css/theme.css" rel="stylesheet" media="all">
+        <style>
 
+            /* CSS for centering the text and custom font */
+            .login-content h3 {
+                margin-bottom: 20px;
+                font-size: 24px; /* Điều chỉnh kích thước font chữ nếu cần */
+                font-weight: bold; /* Điều chỉnh độ đậm của font chữ nếu cần */
+                color: #333; /* Điều chỉnh màu sắc của font chữ nếu cần */
+            }
+        </style>
     </head>
 
     <body class="animsition">
@@ -49,6 +58,7 @@
                                 </a>
                             </div>
                             <div class="login-form">
+                                <h3>Staff Login</h3>
                                 <p>${mess}</p>
                                 <form action="stafflogin" method="post" >
                                     <div class="form-group">

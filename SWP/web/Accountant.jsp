@@ -95,12 +95,12 @@
                                     <img src="images/menu/avatar-admin.jpg" alt="admin" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">Admin</a>
+                                    <a class="js-acc-btn" href="#">Acountant</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     
                                     <div class="account-dropdown__footer">
-                                        <a href="LogoutController">
+                                        <a href="stafflogout">
                                             <i class="zmdi zmdi-power"></i>Logout</a>
                                     </div>
                                 </div>

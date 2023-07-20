@@ -1,5 +1,5 @@
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
         <meta name="description" content="au theme template">
         <meta name="author" content="">
         <meta name="keywords" content="au theme template">
-        <title>Online Headphone Shop</title>
+        <title>JSP Page</title>
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -39,7 +39,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="">
-                            <img src="./images/menu/logo/1.jpg" alt="staff" />
+                            <img src="images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -55,13 +55,21 @@
         <aside class="menu-sidebar d-lg-block d-none">
             <div class="logo">
                 <a href="">
-                    <img src="./images/menu/logo/1.jpg" alt="staff" />
+                    <img src="images/menu/logo/1.jpg" alt="" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
-                    Order Manager
-
+                    <ul class="list-unstyled navbar__list">
+                        <li class="has-sub">
+                            <a  href="marketing">
+                                </i>Manage Discount</a>
+                        </li>
+                        <li class="has-sub">
+                            <a href="marketingproduct">
+                                Manage Products</a>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </aside>
@@ -80,10 +88,10 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/menu/avatar-admin.jpg" alt="staff" />
+                                            <img src="images/menu/avatar-admin.jpg" alt="admin" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Order Manager</a>
+                                            <a class="js-acc-btn" href="#">Marketing</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
 
@@ -100,74 +108,62 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
-
-
+            <!-- END MENU SIDEBAR-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">data table</h3>
-                                <h3 style="color: red">${mess}</h3>
+                                <h3 class="title-5 m-b-35">manage products</h3>
+                                <p style="color: green">${dmess}</p>
                                 <div class="table-data__tool">
 
-
+                                    <div class="table-data__tool-right">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href = 'marketingaddproduct'">
+                                            <i class="zmdi zmdi-plus"></i>add item</button>
+                                        
+                                    </div>
                                 </div>
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
-                                                <th>Order ID</th>
-                                                <th>Order Date</th>
-                                                <th>Total Money</th>
-                                                <th>Customer ID</th>
+                                                <th>id</th>
+                                                <th>product name</th>
+                                                <th>quantity</th>
+                                                <th>price</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="p" items="${list}">
+                                            <c:forEach var="ls" items="${listPro}" >
                                                 <tr class="tr-shadow">
-                                                    <td>${p.getID()}</td>
-                                                    <td>${p.getDate()}</td>
-                                                    <td>${p.getTotalMoney()}</td>
-                                                    <td>${p.getCustomerID()}</td>
-                                                    <td class="action-cell">
-                                                        <div class="table-data-feature">
-                                                            <form action="ordermanager" method="post">
-                                                                <input type="hidden" name="id" value="${p.getID()}">
-                                                                <input type="hidden" name="ord_id" value="${ord_id}">
-                                                                <button type="submit" value="approve" name="approve" class="item" data-toggle="tooltip" data-placement="top" title="Approve" style="margin-right: 8px">
-                                                                    <i class="zmdi zmdi-edit"></i>
-                                                                </button>
+                                                    <td>${ls.id}</td>
+                                                    <td>${ls.name}</td>
+                                                    <td>${ls.quantity}</td>
+                                                    <td>${ls.price}</td>
 
-                                                            </form>
-                                                        </div>
+                                                    <td  class="action-cell">
                                                         <div class="table-data-feature">
-                                                            <form action="ordermanager" method="post">
-                                                                <input type="hidden" name="id" value="${p.getID()}">
-                                                                <input type="hidden" name="ord_id" value="${ord_id}">
-                                                                <button type="submit" value="reject" name="reject" class="item" data-toggle="tooltip" data-placement="top" title="Reject" style="margin-right: 8px">
-                                                                    <i class="zmdi zmdi-delete"></i>
-                                                                </button>
-                                                            </form>
+                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="window.location.href = 'marketingeditproduct?id=${ls.id}'">
+                                                                <i class="zmdi zmdi-edit"></i>
+                                                            </button>
                                                         </div>
                                                     </td>
-
                                                 </tr>
                                                 <tr class="spacer"></tr>
                                             </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
-
+                                <!-- END DATA TABLE -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+            </script>
             <script src="vendor/jquery-3.2.1.min.js"></script>
             <!-- Bootstrap JS-->
             <script src="vendor/bootstrap-4.1/popper.min.js"></script>
@@ -192,3 +188,4 @@
             <script src="js/main2.js"></script>
     </body>
 </html>
+F

@@ -939,7 +939,7 @@ textarea:focus {
     position: relative;
     border-top: 1px solid #eeeeee;
     padding: 0 40px 0 20px;
-    width: 100%;
+/*    width: 100%;*/
 }
 .mobile-menu .mean-bar .mean-nav > ul li a:hover {
     color: #202020;
@@ -1556,6 +1556,7 @@ textarea:focus {
     position: relative;
     margin:3px 0 3px 0;
     padding: 0 15px 0 55px;
+    margin-left: 15px;
 }
 .item-icon::before {
     content: "\f291";
@@ -3256,6 +3257,7 @@ li.right-menu .cat-mega-menu-2 > li {
 .header-top-search {
     position: relative;
 }
+
 .search-categories > form {
     position: relative;
     width: 100%;
@@ -5186,7 +5188,7 @@ span.required {
 }
 
 .comment-author-infos{
-        border-bottom: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
 }
 .product-details-comment-block .comment-review span {
     display: inline-block;

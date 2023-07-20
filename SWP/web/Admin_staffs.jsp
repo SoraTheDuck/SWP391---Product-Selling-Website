@@ -108,7 +108,7 @@
                                                             <c:otherwise>
                                                                 <button class="item" data-toggle="tooltip" data-placement="top" title="Unban"
                                                                         onclick="window.location.href='banstaff?id=${ls.id}&ban=false';">
-                                                                    <i class="zmdi zmdi-circle-o"></i>
+                                                                    <i class="zmdi zmdi-block"></i>
                                                                 </button>
                                                             </c:otherwise>
                                                         </c:choose>

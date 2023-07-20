@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible"
           content="ie=edge">
-    <title>Home || limupa - Digital Products Store ECommerce Bootstrap 4 Template</title>
+    <title>Online Headphone Shop</title>
     <meta name="description"
           content="">
     <meta name="viewport"
@@ -67,7 +67,7 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body>
+<body class="container-fluid-lg">
     <!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->

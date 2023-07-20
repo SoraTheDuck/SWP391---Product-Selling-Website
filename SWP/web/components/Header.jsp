@@ -1,5 +1,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<style>
+    .log-sign-btn.log:hover {
+        background-color: #92aae5;
+        color: #fff;
+    }
+    .log-sign-btn.sign:hover {
+        background-color: #7277d7;
+        color: #fff;
+    }
+    @media (max-width: 991px) {
+        .item-icon {
+            color: black;
+            margin-left: 15px;
+        }
+        .cart-item-count{
+            left: -42px;
+        }
+        .minicart-button span{
+            color:white;
+        }
+    }
+
+</style>
 <header>
     <!-- Begin Header Middle Area -->
     <div class="header-middle">
@@ -8,7 +32,7 @@
                 <!-- Begin Header Logo Area -->
                 <div class="col-lg-3">
                     <div class="logo pb-sm-30 pb-xs-30">
-                        <a href="/SWP/home">
+                        <a href="home">
                             <img src="images/menu/logo/1.jpg"
                                  alt="">
                         </a>
@@ -16,7 +40,7 @@
                 </div>
                 <!-- Header Logo Area End Here -->
                 <!-- Begin Header Middle Right Area -->
-                <div class="header-middle-search col-lg-6">
+                <div class="header-middle-search col-lg-6 pb-sm-20 pb-xs-20">
                     <!-- Begin Header Middle Searchbox Area -->
                     <form action="search" method ="post" 
                           class="hm-searchbox">
@@ -28,21 +52,36 @@
                     <!-- Header Middle Searchbox Area End Here -->
                 </div>
                 <!-- Begin Header Middle Right Area -->
-                    <div class="header-middle-right col-lg-3">
-                        <!-- Begin Login Button Area -->
-                        <c:choose>
-                            <c:when test="${sessionScope.cus != null}">
-                                <a href="profile" class="log-sign-btn log">My Profile</a>
-                                <a href="LogoutController" class="log-sign-btn sign">Log out</a>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="login"
-                                   class="log-sign-btn log">Login</a>
-                                <a href="register"
-                                   class="log-sign-btn sign">Sign-up</a>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
+                <div class="header-middle-right col-lg-3">
+                    <!-- Begin Login Button Area -->
+                    <c:choose>
+                        <c:when test="${sessionScope.cus != null}">
+                            <a href="profile" id="myProfileButton" class="log-sign-btn log">${sessionScope.cus.name}</a>
+                            <a href="logout" class="log-sign-btn sign">Log out</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="login"
+                               class="log-sign-btn log">Login</a>
+                            <a href="register"
+                               class="log-sign-btn sign">Sign-up</a>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+                <script>
+                    // limit name button and add "..." when name too long
+                    function limitButtonCharacters(element, maxLength) {
+                        var text = element.textContent;
+                        if (text.length > maxLength) {
+                            element.textContent = text.substring(0, maxLength) + '...';
+                        }
+                    }
+
+                    // limit 15 characters
+                    var myProfileButton = document.getElementById('myProfileButton');
+                    if (myProfileButton) {
+                        limitButtonCharacters(myProfileButton, 8);
+                    }
+                </script>
                 <!-- Header Middle Right Area End Here -->
             </div>
         </div>
@@ -58,20 +97,7 @@
                         <nav>
                             <ul>
                                 <li><a href="/SWP/home">Home</a></li>
-                                <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a>
-                                    <ul class="megamenu hb-megamenu">
-                                        <li><a href="shop-left-sidebar.jsp">Shop Page Layout</a></li>
-                                        <li><a href="single-product.jsp">Single Products</a>
-                                            <ul>
-                                                <li><a href="single-product.jsp">Single Products</a></li>
-                                                <li><a href="single-product-normal.jsp">Single Product
-                                                        Normal</a></li>
-                                                <li><a href="single-product-sale.jsp">Single Product Sale</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a></li>
                                 <!-- Begin Mini Cart Button Area -->
                                 <li class="hm-minicart f-right">
                                     <div class="hm-minicart-trigger">
@@ -88,25 +114,25 @@
                                     <div class="minicart">
                                         <ul class="minicart-product-list">
                                             <c:forEach var="o" items="${sessionScope.cart.items}">
-                                            <li>
-                                                <a href="detail?pid=${o.product.id}"
-                                                   class="minicart-product-image">
-                                                    <img src="data:image/jpg;charset=utf8;base64,${o.product.image}"
-                                                         alt="cart products">
-                                                </a>
-                                                <div class="minicart-product-details">
-                                                    <h6><a href="detail?pid=${o.product.id}">${o.product.name} x ${o.quantity}</a>
-                                                    </h6>
-                                                    <span>$ ${o.price}</span>
-                                                </div>
-                                            </li>
+                                                <li>
+                                                    <a href="detail?pid=${o.product.id}"
+                                                       class="minicart-product-image">
+                                                        <img src="data:image/jpg;charset=utf8;base64,${o.product.image}"
+                                                             alt="cart products">
+                                                    </a>
+                                                    <div class="minicart-product-details">
+                                                        <h6><a href="detail?pid=${o.product.id}">${o.product.name} x ${o.quantity}</a>
+                                                        </h6>
+                                                        <span>$ ${o.price}</span>
+                                                    </div>
+                                                </li>
                                             </c:forEach>
-                                            
+
                                         </ul>
                                         <p class="minicart-total">TOTAL: <span>$ ${sessionScope.cart.getTotalMoney()}</span></p>
                                         <div class="minicart-button">
                                             <a href="Shopping-cart.jsp"
-                                               class="li-button li-button-dark li-button-fullwidth li-button-sm">
+                                               class="li-button li-button-dark li-button-fullwidth">
                                                 <span>View Full Cart</span>
                                             </a>
                                         </div>
@@ -135,3 +161,4 @@
     <!-- Mobile Menu Area End Here -->
 </header>
 <!-- Header Area End Here -->
+

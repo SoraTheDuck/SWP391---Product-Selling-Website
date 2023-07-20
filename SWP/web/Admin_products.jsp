@@ -10,7 +10,7 @@
         <meta name="description" content="au theme template">
         <meta name="author" content="">
         <meta name="keywords" content="au theme template">
-        <title>JSP Page</title>
+        <title>Online Headphone Shop</title>
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -74,8 +74,9 @@
                         <div class="col-md-12">
                             <!-- DATA TABLE -->
                             <h3 class="title-5 m-b-35">manage products</h3>
+                            <p style="color: green">${dmess}</p>
                             <div class="table-data__tool">
-                                
+
                                 <div class="table-data__tool-right">
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href = 'add-product'">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
@@ -89,7 +90,7 @@
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>name</th>
+                                            <th>product name</th>
                                             <th>quantity</th>
                                             <th>price</th>
                                             <th></th>
@@ -109,7 +110,7 @@
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" onclick="showConfirmation('${ls.id}', '${ls.name}')">
-                                                            <i class="zmdi zmdi-block"></i>
+                                                            <i class="zmdi zmdi-delete"></i>
                                                         </button>
                                                     </div>
                                                 </td>

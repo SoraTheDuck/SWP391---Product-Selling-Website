@@ -51,6 +51,17 @@
         <link rel="stylesheet" href="css/responsive.css">
         <!-- Modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            .input-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .input-wrapper input {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -102,18 +113,24 @@
                                                     <td class="li-product-price">
                                                         <span class="amount">
                                                             $<fmt:formatNumber pattern="##.#" value="${o.price}"/>
-                                                        </span></td>
+                                                        </span>
+                                                    </td>
                                                     <td class="quantity">
                                                         <a href="process?num=1&id=${o.product.id}">
                                                             <h2>+</h2>
                                                         </a>
-                                                        <input  value="${o.quantity}" type="text" readonly>
+                                                        <div class="input-wrapper">
+                                                            <input value="${o.quantity}" type="text" readonly>
+                                                        </div>
                                                         <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
                                                             <h2>-</h2>
                                                         </a>
                                                     </td>
-                                                    <td class="product-subtotal"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${o.price*o.quantity}"/></span></td>
+                                                    <td class="product-subtotal">
+                                                        <span class="amount">$<fmt:formatNumber pattern="##.#" value="${o.price*o.quantity}"/></span>
+                                                    </td>
                                                 </tr>
+
                                             </c:forEach>
                                         </tbody>
                                     </table>

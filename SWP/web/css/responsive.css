@@ -652,8 +652,7 @@ Note: responsive.css, All Responsive CSS Style For This Theme Included In This F
 	}
 	.header-middle-right {
 		display: flex;
-		justify-content: flex-start;
-		padding-top: 40px;
+		justify-content: flex-end;
 	}
 	.mean-container a.meanmenu-reveal {
 		right: 0 !important;

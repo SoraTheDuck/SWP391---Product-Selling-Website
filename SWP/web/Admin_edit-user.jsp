@@ -11,6 +11,8 @@
         <meta name="author" content="">
         <meta name="keywords" content="au theme template">
         <title>JSP Page</title>
+        
+        
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -31,7 +33,19 @@
 
         <!-- Main CSS-->
         <link href="css/theme.css" rel="stylesheet" media="all">
+        <style>
+            #viewPassword i {
+                cursor: pointer;
+            }
 
+            #viewPassword .fa-eye {
+                display: block;
+            }
+
+            #viewPassword .fa-eye-slash {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <%@include file="components/Dashboard.jsp" %>
@@ -73,13 +87,29 @@
                                                 <input type="email" id="hf-email" name="email" placeholder="Please enter email" class="form-control" value="${cus.email}" readonly>
                                             </div>
                                         </div>
+                                        <!--                                        <div class="row form-group">
+                                                                                    <div class="col col-md-2">
+                                                                                        <label class=" form-control-label">Password</label>
+                                                                                    </div>
+                                                                                    <div class="col-12 col-md-10">
+                                                                                        <input type="text" id="hf-password" name="pass" placeholder="Please enter password" class="form-control" value="">
+                                                                                        
+                                                                                    </div>
+                                                                                </div>-->
+                                        
                                         <div class="row form-group">
                                             <div class="col col-md-2">
-                                                <label class=" form-control-label">Password</label>
+                                                <label class="form-control-label">Password</label>
                                             </div>
                                             <div class="col-12 col-md-10">
-                                                <input type="text" id="hf-password" name="pass" placeholder="Please enter password" class="form-control" value="${cus.password}">
-                                                
+                                                <div class="input-group">
+                                                    <input type="password" id="passwordInput" name="pass" placeholder="Please enter password" class="form-control" value="${cus.password}">
+                                                    <div class="input-group-append">
+                                                        <button type="button" id="viewPassword" class="btn btn-outline-secondary">
+                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -95,15 +125,31 @@
                                         <input type="reset" class="btn btn-danger btn-sm" value="Cancel"/>
                                     </form>
                                 </div>
-                                            
-                                             
                             </div>
                         </div>
                     </div>
                 </div>
-                                            
-                
-                                            
+
+
+                <script>
+                    const passwordInput = document.getElementById('passwordInput');
+                    const togglePassword = document.getElementById('viewPassword');
+
+                    // event click "eye"
+                    togglePassword.addEventListener('click', function () {
+                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type);
+
+                    // change eye
+                        if (type === 'password') {
+                            togglePassword.querySelector('.fa-eye').style.display = 'block';
+                            togglePassword.querySelector('.fa-eye-slash').style.display = 'none';
+                        } else {
+                            togglePassword.querySelector('.fa-eye').style.display = 'none';
+                            togglePassword.querySelector('.fa-eye-slash').style.display = 'block';
+                        }
+                    });
+                </script>
                 <!-- Jquery JS-->
                 <script src="vendor/jquery-3.2.1.min.js"></script>
                 <!-- Bootstrap JS-->
@@ -131,7 +177,7 @@
                 </html>
 
 
-                    
 
-        
+
+
 
