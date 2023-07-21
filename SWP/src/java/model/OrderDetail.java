@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ public class OrderDetail {
     private String productName;
     private int quantity;
     private float price;
+    private String img;
 
     public OrderDetail() {
         connect();
@@ -31,6 +33,14 @@ public class OrderDetail {
         this.productName = productName;
         this.quantity = quantity;
         this.price = price;
+    }
+
+    public OrderDetail(int orderId, String productName, int quantity, float price, String img) {
+        this.orderId = orderId;
+        this.productName = productName;
+        this.quantity = quantity;
+        this.price = price;
+        this.img = img;
     }
 
     public int getOrderId() {
@@ -65,6 +75,14 @@ public class OrderDetail {
         this.price = price;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     Connection cnn;
     Statement stm;
     PreparedStatement pstm;
@@ -94,13 +112,22 @@ public class OrderDetail {
     public List<OrderDetail> getHistory(int oid) {
         List<OrderDetail> data = new ArrayList<>();
         try {
-            String sql = "select od.OrderID, p.ProductName, od.Quantity, od.Price from headphone.orderproduct od, headphone.product p where od.ProductID = p.ProductID and OrderID = ?";
+            String sql = "select od.OrderID, p.ProductName, od.Quantity, od.Price, p.image from headphone.orderproduct od, headphone.product p where od.ProductID = p.ProductID and OrderID = ?";
             pstm = cnn.prepareStatement(sql);
             pstm.setInt(1, oid);
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                data.add(new OrderDetail(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getFloat(4)));
+                
+                //file image
+                Blob imageBlob = rs.getBlob(5);
+                byte[] imageData = imageBlob.getBytes(1, (int) imageBlob.length());
+
+                String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+
+                String Timage = base64Image;
+                //
+                data.add(new OrderDetail(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getFloat(4), Timage));
             }
         } catch (Exception e) {
             System.out.println("getHistory: " + e.getMessage());
@@ -115,6 +142,7 @@ public class OrderDetail {
             pstm = cnn.prepareStatement(sql);
             pstm.setInt(1, oid);
             rs = pstm.executeQuery();
+            
 
             while (rs.next()) {
                 data.add(new OrderDetail(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getFloat(4)));
@@ -124,4 +152,5 @@ public class OrderDetail {
         }
         return data;
     }
+    
 }

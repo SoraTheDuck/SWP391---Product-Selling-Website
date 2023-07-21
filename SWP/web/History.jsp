@@ -73,20 +73,37 @@
                 <div class="container pt-30">
                         <div class="your-order">
                             <h3>Your orders</h3>
-                            <div class="your-order-table table-responsive">
+                            <div class="your-order-table table-responsive" >
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th>Order ID</th>
                                             <th>Date</th>
                                             <th>Total</th>
+                                            <th>Status</th>
                                             <th>View</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${history}" var="h">
                                             <tr>
+                                                <td>${h.getID()}</td>
                                                 <td>${h.getDate()}</td>
                                                 <td><span class="amount">$${h.getTotalMoney()}</span></td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${h.getOstatus()==3}">
+                                                            In-progress
+                                                        </c:when>
+                                                        <c:when test="${h.getOstatus()==1}">
+                                                            Completed
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            Rejected
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    
+                                                </td>
                                                 <td><a href="historydetail?oid=${h.getID()}">Detail</a></td>
                                             </tr>
                                         </c:forEach>

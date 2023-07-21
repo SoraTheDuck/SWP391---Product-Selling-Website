@@ -67,7 +67,7 @@ public class ExportOrderController extends HttpServlet {
                     sb.append(",");
                     sb.append(o.getStaffid());
                     sb.append(",");
-                    if (o.getOtherid() > 0) {
+                    if (o.getOstatus()> 0) {
                         sb.append("Completed");
                     } else {
                         sb.append("In-Progress");

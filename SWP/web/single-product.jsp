@@ -227,13 +227,14 @@
                                         </div>
                                     </div>
                                     <div class="single-add-to-cart">
-                                        <form action="cart" method="post" class="cart-quantity">
+                                        <form action="cart" class="cart-quantity">
                                             <input type="hidden" name="id" value="${detail.id}">
                                             <div class="quantity">
                                                 <div class="cart-plus-minus">
                                                     <input class="cart-plus-minus-box" name="num" value="1" type="hidden">
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="redirect" value="detail">
                                             <c:if test="${detail.quantity>0}">
                                             <button class="add-to-cart" type="submit">Add to cart</button>
                                             </c:if>

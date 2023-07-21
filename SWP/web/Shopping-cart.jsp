@@ -104,13 +104,34 @@
                                                             $<fmt:formatNumber pattern="##.#" value="${o.price}"/>
                                                         </span></td>
                                                     <td class="quantity">
-                                                        <a href="process?num=1&id=${o.product.id}">
-                                                            <h2>+</h2>
-                                                        </a>
-                                                        <input  value="${o.quantity}" type="text" readonly>
-                                                        <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
-                                                            <h2>-</h2>
-                                                        </a>
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <a href="process?num=1&id=${o.product.id}">
+                                                                        <h2 style="margin-top: 2px">+</h2>
+                                                                    </a></div><div class="col-md-6">
+                                                                    <style>
+                                                                        .input-wrapper {
+                                                                            display: flex;
+                                                                            justify-content: center;
+                                                                            align-items: center;
+                                                                        }
+
+                                                                        .input-wrapper input {
+                                                                            text-align: center;
+                                                                        }
+                                                                    </style>
+
+
+
+                                                                    <div class="input-wrapper">
+                                                                        <input value="${o.quantity}" type="text" readonly>
+                                                                    </div></div>
+                                                                <div class="col-md-3">
+                                                                    <a class="qtybutton" href="process?num=-1&id=${o.product.id}">
+                                                                        <h2 style="margin-top: 2px">-</h2>
+                                                                    </a>
+                                                                </div></div></div>
                                                     </td>
                                                     <td class="product-subtotal"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${o.price*o.quantity}"/></span></td>
                                                 </tr>
@@ -118,17 +139,25 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-5 ml-auto">
-                                        <div class="cart-page-total">
-                                            <h2>Cart totals</h2>
-                                            <ul>
-                                                <li>Total <span>$ ${sessionScope.cart.getTotalMoney()}</span></li>
-                                            </ul>
-                                            <a href="#" onclick="this.closest('form').submit();">Proceed to checkout</a>
+                                <c:choose>
+
+                                    <c:when test="${sessionScope.cart!=null}">
+                                        <div class="row">
+                                            <div class="col-md-5 ml-auto">
+                                                <div class="cart-page-total">
+                                                    <h2>Cart totals</h2>
+                                                    <ul>
+                                                        <li>Total <span>$ ${sessionScope.cart.getTotalMoney()}</span></li>
+                                                    </ul>
+                                                    <a href="#" onclick="this.closest('form').submit();">Proceed to checkout</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <br><br><p>Your cart is empty. Please add items to it.</p>
+                                    </c:otherwise>
+                                </c:choose>
                             </form>
                         </div>
                     </div>
@@ -186,3 +215,4 @@
 
     <!-- shopping-cart31:32-->
 </html>
+ 

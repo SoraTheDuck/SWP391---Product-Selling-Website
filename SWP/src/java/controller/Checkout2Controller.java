@@ -41,12 +41,21 @@ public class Checkout2Controller extends HttpServlet {
                 req.setAttribute("mess", mess);
                 req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
             } else {
+                String address=req.getParameter("address");
+                String phone=req.getParameter("phone");
                 Order order = new Order();
-                order.addOrder1(checkLogin, cart);
+                order.addOrder1(checkLogin, cart, address, phone);
+                int oid=order.getLatestOrderID(checkLogin.getId());
+                req.setAttribute("cart", cart);
                 session.removeAttribute("cart");
+                
                 mess = "Checkout Successfully!!";
+                req.setAttribute("address", address);
+                req.setAttribute("phone", phone);
+                req.setAttribute("date", order.getOrderDate(oid));
                 req.setAttribute("mess", mess);
-                req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
+                req.setAttribute("oid", oid);
+                req.getRequestDispatcher("CheckoutSuccess.jsp").forward(req, resp);
             }
         } else {
             String mess = "Please Login to Order";

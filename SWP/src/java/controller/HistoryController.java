@@ -30,7 +30,6 @@ public class HistoryController extends HttpServlet {
         
         int cid = (Integer) session.getAttribute("cid");
 
-        //int id = Integer.parseInt(cid);
         Order o = new Order();
         List<Order> history = o.getHistory(cid);
         req.setAttribute("history", history);

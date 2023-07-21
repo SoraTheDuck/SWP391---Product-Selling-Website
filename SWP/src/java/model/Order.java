@@ -24,8 +24,11 @@ public class Order {
     private float totalmoney;
     private int customerid;
     private int staffid;
-    private int otherid;
     private String cdate;
+
+    private String cphone;
+    private String daddress;
+    private int ostatus;
 
     public Order() {
         connect();
@@ -44,8 +47,19 @@ public class Order {
         this.totalmoney = totalmoney;
         this.customerid = customerid;
         this.staffid = staffid;
-        this.otherid = otherid;
         this.cdate = cdate;
+    }
+
+    public Order(int id, String date, float totalmoney, int customerid, int staffid, String cdate, String cphone, String daddress, int status) {
+        this.id = id;
+        this.date = date;
+        this.totalmoney = totalmoney;
+        this.customerid = customerid;
+        this.staffid = staffid;
+        this.cdate = cdate;
+        this.cphone = cphone;
+        this.daddress = daddress;
+        this.ostatus = status;
     }
 
     public int getID() {
@@ -88,20 +102,36 @@ public class Order {
         this.staffid = staffid;
     }
 
-    public int getOtherid() {
-        return otherid;
-    }
-
-    public void setOtherid(int otherid) {
-        this.otherid = otherid;
-    }
-
     public String getCdate() {
         return cdate;
     }
 
     public void setCdate(String cdate) {
         this.cdate = cdate;
+    }
+
+    public String getCphone() {
+        return cphone;
+    }
+
+    public void setCphone(String cphone) {
+        this.cphone = cphone;
+    }
+
+    public String getDaddress() {
+        return daddress;
+    }
+
+    public void setDaddress(String daddress) {
+        this.daddress = daddress;
+    }
+
+    public int getOstatus() {
+        return ostatus;
+    }
+
+    public void setOstatus(int ostatus) {
+        this.ostatus = ostatus;
     }
 
     Connection cnn; //ket noi DB
@@ -124,18 +154,20 @@ public class Order {
         }
     }
 
-    public void addOrder1(Customer u, Cart cart) {
+    public void addOrder1(Customer u, Cart cart, String address, String phone) {
         java.util.Calendar cal = java.util.Calendar.getInstance();
         java.util.Date utilDate = cal.getTime();
         java.sql.Date sqlDate = new Date(utilDate.getTime());
         int sID = getOrderManager();
         try {
-            String addO = "insert into headphone.orders (OrderDate, TotalMoney, CustomerID, StaffID) values (?, ?, ?, ?)";
+            String addO = "insert into headphone.orders (OrderDate, TotalMoney, CustomerID, StaffID, DeliveryAddress, Phone) values (?, ?, ?, ?, ?, ?)";
             pstm = cnn.prepareStatement(addO);
             pstm.setDate(1, sqlDate);
             pstm.setFloat(2, cart.getTotalMoney());
             pstm.setInt(3, u.getId());
             pstm.setInt(4, sID);
+            pstm.setString(5, address);
+            pstm.setString(6, phone);
             pstm.execute();
 
             String sql2 = "select OrderID from headphone.orders order by OrderID desc limit 1 ";
@@ -260,29 +292,6 @@ public class Order {
         }
     }
 
-    public List<Order> getHistory(int cid) {
-        List<Order> data = new ArrayList<>();
-        try {
-            String sql = "select * from headphone.orders where CustomerID = ?";
-            pstm2 = cnn.prepareStatement(sql);
-            pstm2.setInt(1, cid);
-            rs = pstm2.executeQuery();
-
-            while (rs.next()) {
-                SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
-                String date = "";
-                if (rs.getDate(2) != null) {
-                    date = f.format(rs.getDate(2));
-                }
-                data.add(new Order(rs.getInt(1), date, rs.getFloat(3), rs.getInt(4)));
-
-            }
-        } catch (Exception e) {
-            System.out.println("getHistory" + e.getMessage());
-        }
-        return data;
-    }
-
     public List<Order> getAllOrder() {
         List<Order> list = new ArrayList<>();
         try {
@@ -310,7 +319,7 @@ public class Order {
     public List<Order> AccountantGetAllOrder() {
         List<Order> data = new ArrayList<>();
         try {
-            String sql = "SELECT O.OrderID, O.OrderDate, O.TotalMoney, O.CustomerID, O.StaffID,CO.OrderID, CO.CompletedDate\n"
+            String sql = "SELECT O.OrderID, O.OrderDate, O.TotalMoney, O.CustomerID, O.StaffID,CO.OrderID, CO.CompletedDate, O.Phone, O.DeliveryAddress, CO.Status\n"
                     + "FROM Headphone.Orders AS O\n"
                     + "LEFT JOIN Headphone.CompletedOrder AS CO ON O.OrderID = CO.OrderID;";
             pstm = cnn.prepareStatement(sql);
@@ -332,7 +341,17 @@ public class Order {
                     cdate = f.format(rs.getDate(7));
                 }
 
-                data.add(new Order(oid, date, money, cid, sid, otherid, cdate));
+                String phone = rs.getString(8);
+                String address = rs.getString(9);
+
+                int status;
+                if (rs.getString(10) == null) {
+                    status = 3;
+                } else {
+                    status = rs.getInt(10);
+                }
+
+                data.add(new Order(oid, date, money, cid, sid, cdate, phone, address, status));
             }
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
@@ -371,6 +390,7 @@ public class Order {
         return -1;
     }
 
+    //set int fail
     public void updateStaffOrder(List<Order> lo, int bannedStaffID) {
         try {
             int sid;
@@ -379,22 +399,121 @@ public class Order {
                 sid = getOrderManager();
                 String strUpdate = "UPDATE headphone.orders SET StaffID = " + sid + " WHERE StaffID = " + bannedStaffID + " AND OrderID = " + o.getID();
                 pstm = cnn.prepareStatement(strUpdate);
-
-//                System.out.println("sid: "+sid);
-//                System.out.println("bannedstaff: "+bannedStaffID);
-//                System.out.println("ordid: "+o.getID());
-//                System.out.println(strUpdate);
-//                pstm.setInt(1, sid);
-//                System.out.println("after 1st setint");
-//                pstm.setInt(2, bannedStaffID);
-//                pstm.setInt(3, o.getID());
-//                System.out.println(strUpdate);
-//                System.out.println("after setint");
                 pstm.executeUpdate();
             }
         } catch (Exception e) {
             System.out.println("updateStaffOrder: " + e.getMessage());
         }
+    }
+
+    public int getLatestOrderID(int customerid) {
+        try {
+            String sql = "SELECT * FROM headphone.orders where CustomerID=? order by OrderID desc limit 1";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, customerid);
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                int oid = rs.getInt(1);
+                return oid;
+            }
+        } catch (Exception ex) {
+            System.out.println("getLatestOrderID" + ex.getMessage());
+        }
+        return 0;
+    }
+
+    public List<Order> getHistory(int customerid) {
+        List<Order> data = new ArrayList<>();
+        try {
+            String sql = "SELECT O.OrderID, O.OrderDate, O.TotalMoney, O.CustomerID, O.StaffID,CO.OrderID, CO.CompletedDate, O.Phone, O.DeliveryAddress, CO.Status \n"
+                    + "FROM Headphone.Orders AS O\n"
+                    + "LEFT JOIN Headphone.CompletedOrder AS CO ON O.OrderID = CO.OrderID WHERE CustomerID=?;";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, customerid);
+            rs = pstm.executeQuery();
+            SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+            while (rs.next()) {
+                int oid = rs.getInt(1);
+                String date = "";
+                date = f.format(rs.getDate(2));
+
+                String st = String.format("%.1f", rs.getFloat(3));
+                float money = Float.parseFloat(st);
+                int cid = rs.getInt(4);
+                int sid = rs.getInt(5);
+                int otherid = 0;
+                String cdate = "-";
+                if (rs.getString(6) != null) {
+                    otherid = rs.getInt(6);
+                    cdate = f.format(rs.getDate(7));
+                }
+
+                String phone = rs.getString(8);
+                String address = rs.getString(9);
+
+                int status;
+                if (rs.getString(10) == null) {
+                    status = 3;
+                } else {
+                    status = rs.getInt(10);
+                }
+                System.out.println("status: " + status);
+                data.add(new Order(oid, date, money, cid, sid, cdate, phone, address, status));
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+        return data;
+    }
+
+    public String getOrderAddress(int oid) {
+        String address = "";
+        try {
+            String sql = "select * from headphone.orders where OrderID=?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, oid);
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                address = rs.getString(6);
+            }
+        } catch (Exception ex) {
+            System.out.println("getOrderAddress" + ex.getMessage());
+        }
+        return address;
+    }
+
+    public String getOrderPhone(int oid) {
+        String phone = "";
+        try {
+            String sql = "select * from headphone.orders where OrderID=?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, oid);
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                phone = rs.getString(7);
+            }
+        } catch (Exception ex) {
+            System.out.println("getOrderPhone" + ex.getMessage());
+        }
+        return phone;
+    }
+    
+    public String getOrderDate(int oid) {
+        String date = "";
+        try {
+            String sql = "select * from headphone.orders where OrderID=?";
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, oid);
+            rs = pstm.executeQuery();
+            
+            SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+            if (rs.next()) {
+                date = f.format(rs.getDate(2));
+            }
+        } catch (Exception ex) {
+            System.out.println("getOrderPhone" + ex.getMessage());
+        }
+        return date;
     }
 
 }

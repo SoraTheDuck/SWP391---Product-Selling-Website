@@ -41,11 +41,6 @@ public class CheckoutController extends HttpServlet {
                 req.setAttribute("mess", mess);
                 req.getRequestDispatcher("Shopping-cart.jsp").forward(req, resp);
             } else {
-//                Order order = new Order();
-//                order.addOrder1(checkLogin, cart);
-//                session.removeAttribute("cart");
-//                mess = "Checkout Successfully!!";
-//                req.setAttribute("mess", mess);
                 req.getRequestDispatcher("Checkout.jsp").forward(req, resp);
             }
         } else {

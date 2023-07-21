@@ -59,13 +59,5 @@ public class Cart {
         return t;
     }
 
-    private Product getProductById(String id, List<Product> list) {
-        for (Product p : list) {
-            if (p.getId().equals(id)) {
-                return p;
-            }
-        }
-        return null;
-    }
 
 }

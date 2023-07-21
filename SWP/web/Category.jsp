@@ -231,10 +231,9 @@
                                                         <ul class="add-actions-link">
                                                             <c:choose>
                                                                             <c:when test="${o.quantity > 0}">
-                                                                                <form action="cart">
+                                                                                <form action="cart" method="post">
                                                                                     <input type="hidden" name="num" value="1">
                                                                                     <input type="hidden" name="id" value="${o.id}">
-                                                                                    <input type="hidden" name="redirect" value="shop">
                                                                                     <li class="add-cart active"><a onclick="this.closest('form').submit();">Add to cart</a></li>
                                                                                 </form>
                                                                             </c:when>

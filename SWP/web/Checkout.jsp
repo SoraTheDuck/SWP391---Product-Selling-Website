@@ -67,23 +67,28 @@
             </div>
             <!-- Li's Breadcrumb Area End Here -->
             <!--Checkout Area Strat-->
-            <div class="checkout-area pt-60 pb-30">
-                <div >
-                    <div class="col-lg-12 col-12">
+            <div class="checkout-area pt-60 pb-30">    
+                    <div class='container'>
+                <div class="row">          
+                    <div class="col-lg-7">
                         <div class="your-order">
                             <h3>Your order</h3>
                             <div class="your-order-table table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th></th>
                                             <th class="cart-product-name">Product</th>
+                                            <th class="cart-product-name">Price</th>
                                             <th class="cart-product-total">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach var="o" items="${sessionScope.cart.items}">
                                             <tr class="cart_item">
+                                                <td><img width="50%" height="50%" src="data:image/jpg;charset=utf8;base64,${o.product.image}" alt="product image"></td>
                                                 <td class="cart-product-name">${o.product.name}<strong class="product-quantity"> × ${o.quantity}</strong></td>
+                                                <td class="cart-product-name">$ ${o.price}</td>
                                                 <td class="cart-product-total"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${o.price*o.quantity}"/></span></td>  
                                             </tr>
                                         </c:forEach>
@@ -91,67 +96,55 @@
                                     <tfoot>
                                         <tr class="order-total">
                                             <th>Order Total</th>
+                                            <td></td>
+                                            <td></td>
                                             <td><strong><span class="amount">$ ${sessionScope.cart.getTotalMoney()}</span></strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
                             </div>
-                            <div class="payment-method">
-                                <div class="payment-accordion">
-                                    <div id="accordion">
-                                        <div class="card">
-                                            <div class="card-header" id="#payment-1">
-                                                <h5 class="panel-title">
-                                                    <a class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        Direct Bank Transfer.
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="your-order">
+                            <div class="your-order-table table-responsive">
+                                <div class="payment-method">
+                                    <div class="payment-accordion">
+                                        <div id="accordion">
+                                            <div class="card">
+                                                <div class="card-header" id="#payment-1">
+                                                    <h5 class="panel-title">
+                                                        <a class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            Cash on Delivery (COD)
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <p>You don't need to make an upfront payment through credit cards or online banking. You can pay for products at the time of delivery.</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card">
-                                            <div class="card-header" id="#payment-2">
-                                                <h5 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        Cheque Payment
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                                </div>
-                                            </div>
+                                        <div class="order-button-payment">
+                                            <form action="checkout2" method="post">
+                                                <br><br>Address: 
+                                                <input style="background-color: white; color: black; text-transform: none; font-weight: normal; border: 1px solid black;" type="text" name="address" value="" required>
+                                                <br><br><br>Phone: 
+                                                <input style="background-color: white; color: black; font-weight: normal; border: 1px solid black;" type="tel" name="phone" pattern="0[0-9]{9}" value="" required>
+                                                <small>Enter a 10-digit phone number starting with '0'. (Ex: 0123456789)</small><br><br>
+                                                <input value="Place order" type="submit">
+                                            </form>
                                         </div>
-                                        <div class="card">
-                                            <div class="card-header" id="#payment-3">
-                                                <h5 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        PayPal
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseThree" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="order-button-payment">
-                                        <form action="checkout2" method="post">
-                                            <input value="Place order" type="submit">
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                    </div>
             </div>
         </div>
         <!--Checkout Area End-->

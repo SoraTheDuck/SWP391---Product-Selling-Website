@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import model.Order;
 import model.OrderDetail;
 
 /**
@@ -29,7 +30,16 @@ public class HistoryDetailController extends HttpServlet {
         OrderDetail od = new OrderDetail();
         List<OrderDetail> historyDetails = od.getHistory(oid);
         float t = od.getTotalMoney(historyDetails);
+        Order o=new Order();
+        String address=o.getOrderAddress(oid);
+        String phone=o.getOrderPhone(oid);
+        String date=o.getOrderDate(oid);
+        
+        req.setAttribute("address", address);
+        req.setAttribute("phone", phone);
+        req.setAttribute("date", date);
         req.setAttribute("total", t);
+        req.setAttribute("oid", oid);
         req.setAttribute("historyDetails", historyDetails);
         req.getRequestDispatcher("HistoryDetail.jsp").forward(req, resp);
     }

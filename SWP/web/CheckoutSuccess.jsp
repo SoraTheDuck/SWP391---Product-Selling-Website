@@ -1,18 +1,13 @@
-<%-- 
-    Document   : HistoryDetail
-    Created on : Jun 26, 2023, 8:30:28 AM
-    Author     : admin
---%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="zxx">
+
     <!-- checkout31:27-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>History</title>
+        <title>Checkout || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -51,7 +46,6 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-
         <!--[if lt IE 8]>
                     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
@@ -65,15 +59,15 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="index-2.html">Home</a></li>
-                            <li class="active">History Detail</li>
+                            <li><a href="home">Home</a></li>
+                            <li class="active">Checkout</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
             <!-- Li's Breadcrumb Area End Here -->
             <!--Checkout Area Strat-->
+            <h3 style="margin-top: 40px; text-align: center">ORDER SUCCESS!</h3>
             <div class="checkout-area pt-60 pb-30">
                 <div class="container">
                     <div class="row">   
@@ -86,15 +80,17 @@
                                             <tr>
                                                 <th></th>
                                                 <th class="cart-product-name">Product</th>
+                                                <th class="cart-product-name">Unit Price</th>
                                                 <th class="cart-product-total">Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="i" items="${historyDetails}">
+                                            <c:forEach var="o" items="${cart.items}">
                                                 <tr class="cart_item">
-                                                    <td><img width="50%" height="50%" src="data:image/jpg;charset=utf8;base64,${i.getImg()}" alt="product image"></td>
-                                                    <td class="cart-product-name">${i.getProductName()}<strong class="product-quantity"> × ${i.getQuantity()}</strong></td>
-                                                    <td class="cart-product-total"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${i.getPrice()*i.getQuantity()}"/></span></td>  
+                                                    <td><img width="50%" height="50%" src="data:image/jpg;charset=utf8;base64,${o.product.image}" alt="product image"></td>
+                                                    <td class="cart-product-name">${o.product.name}<strong class="product-quantity"> × ${o.quantity}</strong></td>
+                                                    <td class="cart-product-name">${o.price}</td>
+                                                    <td class="cart-product-total"><span class="amount">$<fmt:formatNumber pattern="##.#" value="${o.price*o.quantity}"/></span></td>  
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
@@ -102,7 +98,8 @@
                                             <tr class="order-total">
                                                 <th>Order Total</th>
                                                 <td></td>
-                                                <td><strong><span class="amount">$ ${total}</span></strong></td>
+                                                <td></td>
+                                                <td><strong><span class="amount">$ ${cart.getTotalMoney()}</span></strong></td>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -130,7 +127,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            
                                             <div class="order-button-payment">
                                                 <br><br><p style="color: black; font-size: 18px">Address: ${address}</p>
                                                 <br><p style="color: black; font-size: 18px">Phone: ${phone}</p>
@@ -194,4 +191,6 @@
     <!-- Main/Activator js -->
     <script src="js/main.js"></script>
 </body>
+
+<!-- checkout31:27-->
 </html>

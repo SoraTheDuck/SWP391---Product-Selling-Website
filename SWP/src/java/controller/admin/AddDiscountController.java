@@ -48,6 +48,14 @@ public class AddDiscountController extends HttpServlet {
             discount = Integer.parseInt(dis);
         }
 
+        if (discount >= 90) {
+            req.setAttribute("mess", "Discount must be less than 90%");
+            req.setAttribute("p", pr);
+            req.setAttribute("todayDate", todayDate);
+            req.getRequestDispatcher("ProductDiscount.jsp").forward(req, resp);
+            return;
+        }
+
         try {
             Date ed = f.parse(end);
             java.util.Calendar cal = java.util.Calendar.getInstance();
