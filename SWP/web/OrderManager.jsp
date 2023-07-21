@@ -61,7 +61,6 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     Order Manager
-
                 </nav>
             </div>
         </aside>

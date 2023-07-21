@@ -72,7 +72,7 @@
             <!-- Account page navigation-->
             <div class="container px-4 mt-4 my-4">
                 <!-- Account page navigation-->
-                <button class="btn btn-primary mb-20 ml-10">
+                <button class="btn btn-primary mb-20 ml-10" style="width: 330px;">
                     <a style="color: #fff" href="history">View order history</a>
                 </button>
 

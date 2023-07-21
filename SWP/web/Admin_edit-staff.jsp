@@ -31,7 +31,19 @@
 
         <!-- Main CSS-->
         <link href="css/theme.css" rel="stylesheet" media="all">
+        <style>
+            #viewPassword i {
+                cursor: pointer;
+            }
 
+            #viewPassword .fa-eye {
+                display: block;
+            }
+
+            #viewPassword .fa-eye-slash {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <%@include file="components/Dashboard.jsp" %>
@@ -43,7 +55,7 @@
                             <h3 class="title-5 m-b-35">Edit Staff</h3>
                             <div class="card">
                                 <div class="card-header">
-                                    <strong>Edit Form </strong>
+                                    <strong>Edit Staff </strong>Form
                                 </div>
                                 <div class="card-body card-block">
                                     <p style="color: red">${mess}</P><br>
@@ -76,11 +88,17 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-2">
-                                                <label class=" form-control-label">Password</label>
+                                                <label class="form-control-label">Password</label>
                                             </div>
                                             <div class="col-12 col-md-10">
-                                                <input type="text" id="hf-password" name="password" placeholder="Please enter password" class="form-control" value="${s.getPassword()}">
-
+                                                <div class="input-group">
+                                                    <input type="password" id="passwordInput" name="pass" placeholder="Please enter password" class="form-control" value="${s.getPassword()}">
+                                                    <div class="input-group-append">
+                                                        <button type="button" id="viewPassword" class="btn btn-outline-secondary">
+                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -102,7 +120,25 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    const passwordInput = document.getElementById('passwordInput');
+                    const togglePassword = document.getElementById('viewPassword');
 
+                    // event click "eye"
+                    togglePassword.addEventListener('click', function () {
+                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type);
+
+                        // change eye
+                        if (type === 'password') {
+                            togglePassword.querySelector('.fa-eye').style.display = 'block';
+                            togglePassword.querySelector('.fa-eye-slash').style.display = 'none';
+                        } else {
+                            togglePassword.querySelector('.fa-eye').style.display = 'none';
+                            togglePassword.querySelector('.fa-eye-slash').style.display = 'block';
+                        }
+                    });
+                </script>
 
 
                 <!-- Jquery JS-->
@@ -128,5 +164,5 @@
 
                 <!-- Main JS-->
                 <script src="js/main2.js"></script>
-    </body>
-</html>
+                </body>
+                </html>

@@ -57,7 +57,7 @@
                             <h3 class="title-5 m-b-35">Edit customer</h3>
                             <div class="card">
                                 <div class="card-header">
-                                    <strong>Add Customer</strong> Form
+                                    <strong>Edit Customer</strong> Form
                                 </div>
                                 <div class="card-body card-block">
                                     <form action="edit-user" method="post" class="form-horizontal"  id="edit-form">

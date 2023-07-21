@@ -11,7 +11,7 @@
         <meta name="description" content="au theme template">
         <meta name="author" content="">
         <meta name="keywords" content="au theme template">
-        <title>JSP Page</title>
+        <title>Online Headphone Shop</title>
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
