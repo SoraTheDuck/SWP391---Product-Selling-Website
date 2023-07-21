@@ -63,12 +63,12 @@
                 <form action="enternewpassword" method="post">
                     <div class="login-form"  style="margin-top: 60px; border-radius:5px">
                         <h2>Enter new password </h2>
-                        <p>Verify email successfully</p>
-                        <p>Please enter your new password</p>
+                        <p>Verify email successfully. Please enter your new password</p>
                         <p style="color: red">${enmessage}</p>
                         <div class="row">
                             <div class="col-md-12 col-12">
                                 <input name="newpassword" type="text" placeholder="Enter new password" required>
+                                <input name="renewpassword" type="password" placeholder="Confirm new password" required>
                                 <button class="register-button mt-0" type="submit">Confirm</button>
                             </div>
                         </div>

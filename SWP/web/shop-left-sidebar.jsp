@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
-    
-<!-- shop-left-sidebar31:47-->
-<head>
+
+    <!-- shop-left-sidebar31:47-->
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Shop Left Sidebar || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
@@ -42,11 +42,19 @@
         <link rel="stylesheet" href="css/responsive.css">
         <!-- Modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <!--        <style>
+                    .li-static-home-image2 {
+                        background-image: url(./images/bg-banner/1.jpg);
+                        background-size: cover;
+                        height: 320px;
+                        background-repeat: no-repeat;
+                    }
+                </style>-->
     </head>
     <body>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
+        <!--[if lt IE 8]>
+                    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
@@ -70,9 +78,29 @@
                     <div class="row">
                         <div class="col-lg-9 order-1 order-lg-2">
                             <!-- Begin Li's Banner Area -->
+                            <style>
+                                .li-static-home-image2 {
+                                    background-image: url(./images/bg-banner/1.jpg);
+                                    background-size: cover;
+                                    height: 320px;
+                                    background-repeat: no-repeat;
+                                }
+                            </style>
                             <div class="single-banner shop-page-banner">
                                 <a href="#">
-                                    <img src="images/bg-banner/2.jpg" alt="Li's Static Banner">
+                                    <!-- Begin Li's Static Home Image Area -->
+                                    <div class="li-static-home-image2" ></div>
+                                    <!-- Li's Static Home Image Area End Here -->
+                                    <!-- Begin Li's Static Home Content Area -->
+                                    <div class="li-static-home-content">
+                                        <p>Sale Offer<span>-20% Off</span>This Week</p>
+                                        <h2>Featured Product</h2>
+                                        <h2>Meito Accessories 2023</h2>
+                                        <p class="schedule">
+                                            Starting at
+                                            <span> $20.00</span>
+                                        </p>
+                                    </div>
                                 </a>
                             </div>
                             <!-- Li's Banner Area End Here -->
@@ -87,23 +115,23 @@
                                         <!-- shop-item-filter-list end -->
                                     </div>
                                     <c:choose>
-                            <c:when test="${searchValue != null}">
-                                <div class="toolbar-amount">
-                                        <span>${searchValue}</span>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <div class="toolbar-amount">
-                                </div>
-                            </c:otherwise>
-                        </c:choose>
+                                        <c:when test="${searchValue != null}">
+                                            <div class="toolbar-amount">
+                                                <span>${searchValue}</span>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="toolbar-amount">
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                                 <!-- product-select-box start -->
                                 <div class="product-select-box">
                                     <div class="product-short">
                                         <p>Display all Products by:</p>
-                                            <form id="frm" action="display" method="post">
-                                                <select class="nice-select" name="op" onchange="change()">
+                                        <form id="frm" action="display" method="post">
+                                            <select class="nice-select" name="op" onchange="change()">
                                                 <option value="0" ${tag == 0 ? "selected":""}> Default</option>
                                                 <option value="1" ${tag == 1 ? "selected":""}> Release Date (Closet to Furthest)</option>
                                                 <option value="2" ${tag == 2 ? "selected":""}> Release Date (Furthest to Closest)</option>
@@ -113,9 +141,9 @@
                                                 <option value="6" ${tag == 6 ? "selected":""}> Rating (Highest -> Lowest)</option>
                                             </select>
                                         </form>
-                                        
+
                                         <script>
-                                            function change(){
+                                            function change() {
                                                 document.getElementById("frm").submit();
                                             }
                                         </script>
@@ -146,7 +174,7 @@
                                                                         <h5 class="manufacturer">
                                                                             <a href="detail?pid=${o.id}">${o.name}</a>
                                                                             <p>${o.wire}</p>
-                                                                            
+
                                                                         </h5>
                                                                         <div class="rating-box">
                                                                             <c:choose>
@@ -228,8 +256,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="add-actions">
-                                                        <ul class="add-actions-link">
-                                                            <c:choose>
+                                                                    <ul class="add-actions-link">
+                                                                        <c:choose>
                                                                             <c:when test="${o.quantity > 0}">
                                                                                 <form action="cart" method="post">
                                                                                     <input type="hidden" name="num" value="1">
@@ -239,56 +267,56 @@
                                                                             </c:when>
                                                                             <c:otherwise>
                                                                                 <li class="add-cart active">Sold out</li>
-                                                                            </c:otherwise>
-                                                                        </c:choose>
-                                                        </ul>
-                                                    </div>
+                                                                                </c:otherwise>
+                                                                            </c:choose>
+                                                                    </ul>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <!-- single-product-wrap end -->
                                                     </div>
                                                 </c:forEach>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="paginatoin-area">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <ul class="pagination-box pt-xs-20 pb-xs-15">
-                                                    
+
                                                     <c:choose>
                                                         <c:when test="${totalPage ==0}">
                                                             No Product fits your searched result
                                                         </c:when>
                                                         <c:otherwise>
-                                                                <c:if test="${currentPage != 1}">
-                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
-                                                            </c:if>
-                                                            <c:forEach begin="1" end="${totalPage}" var="i">
-                                                                <c:choose>
-                                                                    <c:when test="${currentPage == i}">
-                                                                    <li class="active"><a href="#"><c:out value="${i}" /></a></li>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                    <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
-                                                                            <c:out value="${i}" /></a></li>
-                                                                    </c:otherwise>
-                                                                </c:choose>
-                                                            </c:forEach>
-                                                            <c:if test="${currentPage != totalPage}">
-                                                            <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
+                                                            <c:if test="${currentPage != 1}">
+                                                                <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage - 1}" /></c:url>" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a></li>
                                                                 </c:if>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                    
-                                                    
+                                                                <c:forEach begin="1" end="${totalPage}" var="i">
+                                                                    <c:choose>
+                                                                        <c:when test="${currentPage == i}">
+                                                                        <li class="active"><a href="#"><c:out value="${i}" /></a></li>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                        <li><a href="<c:url value="${link}"><c:param name="page" value="${i}" /></c:url>">
+                                                                                <c:out value="${i}" /></a></li>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
+                                                                    </c:forEach>
+                                                                    <c:if test="${currentPage != totalPage}">
+                                                                <li><a href="<c:url value="${link}" ><c:param name="page" value="${currentPage + 1}" /></c:url>" class="Next"> Next <i class="fa fa-chevron-right"></i></a></li>
+                                                                    </c:if>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <!-- shop-products-wrapper end -->
@@ -296,35 +324,35 @@
                         <div class="col-lg-3 order-2 order-lg-1">
                             <!--sidebar-categores-box start  -->
                             <div class="sidebar-categores-box mt-sm-30 mt-xs-30">
-                                
-                            <div class="sidebar-categores-box">
-                                <div class="sidebar-title">
-                                    <h2>Filter By</h2>
-                                </div>
-                                <!-- btn-clear-all start -->
-                                
-                                <!-- btn-clear-all end -->
-                                <!-- filter-sub-area start -->
-                                
-                                <!-- filter-sub-area end -->
-                                <!-- filter-sub-area start -->
-                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                    <h5 class="filter-sub-titel">Categories</h5>
-                                    <div class="categori-checkbox">
-                                        <ul>
-                                            <c:forEach items="${categoryList}" var="o">
-                                                <li><a href="category?cid=${o.getId()}">${o.getCategoryName()}</a></li>
-                                            </c:forEach>
-                                        </ul>
+
+                                <div class="sidebar-categores-box">
+                                    <div class="sidebar-title">
+                                        <h2>Filter By</h2>
                                     </div>
-                                 </div>
-                                
-                                
-                                
-                            </div>
-                            <!--sidebar-categories-box end  -->
-                            <!-- category-sub-menu start -->
-                            
+                                    <!-- btn-clear-all start -->
+
+                                    <!-- btn-clear-all end -->
+                                    <!-- filter-sub-area start -->
+
+                                    <!-- filter-sub-area end -->
+                                    <!-- filter-sub-area start -->
+                                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                                        <h5 class="filter-sub-titel">Categories</h5>
+                                        <div class="categori-checkbox">
+                                            <ul>
+                                                <c:forEach items="${categoryList}" var="o">
+                                                    <li><a href="category?cid=${o.getId()}">${o.getCategoryName()}</a></li>
+                                                    </c:forEach>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <!--sidebar-categories-box end  -->
+                                <!-- category-sub-menu start -->
+
                                 <!-- category-sub-menu end -->
                             </div>
                         </div>
@@ -345,7 +373,7 @@
                             </button>
                             <div class="modal-inner-area row">
                                 <div class="col-lg-5 col-md-6 col-sm-6">
-                                   <!-- Product Details Left -->
+                                    <!-- Product Details Left -->
                                     <div class="product-details-left">
                                         <div class="product-details-images slider-navigation-1">
                                             <div class="lg-image">
@@ -493,5 +521,5 @@
         <script src="js/main.js"></script>
     </body>
 
-<!-- shop-left-sidebar31:48-->
+    <!-- shop-left-sidebar31:48-->
 </html>

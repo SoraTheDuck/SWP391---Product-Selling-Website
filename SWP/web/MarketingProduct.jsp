@@ -11,7 +11,7 @@
         <meta name="description" content="au theme template">
         <meta name="author" content="">
         <meta name="keywords" content="au theme template">
-        <title>Online Headphone Shop</title>
+        <title>JSP Page</title>
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -32,6 +32,38 @@
 
         <!-- Main CSS-->
         <link href="css/theme.css" rel="stylesheet" media="all">
+        <style>
+            .confirm-notice {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                
+            }
+
+            .confirm-notice p {
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+            .confirm-buttons {
+                text-align: right;
+            }
+
+            .confirm-buttons button {
+                margin-left: 10px;
+            }
+
+            .highlighted {
+                color: red !important;
+                font-weight: bold;
+            }
+
+        </style>
     </head>
     <body>
         <header class="header-mobile d-block d-lg-none">
@@ -149,11 +181,15 @@
                                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="window.location.href = 'marketingeditproduct?id=${ls.id}'">
                                                                 <i class="zmdi zmdi-edit"></i>
                                                             </button>
+                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" onclick="showConfirmation('${ls.id}', '${ls.name}')">
+                                                                <i class="zmdi zmdi-block"></i>
+                                                            </button>
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr class="spacer"></tr>
                                             </c:forEach>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -163,6 +199,38 @@
                     </div>
                 </div>
             </div>
+
+            <div id="confirmation-notice" class="confirm-notice" style="display: none;  z-index: 9999;">
+                <p>Are you sure you want to delete the following product?</p>
+                <p><strong>Product ID:</strong> <span id="product-id"></span></p>
+                <p><strong>Product Name:</strong> <span id="product-name"></span></p>
+                <div class="confirm-buttons">
+                    <button onclick="deleteProduct()">Yes</button>
+                    <button onclick="cancelDelete()">Cancel</button>
+                </div>
+            </div>
+
+            <script>
+                var productIdToDelete;
+
+                // Show confirmation dialog
+                function showConfirmation(id, name) {
+                    productIdToDelete = id;
+                    document.getElementById('product-id').textContent = id;
+                    document.getElementById('product-name').textContent = name;
+                    document.getElementById('confirmation-notice').style.display = 'block';
+                }
+
+                // Delete product
+                function deleteProduct() {
+                    // Redirect to the delete action
+                    window.location.href = 'marketingdeleteproduct?id=' + productIdToDelete;
+                }
+
+                // Cancel delete
+                function cancelDelete() {
+                    document.getElementById('confirmation-notice').style.display = 'none';
+                }
             </script>
             <script src="vendor/jquery-3.2.1.min.js"></script>
             <!-- Bootstrap JS-->

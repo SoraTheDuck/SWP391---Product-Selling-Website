@@ -56,7 +56,7 @@
                     <!-- Begin Login Button Area -->
                     <c:choose>
                         <c:when test="${sessionScope.cus != null}">
-                            <a href="profile" id="myProfileButton" class="log-sign-btn log">${sessionScope.cus.name}</a>
+                            <a href="profile" id="myProfileButton" class="log-sign-btn log">Profile</a>
                             <a href="logout" class="log-sign-btn sign">Log out</a>
                         </c:when>
                         <c:otherwise>
@@ -67,21 +67,6 @@
                         </c:otherwise>
                     </c:choose>
                 </div>
-                <script>
-                    // limit name button and add "..." when name too long
-                    function limitButtonCharacters(element, maxLength) {
-                        var text = element.textContent;
-                        if (text.length > maxLength) {
-                            element.textContent = text.substring(0, maxLength) + '...';
-                        }
-                    }
-
-                    // limit 15 characters
-                    var myProfileButton = document.getElementById('myProfileButton');
-                    if (myProfileButton) {
-                        limitButtonCharacters(myProfileButton, 8);
-                    }
-                </script>
                 <!-- Header Middle Right Area End Here -->
             </div>
         </div>
@@ -96,8 +81,8 @@
                     <div class="hb-menu hb-menu-2 d-xl-block">
                         <nav>
                             <ul>
-                                <li><a href="/SWP/home">Home</a></li>
-                                <li class="megamenu-holder mn-drop"><a href="/SWP/shop">Shop</a></li>
+                                <li><a href="./home">Home</a></li>
+                                <li class="megamenu-holder mn-drop"><a href="./shop">Shop</a></li>
                                 <!-- Begin Mini Cart Button Area -->
                                 <li class="hm-minicart f-right">
                                     <div class="hm-minicart-trigger">
@@ -131,7 +116,7 @@
                                         </ul>
                                         <p class="minicart-total">TOTAL: <span>$ ${sessionScope.cart.getTotalMoney()}</span></p>
                                         <div class="minicart-button">
-                                            <a href="Shopping-cart.jsp"
+                                            <a href="process"
                                                class="li-button li-button-dark li-button-fullwidth">
                                                 <span>View Full Cart</span>
                                             </a>

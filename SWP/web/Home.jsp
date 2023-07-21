@@ -841,13 +841,13 @@
                         <div class="li-static-home-content">
                             <p>Sale Offer<span>-20% Off</span>This Week</p>
                             <h2>Featured Product</h2>
-                            <h2>Meito Accessories 2018</h2>
+                            <h2>Meito Accessories 2023</h2>
                             <p class="schedule">
                                 Starting at
-                                <span> $1209.00</span>
+                                <span> $20.00</span>
                             </p>
                             <div class="default-btn">
-                                <a href="/SWP/shop"
+                                <a href="./shop"
                                    class="links">Shopping Now</a>
                             </div>
                         </div>
