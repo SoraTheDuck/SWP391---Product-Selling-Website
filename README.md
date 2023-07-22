@@ -1,6 +1,6 @@
-## SWP391---Product-Selling-Website
+# SWP391---Product-Selling-Website
 
-# Ver 0.1: Local Indev
+## Ver 0.1: Local Indev
 *Main System
 - Added User Login/Register
 - Added User Verify
@@ -13,7 +13,7 @@
 - Shop display
 - Remove Unessecary pages from Template
 
-# Ver 0.5: Local Indev
+## Ver 0.5: Local Indev
 *Main System
 - Added User Profile
 - Added Cart & Checkout
@@ -31,7 +31,7 @@
 - Added Shop Display
 - Updated User Profile
 
-# Ver 1.0: Azure Server
+## Ver 1.0: Azure Server
 *Main System
 - Azure Cloud Server (Database and Web-app service)
 - Added Sort by elements
@@ -65,7 +65,7 @@
 - Order Manager Dashboard
 - Fix some minor bug
 
-# Ver 2.1: Bug fixed
+## Ver 2.1: Bug fixed
 - Auto Scroll for Cart quantity change
 - Reset Password
 - Image for product
@@ -75,7 +75,7 @@
 + Some bug lead to main flow to 500 error
 + Some others minor issues
 
-# Ver 2.5: Staff Update
+## Ver 2.5: Staff Update
 - Update Auto Scroll (apply to every single page)
 - Order Details (Address, Phone)
 - Staff Update:
@@ -86,7 +86,7 @@
 + Order Manager now have Order Details (the address will contain in export csv)
 + Marketing now have Manage Products and fix some bug when Add Discount
 
-# Ver 3.0: Headfone 1.0
+## Ver 3.0: Headfone 1.0
 - Auto Reject invalid order
 - Mark change log
 - fix major of front-end bugs
