@@ -12,6 +12,7 @@
     }
     @media (max-width: 991px) {
         .item-icon {
+            display: none;
             color: black;
             margin-left: 15px;
         }
@@ -20,6 +21,9 @@
         }
         .minicart-button span{
             color:white;
+        }
+        .item-text{
+            color: black;
         }
     }
 

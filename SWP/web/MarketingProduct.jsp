@@ -70,7 +70,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="">
+                        <a class="logo" href="marketing">
                             <img src="images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -128,7 +128,7 @@
                                         <div class="account-dropdown js-dropdown">
 
                                             <div class="account-dropdown__footer">
-                                                <a href="stafflogout">
+                                                <a href="stafflogin">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

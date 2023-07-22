@@ -67,7 +67,7 @@
                         <p style="color: red">${enmessage}</p>
                         <div class="row">
                             <div class="col-md-12 col-12">
-                                <input name="newpassword" type="text" placeholder="Enter new password" required>
+                                <input name="newpassword" type="password" placeholder="Enter new password" required>
                                 <input name="renewpassword" type="password" placeholder="Confirm new password" required>
                                 <button class="register-button mt-0" type="submit">Confirm</button>
                             </div>
