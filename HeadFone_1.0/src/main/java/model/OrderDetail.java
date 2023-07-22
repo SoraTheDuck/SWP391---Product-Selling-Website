@@ -152,5 +152,32 @@ public class OrderDetail {
         }
         return data;
     }
-    
+
+    public boolean checkAutoReject(int orderid){
+        try{
+            String sql = "SELECT \n" +
+                    "    CASE \n" +
+                    "        WHEN (\n" +
+                    "            SELECT COUNT(*)\n" +
+                    "            FROM Headphone.OrderProduct od \n" +
+                    "            JOIN Headphone.Product p ON od.ProductID = p.ProductID \n" +
+                    "            WHERE od.OrderID = ? AND (p.Quantity - od.Quantity) < 0\n" +
+                    "        ) > 0 THEN 0\n" +
+                    "        else 1\n" +
+                    "    END AS CheckResult;";
+
+            pstm = cnn.prepareStatement(sql);
+            pstm.setInt(1, orderid);
+            rs = pstm.executeQuery();
+
+            while(rs.next()){
+                if(rs.getInt(1) == 1){
+                    return true;
+                }
+            }
+        }catch(Exception e){
+            System.out.println("checkAutoReject: " + e.getMessage());
+        }
+        return false;
+    }
 }

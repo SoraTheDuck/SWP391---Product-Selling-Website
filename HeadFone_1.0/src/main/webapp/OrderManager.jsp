@@ -38,7 +38,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="">
+                        <a class="logo">
                             <img src="images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -54,7 +54,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-lg-block d-none">
             <div class="logo">
-                <a href="">
+                <a>
                     <img src="images/menu/logo/Logo2.jpg" alt="Cool Admin" />
                 </a>
             </div>
@@ -116,6 +116,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
+                                <h3 style="color: red">${message}</h3>
                                 <h3 class="title-5 m-b-35">data table</h3>
                                 <h3 style="color: red">${mess}</h3>
                                 <div class="table-data__tool">

@@ -26,38 +26,44 @@ public class OrderManagerController extends HttpServlet {
         int oid = Integer.parseInt(req.getParameter("id"));
         int sid = Integer.parseInt(req.getParameter("ord_id"));
 
-        
-
-        if (req.getParameter("approve") != null) {
-            Order o = new Order();
-            o.completeOrder(oid, true);
-            
-            OrderDetail od=new OrderDetail();
-            List<OrderDetail> lo=od.getListOrderDetail(oid);
-            o.updateQuantity(lo);
-
-            List<Order> list = o.getListNotCompletedOrder(sid);
-            req.setAttribute("ord_id", sid);
-            req.setAttribute("list", list);
-            req.getRequestDispatcher("OrderManager.jsp").forward(req, resp);
-            return;
-        }
-
-        if (req.getParameter("reject") != null) {
+        OrderDetail odummy = new OrderDetail();
+        boolean checkAutoReject = odummy.checkAutoReject(oid);
+        if (req.getParameter("reject") != null || !checkAutoReject) {
             Order o = new Order();
             o.completeOrder(oid, false);
 
             List<Order> list = o.getListNotCompletedOrder(sid);
             req.setAttribute("ord_id", sid);
             req.setAttribute("list", list);
+
+            if(req.getParameter("reject") == null) req.setAttribute("message", "Auto rejected due to invalid amount");
+            else req.setAttribute("message", "Rejected success");
+
             req.getRequestDispatcher("OrderManager.jsp").forward(req, resp);
+            return;
         }
 
+        if (req.getParameter("approve") != null) {
+            Order o = new Order();
+            o.completeOrder(oid, true);
+
+            OrderDetail od=new OrderDetail();
+            List<OrderDetail> lo=od.getListOrderDetail(oid);
+            o.updateQuantity(lo);
+
+            List<Order> list = o.getListNotCompletedOrder(sid);
+
+            System.out.println("approve success");
+            req.setAttribute("message", "Approve Success");
+
+            req.setAttribute("ord_id", sid);
+            req.setAttribute("list", list);
+            req.getRequestDispatcher("OrderManager.jsp").forward(req, resp);
+        }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     }
-
 }
