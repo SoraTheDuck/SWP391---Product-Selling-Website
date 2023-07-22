@@ -10,7 +10,7 @@
         <meta name="description" content="au theme template">
         <meta name="author" content="">
         <meta name="keywords" content="au theme template">
-        <title>JSP Page</title>
+        <title>Online Headphone Shop</title>
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -33,27 +33,27 @@
         <link href="css/theme.css" rel="stylesheet" media="all">
     </head>
     <body  class="animsition">
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="">
-                            <img src="images/icon/logo.png" alt="" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo">
+                        <img src="images/icon/Logo1.jpg" alt="" />
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
-                        </button>
-                    </div>
+                    </button>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-lg-block d-none">
             <div class="logo">
-                <a href="">
+                <a>
                     <img src="images/menu/logo/Logo1.jpg" alt="" />
                 </a>
             </div>
@@ -87,7 +87,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/menu/avatar-admin.jpg" alt="admin" />
+                                            <img src="images/menu/avatar-admin.jpg" alt="staff" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Marketing</a>

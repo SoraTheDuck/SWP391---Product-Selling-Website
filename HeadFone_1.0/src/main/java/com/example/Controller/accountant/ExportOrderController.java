@@ -113,7 +113,13 @@ public class ExportOrderController extends HttpServlet {
             }
 
             resp.setContentType("text/csv");
-            resp.setHeader("Content-Disposition", "attachment; filename=\"Accountant.csv\"");
+
+            if(!aolist.isEmpty())
+            {
+                resp.setHeader("Content-Disposition", "attachment; filename=\"Accountant_Order.csv\"");
+            }
+            else
+            resp.setHeader("Content-Disposition", "attachment; filename=\"Accountant_Revenue.csv\"");
             try (PrintWriter writer = resp.getWriter()) {
                 writer.write(sb.toString());
             }

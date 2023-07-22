@@ -66,7 +66,7 @@
         <div class="container">
             <div class="breadcrumb-content">
                 <ul>
-                    <li><a href="Home.jsp">Home</a></li>
+                    <li><a href="home">Home</a></li>
                     <li class="active">Shopping Cart</li>
                 </ul>
             </div>
@@ -75,9 +75,10 @@
     <!-- Li's Breadcrumb Area End Here -->
     <!--Shopping Cart Area Strat-->
 
-    ${mess}
+
     <div class="Shopping-cart-area pt-60 pb-60">
         <div class="container">
+            <span class="mess">${mess}</span>
             <div class="row">
                 <div class="col-12">
                     <form action="checkout" method="post">

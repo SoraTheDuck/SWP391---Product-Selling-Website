@@ -126,6 +126,11 @@ public class MEditProductController extends HttpServlet {
         }
 
         p.updateProduct(id, name, price, quantity, wire, description);
+
+        //mark StaffID
+        String StaffID = session.getAttribute("StaffID").toString();
+        changelog = changelog + " Edited by (" + StaffID + ") ";
+
         p.updateHistory(changelog, id);
 
         List<Product> list = p.getAllProduct();

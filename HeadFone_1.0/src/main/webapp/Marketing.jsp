@@ -37,8 +37,8 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <a class="logo" href="">
-                    <img src="images/icon/logo.png" alt="" />
+                <a class="logo">
+                    <img src="images/icon/Logo1.jpg" alt="" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -53,7 +53,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-lg-block d-none">
     <div class="logo">
-        <a href="">
+        <a>
             <img src="images/menu/logo/Logo1.jpg" alt="Cool Admin" />
         </a>
     </div>

@@ -39,7 +39,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                            <img src="images/icon/Logo1.jpg" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -116,8 +116,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
+
+                                <h3 class="title-5 m-b-35">Incoming Order</h3>
                                 <h3 style="color: red">${message}</h3>
-                                <h3 class="title-5 m-b-35">data table</h3>
                                 <h3 style="color: red">${mess}</h3>
                                 <div class="table-data__tool">
 

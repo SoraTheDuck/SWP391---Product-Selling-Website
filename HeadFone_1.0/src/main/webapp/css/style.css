@@ -5005,7 +5005,6 @@ span.required {
     height: 30px;
     line-height: 30px;
     width: 320px;
-    z-index: 999;
 }
 @media only screen and (max-width: 767px) {
     .product-short .nice-select {
@@ -5015,7 +5014,6 @@ span.required {
 .product-short .nice-select .list {
     border-radius: 0px;
     width: 100%;
-    z-index: 99;
 }
 .shop-top-bar {
     padding: 15px;
@@ -5526,6 +5524,18 @@ span.required {
 }
 .small-version {
     display: none;
+}
+
+.three-dots {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    color: #a5a5a5;
+}
+
+.mess {
+    font-size: 25px;
+    color: red;
 }
 /*----------------------------------------------------------------------------------------------------*/
 /*------------------------------------------> The End <-----------------------------------------------*/

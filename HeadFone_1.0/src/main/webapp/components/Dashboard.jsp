@@ -4,8 +4,8 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <a class="logo" href="adminpage">
-                    <img src="images/icon/logo.png" alt="CoolAdmin" />
+                <a class="logo">
+                    <img src="images/icon/Logo1.jpg" alt="CoolAdmin" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                     <span class="hamburger-box">
@@ -20,7 +20,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-lg-block d-none">
     <div class="logo">
-        <a href="adminpage">
+        <a>
             <img src="images/menu/logo/Logo1.jpg" alt="Cool Admin" />
         </a>
     </div>

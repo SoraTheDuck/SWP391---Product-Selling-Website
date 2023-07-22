@@ -64,6 +64,7 @@ public class StaffLoginController extends HttpServlet {
             String role = s.getRole();
             Staff s1 = s.getStaff();
             HttpSession session = req.getSession();
+            session.setAttribute("StaffID",s1.getId());
 
             if(s1.getStatus()==1){
                 req.setAttribute("mess", "Your account has been banned");

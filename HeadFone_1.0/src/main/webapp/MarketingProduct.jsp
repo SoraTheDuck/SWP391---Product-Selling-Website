@@ -11,7 +11,7 @@
         <meta name="description" content="au theme template">
         <meta name="author" content="">
         <meta name="keywords" content="au theme template">
-        <title>JSP Page</title>
+        <title>Online Headphone Shop</title>
         <!-- Fontfaces CSS-->
         <link href="css/font-face.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -66,27 +66,27 @@
         </style>
     </head>
     <body>
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="marketing">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo">
+                        <img src="images/icon/Logo1.jpg" alt="" />
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
-                        </button>
-                    </div>
+                    </button>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-lg-block d-none">
             <div class="logo">
-                <a href="">
+                <a>
                     <img src="images/menu/logo/Logo2.jpg" alt="" />
                 </a>
             </div>
@@ -120,7 +120,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/menu/avatar-admin.jpg" alt="admin" />
+                                            <img src="images/menu/avatar-admin.jpg" alt="staff" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Marketing</a>
@@ -147,7 +147,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">manage products</h3>
+                                <h3 class="title-5 m-b-35">Manage Products</h3>
                                 <p style="color: green">${dmess}</p>
                                 <div class="table-data__tool">
 

@@ -34,38 +34,46 @@
         <link href="css/theme.css" rel="stylesheet" media="all">
     </head>
     <body>
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="adminpage">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo">
+                        <img src="images/icon/Logo1.jpg" alt="" />
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
-                        </button>
-                    </div>
+                    </button>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-lg-block d-none">
-            <div class="logo">
-                <a href="">
-                    <img src="images/menu/logo/Logo1.jpg" alt="Cool Admin" />
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    Marketing
-
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-lg-block d-none">
+        <div class="logo">
+            <a>
+                <img src="images/menu/logo/Logo1.jpg" alt="Cool Admin" />
+            </a>
+        </div>
+        <div class="menu-sidebar__content js-scrollbar1">
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar__list">
+                    <li class="has-sub">
+                        <a  href="marketing">
+                            </i>Manage Discount</a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="marketingproduct">
+                            Manage Products</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
@@ -80,7 +88,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/menu/avatar-admin.jpg" alt="admin" />
+                                            <img src="images/menu/avatar-admin.jpg" alt="staff" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Marketing</a>

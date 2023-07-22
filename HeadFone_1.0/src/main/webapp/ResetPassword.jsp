@@ -79,6 +79,7 @@
             <div class="container mt-10 mb-100">
                 <div class="login-form"  style="margin-top: 60px; border-radius:5px">
                     <h2> Reset password </h2>
+                    <p>An OTP is sent to your email</p>
                     <p>Enter the correct code to complete the reset password process</p>
                     <div>
                         <p style="color: red">${rmess}</p>

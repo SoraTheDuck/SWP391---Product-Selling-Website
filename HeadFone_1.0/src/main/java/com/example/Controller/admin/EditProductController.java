@@ -126,6 +126,11 @@ public class EditProductController extends HttpServlet {
         }
 
         p.updateProduct(id, name, price, quantity, wire, description);
+
+        //mark AdminID
+        String StaffID = session.getAttribute("StaffID").toString();
+        change = change + " Edited by (" + StaffID + ") ";
+
         p.updateHistory(change, id);
 
         List<Product> list = p.getAllProduct();

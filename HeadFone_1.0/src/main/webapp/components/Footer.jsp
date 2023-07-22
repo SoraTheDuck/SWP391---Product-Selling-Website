@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                         <div class="footer-logo">
-                            <img src="images/menu/logo/Logo2.jpg"
+                            <img src="images/menu/logo/Footer.png"
                                  alt="Footer Logo">
                             <p class="info">
                                 SWP391 - Summer 2023

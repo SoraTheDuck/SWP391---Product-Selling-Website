@@ -88,36 +88,41 @@
                                     <div class="hm-minicart-trigger">
                                         <span class="item-icon"></span>
                                         <span class="item-text">$ ${sessionScope.cart.getTotalMoney()}
-                                            <c:set var="t" value="0" />
-                                            <c:forEach var="o" items="${sessionScope.cart.items}">
-                                                <c:set var="t" value="${t+o.quantity}" />
-                                            </c:forEach>
-                                            <span class="cart-item-count">${t}</span>
-                                        </span>
+        <c:set var="t" value="0" />
+        <c:forEach var="o" items="${sessionScope.cart.items}">
+            <c:set var="t" value="${t+o.quantity}" />
+        </c:forEach>
+        <span class="cart-item-count">${t}</span>
+        </span>
                                     </div>
                                     <span></span>
                                     <div class="minicart">
                                         <ul class="minicart-product-list">
+                                            <c:set var="count" value="0" />
                                             <c:forEach var="o" items="${sessionScope.cart.items}">
-                                                <li>
-                                                    <a href="detail?pid=${o.product.id}"
-                                                       class="minicart-product-image">
-                                                        <img src="data:image/jpg;charset=utf8;base64,${o.product.image}"
-                                                             alt="cart products">
-                                                    </a>
-                                                    <div class="minicart-product-details">
-                                                        <h6><a href="detail?pid=${o.product.id}">${o.product.name} x ${o.quantity}</a>
-                                                        </h6>
-                                                        <span>$ ${o.price}</span>
-                                                    </div>
-                                                </li>
+                                                <c:if test="${count lt 6}">
+                                                    <li>
+                                                        <a href="detail?pid=${o.product.id}"
+                                                           class="minicart-product-image">
+                                                            <img src="data:image/jpg;charset=utf8;base64,${o.product.image}"
+                                                                 alt="cart products">
+                                                        </a>
+                                                        <div class="minicart-product-details">
+                                                            <h6><a href="detail?pid=${o.product.id}">${o.product.name} x ${o.quantity}</a>
+                                                            </h6>
+                                                            <span>$ ${o.price}</span>
+                                                        </div>
+                                                    </li>
+                                                    <c:set var="count" value="${count + 1}" />
+                                                </c:if>
                                             </c:forEach>
-
+                                            <c:if test="${count eq 6}">
+                                                <span class="three-dots">...</span>
+                                            </c:if>
                                         </ul>
                                         <p class="minicart-total">TOTAL: <span>$ ${sessionScope.cart.getTotalMoney()}</span></p>
                                         <div class="minicart-button">
-                                            <a href="process"
-                                               class="li-button li-button-dark li-button-fullwidth">
+                                            <a href="process" class="li-button li-button-dark li-button-fullwidth">
                                                 <span>View Full Cart</span>
                                             </a>
                                         </div>

@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
+import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.MultipartConfig;
 import java.io.InputStream;
 import java.sql.Date;
@@ -40,6 +37,7 @@ public class MAddProductController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String priceStr = req.getParameter("price");
@@ -84,6 +82,13 @@ public class MAddProductController extends HttpServlet {
             } else {
                 boolean isProductAdded = pro.addProduct(id, name, price, imageData, quantity, wireValue, description, cateId);
                 if (isProductAdded) {
+
+                    //mark AdminID
+                    String StaffID = session.getAttribute("StaffID").toString();
+                    String change = pro.getName() + " Added by (" + StaffID + ") ";
+
+                    pro.updateHistory(change, id);
+
                     req.setAttribute("mess", "Add new product successfully!");
                 } else {
                     req.setAttribute("mess", "Failed to add product.");

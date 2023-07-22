@@ -43,8 +43,8 @@
   <div class="header-mobile__bar">
     <div class="container-fluid">
       <div class="header-mobile-inner">
-        <a class="logo" href="accountantorder">
-          <img src="images/icon/logo.png" alt="CoolAdmin" />
+        <a class="logo">
+          <img src="images/icon/Logo1.jpg" alt="CoolAdmin" />
         </a>
         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -58,7 +58,7 @@
 
 <aside class="menu-sidebar d-lg-block">
   <div class="logo">
-    <a href="accountantorder">
+    <a>
       <img src="images/menu/logo/Logo1.jpg" alt="Cool Admin" />
     </a>
   </div>
@@ -119,7 +119,7 @@
         <div class="row">
           <div class="col-md-12">
             <!-- DATA TABLE -->
-            <h3 class="title-5 m-b-35">Accountant</h3>
+            <h3 class="title-5 m-b-35">Revenues</h3>
             <p style="color: green">${amess}</p>
             <div class="table-data__tool">
               <div class="table-data__tool-right">

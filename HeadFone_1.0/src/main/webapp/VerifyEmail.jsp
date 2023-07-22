@@ -77,6 +77,7 @@
             <div class="container mt-10 mb-100">
                 <div class="login-form"  style="margin-top: 60px; border-radius:5px">
                     <h2> Verify email </h2>
+                    <p>An OTP is sent to your email</p>
                     <p>Please input the correct verification code to complete the registration process</p>
                     <div>
                         <p style="color: green">${message}<p>
