@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- DATA TABLE -->
-                    <h3 class="title-5 m-b-35">data table</h3>
+                    <h3 class="title-5 m-b-35">Manage Orders</h3>
 
                     <div class="table-data__tool">
 

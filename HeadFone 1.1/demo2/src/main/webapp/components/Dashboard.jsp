@@ -1,5 +1,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<style>
+    @media (max-width: 991px){
+        .header-button {
+        justify-content: flex-end;
+        }
+        .header-desktop {
+            height: 100px;
+        }
+    }
+</style>
 <header class="header-mobile d-block d-lg-none">
     <div class="header-mobile__bar">
         <div class="container-fluid">
@@ -15,6 +25,33 @@
             </div>
         </div>
     </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li class="active has-sub">
+                    <a href="adminpage">Dashboard</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="list-user">Manage Customer</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="liststaff">Manage Staffs</a>
+                </li>
+                <li class="has-sub">
+                    <a href="list-product">
+                        Manage Products</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="list-discount">
+                        </i>Manage Discount</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="list-order">
+                        </i>Manage Orders</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
 <!-- MENU SIDEBAR-->

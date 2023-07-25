@@ -15,6 +15,33 @@
             </div>
         </div>
     </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li class="active has-sub">
+                    <a href="adminpage">Dashboard</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="list-user">Manage Customer</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="liststaff">Manage Staffs</a>
+                </li>
+                <li class="has-sub">
+                    <a href="list-product">
+                        Manage Products</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="list-discount">
+                        </i>Manage Discount</a>
+                </li>
+                <li class="has-sub">
+                    <a  href="list-order">
+                        </i>Manage Orders</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
 <!-- MENU SIDEBAR-->
@@ -74,7 +101,7 @@
                                     <a class="js-acc-btn" href="#">Admin</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
-                                    
+
                                     <div class="account-dropdown__footer">
                                         <a href="ad_logout">
                                             <i class="zmdi zmdi-power"></i>Logout</a>
