@@ -22,8 +22,8 @@ public class DeleteProductController extends HttpServlet {
         String id = request.getParameter("id");
         Product pro = new Product();
         pro.delete(id);
-        request.getSession().setAttribute("mess", "Delete product successfully!");
-        response.sendRedirect(request.getContextPath() + "/list-product");
+        //request.getRequestDispatcher("Admin_products.jsp").forward(request, response);
+        response.sendRedirect("list-product");
     }
 
 }

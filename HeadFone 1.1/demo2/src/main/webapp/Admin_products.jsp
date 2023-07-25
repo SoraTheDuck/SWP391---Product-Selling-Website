@@ -74,8 +74,8 @@
                         <div class="col-md-12">
                             <!-- DATA TABLE -->
                             <h3 class="title-5 m-b-35">manage products</h3>
+                            <p style="color: red">${mess}</p>
                             <div class="table-data__tool">
-                                
                                 <div class="table-data__tool-right">
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href = 'add-product'">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
@@ -158,6 +158,13 @@
             function cancelDelete() {
                 document.getElementById('confirmation-notice').style.display = 'none';
             }
+        </script>
+
+        <script>
+            window.onload = function()
+            {
+                sessionStorage.removeItem('mess');
+            };
         </script>
         
     </script>

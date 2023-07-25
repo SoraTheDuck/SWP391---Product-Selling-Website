@@ -126,17 +126,12 @@ public class EditProductController extends HttpServlet {
         }
 
         p.updateProduct(id, name, price, quantity, wire, description);
-
-        //mark AdminID
-        String StaffID = session.getAttribute("StaffID").toString();
-        change = change + " Edited by (" + StaffID + ") ";
-
         p.updateHistory(change, id);
 
         List<Product> list = p.getAllProduct();
         req.setAttribute("listPro", list);
         req.setAttribute("mess", "Edit success!");
-        req.getRequestDispatcher("Admin_products.jsp").forward(req, resp);
+        resp.sendRedirect("list-product");
 
     }
 

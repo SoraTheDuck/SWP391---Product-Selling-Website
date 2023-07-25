@@ -60,7 +60,7 @@
                                         <label>Password</label>
                                         <input class="au-input au-input--full" type="password" name="password" id="password" placeholder="Password">
                                     </div>
-                                    <button class="au-btn au-btn--block au-btn--green m-b-20">login in</button>
+                                    <button class="au-btn au-btn--block au-btn--green m-b-20">Sign in</button>
                                 </form>
                             </div>
                         </div>
@@ -69,6 +69,13 @@
             </div>
 
         </div>
+
+        <script>
+            window.onload = function()
+            {
+                sessionStorage.removeItem('mess');
+            };
+        </script>
 
         <!-- Jquery JS-->
         <script src="vendor/jquery-3.2.1.min.js"></script>

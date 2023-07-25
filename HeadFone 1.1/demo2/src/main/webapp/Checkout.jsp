@@ -153,6 +153,7 @@
 <!-- Footer Area End Here -->
 </div>
 <!-- Body Wrapper End Here -->
+
 <!-- jQuery-V1.12.4 -->
 <script src="js/vendor/jquery-1.12.4.min.js"></script>
 <!-- Popper js -->

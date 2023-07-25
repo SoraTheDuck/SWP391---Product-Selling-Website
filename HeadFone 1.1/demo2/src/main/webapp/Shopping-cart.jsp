@@ -225,6 +225,7 @@ then just add scroll-link class to the element like this which will refresh and 
         });
     </script>
 
+
 <!-- Body Wrapper End Here -->
 <!-- jQuery-V1.12.4 -->
 <script src="js/vendor/jquery-1.12.4.min.js"></script>

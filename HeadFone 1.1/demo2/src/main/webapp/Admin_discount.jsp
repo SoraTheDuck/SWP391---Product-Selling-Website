@@ -122,6 +122,12 @@
             </div>
         </div>
 
+        <script>
+            window.onload = function()
+            {
+                sessionStorage.removeItem('mess');
+            };
+        </script>
         
         <script src="vendor/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap JS-->

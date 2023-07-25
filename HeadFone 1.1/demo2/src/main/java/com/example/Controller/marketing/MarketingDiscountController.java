@@ -52,11 +52,11 @@ public class MarketingDiscountController extends HttpServlet {
             return;
         } else  discount = Integer.parseInt(dis);
 
-        if (discount >= 90) {
-            req.setAttribute("mess", "Discount must be less than 90%");
+        if (discount >= 90  || discount <= 0) {
+            req.setAttribute("mess", "Discount must be greater than 0% and less than 90%");
             req.setAttribute("p", pr);
             req.setAttribute("todayDate", todayDate);
-            req.getRequestDispatcher("ProductDiscount.jsp").forward(req, resp);
+            req.getRequestDispatcher("MarketingDiscount.jsp").forward(req, resp);
             return;
         }
 

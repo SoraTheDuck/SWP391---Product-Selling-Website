@@ -84,13 +84,6 @@ public class AddProductController extends HttpServlet {
             } else {
                 boolean isProductAdded = pro.addProduct(id, name, price, imageData, quantity, wireValue, description, cateId);
                 if (isProductAdded) {
-
-                    //mark AdminID
-                    String StaffID = session.getAttribute("StaffID").toString();
-                    String change = pro.getName() + " Added by (" + StaffID + ") ";
-
-                    pro.updateHistory(change, id);
-
                     req.setAttribute("mess", "Add new product successfully!");
                 } else {
                     req.setAttribute("mess", "Failed to add product.");

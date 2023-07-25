@@ -333,7 +333,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner">
                                         <a href="#">
-                                            <img src="images/banner/2_5.jpg"
+                                            <img src="images/banner/2023.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -343,7 +343,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner pt-xs-30">
                                         <a href="#">
-                                            <img src="images/banner/2_5.jpg"
+                                            <img src="images/banner/2023.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -510,7 +510,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner">
                                         <a href="#">
-                                            <img src="images/banner/2_5.jpg"
+                                            <img src="images/banner/2023.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -520,7 +520,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner pt-xs-30">
                                         <a href="#">
-                                            <img src="images/banner/2_5.jpg"
+                                            <img src="images/banner/2023.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -687,7 +687,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner">
                                         <a href="#">
-                                            <img src="images/banner/2_5.jpg"
+                                            <img src="images/banner/2023.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>
@@ -697,7 +697,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-banner pt-xs-30">
                                         <a href="#">
-                                            <img src="images/banner/2_5.jpg"
+                                            <img src="images/banner/2023.jpg"
                                                  alt="Li's Static Banner">
                                         </a>
                                     </div>

@@ -199,6 +199,13 @@
                     </div>
                 </div>
 
+                <script>
+                    window.onload = function()
+                    {
+                        sessionStorage.removeItem('mess');
+                    };
+                </script>
+
                 <!-- Jquery JS-->
                 <script src="vendor/jquery-3.2.1.min.js"></script>
                 <!-- Bootstrap JS-->
