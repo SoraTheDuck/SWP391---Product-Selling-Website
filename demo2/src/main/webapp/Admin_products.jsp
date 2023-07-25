@@ -75,7 +75,7 @@
                             <!-- DATA TABLE -->
                             <h3 class="title-5 m-b-35">manage products</h3>
                             <div class="table-data__tool">
-                                
+                                <p style="color: green">${dmess}</p>
                                 <div class="table-data__tool-right">
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href = 'add-product'">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
