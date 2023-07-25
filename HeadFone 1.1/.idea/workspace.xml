@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="demo2:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7479910c-6749-4e8a-a0a2-34208098e3dd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../demo2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.idea/webContexts.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/AdminLoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/CartController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/CategoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ChangePassController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/Checkout2Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/CheckoutController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/CusUpdateProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/DetailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/DisplayController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/EnterNewPasswordController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ErrorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ForgotPasswordController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/HistoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/HistoryDetailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/LogoutController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/PageRedirectFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ProcessController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ProcessController2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/RegisterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/RemoveController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/ResetPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/SearchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/StaffLoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/VerifyEmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/WriteReviewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/accountant/AccountantOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/accountant/AccountantProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/accountant/ExportOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/AddDiscountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/AddProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/AddStaffController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/AddUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/AdminPageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/BanCustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/BanStaffController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/DeleteDiscountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/DeleteProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/EditProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/EditStaffController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/EditUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/ListDiscount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/ListOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/ListProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/ListStaffController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/admin/ListUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/manager/ExportOrderManagerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/manager/ManageOrderDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/manager/ManagerBoardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/manager/OrderManagerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/marketing/MAddProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/marketing/MDeleteProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/marketing/MEditProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/marketing/MarketingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/marketing/MarketingDiscountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/Controller/marketing/MarketingProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/DBContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/OrderDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Review.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/model/Staff.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/resources/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/resources/META-INF/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/404.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Accountant.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Accountant_product.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_add-product.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_add-staff.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_add-user.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_discount.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_edit-staff.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_edit-user.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_orders.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_page.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_products.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_staffs.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Admin_users.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Checkout.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/CheckoutSuccess.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Customer_profile.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/EditProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/EnterNewPassword.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Faq.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/ForgotPassword.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/History.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/HistoryDetail.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/META-INF/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/ManageOrderDetail.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Marketing.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/MarketingAddProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/MarketingDiscount.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/MarketingEditProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/MarketingProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/OrderManager.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/ProductDiscount.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Register.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/ResetPassword.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Shopping-cart.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/Staff_login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/VerifyEmail.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/lib/activation-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/lib/javax.mail-1.6.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/lib/mysql-connector-j-8.0.33.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/lib/sqljdbc42.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/components/Dashboard.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/components/Footer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/components/Header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/bootstrap-datetimepicker.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/font-face.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/fontawesome-stars.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/helper.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-bg_glass_75_d0e5f5_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-bg_glass_85_dfeffc_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-bg_inset-hard_100_f5f8f9_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-icons_217bc0_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-icons_469bdd_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-icons_6da8d5_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-icons_d8e7f3_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/images/ui-icons_f9bd01_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/magnific-popup.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/material-design-iconic-font.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/meanmenu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/nice-select.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/owl.video.play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/profile_css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/slick.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/css/venobox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/Material-Design-Iconic-Fontd1f1.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/Material-Design-Iconic-Fontd1f1.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/Material-Design-Iconic-Fontd1f1.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/fontawesome-webfont3e6e.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/fontawesome-webfont3e6e.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/fontawesome-webfont3e6e.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/fontawesome-webfont3e6e.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/fontawesome-webfont3e6e.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/fonts/fontawesome-webfontd41d.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/about-us/icon/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/about-us/icon/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/about-us/icon/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/about-us/icon/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/1_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/1_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/1_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/1_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/1_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/2_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/2_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/2_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/2_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/2_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/2_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/3_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/3_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/banner/featured-banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/bg-banner/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/bg-banner/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/bg-banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/large-size/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/large-size/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/blog-banner/large-size/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/featured-product/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/featured-product/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/featured-product/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/featured-product/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/featured-product/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/featured-product/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/avatar-admin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/flag-icon/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/flag-icon/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/li-bg-menu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/Footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/Logo1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/Logo2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/l_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/logo_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/menu/logo/logo_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/payment/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product-details/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product-details/admin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product-details/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/large-size/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/small-size/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/small-size/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/small-size/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/small-size/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/small-size/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/product/small-size/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/shipping-icon/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/shipping-icon/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/shipping-icon/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/shipping-icon/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/slider/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/static-top/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/team/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/team/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/team/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/images/team/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/ajax-mail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/bootstrap-datetimepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/imagesloaded.pkgd.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/isotope.pkgd.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery.barrating.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery.countdown.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery.counterup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery.magnific-popup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery.meanmenu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery.mixitup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/jquery.nice-select.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/main2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/moment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/scrollUp.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/slick.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/vendor/jquery-1.12.4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/vendor/modernizr-2.8.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/vendor/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/venobox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/js/wow.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/shop-left-sidebar.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/shop-left-sidebar_Cat.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/shop-left-sidebar_Search.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/shop-left-sidebar_Sort.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/single-product.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/animsition/animsition.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/animsition/animsition.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/bootstrap-4.1/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/bootstrap-4.1/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/bootstrap-4.1/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/chartjs/Chart.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/circle-progress/circle-progress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/circle-progress/circle-progress.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/countdown/countdowntime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/countdown/jquery.countdown.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/countdown/moment-timezone-with-data.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/countdown/moment-timezone.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/countdown/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/counter-up/jquery.counterup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/counter-up/jquery.waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/counter-up/waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/css-hamburgers/hamburgers.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/css-hamburgers/hamburgers.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/HELP-US-OUT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-4.7/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/css/fontawesome-all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/font-awesome-5/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/CHANGELOG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/CONTRIBUTING.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/fullcalendar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/fullcalendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/fullcalendar.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/fullcalendar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/fullcalendar.print.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/fullcalendar.print.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/gcal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/gcal.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/lib/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale-all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/af.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ar-dz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ar-kw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ar-ly.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ar-ma.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ar-sa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ar-tn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/be.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/bs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/de-at.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/de-ch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/en-au.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/en-ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/en-gb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/en-ie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/en-nz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/es-do.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/es-us.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/et.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/eu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/fr-ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/fr-ch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/gl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/hi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/kk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/lb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/mk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ms-my.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/nb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/nl-be.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/nn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/pt-br.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/sq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/sr-cyrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/sr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/zh-cn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/zh-hk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/fullcalendar-3.10.0/locale/zh-tw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/css/lightbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/images/close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/images/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/images/prev.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/js/lightbox-plus-jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/js/lightbox-plus-jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/js/lightbox-plus-jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/js/lightbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/js/lightbox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/dist/js/lightbox.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/src/css/lightbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/src/images/close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/src/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/src/images/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/src/images/prev.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/lightbox2/src/js/lightbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/mdi-font/css/material-design-iconic-font.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/mdi-font/css/material-design-iconic-font.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/mdi-font/fonts/Material-Design-Iconic-Font.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/mdi-font/fonts/Material-Design-Iconic-Font.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/mdi-font/fonts/Material-Design-Iconic-Font.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/mdi-font/fonts/Material-Design-Iconic-Font.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/mdi-font/fonts/Material-Design-Iconic-Font.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/perfect-scrollbar/perfect-scrollbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/perfect-scrollbar/perfect-scrollbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/perfect-scrollbar/perfect-scrollbar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/progressbar/progressbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/progressbar/progressbar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/select2/select2.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/select2/select2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/config.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/fonts/slick.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/fonts/slick.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/fonts/slick.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/fonts/slick.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick-theme.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick-theme.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/slick/slick.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/smk-accordion/accordion.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/smk-accordion/accordion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/smk-accordion/accordion.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/sweetalert/sweetalert.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.brazil.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.europe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.france.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.germany.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.russia.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.sampledata.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.usa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jquery.vmap.world.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/vector-map/jqvmap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/wow/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/vendor/wow/wow.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/web/WEB-INF/web.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="2T3z3ZGN6fT4yK1D6MiSlxEirDb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SU23/github-tutorials-demo/SWP391---Product-Selling-Website/HeadFone 1.1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.25492772&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Tomcat 10.0.201" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.201" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="demo2:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="91e44e53-ff05-4151-82ef-52cca52b729d" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57596" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="demo2:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7479910c-6749-4e8a-a0a2-34208098e3dd" name="Changes" comment="" />
+      <created>1690286357040</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690286357040</updated>
+      <workItem from="1690286357269" duration="487000" />
+      <workItem from="1690286890711" duration="246000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
